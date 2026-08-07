@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  
   // Close mobile drawer when clicking any actual link (excluding dropdown toggles)
   const navAnchors = document.querySelectorAll('.nav-links a:not(.dropdown-toggle)');
   navAnchors.forEach(anchor => {
