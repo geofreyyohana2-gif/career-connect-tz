@@ -1,65 +1,72 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ================= 1. MOBILE NAVIGATION & DROPDOWNS ================= */
+  /* ================= 1. MOBILE NAVIGATION ================= */
   const mobileBtn = document.querySelector('.mobile-menu-btn');
   const navLinks = document.querySelector('.nav-links');
   const dropdowns = document.querySelectorAll('.dropdown');
 
-  // Toggle main mobile menu drawer on hamburger click
+  // Toggle mobile navigation menu
   if (mobileBtn && navLinks) {
     mobileBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      navLinks.classList.toggle('active');
+      const isActive = navLinks.classList.toggle('active');
+      mobileBtn.setAttribute('aria-expanded', isActive);
+      mobileBtn.textContent = isActive ? '✕' : '☰';
     });
   }
 
-  // Toggle dropdown submenus on tap for mobile screens (<= 768px)
+  // Toggle dropdowns on mobile tap
   dropdowns.forEach(dropdown => {
     const toggleBtn = dropdown.querySelector('.dropdown-toggle');
     if (toggleBtn) {
       toggleBtn.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
-          e.preventDefault(); // Stop instant anchor navigation on parent drop
+          e.preventDefault();
           e.stopPropagation();
-          
-          // Close other open dropdowns for a clean accordion effect
+
+          // Close other active dropdowns
           dropdowns.forEach(other => {
             if (other !== dropdown) {
               other.classList.remove('active');
             }
           });
 
-          // Toggle clicked dropdown
           dropdown.classList.toggle('active');
         }
       });
     }
   });
 
-  
-  // Close mobile drawer when clicking any actual link (excluding dropdown toggles)
+  // Close nav drawer when clicking internal anchor links
   const navAnchors = document.querySelectorAll('.nav-links a:not(.dropdown-toggle)');
   navAnchors.forEach(anchor => {
     anchor.addEventListener('click', () => {
       if (window.innerWidth <= 768 && navLinks) {
         navLinks.classList.remove('active');
+        if (mobileBtn) {
+          mobileBtn.textContent = '☰';
+          mobileBtn.setAttribute('aria-expanded', 'false');
+        }
       }
     });
   });
 
-  // Close mobile menu when tapping anywhere outside the header
+  // Close menu when clicking outside header
   document.addEventListener('click', (e) => {
     if (window.innerWidth <= 768 && navLinks && navLinks.classList.contains('active')) {
       if (!e.target.closest('header')) {
         navLinks.classList.remove('active');
         dropdowns.forEach(d => d.classList.remove('active'));
+        if (mobileBtn) {
+          mobileBtn.textContent = '☰';
+          mobileBtn.setAttribute('aria-expanded', 'false');
+        }
       }
     }
   });
 
 
   /* ================= 2. HERO IMAGE SLIDER ================= */
-  // Ensure image paths point to your relative folder structure
   const heroImages = [
     'images/hero1.jpg',
     'images/hero2.jpg',
@@ -71,27 +78,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateHeroBackground() {
     if (!heroSection || heroImages.length === 0) return;
-    
-    // Applies dark transparent gradient overlay on top of rotating background image
-    heroSection.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('${heroImages[currentImageIndex]}')`;
-    
-    // Increment index and loop around
+
+    // Gradient layer for contrast on top of changing background image
+    heroSection.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('${heroImages[currentImageIndex]}')`;
+
     currentImageIndex = (currentImageIndex + 1) % heroImages.length;
   }
 
-  // Initialize initial background image immediately on load
   updateHeroBackground();
-
-  // Rotate hero background image every 5 seconds (5000ms)
   setInterval(updateHeroBackground, 5000);
 
 
-  /* ================= 3. SMOOTH SCROLLING FOR ANCHORS ================= */
+  /* ================= 3. SMOOTH SCROLL ================= */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
-      
-      // Allow dropdown tap toggle on mobile without breaking
+
       if (this.classList.contains('dropdown-toggle') && window.innerWidth <= 768) {
         return;
       }
