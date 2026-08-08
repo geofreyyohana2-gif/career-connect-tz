@@ -1,229 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Career Connect TZ | Career Development Platform</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Connect TZ | Career Development Platform</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ================= NAVIGATION BAR ================= -->
-<header>
-  <nav>
-    <div class="logo">Career Connect TZ</div>
-    
-    <!-- Mobile Menu Toggle Button -->
-    <button class="mobile-menu-btn" aria-label="Toggle Navigation">
-      ☰
-    </button>
-
-    <ul class="nav-links">
-      <li><a href="#home" target="_blank" rel="noopener noreferrer">Home</a></li>
-      <li><a href="#about" target="_blank" rel="noopener noreferrer">About</a></li>
+  <!-- ================= NAVIGATION BAR ================= -->
+  <header>
+    <nav>
+      <a href="#home" class="logo">Career Connect TZ</a>
       
-      <!-- Career Coaching Dropdown -->
-      <li class="dropdown">
-        <a href="#coaching" class="dropdown-toggle">Career Coaching <span class="arrow">▼</span></a>
-        <ul class="dropdown-menu">
-          <li><a href="cv-customisation.html" target="_blank" rel="noopener noreferrer">CV Preparation</a></li>
-          <li><a href="interview-prep.html" target="_blank" rel="noopener noreferrer">Interview Mastery</a></li>
-          <li><a href="research-skills.html" target="_blank" rel="noopener noreferrer">Research & Academic</a></li>
+      <!-- Mobile Menu Toggle Button -->
+      <button class="mobile-menu-btn" aria-label="Toggle Navigation" aria-expanded="false">
+        ☰
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        
+        <!-- Career Coaching Dropdown -->
+        <li class="dropdown">
+          <a href="#coaching" class="dropdown-toggle">Career Coaching <span class="arrow">▼</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="cv-customisation.html">CV Preparation</a></li>
+            <li><a href="interview-prep.html">Interview Mastery</a></li>
+            <li><a href="research-skills.html">Research &amp; Academic</a></li>
+          </ul>
+        </li>
+
+        <!-- Opportunities Dropdown -->
+        <li class="dropdown">
+          <a href="#opportunities" class="dropdown-toggle">Opportunities <span class="arrow">▼</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="internships.html">Internships</a></li>
+            <li><a href="jobs.html">Jobs</a></li>
+            <li><a href="scholarship-skills.html">Scholarships</a></li>
+            <li><a href="volunteer.html">Volunteer</a></li>
+          </ul>
+        </li>
+
+        <!-- Resources Dropdown -->
+        <li class="dropdown">
+          <a href="#resources" class="dropdown-toggle">Resources <span class="arrow">▼</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="books.html">Books to Read</a></li>
+            <li><a href="templates.html">Templates</a></li>
+            <li><a href="websites.html">Other Websites</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Build Skills. Discover Opportunities. Grow Your Career.</h1>
+      <p>Empowering students and professionals across Tanzania with practical career coaching, academic research skills, and real-time job and scholarship opportunities.</p>
+      <a href="#coaching" class="btn">Explore Coaching</a>
+    </div>
+  </section>
+
+  <!-- ================= CAREER COACHING ================= -->
+  <section id="coaching" class="section-container">
+    <h2>Career Coaching &amp; Learning</h2>
+
+    <div class="card-grid">
+
+      <div class="card coaching-card">
+        <div class="card-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 2v4"/><path d="M16 2v4"/><path d="M2 10h20"/></svg>
+        </div>
+        <h3>CV Customisation Training</h3>
+        <p>Learn how to customize your CV for different job descriptions and make it ATS friendly.</p>
+        <a href="cv-customisation.html" class="view-more-btn">
+          View More
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="card coaching-card">
+        <div class="card-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></svg>
+        </div>
+        <h3>Interview Preparation</h3>
+        <p>Training on answering interview questions professionally and confidently.</p>
+        <a href="interview-prep.html" class="view-more-btn">
+          View More
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="card coaching-card">
+        <div class="card-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </div>
+        <h3>Scholarship Application Skills</h3>
+        <p>Learn how to prepare strong scholarship applications, motivation letters and personal statements.</p>
+        <a href="scholarship-skills.html" class="view-more-btn">
+          View More
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="card coaching-card">
+        <div class="card-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3>Research &amp; Academic Skills</h3>
+        <p>Research guidance, scientific writing and academic development.</p>
+        <a href="research-skills.html" class="view-more-btn">
+          View More
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= JOB OPPORTUNITIES ================= -->
+  <section id="opportunities" class="section-container">
+    <h2>Latest Job Opportunities</h2>
+    <div class="scroll-grid">
+      <div class="card">
+        <h3>Conservation Jobs</h3>
+        <p>Example: Wildlife Officer, Environmental Assistant, Research Assistant.</p>
+        <a href="jobs.html" class="card-link">Read More &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Administration Jobs</h3>
+        <p>Example: Office Assistant, HR Assistant, Project Coordinator.</p>
+        <a href="jobs.html" class="card-link">Read More &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Internships</h3>
+        <p>Example: Graduate internships and volunteer opportunities.</p>
+        <a href="internships.html" class="card-link">Read More &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SCHOLARSHIPS ================= -->
+  <section id="scholarships" class="section-container">
+    <h2>Scholarship Opportunities</h2>
+    <div class="scroll-grid">
+      <div class="card">
+        <h3>Master's Excellence Award</h3>
+        <p><strong>Country:</strong> United Kingdom</p>
+        <p>Fully funded master's scholarship supporting international students in research and innovation.</p>
+        <p><strong>Deadline:</strong> Oct 30, 2026</p>
+        <a href="scholarship-skills.html" class="card-link">Read More &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Global Leadership Grant</h3>
+        <p><strong>Country:</strong> Canada</p>
+        <p>Partial scholarship covering tuition and living stipends for undergraduate candidates.</p>
+        <p><strong>Deadline:</strong> Nov 15, 2026</p>
+        <a href="scholarship-skills.html" class="card-link">Read More &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RESOURCES ================= -->
+  <section id="resources" class="section-container">
+    <h2>Career Resources</h2>
+    <div class="scroll-grid">
+      <div class="card">
+        <h3>CV &amp; Cover Letter Templates</h3>
+        <p>Download free, ATS-optimized resume formats tailored for Tanzanian job markets.</p>
+        <a href="templates.html" class="card-link">Explore Templates &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Recommended Reading</h3>
+        <p>Essential career development books to sharpen leadership and soft skills.</p>
+        <a href="books.html" class="card-link">View Reading List &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROFESSIONAL FOOTER ================= -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Career Connect TZ</h3>
+        <p>A career development platform helping students and young professionals build skills, access opportunities, and grow professionally.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#coaching">Career Coaching</a></li>
+          <li><a href="#opportunities">Job Opportunities</a></li>
+          <li><a href="#scholarships">Scholarships</a></li>
+          <li><a href="#resources">Resources</a></li>
         </ul>
-      </li>
+      </div>
 
-      <!-- Opportunities Dropdown -->
-      <li class="dropdown">
-        <a href="#opportunities" class="dropdown-toggle">Opportunities <span class="arrow">▼</span></a>
-        <ul class="dropdown-menu">
-          <li><a href="internships.html" target="_blank" rel="noopener noreferrer">Internships</a></li>
-          <li><a href="jobs.html" target="_blank" rel="noopener noreferrer">Jobs</a></li>
-          <li><a href="scholarship-skills.html" target="_blank" rel="noopener noreferrer">Scholarships</a></li>
-          <li><a href="volunteer.html" target="_blank" rel="noopener noreferrer">Volunteer</a></li>
+      <div class="footer-column">
+        <h3>What We Offer</h3>
+        <ul>
+          <li>Career Development Training</li>
+          <li>CV Customisation Skills</li>
+          <li>Interview Preparation</li>
+          <li>Scholarship Guidance</li>
+          <li>Research Mentorship</li>
+          <li>Professional Skills Development</li>
         </ul>
-      </li>
+      </div>
 
-      <!-- Resources Dropdown -->
-      <li class="dropdown">
-        <a href="#resources" class="dropdown-toggle">Resources <span class="arrow">▼</span></a>
-        <ul class="dropdown-menu">
-          <li><a href="books.html" target="_blank" rel="noopener noreferrer">Books to Read</a></li>
-          <li><a href="templates.html" target="_blank" rel="noopener noreferrer">Templates</a></li>
-          <li><a href="websites.html" target="_blank" rel="noopener noreferrer">Other Websites</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-</header>
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <p>Email: support@careerconnecttz.com</p>
+        <p>Phone: +255 774 554 665</p>
+        <p>Location: Tanzania</p>
+        <a class="whatsapp-btn" href="https://wa.me/255774554665" target="_blank" rel="noopener noreferrer">Chat On WhatsApp</a>
+      </div>
+    </div>
 
-<!-- ================= HERO SECTION ================= -->
-<section id="home" class="hero">
-  <div class="hero-content">
-    <h1>Build Skills. Discover Opportunities. Grow Your Career.</h1>
-    <p>private health facilities. Proven expertise in antenat
-        al, postnatal, 
-        ing with multidisciplinary teams to improve healthcare outcomes. Committed to 
-        clinical excellence, patient safety, and continuous quality improvement.</p>
-  </div>
-</section>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Career Connect TZ. All Rights Reserved.</p>
+    </div>
+  </footer>
 
-<!-- ================= CAREER COACHING (MODIFIED - with View More) ================= -->
-<section id="coaching">
-<h2>Career Coaching &amp; Learning</h2>
-
-<div class="card-grid">
-
-<div class="card coaching-card">
-<div class="card-icon">
-<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 2v4"/><path d="M16 2v4"/><path d="M2 10h20"/></svg>
-</div>
-<h3>CV Customisation Training</h3>
-<p>Learn how to customize your CV for different job descriptions and make it ATS friendly.</p>
-<a href="cv-customisation.html" target="_blank" class="view-more-btn">
-View More
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-</a>
-</div>
-
-<div class="card coaching-card">
-<div class="card-icon">
-<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></svg>
-</div>
-<h3>Interview Preparation</h3>
-<p>Training on answering interview questions professionally and confidently.</p>
-<a href="c:\Users\User\Desktop\interview\html.html" target="_blank" class="view-more-btn">
-View More
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-</a>
-</div>
-
-<div class="card coaching-card">
-<div class="card-icon">
-<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-</div>
-<h3>Scholarship Application Skills</h3>
-<p>Learn how to prepare strong scholarship applications, motivation letters and personal statements.</p>
-<a href="scholarship-skills.html" target="_blank" class="view-more-btn">
-View More
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-</a>
-</div>
-
-<div class="card coaching-card">
-<div class="card-icon">
-<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-</div>
-<h3>Research &amp; Academic Skills</h3>
-<p>Research guidance, scientific writing and academic development.</p>
-<a href="research-skills.html" target="_blank" class="view-more-btn">
-View More
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-</a>
-</div>
-
-</div>
-</section>
-
-<!-- ================= JOB OPPORTUNITIES ================= -->
-<section id="opportunities">
-<h2>Latest Job Opportunities</h2>
-<div class="scroll-grid">
-<div class="card">
-<h3>Conservation Jobs</h3>
-<p>Example: Wildlife Officer, Environmental Assistant, Research Assistant.</p>
-<a href="PASTE RECRUITER WEBSITE LINK HERE" target="_blank">Read More →</a>
-</div>
-<div class="card">
-<h3>Administration Jobs</h3>
-<p>Example: Office Assistant, HR Assistant, Project Coordinator.</p>
-<a href="PASTE RECRUITER WEBSITE LINK HERE" target="_blank">Read More →</a>
-</div>
-<div class="card">
-<h3>Internships</h3>
-<p>Example: Graduate internships and volunteer opportunities.</p>
-<a href="PASTE RECRUITER WEBSITE LINK HERE" target="_blank">Read More →</a>
-</div>
-</div>
-</section>
-
-<!-- ================= SCHOLARSHIPS ================= -->
-<section id="scholarships">
-<h2>Scholarship Opportunities</h2>
-<div class="scroll-grid">
-<div class="card">
-<h3>Scholarship Name Here</h3>
-<p>Country: ADD COUNTRY HERE</p>
-<p>Description: Add short scholarship description here. Example: Fully funded master's scholarship supporting international students.</p>
-<p>Deadline: ADD DATE HERE</p>
-<a href="PASTE SCHOLARSHIP WEBSITE LINK HERE" target="_blank">Read More →</a>
-</div>
-<div class="card">
-<h3>Another Scholarship Name</h3>
-<p>Description here.</p>
-<a href="SCHOLARSHIP LINK HERE" target="_blank">Read More →</a>
-</div>
-</div>
-</section>
-
-<!-- ================= RESOURCES ================= -->
-<section id="resources">
-<h2>Career Resources</h2>
-<div class="card-grid">
-<div class="card">
-<h3>Career Article Title</h3>
-<p>Short description here.</p>
-<a href="#">Read More</a>
-</div>
-</div>
-</section>
-
-<!-- ================= PROFESSIONAL FOOTER ================= -->
-<footer class="footer">
-<div class="footer-container">
-<div class="footer-column">
-<h3>Career Connect TZ</h3>
-<p>A career development platform helping students and young professionals build skills, access opportunities and grow professionally.</p>
-<div class="footer-social">
-<a href="https://www.instagram.com/YOUR_USERNAME" target="_blank">Instagram</a>
-<a href="https://www.facebook.com/YOUR_PAGE" target="_blank">Facebook</a>
-<a href="https://www.linkedin.com/company/YOUR_PAGE" target="_blank">LinkedIn</a>
-</div>
-</div>
-<div class="footer-column">
-<h3>Quick Links</h3>
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About Us</a></li>
-<li><a href="#coaching">Career Coaching</a></li>
-<li><a href="#opportunities">Job Opportunities</a></li>
-<li><a href="#scholarships">Scholarships</a></li>
-<li><a href="#resources">Resources</a></li>
-</ul>
-</div>
-<div class="footer-column">
-<h3>What We Offer</h3>
-<ul>
-<li>Career Development Training</li>
-<li>CV Customisation Skills</li>
-<li>Interview Preparation</li>
-<li>Scholarship Guidance</li>
-<li>Research Mentorship</li>
-<li>Professional Skills Development</li>
-</ul>
-</div>
-<div class="footer-column">
-<h3>Contact Us</h3>
-<p>Email:<br>support@careerconnecttz.com</p>
-<p>Phone:<br>+255 774 554 665</p>
-<p>Location:<br>Tanzania</p>
-<a class="whatsapp-btn" href="https://wa.me/255774554665" target="_blank">Chat With Us on WhatsApp</a>
-</div>
-</div>
-<div class="footer-bottom">
-<p>&copy; 2026 Career Connect TZ. All Rights Reserved.</p>
-</div>
-</footer>
-
-<script>script.js</script>
+  <script src="script.js"></script>
 </body>
 </html>
