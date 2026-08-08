@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5" />
+  <title>Scholarships · Career Connect TZ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Karla:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ── */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Karla', sans-serif;
+      background: #fdfaf6;
+      color: #2d1b0e;
+      line-height: 1.6;
+      padding: 0 1.5rem 2rem;
+      scroll-behavior: smooth;
+    }
+    .page {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* ── Navigation ── */
+    .scholarship-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0 1.2rem;
+      border-bottom: 1px solid #e5dcd0;
+      flex-wrap: wrap;
+      gap: 0.6rem 1rem;
+    }
+    .logo-block {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #2d1b0e;
+      text-decoration: none;
+    }
+    .logo-dot {
+      width: 10px;
+      height: 10px;
+      background: #5b8c5a;
+      border-radius: 50%;
+    }
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #5c3d28;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+    .nav-back:hover {
+      color: #5b8c5a;
+      gap: 10px;
+    }
+
+    /* ── Search ── */
+    .search-section {
+      margin: 2rem 0 2.2rem;
+      display: flex;
+      justify-content: center;
+    }
+    .search-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 540px;
+    }
+    .search-wrap input {
+      width: 100%;
+      padding: 0.9rem 1.5rem 0.9rem 3.2rem;
+      border: 1px solid #d9cebe;
+      border-radius: 60px;
+      background: white;
+      font-size: 1rem;
+      font-family: 'Karla', sans-serif;
+      transition: 0.2s;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    }
+    .search-wrap input:focus {
+      outline: none;
+      border-color: #5b8c5a;
+      box-shadow: 0 4px 14px rgba(91, 140, 90, 0.08);
+    }
+    .search-icon {
+      position: absolute;
+      left: 1.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #7a6a5c;
+      pointer-events: none;
+    }
+
+    /* ── Section Title ── */
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #2d1b0e;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title span {
+      background: #5b8c5a;
+      width: 5px;
+      height: 36px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .section-sub {
+      color: #7a6a5c;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-left: 8px;
+      font-family: 'Karla', sans-serif;
+    }
+
+    /* ── Scholarship Grid ── */
+    .scholarship-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 3rem;
+      align-items: stretch;
+    }
+
+    /* ── Scholarship Card ── */
+    .scholarship-card {
+      background: #faf5ed;
+      border: 1px solid #e5dcd0;
+      border-radius: 20px;
+      padding: 1.2rem 1.2rem 0.8rem;
+      display: flex;
+      flex-direction: column;
+      transition: 0.2s;
+      box-shadow: 0 2px 8px rgba(45, 27, 14, 0.02);
+      height: 100%;
+      min-height: 340px;
+      border-left: 4px solid #5b8c5a;
+      cursor: pointer;
+      position: relative;
+    }
+    .scholarship-card:hover {
+      border-color: #5b8c5a;
+      box-shadow: 0 8px 24px rgba(45, 27, 14, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .funding-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.25rem 0.9rem;
+      border-radius: 40px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      background: #e6f0e6;
+      color: #2d6a2d;
+      border: 1px solid #bcd9bc;
+    }
+    .funding-badge.fully {
+      background: #d4edda;
+      color: #155724;
+      border-color: #b8d9b8;
+    }
+    .funding-badge.partial {
+      background: #fff3cd;
+      color: #856404;
+      border-color: #f5d48a;
+    }
+    .funding-badge.tuition {
+      background: #cce5ff;
+      color: #004085;
+      border-color: #99c2e8;
+    }
+
+    .scholarship-card .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.5rem 0.8rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+      flex-shrink: 0;
+      padding-right: 70px;
+    }
+    .scholarship-card .job-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: #2d1b0e;
+      line-height: 1.2;
+    }
+    .scholarship-card .company {
+      font-weight: 500;
+      color: #5c3d28;
+      font-size: 0.85rem;
+      display: block;
+      margin-top: 2px;
+    }
+    .scholarship-card .deadline-badge {
+      background: #e6f0e6;
+      color: #3d7a3d;
+      font-weight: 600;
+      font-size: 0.7rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 40px;
+      white-space: nowrap;
+      border: 1px solid #bcd9bc;
+      letter-spacing: 0.3px;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+    .scholarship-card .deadline-badge.expired {
+      background: #f1e6de;
+      color: #8a7a6a;
+      border-color: #d9cebe;
+    }
+
+    .scholarship-card .scroll-content {
+      overflow-y: auto;
+      padding-right: 6px;
+      margin: 0.2rem 0 0.4rem;
+      scrollbar-width: thin;
+      scrollbar-color: #5b8c5a #efe8de;
+      flex: 1;
+      min-height: 110px;
+      max-height: 200px;
+    }
+    .scholarship-card .scroll-content::-webkit-scrollbar {
+      width: 5px;
+    }
+    .scholarship-card .scroll-content::-webkit-scrollbar-track {
+      background: #efe8de;
+      border-radius: 10px;
+    }
+    .scholarship-card .scroll-content::-webkit-scrollbar-thumb {
+      background: #5b8c5a;
+      border-radius: 10px;
+    }
+    .scholarship-card .scroll-content h4 {
+      font-weight: 600;
+      font-size: 0.78rem;
+      margin: 0.5rem 0 0.1rem;
+      color: #2d1b0e;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+    .scholarship-card .scroll-content p,
+    .scholarship-card .scroll-content li {
+      font-size: 0.88rem;
+      color: #3a2a1c;
+      line-height: 1.5;
+    }
+
+    .scholarship-card .card-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.6rem;
+      border-top: 1px solid #e5dcd0;
+      margin-top: auto;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      flex-shrink: 0;
+    }
+    .share-btn,
+    .apply-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: 0.15s;
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: white;
+      color: #2d1b0e;
+      border-color: #d9cebe;
+    }
+    .share-btn:hover {
+      background: #fdf0e4;
+      border-color: #5b8c5a;
+    }
+    .apply-btn {
+      background: #5b8c5a;
+      color: white;
+      border-color: #5b8c5a;
+    }
+    .apply-btn:hover {
+      background: #4a7a49;
+      border-color: #4a7a49;
+    }
+    .apply-btn.disabled {
+      opacity: 0.5;
+      pointer-events: none;
+      background: #b09a8a;
+      border-color: #b09a8a;
+    }
+
+    /* ── Share Dropdown ── */
+    .share-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .share-menu {
+      display: none;
+      position: absolute;
+      bottom: 120%;
+      left: 0;
+      background: white;
+      border: 1px solid #d9cebe;
+      border-radius: 18px;
+      padding: 0.8rem 1rem;
+      min-width: 190px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+      z-index: 20;
+      backdrop-filter: blur(8px);
+    }
+    .share-menu.open {
+      display: block;
+    }
+    .share-menu a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0.3rem 0;
+      color: #2d1b0e;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-bottom: 1px solid #f0ece4;
+    }
+    .share-menu a:last-child {
+      border-bottom: none;
+    }
+    .share-menu a:hover {
+      color: #5b8c5a;
+    }
+
+    /* ── Floating WhatsApp Popup ── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+    .whatsapp-popup {
+      background: white;
+      border-radius: 18px;
+      padding: 1rem 1.4rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+      border: 1px solid #e5dcd0;
+      max-width: 260px;
+      font-size: 0.9rem;
+      color: #2d1b0e;
+      line-height: 1.5;
+      transform-origin: bottom right;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      opacity: 0;
+      transform: scale(0.92) translateY(10px);
+      pointer-events: none;
+      position: relative;
+    }
+    .whatsapp-popup.show {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      pointer-events: auto;
+    }
+    .whatsapp-popup strong {
+      color: #5b8c5a;
+    }
+    .whatsapp-popup .popup-link {
+      display: inline-block;
+      margin-top: 8px;
+      background: #25d366;
+      color: white;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.8rem;
+      transition: 0.15s;
+    }
+    .whatsapp-popup .popup-link:hover {
+      background: #1da851;
+    }
+    .whatsapp-popup .popup-close {
+      position: absolute;
+      top: 6px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #b09a8a;
+      line-height: 1;
+    }
+    .whatsapp-popup .popup-close:hover {
+      color: #5c3d28;
+    }
+    .whatsapp-float .wa-icon {
+      width: 60px;
+      height: 60px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+      cursor: pointer;
+      transition: 0.2s;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .whatsapp-float .wa-icon:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+    }
+
+    /* ── Footer Learning Resources ── */
+    .footer-learning {
+      margin: 3rem 0 1.5rem;
+      padding: 2rem 0 1rem;
+      border-top: 2px solid #5b8c5a;
+      border-bottom: 1px solid #e5dcd0;
+    }
+    .footer-learning-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #2d1b0e;
+      margin-bottom: 0.2rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .footer-learning-title span {
+      background: #5b8c5a;
+      width: 5px;
+      height: 32px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .footer-learning-sub {
+      color: #7a6a5c;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+    .footer-learning-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.2rem 1.5rem;
+    }
+    .footer-learning-col h5 {
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #5b8c5a;
+      margin-bottom: 0.5rem;
+      border-bottom: 2px solid #e6f0e6;
+      padding-bottom: 0.3rem;
+    }
+    .footer-learning-col a {
+      display: block;
+      font-size: 0.78rem;
+      color: #5c3d28;
+      text-decoration: none;
+      padding: 0.15rem 0;
+      transition: 0.1s;
+      line-height: 1.4;
+    }
+    .footer-learning-col a:hover {
+      color: #5b8c5a;
+      padding-left: 4px;
+    }
+
+    .whatsapp-cta-bottom {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #f0f0ea;
+      padding: 0.8rem 1.8rem;
+      border-radius: 60px;
+      margin: 0.5rem 0 1rem;
+      text-decoration: none;
+      color: #2d1b0e;
+      font-weight: 600;
+      border: 1px solid #d9cebe;
+      transition: 0.15s;
+    }
+    .whatsapp-cta-bottom:hover {
+      background: #e2ddd2;
+      border-color: #5b8c5a;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      font-size: 0.8rem;
+      color: #7a6a5c;
+      border-top: 1px solid #e5dcd0;
+      padding-top: 1.2rem;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 780px) {
+      .footer-learning-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 480px) {
+      .footer-learning-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .scholarship-grid {
+        grid-template-columns: 1fr;
+      }
+      .scholarship-card .card-header {
+        padding-right: 0;
+      }
+      .funding-badge {
+        position: relative;
+        top: auto;
+        right: auto;
+        display: inline-block;
+        margin-bottom: 6px;
+      }
+      .whatsapp-float {
+        bottom: 16px;
+        right: 16px;
+      }
+      .whatsapp-popup {
+        max-width: 210px;
+        font-size: 0.8rem;
+        padding: 0.8rem 1rem;
+      }
+      .whatsapp-float .wa-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.6rem;
+      }
+    }
+    .no-result {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: #7a6a5c;
+      font-size: 1rem;
+      grid-column: 1 / -1;
+    }
+    .scholarship-card.hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ─── NAV ─── -->
+    <nav class="scholarship-nav">
+      <a href="#" class="logo-block">
+        <span class="logo-dot"></span>Career Connect TZ
+      </a>
+      <a href="HTML.html" target="_blank" class="nav-back">← Back to Career Coaching</a>
+    </nav>
+
+    <!-- ─── SEARCH ─── -->
+    <div class="search-section">
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="scholarshipSearch" placeholder="Search scholarships by name, provider, or keyword..." />
+      </div>
+    </div>
+
+    <!-- ─── SCHOLARSHIPS ─── -->
+    <div class="section-title">
+      <span></span> 🎓 Scholarships &amp; Opportunities
+      <span class="section-sub">— 21 programs</span>
+    </div>
+
+    <div class="scholarship-grid" id="scholarshipGrid">
+      <!-- ===== 21 SCHOLARSHIP CARDS (same as before) ===== -->
+      <!-- Card 1 -->
+      <div class="scholarship-card" data-id="1" data-link="https://mastercardfdn.org/scholars">
+        <div class="funding-badge fully">✅ Fully Funded</div>
+        <div class="card-header">
+          <div>
+            <div class="job-title">Mastercard Foundation Scholars Program</div>
+            <span class="company">Mastercard Foundation · Africa</span>
+          </div>
+          <span class="deadline-badge">📅 Sep 30, 2026</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Comprehensive scholarships for African students pursuing undergraduate and postgraduate studies at partner universities across Africa and globally.</p>
+          <h4>🎯 Eligibility</h4>
+          <p>African citizens, demonstrated leadership potential, strong academics, committed to giving back to community.</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <div class="share-menu">
+              <a href="#" target="_blank">📘 Facebook</a>
+              <a href="#" target="_blank">🐦 Twitter</a>
+              <a href="#" target="_blank">🔗 LinkedIn</a>
+              <a href="#" target="_blank">💬 WhatsApp</a>
+              <a href="#" target="_blank">🎵 TikTok</a>
+              <a href="#" target="_blank">📸 Instagram</a>
+              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://mastercardfdn.org/scholars" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="scholarship-card" data-id="2" data-link="https://www.daad.de/en/">
+        <div class="funding-badge fully">✅ Fully Funded</div>
+        <div class="card-header">
+          <div>
+            <div class="job-title">DAAD In-Country / In-Region Scholarships</div>
+            <span class="company">DAAD · Germany</span>
+          </div>
+          <span class="deadline-badge">📅 Oct 15, 2026</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Postgraduate scholarships for Tanzanian graduates to study at selected universities in Africa or Germany. Covers tuition, living expenses, travel.</p>
+          <h4>🎯 Eligibility</h4>
+          <p>Bachelor's degree, 2+ years work experience, strong academic record, East African citizen.</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <div class="share-menu">
+              <a href="#" target="_blank">📘 Facebook</a>
+              <a href="#" target="_blank">🐦 Twitter</a>
+              <a href="#" target="_blank">🔗 LinkedIn</a>
+              <a href="#" target="_blank">💬 WhatsApp</a>
+              <a href="#" target="_blank">🎵 TikTok</a>
+              <a href="#" target="_blank">📸 Instagram</a>
+              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://www.daad.de/en/" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="scholarship-card" data-id="3" data-link="https://equitybank.co.tz/scholarships">
+        <div class="funding-badge fully">✅ Fully Funded</div>
+        <div class="card-header">
+          <div>
+            <div class="job-title">Equity Bank Wings to Fly</div>
+            <span class="company">Equity Bank · East Africa</span>
+          </div>
+          <span class="deadline-badge">📅 Nov 1, 2026</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Scholarship program for bright but economically disadvantaged students to access quality secondary and tertiary education across East Africa.</p>
+          <h4>🎯 Eligibility</h4>
+          <p>Kenyan/Tanzanian citizens, excellent academic performance, demonstrated financial need.</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <div class="share-menu">
+              <a href="#" target="_blank">📘 Facebook</a>
+              <a href="#" target="_blank">🐦 Twitter</a>
+              <a href="#" target="_blank">🔗 LinkedIn</a>
+              <a href="#" target="_blank">💬 WhatsApp</a>
+              <a href="#" target="_blank">🎵 TikTok</a>
+              <a href="#" target="_blank">📸 Instagram</a>
+              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://equitybank.co.tz/scholarships" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="scholarship-card" data-id="4" data-link="https://unesco.org/africa-fellowships">
+        <div class="funding-badge fully">✅ Fully Funded</div>
+        <div class="card-header">
+          <div>
+            <div class="job-title">UNESCO Africa Science &amp; Technology Fellowship</div>
+            <span class="company">UNESCO · Paris</span>
+          </div>
+          <span class="deadline-badge">📅 Dec 15, 2026</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Fellowships for African women in STEM fields. Supports research and advanced training in science, technology, engineering, and mathematics.</p>
+          <h4>🎯 Eligibility</h4>
+          <p>Women from Africa, STEM background, Master's or PhD level, research proposal required.</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <div class="share-menu">
+              <a href="#" target="_blank">📘 Facebook</a>
+              <a href="#" target="_blank">🐦 Twitter</a>
+              <a href="#" target="_blank">🔗 LinkedIn</a>
+              <a href="#" target="_blank">💬 WhatsApp</a>
+              <a href="#" target="_blank">🎵 TikTok</a>
+              <a href="#" target="_blank">📸 Instagram</a>
+              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://unesco.org/africa-fellowships" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="scholarship-card" data-id="5" data-link="https://www.africanleadershipacademy.org">
+        <div class="funding-badge fully">✅ Fully Funded</div>
+        <div class="card-header">
+          <div>
+            <div class="job-title">African Leadership Academy Scholarship</div>
+            <span class="company">ALA · South Africa</span>
+          </div>
+          <span class="deadline-badge">📅 Oct 30, 2026</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Two-year pre-university program for young African leaders. Full scholarships cover tuition, accommodation, and living expenses.</p>
+          <h4>🎯 Eligibility</h4>
+          <p>Ages 16-19, African citizens, demonstrated leadership potential, academic excellence.</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <div class="share-menu">
+              <a href="#" target="_blank">📘 Facebook</a>
+              <a href="#" target="_blank">🐦 Twitter</a>
+              <a href="#" target="_blank">🔗 LinkedIn</a>
+              <a href="#" target="_blank">💬 WhatsApp</a>
+              <a href="#" target="_blank">🎵 TikTok</a>
+              <a href="#" target="_blank">📸 Instagram</a>
+              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://www.africanleadershipacademy.org" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+      <!-- Card 6 -->
+      <div class="scholarship-card" data-id="6" data-link="https://www.daad.de/en/">
+        <div class="funding-badge fully">✅ Fully Funded</div>
+        <div class="card-header">
+          <div>
+            <div class="job-title">DAAD Masters Scholarships</div>
+            <span class="company">DAAD · Germany</span>
+          </div>
+          <span class="deadline-badge">📅 Nov 30, 2026</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Full scholarships for Tanzanian graduates to pursue Master's degrees in Germany in development-related fields.</p>
+          <h4>🎯 Eligibility</h4>
+          <p>Bachelor's degree, 2+ years professional experience, strong academic record, German language skills preferred.</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <div class="share-menu">
+              <a href="#" target="_blank">📘 Facebook</a>
+              <a href="#" target="_blank">🐦 Twitter</a>
+              <a href="#" target="_blank">🔗 LinkedIn</a>
+              <a href="#" target="_blank">💬 WhatsApp</a>
+              <a href="#" target="_blank">🎵 TikTok</a>
+              <a href="#" target="_blank">📸 Instagram</a>
+              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://www.daad.de/en/" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+      <!-- Card 7 -->
+      <div class="scholarship-card" data-id="7" data-link="https://www.chevening.org">
+        <div class="funding-badge fully">✅ Fully Funded</div>
+        <div class="card-header">
+          <div>
+            <div class="job-title">Chevening Scholarships for Tanzania</div>
+            <span class="company">UK Government · London</span>
+          </div>
+          <span class="deadline-badge">📅 Nov 5, 2026</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>One-year Master's scholarships in the UK for outstanding Tanzanian professionals. Covers tuition, living expenses, travel.</p>
+          <h4>🎯 Eligibility</h4>
+          <p>Tanzanian citizen, 2+ years work experience, bachelor's degree, leadership potential.</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <div class="share-menu">
+              <a href="#" target="_blank">📘 Facebook</a>
+              <a href="#" target="_blank">🐦 Twitter</a>
+              <a href="#" target="_blank">🔗 LinkedIn</a>
+              <a href="#" target="_blank">💬 WhatsApp</a>
+              <a href="#" target="_blank">🎵 TikTok</a>
+              <a href="#" target="_blank">📸 Instagram</a>
+              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://www.chevening.org" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+      <!-- Card 8 -->
+      <div class="scholarship-card" data-id="8" data-link="https://cscuk.fcdo.gov.uk">
+        <div class="funding-badge partial">🟡 Partially Funded</div>
+        <div class="card-header">
+          <div>
+            <div class="job-title">Commonwealth Distance Learning Scholarships</div>
+            <span class="company">Commonwealth · UK</span>
+          </div>
+          <span class="deadline-badge">📅 Dec 1, 2026</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Scholarships for Tanzanian students to study Master's programs by distance learning at UK universities.</p>
+          <h4>🎯 Eligibility</h4>
+          <p>Tanzanian citizen, bachelor's degree, unable to study in UK in person.</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <div class="share-menu">
+              <a href="#" target="_blank">📘 Facebook</a>
+              <a href="#" target="_blank">🐦 Twitter</a>
+              <a href="#" target="_blank">🔗 LinkedIn</a>
+              <a href="#" target="_blank">💬 WhatsApp</a>
+              <a href="#" target="_blank">🎵 TikTok</a>
+              <a href="#" target="_blank">📸 Instagram</a>
+              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://cscuk.fcdo.gov.uk" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+      <!-- Card 9 -->
+      <div class="scholarship-card" data-id="9" data-link="https://www.nmbbank.co.tz">
+        <div class="funding-badge partial">🟡 Partially Funded</div>
+        <div class="card-header">
+          <div>
+            <div class="job-title">NMB Bank Education Scholarship</div>
+            <span class="company">NMB Bank · Tanzania</span>
+          </div>
+          <span class="deadline-badge">📅 Sep 15, 2026</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Scholarships for Tanzanian students pursuing undergraduate degrees in finance, economics, and business administration.</p>
+          <h4>🎯 Eligibility</h4>
+          <p>Tanzanian citizen, admitted to recognized university, strong academic performance.</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <div class="share-menu">
+              <a href="#" target="_blank">📘 Facebook</a>
+              <a href="#" target="_blank">🐦 Twitter</a>
+              <a href="#" target="_blank">🔗 LinkedIn</a>
+              <a href="#" target="_blank">💬 WhatsApp</a>
+              <a href="#" target="_blank">🎵 TikTok</a>
+              <a href="#" target="_blank">📸 Instagram</a>
+              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://www.nmbbank.co.tz" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+      <!-- Card 10 -->
+      <div class="scholarship-card" data-id="10" data-link="https://www.zanzibar.go.tz">
+        <div class="funding-badge fully">✅ Fully Funded</div>
+        <div class="card-header">
+          <div>
+            <div class="job-title">Zanzibar Government Scholarship</div>
+            <span class="company">Zanzibar Ministry of Education</span>
+          </div>
+          <span class="deadline-badge">📅 Aug 30, 2026</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Full scholarships for Zanzibar residents to pursue undergraduate and postgraduate studies in priority fields including education, health, and agriculture.</p>
+          <h4>🎯 Eligibility</h4>
+          <p>Zanzibar resident, strong academic record, commitment to public service.</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <div class="share-menu">
+              <a href="#" target="_blank">📘 Facebook</a>
+              <a href="#" target="_blank">🐦 Twitter</a>
+              <a href="#" target="_blank">🔗 LinkedIn</a>
+              <a href="#" target="_blank">💬 WhatsApp</a>
+              <a href="#" target="_blank">🎵 TikTok</a>
+              <a href="#" target="_blank">📸 Instagram</a>
+              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://www.zanzibar.go.tz" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+      <!-- Card 11 -->
+      <div class="scholarship-card" data-id="11" data-link="https://au.int">
+        <div class="funding-badge fully">✅ Fully Funded</div>
+        <div class="card-header">
+          <div>
+            <div class="job-title">African Women in Science Fellowship</div>
+            <span class="company">African Union · Addis Ababa</span>
+          </div>
+          <span class="deadline-badge">📅 Oct 20, 2026</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Fellowships for African women scientists at early-career stage to conduct research and advance STEM fields across the continent.</p>
+          <h4>🎯 Eligibility</h4>
+          <p>Women from Africa, PhD or Master's in STEM, research proposal focused on African challenges.</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <div class="share-menu">
+              <a href="#" target="_blank">📘 Facebook</a>
+              <a href="#" target="_blank">🐦 Twitter</a>
+              <a href="#" target="_blank">🔗 LinkedIn</a>
+              <a href="#" target="_blank">💬 WhatsApp</a>
+              <a href="#" target="_blank">🎵 TikTok</a>
+              <a href="#" target="_blank">📸 Instagram</a>
+              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://au.int" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+      <!-- Card 12 -->
+      <div class="scholarship-card" data-id="12" data-link="https://www.moe.go.tz">
+        <div class="funding-badge fully">✅ Fully Funded</div>
+        <div class="card-header">
+          <div>
+            <div class="job-title">Tanzania Higher Education Scholarship (THES)</div>
+            <span class="company">Tanzania Government</span>
+          </div>
+          <span class="deadline-badge">📅 Sep 10, 2026</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Government scholarships for Tanzanian students to pursue undergraduate and postgraduate studies at universities within Tanzania.</p>
+          <h4>🎯 Eligibility</h4>
+          <p>Tanzanian citizen, admitted to recognized Tanzanian university, financial need.</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <div class="share-menu">
+              <a href="#" target="_blank">📘 Facebook</a>
+              <a href="#" target="_blank">🐦 Twitter</a>
+              <a href="#" target="_blank">🔗 LinkedIn</a>
+              <a href="#" target="_blank">💬 WhatsApp</a>
+              <a href="#" target="_blank">🎵 TikTok</a>
+              <a href="#" target="_blank">📸 Instagram</a>
+              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://www.moe.go.tz" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+      <!-- Card 13 -->
+      <div class="scholarship-card" data-id="13" data-link="https://www.akdn.org">
+        <div class="funding-badge partial">🟡 Partially Funded</div>
+        <div class="card-header">
+          <div>
+            <div class="job-title">Aga Khan Foundation International Scholarship</div>
+            <span class="company">Aga Khan Foundation · Geneva</span>
+          </div>
+          <span class="deadline-badge">📅 Dec 31, 2026</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Need-based scholarships for Tanzanian students from disadvantaged backgrounds to pursue postgraduate studies abroad.</p>
+          <h4>🎯 Eligibility</h4>
+          <p>Tanzanian citizen, excellent academic record, demonstrated financial need, commitment to development.</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <div class="share-menu">
+              <a href="#" target="_blank">📘 Facebook</a>
+              <a href="#" target="_blank">🐦 Twitter</a>
+              <a href="#" target="_blank">🔗 LinkedIn</a>
+              <a href="#" target="_blank">💬 WhatsApp</a>
+              <a href="#" target="_blank">🎵 TikTok</a>
+              <a href="#" target="_blank">📸 Instagram</a>
+              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://www.akdn.org" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+      <!-- Card 14 -->
+      <div class="scholarship-card" data-id="14" data-link="https://wellcome.org">
+        <div class="funding-badge fully">✅ Fully Funded</div>
+        <div class="card-header">
+          <div>
+            <div class="job-title">Wellcome Trust Africa Masters Fellowship</div>
+            <span class="company">Wellcome Trust · UK</span>
+          </div>
+          <span class="deadline-badge">📅 Nov 15, 2026</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Fellowships for African researchers to pursue Master's degrees in public health and clinical research.</p>
+          <h4>🎯 Eligibility</h4>
+          <p>African citizens, clinical or public health background, research interest in African health challenges.</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <div class="share-menu">
+              <a href="#" target="_blank">📘 Facebook</a>
+              <a href="#" target="_blank">🐦 Twitter</a>
+              <a href="#" target="_blank">🔗 LinkedIn</a>
+              <a href="#" target="_blank">💬 WhatsApp</a>
+              <a href="#" target="_blank">🎵 TikTok</a>
+              <a href="#" target="_blank">📸 Instagram</a>
+              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://wellcome.org" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+      <!-- Card 15 -->
+      <div class="scholarship-card" data-id="15" data-link="https://www.sadc.int">
+        <div class="funding-badge fully">✅ Fully Funded</div>
+        <div class="card-header">
+          <div>
+            <div class="job-title">SADC Secretariat Scholarships</div>
+            <span class="company">SADC · Gaborone</span>
+          </div>
+          <span class="deadline-badge">📅 Oct 10, 2026</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Scholarships for SADC citizens to pursue postgraduate studies in priority fields including energy, water, and agriculture.</p>
+          <h4>🎯 Eligibility</h4>
+          <p>SADC citizen, bachelor's degree, strong academic record, commitment to regional development.</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <div class="share-menu">
+              <a href="#" target="_blank">📘 Facebook</a>
+              <a href="#" target="_blank">🐦 Twitter</a>
+              <a href="#" target="_blank">🔗 LinkedIn</a>
+              <a href="#" target="_blank">💬 WhatsApp</a>
+              <a href="#" target="_blank">🎵 TikTok</a>
+              <a href="#" target="_blank">📸 Instagram</a>
+              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://www.sadc.int" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+      <!-- Card 16 -->
+      <div class="scholarship-card" data-id="16" data-link="https://www.moe.go.tz">
+        <div class="funding-badge fully">✅ Fully Funded</div>
+        <div class="card-header">
+          <div>
+            <div class="job-title">Mwalimu Nyerere Scholarship Fund</div>
+            <span class="company">Tanzania Ministry of Education</span>
+          </div>
+          <span class="deadline-badge">📅 Sep 20, 2026</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Scholarships for Tanzanian students pursuing teacher training and education-related degrees at public universities.</p>
+          <h4>🎯 Eligibility</h4>
+          <p>Tanzanian citizen, admitted to teacher training program, commitment to teaching career.</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <div class="share-menu">
+              <a href="#" target="_blank">📘 Facebook</a>
+              <a href="#" target="_blank">🐦 Twitter</a>
+              <a href="#" target="_blank">🔗 LinkedIn</a>
+              <a href="#" target="_blank">💬 WhatsApp</a>
+              <a href="#" target="_blank">🎵 TikTok</a>
+              <a href="#" target="_blank">📸 Instagram</a>
+              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://www.moe.go.tz" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+      <!-- Card 17 -->
+      <div class="scholarship-card" data-id="17" data-link="https://www.eac.int">
+        <div class="funding-badge fully">✅ Fully Funded</div>
+        <div class="card-header">
+          <div>
+            <div class="job-title">East African Community (EAC) Scholarship</div>
+            <span class="company">EAC · Arusha</span>
+          </div>
+          <span class="deadline-badge">📅 Oct 25, 2026</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Scholarships for EAC citizens to pursue Master's programs in regional integration, trade, and economic development.</p>
+          <h4>🎯 Eligibility</h4>
+          <p>EAC citizen, bachelor's degree, interest in regional integration, 2+ years work experience.</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <div class="share-menu">
+              <a href="#" target="_blank">📘 Facebook</a>
+              <a href="#" target="_blank">🐦 Twitter</a>
+              <a href="#" target="_blank">🔗 LinkedIn</a>
+              <a href="#" target="_blank">💬 WhatsApp</a>
+              <a href="#" target="_blank">🎵 TikTok</a>
+              <a href="#" target="_blank">📸 Instagram</a>
+              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://www.eac.int" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+      <!-- Card 18 -->
+      <div class="scholarship-card" data-id="18" data-link="https://www.opensocietyfoundations.org">
+        <div class="funding-badge fully">✅ Fully Funded</div>
+        <div class="card-header">
+          <div>
+            <div class="job-title">Open Society Foundations Scholarships</div>
+            <span class="company">Open Society · New York</span>
+          </div>
+          <span class="deadline-badge">📅 Nov 20, 2026</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Scholarships for Tanzanian students from marginalized communities to pursue postgraduate studies in law, public policy, and social sciences.</p>
+          <h4>🎯 Eligibility</h4>
+          <p>Tanzanian citizen, demonstrated commitment to social justice, strong academic record.</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <div class="share-menu">
+              <a href="#" target="_blank">📘 Facebook</a>
+              <a href="#" target="_blank">🐦 Twitter</a>
+              <a href="#" target="_blank">🔗 LinkedIn</a>
+              <a href="#" target="_blank">💬 WhatsApp</a>
+              <a href="#" target="_blank">🎵 TikTok</a>
+              <a href="#" target="_blank">📸 Instagram</a>
+              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://www.opensocietyfoundations.org" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+      <!-- Card 19 -->
+      <div class="scholarship-card" data-id="19" data-link="https://www.uneca.org">
+        <div class="funding-badge partial">🟡 Partially Funded</div>
+        <div class="card-header">
+          <div>
+            <div class="job-title">UNECA African Women in Economics Fellowship</div>
+            <span class="company">UNECA · Addis Ababa</span>
+          </div>
+          <span class="deadline-badge">📅 Dec 10, 2026</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Fellowships for African women economists to pursue research and policy work on African economic development.</p>
+          <h4>🎯 Eligibility</h4>
+          <p>Women from Africa, Master's in Economics, research experience, policy interest.</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <div class="share-menu">
+              <a href="#" target="_blank">📘 Facebook</a>
+              <a href="#" target="_blank">🐦 Twitter</a>
+              <a href="#" target="_blank">🔗 LinkedIn</a>
+              <a href="#" target="_blank">💬 WhatsApp</a>
+              <a href="#" target="_blank">🎵 TikTok</a>
+              <a href="#" target="_blank">📸 Instagram</a>
+              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://www.uneca.org" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+      <!-- Card 20 -->
+      <div class="scholarship-card" data-id="20" data-link="https://www.tawiri.or.tz">
+        <div class="funding-badge partial">🟡 Partially Funded</div>
+        <div class="card-header">
+          <div>
+            <div class="job-title">TAWIRI Research Scholarship</div>
+            <span class="company">Tanzania Wildlife Research Institute · Arusha</span>
+          </div>
+          <span class="deadline-badge">📅 Sep 25, 2026</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Scholarships for Tanzanian students pursuing conservation, wildlife management, and environmental science degrees.</p>
+          <h4>🎯 Eligibility</h4>
+          <p>Tanzanian citizen, admitted to conservation program, interest in wildlife research.</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <div class="share-menu">
+              <a href="#" target="_blank">📘 Facebook</a>
+              <a href="#" target="_blank">🐦 Twitter</a>
+              <a href="#" target="_blank">🔗 LinkedIn</a>
+              <a href="#" target="_blank">💬 WhatsApp</a>
+              <a href="#" target="_blank">🎵 TikTok</a>
+              <a href="#" target="_blank">📸 Instagram</a>
+              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://www.tawiri.or.tz" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+      <!-- Card 21 -->
+      <div class="scholarship-card" data-id="21" data-link="https://www.fordfoundation.org">
+        <div class="funding-badge fully">✅ Fully Funded</div>
+        <div class="card-header">
+          <div>
+            <div class="job-title">Ford Foundation International Fellowships</div>
+            <span class="company">Ford Foundation · New York</span>
+          </div>
+          <span class="deadline-badge">📅 Dec 20, 2026</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Fellowships for Tanzanian scholars from underrepresented groups to pursue PhD programs in social sciences and humanities.</p>
+          <h4>🎯 Eligibility</h4>
+          <p>Tanzanian citizen, Master's degree, commitment to teaching and research, from marginalized background.</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <div class="share-menu">
+              <a href="#" target="_blank">📘 Facebook</a>
+              <a href="#" target="_blank">🐦 Twitter</a>
+              <a href="#" target="_blank">🔗 LinkedIn</a>
+              <a href="#" target="_blank">💬 WhatsApp</a>
+              <a href="#" target="_blank">🎵 TikTok</a>
+              <a href="#" target="_blank">📸 Instagram</a>
+              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://www.fordfoundation.org" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ─── FOOTER: 100+ LEARNING RESOURCES ───                      -->
+    <!-- ============================================================ -->
+    <div class="footer-learning">
+      <div class="footer-learning-title">
+        <span></span> 📚 Learn New Skills — 100+ Free &amp; Paid Resources
+      </div>
+      <p class="footer-learning-sub">
+        Explore websites to develop skills in communication, programming, design, business, languages, and more.
+      </p>
+
+      <div class="footer-learning-grid">
+
+        <!-- ── Communication Skills ── -->
+        <div class="footer-learning-col">
+          <h5>💬 Communication</h5>
+          <a href="https://www.toastmasters.org" target="_blank">Toastmasters International</a>
+          <a href="https://www.coursera.org/browse/personal-development/communication-skills" target="_blank">Coursera Communication</a>
+          <a href="https://www.edx.org/learn/communication" target="_blank">edX Communication</a>
+          <a href="https://www.linkedin.com/learning/topics/communication" target="_blank">LinkedIn Learning Communication</a>
+          <a href="https://alison.com/tag/communication-skills" target="_blank">Alison Communication Skills</a>
+          <a href="https://www.mindtools.com" target="_blank">MindTools</a>
+          <a href="https://www.skillsyouneed.com" target="_blank">SkillsYouNeed</a>
+          <a href="https://professional.dce.harvard.edu/programs/communication-skills/" target="_blank">Harvard Professional Development</a>
+        </div>
+
+        <!-- ── Programming & Web ── -->
+        <div class="footer-learning-col">
+          <h5>💻 Programming &amp; Web</h5>
+          <a href="https://www.freecodecamp.org" target="_blank">freeCodeCamp</a>
+          <a href="https://www.codecademy.com" target="_blank">Codecademy</a>
+          <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>
+          <a href="https://www.w3schools.com" target="_blank">W3Schools</a>
+          <a href="https://developer.mozilla.org" target="_blank">MDN Web Docs</a>
+          <a href="https://stackoverflow.com" target="_blank">Stack Overflow</a>
+          <a href="https://lab.github.com" target="_blank">GitHub Learning Lab</a>
+          <a href="https://code.org" target="_blank">Code.org</a>
+          <a href="https://teamtreehouse.com" target="_blank">Treehouse</a>
+          <a href="https://www.codewars.com" target="_blank">Codewars</a>
+          <a href="https://www.udacity.com" target="_blank">Udacity</a>
+          <a href="https://www.pluralsight.com" target="_blank">Pluralsight</a>
+          <a href="https://www.coursera.org/browse/computer-science" target="_blank">Coursera Programming</a>
+          <a href="https://www.edx.org/learn/computer-science" target="_blank">edX Computer Science</a>
+          <a href="https://www.khanacademy.org/computing" target="_blank">Khan Academy CS</a>
+          <a href="https://leetcode.com" target="_blank">LeetCode</a>
+          <a href="https://www.hackerrank.com" target="_blank">HackerRank</a>
+          <a href="https://exercism.org" target="_blank">Exercism</a>
+          <a href="https://scrimba.com" target="_blank">Scrimba</a>
+        </div>
+
+        <!-- ── Design & Creative ── -->
+        <div class="footer-learning-col">
+          <h5>🎨 Design &amp; Creative</h5>
+          <a href="https://www.canva.com/designschool" target="_blank">Canva Design School</a>
+          <a href="https://www.figma.com/resources/learn-design/" target="_blank">Figma</a>
+          <a href="https://helpx.adobe.com/creative-cloud/tutorials.html" target="_blank">Adobe Creative Cloud</a>
+          <a href="https://dribbble.com" target="_blank">Dribbble</a>
+          <a href="https://www.behance.net" target="_blank">Behance</a>
+          <a href="https://www.interaction-design.org" target="_blank">Interaction Design Foundation</a>
+          <a href="https://www.uxdesigninstitute.com" target="_blank">UX Design Institute</a>
+          <a href="https://www.coursera.org/professional-certificates/google-ux-design" target="_blank">Google UX Design</a>
+          <a href="https://www.skillshare.com/browse/design" target="_blank">Skillshare Design</a>
+          <a href="https://www.creativebloq.com" target="_blank">CreativeBloq</a>
+          <a href="https://www.domestika.org" target="_blank">Domestika</a>
+          <a href="https://www.sketch.com" target="_blank">Sketch</a>
+          <a href="https://www.invisionapp.com" target="_blank">InVision</a>
+          <a href="https://procreate.art" target="_blank">Procreate</a>
+        </div>
+
+        <!-- ── Business & Marketing ── -->
+        <div class="footer-learning-col">
+          <h5>📈 Business &amp; Marketing</h5>
+          <a href="https://learndigital.withgoogle.com/digitalgarage" target="_blank">Google Digital Garage</a>
+          <a href="https://academy.hubspot.com" target="_blank">HubSpot Academy</a>
+          <a href="https://www.semrush.com/academy" target="_blank">SEMrush Academy</a>
+          <a href="https://moz.com/academy" target="_blank">Moz Academy</a>
+          <a href="https://www.facebook.com/business/learn" target="_blank">Facebook Blueprint</a>
+          <a href="https://www.linkedin.com/learning/topics/marketing" target="_blank">LinkedIn Marketing</a>
+          <a href="https://trailhead.salesforce.com" target="_blank">Salesforce Trailhead</a>
+          <a href="https://quickbooks.intuit.com/learn-support/" target="_blank">QuickBooks Training</a>
+          <a href="https://www.shopify.com/academy" target="_blank">Shopify Academy</a>
+          <a href="https://www.coursera.org/browse/business" target="_blank">Coursera Business</a>
+          <a href="https://www.edx.org/learn/business-administration" target="_blank">edX Business</a>
+          <a href="https://www.hootsuite.com/academy" target="_blank">Hootsuite Academy</a>
+          <a href="https://www.buffer.com/academy" target="_blank">Buffer</a>
+          <a href="https://mailchimp.com/resources/" target="_blank">Mailchimp Essentials</a>
+          <a href="https://skillshop.withgoogle.com" target="_blank">Google Ads Skillshop</a>
+        </div>
+
+        <!-- ── Data & Analytics ── -->
+        <div class="footer-learning-col">
+          <h5>📊 Data &amp; Analytics</h5>
+          <a href="https://analytics.google.com/analytics/academy" target="_blank">Google Analytics Academy</a>
+          <a href="https://www.tableau.com/learn" target="_blank">Tableau Training</a>
+          <a href="https://learn.microsoft.com/en-us/power-bi/" target="_blank">Power BI Learning</a>
+          <a href="https://www.datacamp.com" target="_blank">DataCamp</a>
+          <a href="https://www.kaggle.com/learn" target="_blank">Kaggle</a>
+          <a href="https://www.dataquest.io" target="_blank">Dataquest</a>
+          <a href="https://mode.com" target="_blank">Mode Analytics</a>
+          <a href="https://www.excel-easy.com" target="_blank">Excel Easy</a>
+          <a href="https://sqlzoo.net" target="_blank">SQLZoo</a>
+          <a href="https://www.w3schools.com/sql/" target="_blank">W3Schools SQL</a>
+          <a href="https://www.coursera.org/browse/data-science" target="_blank">Coursera Data Science</a>
+          <a href="https://www.edx.org/learn/data-science" target="_blank">edX Data Science</a>
+        </div>
+
+        <!-- ── Languages ── -->
+        <div class="footer-learning-col">
+          <h5>🌍 Languages</h5>
+          <a href="https://www.duolingo.com" target="_blank">Duolingo</a>
+          <a href="https://www.babbel.com" target="_blank">Babbel</a>
+          <a href="https://www.memrise.com" target="_blank">Memrise</a>
+          <a href="https://www.bbc.co.uk/languages" target="_blank">BBC Languages</a>
+          <a href="https://www.busuu.com" target="_blank">Busuu</a>
+          <a href="https://www.italki.com" target="_blank">iTalki</a>
+          <a href="https://www.rosettastone.com" target="_blank">Rosetta Stone</a>
+          <a href="https://www.lingoda.com" target="_blank">Lingoda</a>
+          <a href="https://www.mangolanguages.com" target="_blank">Mango Languages</a>
+          <a href="https://www.pimsleur.com" target="_blank">Pimsleur</a>
+        </div>
+
+        <!-- ── Personal Development ── -->
+        <div class="footer-learning-col">
+          <h5>🧠 Personal Development</h5>
+          <a href="https://www.mindvalley.com" target="_blank">Mindvalley</a>
+          <a href="https://www.ted.com/talks" target="_blank">TED Talks</a>
+          <a href="https://www.masterclass.com" target="_blank">MasterClass</a>
+          <a href="https://www.blinkist.com" target="_blank">Blinkist</a>
+          <a href="https://www.headspace.com" target="_blank">Headspace</a>
+          <a href="https://www.calm.com" target="_blank">Calm</a>
+          <a href="https://positivepsychology.com" target="_blank">Positive Psychology</a>
+          <a href="https://www.lifehacker.com" target="_blank">Lifehacker</a>
+          <a href="https://zenhabits.net" target="_blank">Zen Habits</a>
+          <a href="https://tinybuddha.com" target="_blank">Tiny Buddha</a>
+        </div>
+
+        <!-- ── Science & Technology ── -->
+        <div class="footer-learning-col">
+          <h5>🔬 Science &amp; Technology</h5>
+          <a href="https://ocw.mit.edu" target="_blank">MIT OpenCourseWare</a>
+          <a href="https://online.stanford.edu" target="_blank">Stanford Online</a>
+          <a href="https://online-learning.harvard.edu" target="_blank">Harvard Online</a>
+          <a href="https://www.nasa.gov/education" target="_blank">NASA Education</a>
+          <a href="https://www.nationalgeographic.org/education" target="_blank">National Geographic Education</a>
+          <a href="https://brilliant.org" target="_blank">Brilliant</a>
+          <a href="https://www.khanacademy.org/science" target="_blank">Khan Academy Science</a>
+          <a href="https://www.exploratorium.edu" target="_blank">Exploratorium</a>
+          <a href="https://www.physicsclassroom.com" target="_blank">Physics Classroom</a>
+          <a href="https://chem.libretexts.org" target="_blank">Chemistry LibreTexts</a>
+        </div>
+
+        <!-- ── Arts & Humanities ── -->
+        <div class="footer-learning-col">
+          <h5>🎭 Arts &amp; Humanities</h5>
+          <a href="https://www.moma.org/learn" target="_blank">MoMA Learning</a>
+          <a href="https://artsandculture.google.com" target="_blank">Google Arts &amp; Culture</a>
+          <a href="https://www.poetryfoundation.org" target="_blank">Poetry Foundation</a>
+          <a href="https://www.si.edu/learn" target="_blank">Smithsonian Learning</a>
+          <a href="https://www.khanacademy.org/humanities" target="_blank">Khan Academy Humanities</a>
+          <a href="https://www.artic.edu/learn" target="_blank">Art Institute of Chicago</a>
+          <a href="https://www.metmuseum.org/learn" target="_blank">Met Museum</a>
+          <a href="https://www.britishmuseum.org/learning" target="_blank">British Museum</a>
+          <a href="https://www.nga.gov/learn.html" target="_blank">National Gallery of Art</a>
+        </div>
+
+        <!-- ── Health & Wellness ── -->
+        <div class="footer-learning-col">
+          <h5>❤️ Health &amp; Wellness</h5>
+          <a href="https://www.youtube.com/c/yogawithadriene" target="_blank">Yoga with Adriene</a>
+          <a href="https://www.myfitnesspal.com" target="_blank">MyFitnessPal</a>
+          <a href="https://www.thegreatcoursesplus.com" target="_blank">Great Courses Plus</a>
+          <a href="https://insighttimer.com" target="_blank">Insight Timer</a>
+          <a href="https://www.healthline.com" target="_blank">Healthline</a>
+          <a href="https://www.mayoclinic.org" target="_blank">Mayo Clinic</a>
+          <a href="https://www.webmd.com" target="_blank">WebMD</a>
+          <a href="https://www.heart.org/en/healthy-living" target="_blank">American Heart Association</a>
+          <a href="https://www.betterhealth.vic.gov.au" target="_blank">BetterHealth</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ─── WHATSAPP CTA BOTTOM ─── -->
+    <div style="display: flex; justify-content: center; margin: 0.5rem 0 1rem;">
+      <a href="https://wa.me/255774554665?text=Hello%21%20I%27m%20interested%20in%20scholarships" target="_blank" class="whatsapp-cta-bottom">
+        <span>💬</span> Need application guidance? Chat on WhatsApp
+      </a>
+    </div>
+
+    <!-- ─── FOOTER BOTTOM ─── -->
+    <div class="footer-bottom">
+      <span>&copy; 2026 Career Connect TZ. All rights reserved.</span>
+      <span style="display: flex; gap: 1.2rem;">
+        <a href="#" style="color:#5c3d28; text-decoration:none;">Privacy</a>
+        <a href="#" style="color:#5c3d28; text-decoration:none;">Terms</a>
+      </span>
+    </div>
+  </div>
+
+  <!-- ─── FLOATING WHATSAPP POPUP ─── -->
+  <div class="whatsapp-float">
+    <div class="whatsapp-popup" id="waPopup">
+      <button class="popup-close" id="waClose">✕</button>
+      <strong>🎓 Join our Scholarship Community</strong>
+      <p style="margin-top: 4px; font-size: 0.85rem; color: #5c3d28;">Get updates on new scholarships, tips, and application guidance.</p>
+      <a href="https://wa.me/255774554665?text=Hello%21%20I%20want%20to%20join%20the%20scholarship%20community" target="_blank" class="popup-link">💬 Join WhatsApp Group</a>
+    </div>
+    <button class="wa-icon" id="waToggle" aria-label="WhatsApp">
+      💬
+    </button>
+  </div>
+
+  <!-- ─── JAVASCRIPT (only interactions) ─── -->
+  <script>
+    (function() {
+      // ── 1. FLOATING WHATSAPP POPUP ──
+      const popup = document.getElementById('waPopup');
+      const toggle = document.getElementById('waToggle');
+      const close = document.getElementById('waClose');
+      let popupVisible = false;
+
+      setTimeout(function() {
+        popup.classList.add('show');
+        popupVisible = true;
+      }, 2000);
+
+      toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        popup.classList.toggle('show');
+        popupVisible = popup.classList.contains('show');
+      });
+
+      close.addEventListener('click', function(e) {
+        e.stopPropagation();
+        popup.classList.remove('show');
+        popupVisible = false;
+      });
+
+      document.addEventListener('click', function(e) {
+        if (popupVisible && !popup.contains(e.target) && e.target !== toggle) {
+          popup.classList.remove('show');
+          popupVisible = false;
+        }
+      });
+
+      // ── 2. SHARE DROPDOWN ──
+      document.addEventListener('click', function(e) {
+        document.querySelectorAll('.share-menu.open').forEach(function(el) {
+          el.classList.remove('open');
+        });
+        if (e.target.closest('.share-btn')) {
+          e.stopPropagation();
+          const menu = e.target.closest('.share-dropdown').querySelector('.share-menu');
+          if (menu) menu.classList.toggle('open');
+        }
+      });
+
+      // ── 3. SCHOLARSHIP SEARCH ──
+      const searchInput = document.getElementById('scholarshipSearch');
+      const cards = document.querySelectorAll('.scholarship-card');
+
+      searchInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase().trim();
+        cards.forEach(function(card) {
+          const text = card.textContent.toLowerCase();
+          if (!query || text.includes(query)) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+        const visible = document.querySelectorAll('.scholarship-card:not(.hidden)');
+        let noResult = document.querySelector('.no-result');
+        if (visible.length === 0 && query) {
+          if (!noResult) {
+            noResult = document.createElement('div');
+            noResult.className = 'no-result';
+            noResult.textContent = 'No scholarships found. Try adjusting your search.';
+            document.getElementById('scholarshipGrid').appendChild(noResult);
+          }
+        } else {
+          if (noResult) noResult.remove();
+        }
+      });
+
+      // ── 4. CARD CLICK TO APPLY ──
+      cards.forEach(function(card) {
+        card.addEventListener('click', function(e) {
+          if (e.target.closest('.apply-btn') || e.target.closest('.share-btn') || e.target.closest('.share-menu')) return;
+          const link = this.dataset.link;
+          if (link && link !== '#') {
+            window.open(link, '_blank');
+          }
+        });
+      });
+
+      // ── 5. SMOOTH SCROLL ──
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+    })();
+  </script>
+</body>
+</html>
