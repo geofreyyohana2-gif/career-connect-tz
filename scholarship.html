@@ -449,7 +449,7 @@
       margin: 3rem 0 1.5rem;
       padding: 2rem 0 1rem;
       border-top: 2px solid #5b8c5a;
-      border-bottom: 1px solid #4d4841;
+      border-bottom: 1px solid #e5dcd0;
     }
     .footer-learning-title {
       font-family: 'Cormorant Garamond', serif;
@@ -469,7 +469,7 @@
       display: inline-block;
     }
     .footer-learning-sub {
-      color: #5b4c3e;
+      color: #7a6a5c;
       font-size: 0.95rem;
       margin-bottom: 1.5rem;
     }
@@ -485,7 +485,7 @@
       text-transform: uppercase;
       color: #5b8c5a;
       margin-bottom: 0.5rem;
-      border-bottom: 2px solid #818981;
+      border-bottom: 2px solid #e6f0e6;
       padding-bottom: 0.3rem;
     }
     .footer-learning-col a {
@@ -506,7 +506,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: #bcbcac;
+      background: #f0f0ea;
       padding: 0.8rem 1.8rem;
       border-radius: 60px;
       margin: 0.5rem 0 1rem;
@@ -529,7 +529,7 @@
       gap: 0.5rem 1rem;
       font-size: 0.8rem;
       color: #7a6a5c;
-      border-top: 1px solid #5c554c;
+      border-top: 1px solid #e5dcd0;
       padding-top: 1.2rem;
     }
 
@@ -1550,34 +1550,71 @@
       });
     })();
 
-    // ── 2. SHARE FUNCTION ──
+    // ── 2. ENHANCED SHARE FUNCTION ──
     function shareNow(platform, element) {
       // Get the card
       const card = element.closest('.scholarship-card');
-      const title = card ? card.querySelector('.job-title').textContent : 'Scholarship Opportunity';
-      const url = window.location.href;
+      if (!card) return;
 
-      const encodedTitle = encodeURIComponent(title + ' — Apply for this scholarship!');
+      // Extract data from the card
+      const title = card.querySelector('.job-title')?.textContent.trim() || 'Scholarship Opportunity';
+      const company = card.querySelector('.company')?.textContent.trim() || '';
+      const fundingBadge = card.querySelector('.funding-badge');
+      const fundingText = fundingBadge ? fundingBadge.textContent.trim() : '';
+
+      // Get description (first paragraph only, max 120 chars)
+      let description = '';
+      const descPara = card.querySelector('.scroll-content p');
+      if (descPara) {
+        description = descPara.textContent.trim();
+        if (description.length > 120) {
+          description = description.substring(0, 120) + '...';
+        }
+      }
+
+      // Build rich share text
+      let shareText = `📢 ${title}`;
+
+      if (fundingText) {
+        shareText += `\n${fundingText} 🎓`;
+      }
+
+      if (company) {
+        shareText += `\nFunded by: ${company}`;
+      }
+
+      if (description) {
+        shareText += `\n\n${description}`;
+      }
+
+      // Add the URL
+      const url = window.location.href;
+      shareText += `\n\nApply here: ${url}`;
+
+      // Encode for URLs
+      const encodedText = encodeURIComponent(shareText);
       const encodedUrl = encodeURIComponent(url);
 
       const shareUrls = {
         facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl,
-        twitter: 'https://twitter.com/intent/tweet?text=' + encodedTitle + '&url=' + encodedUrl,
+        twitter: 'https://twitter.com/intent/tweet?text=' + encodedText,
         linkedin: 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodedUrl,
-        whatsapp: 'https://api.whatsapp.com/send?text=' + encodedTitle + '%20' + encodedUrl,
-        tiktok: 'https://www.tiktok.com/@/share?url=' + encodedUrl + '&text=' + encodedTitle,
+        whatsapp: 'https://api.whatsapp.com/send?text=' + encodedText,
+        tiktok: 'https://www.tiktok.com/@/share?url=' + encodedUrl + '&text=' + encodedText,
         instagram: 'https://www.instagram.com/share?url=' + encodedUrl,
       };
 
       if (platform === 'copy') {
+        // Copy the rich text to clipboard
+        const copyText = shareText;
         if (navigator.clipboard) {
-          navigator.clipboard.writeText(url).then(function() {
-            alert('✅ Link copied to clipboard!');
+          navigator.clipboard.writeText(copyText).then(function() {
+            alert('✅ Scholarship details copied to clipboard!');
           }).catch(function() {
-            fallbackCopy(url);
+            fallbackCopy(copyText);
           });
         } else {
-          fallbackCopy(url);
+          fallbackCopy(copyText);
         }
         return;
       }
@@ -1595,9 +1632,9 @@
       textarea.select();
       try {
         document.execCommand('copy');
-        alert('✅ Link copied to clipboard!');
+        alert('✅ Scholarship details copied to clipboard!');
       } catch (err) {
-        alert('⚠️ Could not copy. Please copy the URL manually: ' + text);
+        alert('⚠️ Could not copy. Please copy the text manually.');
       }
       document.body.removeChild(textarea);
     }
@@ -1606,7 +1643,6 @@
     function toggleShare(btn) {
       const menu = btn.closest('.share-dropdown').querySelector('.share-menu');
       if (menu) {
-        // Close all other open menus
         document.querySelectorAll('.share-menu.open').forEach(function(el) {
           if (el !== menu) el.classList.remove('open');
         });
@@ -1659,7 +1695,6 @@
     // ── 5. CARD CLICK TO APPLY ──
     document.querySelectorAll('.scholarship-card').forEach(function(card) {
       card.addEventListener('click', function(e) {
-        // Ignore clicks on buttons, share elements, and their children
         if (e.target.closest('.apply-btn') || e.target.closest('.share-btn') || e.target.closest('.share-menu') || e
           .target.closest('.share-menu a')) {
           return;
