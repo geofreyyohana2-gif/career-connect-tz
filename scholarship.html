@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Karla:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* ── Reset & Base ── */
     * {
       margin: 0;
       padding: 0;
@@ -27,7 +26,6 @@
       margin: 0 auto;
     }
 
-    /* ── Navigation ── */
     .scholarship-nav {
       display: flex;
       justify-content: space-between;
@@ -69,7 +67,6 @@
       gap: 10px;
     }
 
-    /* ── Search ── */
     .search-section {
       margin: 2rem 0 2.2rem;
       display: flex;
@@ -105,7 +102,6 @@
       pointer-events: none;
     }
 
-    /* ── Section Title ── */
     .section-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 2.2rem;
@@ -131,7 +127,6 @@
       font-family: 'Karla', sans-serif;
     }
 
-    /* ── Scholarship Grid ── */
     .scholarship-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -140,7 +135,6 @@
       align-items: stretch;
     }
 
-    /* ── Scholarship Card ── */
     .scholarship-card {
       background: #faf5ed;
       border: 1px solid #e5dcd0;
@@ -346,18 +340,21 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 0.3rem 0;
+      padding: 0.4rem 0;
       color: #2d1b0e;
       text-decoration: none;
       font-size: 0.85rem;
       font-weight: 500;
       border-bottom: 1px solid #f0ece4;
+      cursor: pointer;
+      transition: 0.1s;
     }
     .share-menu a:last-child {
       border-bottom: none;
     }
     .share-menu a:hover {
       color: #5b8c5a;
+      padding-left: 4px;
     }
 
     /* ── Floating WhatsApp Popup ── */
@@ -452,7 +449,7 @@
       margin: 3rem 0 1.5rem;
       padding: 2rem 0 1rem;
       border-top: 2px solid #5b8c5a;
-      border-bottom: 1px solid #e5dcd0;
+      border-bottom: 1px solid #4d4841;
     }
     .footer-learning-title {
       font-family: 'Cormorant Garamond', serif;
@@ -472,7 +469,7 @@
       display: inline-block;
     }
     .footer-learning-sub {
-      color: #7a6a5c;
+      color: #5b4c3e;
       font-size: 0.95rem;
       margin-bottom: 1.5rem;
     }
@@ -488,7 +485,7 @@
       text-transform: uppercase;
       color: #5b8c5a;
       margin-bottom: 0.5rem;
-      border-bottom: 2px solid #e6f0e6;
+      border-bottom: 2px solid #818981;
       padding-bottom: 0.3rem;
     }
     .footer-learning-col a {
@@ -509,7 +506,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: #f0f0ea;
+      background: #bcbcac;
       padding: 0.8rem 1.8rem;
       border-radius: 60px;
       margin: 0.5rem 0 1rem;
@@ -532,11 +529,10 @@
       gap: 0.5rem 1rem;
       font-size: 0.8rem;
       color: #7a6a5c;
-      border-top: 1px solid #e5dcd0;
+      border-top: 1px solid #5c554c;
       padding-top: 1.2rem;
     }
 
-    /* ── Responsive ── */
     @media (max-width: 780px) {
       .footer-learning-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -612,8 +608,8 @@
     </div>
 
     <div class="scholarship-grid" id="scholarshipGrid">
-      <!-- ===== 21 SCHOLARSHIP CARDS (same as before) ===== -->
-      <!-- Card 1 -->
+
+      <!-- ===== CARD 1 ===== -->
       <div class="scholarship-card" data-id="1" data-link="https://mastercardfdn.org/scholars">
         <div class="funding-badge fully">✅ Fully Funded</div>
         <div class="card-header">
@@ -631,21 +627,22 @@
         </div>
         <div class="card-actions">
           <div class="share-dropdown">
-            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
             <div class="share-menu">
-              <a href="#" target="_blank">📘 Facebook</a>
-              <a href="#" target="_blank">🐦 Twitter</a>
-              <a href="#" target="_blank">🔗 LinkedIn</a>
-              <a href="#" target="_blank">💬 WhatsApp</a>
-              <a href="#" target="_blank">🎵 TikTok</a>
-              <a href="#" target="_blank">📸 Instagram</a>
-              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('tiktok', this);">🎵 TikTok</a>
+              <a onclick="event.stopPropagation();shareNow('instagram', this);">📸 Instagram</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
             </div>
           </div>
           <a href="https://mastercardfdn.org/scholars" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
         </div>
       </div>
-      <!-- Card 2 -->
+
+      <!-- ===== CARD 2 ===== -->
       <div class="scholarship-card" data-id="2" data-link="https://www.daad.de/en/">
         <div class="funding-badge fully">✅ Fully Funded</div>
         <div class="card-header">
@@ -663,21 +660,22 @@
         </div>
         <div class="card-actions">
           <div class="share-dropdown">
-            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
             <div class="share-menu">
-              <a href="#" target="_blank">📘 Facebook</a>
-              <a href="#" target="_blank">🐦 Twitter</a>
-              <a href="#" target="_blank">🔗 LinkedIn</a>
-              <a href="#" target="_blank">💬 WhatsApp</a>
-              <a href="#" target="_blank">🎵 TikTok</a>
-              <a href="#" target="_blank">📸 Instagram</a>
-              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('tiktok', this);">🎵 TikTok</a>
+              <a onclick="event.stopPropagation();shareNow('instagram', this);">📸 Instagram</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
             </div>
           </div>
           <a href="https://www.daad.de/en/" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
         </div>
       </div>
-      <!-- Card 3 -->
+
+      <!-- ===== CARD 3 ===== -->
       <div class="scholarship-card" data-id="3" data-link="https://equitybank.co.tz/scholarships">
         <div class="funding-badge fully">✅ Fully Funded</div>
         <div class="card-header">
@@ -695,21 +693,22 @@
         </div>
         <div class="card-actions">
           <div class="share-dropdown">
-            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
             <div class="share-menu">
-              <a href="#" target="_blank">📘 Facebook</a>
-              <a href="#" target="_blank">🐦 Twitter</a>
-              <a href="#" target="_blank">🔗 LinkedIn</a>
-              <a href="#" target="_blank">💬 WhatsApp</a>
-              <a href="#" target="_blank">🎵 TikTok</a>
-              <a href="#" target="_blank">📸 Instagram</a>
-              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('tiktok', this);">🎵 TikTok</a>
+              <a onclick="event.stopPropagation();shareNow('instagram', this);">📸 Instagram</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
             </div>
           </div>
           <a href="https://equitybank.co.tz/scholarships" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
         </div>
       </div>
-      <!-- Card 4 -->
+
+      <!-- ===== CARD 4 ===== -->
       <div class="scholarship-card" data-id="4" data-link="https://unesco.org/africa-fellowships">
         <div class="funding-badge fully">✅ Fully Funded</div>
         <div class="card-header">
@@ -727,21 +726,22 @@
         </div>
         <div class="card-actions">
           <div class="share-dropdown">
-            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
             <div class="share-menu">
-              <a href="#" target="_blank">📘 Facebook</a>
-              <a href="#" target="_blank">🐦 Twitter</a>
-              <a href="#" target="_blank">🔗 LinkedIn</a>
-              <a href="#" target="_blank">💬 WhatsApp</a>
-              <a href="#" target="_blank">🎵 TikTok</a>
-              <a href="#" target="_blank">📸 Instagram</a>
-              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('tiktok', this);">🎵 TikTok</a>
+              <a onclick="event.stopPropagation();shareNow('instagram', this);">📸 Instagram</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
             </div>
           </div>
           <a href="https://unesco.org/africa-fellowships" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
         </div>
       </div>
-      <!-- Card 5 -->
+
+      <!-- ===== CARD 5 ===== -->
       <div class="scholarship-card" data-id="5" data-link="https://www.africanleadershipacademy.org">
         <div class="funding-badge fully">✅ Fully Funded</div>
         <div class="card-header">
@@ -759,21 +759,22 @@
         </div>
         <div class="card-actions">
           <div class="share-dropdown">
-            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
             <div class="share-menu">
-              <a href="#" target="_blank">📘 Facebook</a>
-              <a href="#" target="_blank">🐦 Twitter</a>
-              <a href="#" target="_blank">🔗 LinkedIn</a>
-              <a href="#" target="_blank">💬 WhatsApp</a>
-              <a href="#" target="_blank">🎵 TikTok</a>
-              <a href="#" target="_blank">📸 Instagram</a>
-              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('tiktok', this);">🎵 TikTok</a>
+              <a onclick="event.stopPropagation();shareNow('instagram', this);">📸 Instagram</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
             </div>
           </div>
           <a href="https://www.africanleadershipacademy.org" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
         </div>
       </div>
-      <!-- Card 6 -->
+
+      <!-- ===== CARD 6 ===== -->
       <div class="scholarship-card" data-id="6" data-link="https://www.daad.de/en/">
         <div class="funding-badge fully">✅ Fully Funded</div>
         <div class="card-header">
@@ -791,21 +792,22 @@
         </div>
         <div class="card-actions">
           <div class="share-dropdown">
-            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
             <div class="share-menu">
-              <a href="#" target="_blank">📘 Facebook</a>
-              <a href="#" target="_blank">🐦 Twitter</a>
-              <a href="#" target="_blank">🔗 LinkedIn</a>
-              <a href="#" target="_blank">💬 WhatsApp</a>
-              <a href="#" target="_blank">🎵 TikTok</a>
-              <a href="#" target="_blank">📸 Instagram</a>
-              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('tiktok', this);">🎵 TikTok</a>
+              <a onclick="event.stopPropagation();shareNow('instagram', this);">📸 Instagram</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
             </div>
           </div>
           <a href="https://www.daad.de/en/" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
         </div>
       </div>
-      <!-- Card 7 -->
+
+      <!-- ===== CARD 7 ===== -->
       <div class="scholarship-card" data-id="7" data-link="https://www.chevening.org">
         <div class="funding-badge fully">✅ Fully Funded</div>
         <div class="card-header">
@@ -823,21 +825,22 @@
         </div>
         <div class="card-actions">
           <div class="share-dropdown">
-            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
             <div class="share-menu">
-              <a href="#" target="_blank">📘 Facebook</a>
-              <a href="#" target="_blank">🐦 Twitter</a>
-              <a href="#" target="_blank">🔗 LinkedIn</a>
-              <a href="#" target="_blank">💬 WhatsApp</a>
-              <a href="#" target="_blank">🎵 TikTok</a>
-              <a href="#" target="_blank">📸 Instagram</a>
-              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('tiktok', this);">🎵 TikTok</a>
+              <a onclick="event.stopPropagation();shareNow('instagram', this);">📸 Instagram</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
             </div>
           </div>
           <a href="https://www.chevening.org" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
         </div>
       </div>
-      <!-- Card 8 -->
+
+      <!-- ===== CARD 8 ===== -->
       <div class="scholarship-card" data-id="8" data-link="https://cscuk.fcdo.gov.uk">
         <div class="funding-badge partial">🟡 Partially Funded</div>
         <div class="card-header">
@@ -855,21 +858,22 @@
         </div>
         <div class="card-actions">
           <div class="share-dropdown">
-            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
             <div class="share-menu">
-              <a href="#" target="_blank">📘 Facebook</a>
-              <a href="#" target="_blank">🐦 Twitter</a>
-              <a href="#" target="_blank">🔗 LinkedIn</a>
-              <a href="#" target="_blank">💬 WhatsApp</a>
-              <a href="#" target="_blank">🎵 TikTok</a>
-              <a href="#" target="_blank">📸 Instagram</a>
-              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('tiktok', this);">🎵 TikTok</a>
+              <a onclick="event.stopPropagation();shareNow('instagram', this);">📸 Instagram</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
             </div>
           </div>
           <a href="https://cscuk.fcdo.gov.uk" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
         </div>
       </div>
-      <!-- Card 9 -->
+
+      <!-- ===== CARD 9 ===== -->
       <div class="scholarship-card" data-id="9" data-link="https://www.nmbbank.co.tz">
         <div class="funding-badge partial">🟡 Partially Funded</div>
         <div class="card-header">
@@ -887,21 +891,22 @@
         </div>
         <div class="card-actions">
           <div class="share-dropdown">
-            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
             <div class="share-menu">
-              <a href="#" target="_blank">📘 Facebook</a>
-              <a href="#" target="_blank">🐦 Twitter</a>
-              <a href="#" target="_blank">🔗 LinkedIn</a>
-              <a href="#" target="_blank">💬 WhatsApp</a>
-              <a href="#" target="_blank">🎵 TikTok</a>
-              <a href="#" target="_blank">📸 Instagram</a>
-              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('tiktok', this);">🎵 TikTok</a>
+              <a onclick="event.stopPropagation();shareNow('instagram', this);">📸 Instagram</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
             </div>
           </div>
           <a href="https://www.nmbbank.co.tz" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
         </div>
       </div>
-      <!-- Card 10 -->
+
+      <!-- ===== CARD 10 ===== -->
       <div class="scholarship-card" data-id="10" data-link="https://www.zanzibar.go.tz">
         <div class="funding-badge fully">✅ Fully Funded</div>
         <div class="card-header">
@@ -919,21 +924,22 @@
         </div>
         <div class="card-actions">
           <div class="share-dropdown">
-            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
             <div class="share-menu">
-              <a href="#" target="_blank">📘 Facebook</a>
-              <a href="#" target="_blank">🐦 Twitter</a>
-              <a href="#" target="_blank">🔗 LinkedIn</a>
-              <a href="#" target="_blank">💬 WhatsApp</a>
-              <a href="#" target="_blank">🎵 TikTok</a>
-              <a href="#" target="_blank">📸 Instagram</a>
-              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('tiktok', this);">🎵 TikTok</a>
+              <a onclick="event.stopPropagation();shareNow('instagram', this);">📸 Instagram</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
             </div>
           </div>
           <a href="https://www.zanzibar.go.tz" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
         </div>
       </div>
-      <!-- Card 11 -->
+
+      <!-- ===== CARD 11 ===== -->
       <div class="scholarship-card" data-id="11" data-link="https://au.int">
         <div class="funding-badge fully">✅ Fully Funded</div>
         <div class="card-header">
@@ -951,21 +957,22 @@
         </div>
         <div class="card-actions">
           <div class="share-dropdown">
-            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
             <div class="share-menu">
-              <a href="#" target="_blank">📘 Facebook</a>
-              <a href="#" target="_blank">🐦 Twitter</a>
-              <a href="#" target="_blank">🔗 LinkedIn</a>
-              <a href="#" target="_blank">💬 WhatsApp</a>
-              <a href="#" target="_blank">🎵 TikTok</a>
-              <a href="#" target="_blank">📸 Instagram</a>
-              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('tiktok', this);">🎵 TikTok</a>
+              <a onclick="event.stopPropagation();shareNow('instagram', this);">📸 Instagram</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
             </div>
           </div>
           <a href="https://au.int" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
         </div>
       </div>
-      <!-- Card 12 -->
+
+      <!-- ===== CARD 12 ===== -->
       <div class="scholarship-card" data-id="12" data-link="https://www.moe.go.tz">
         <div class="funding-badge fully">✅ Fully Funded</div>
         <div class="card-header">
@@ -983,21 +990,22 @@
         </div>
         <div class="card-actions">
           <div class="share-dropdown">
-            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
             <div class="share-menu">
-              <a href="#" target="_blank">📘 Facebook</a>
-              <a href="#" target="_blank">🐦 Twitter</a>
-              <a href="#" target="_blank">🔗 LinkedIn</a>
-              <a href="#" target="_blank">💬 WhatsApp</a>
-              <a href="#" target="_blank">🎵 TikTok</a>
-              <a href="#" target="_blank">📸 Instagram</a>
-              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('tiktok', this);">🎵 TikTok</a>
+              <a onclick="event.stopPropagation();shareNow('instagram', this);">📸 Instagram</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
             </div>
           </div>
           <a href="https://www.moe.go.tz" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
         </div>
       </div>
-      <!-- Card 13 -->
+
+      <!-- ===== CARD 13 ===== -->
       <div class="scholarship-card" data-id="13" data-link="https://www.akdn.org">
         <div class="funding-badge partial">🟡 Partially Funded</div>
         <div class="card-header">
@@ -1015,21 +1023,22 @@
         </div>
         <div class="card-actions">
           <div class="share-dropdown">
-            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
             <div class="share-menu">
-              <a href="#" target="_blank">📘 Facebook</a>
-              <a href="#" target="_blank">🐦 Twitter</a>
-              <a href="#" target="_blank">🔗 LinkedIn</a>
-              <a href="#" target="_blank">💬 WhatsApp</a>
-              <a href="#" target="_blank">🎵 TikTok</a>
-              <a href="#" target="_blank">📸 Instagram</a>
-              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('tiktok', this);">🎵 TikTok</a>
+              <a onclick="event.stopPropagation();shareNow('instagram', this);">📸 Instagram</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
             </div>
           </div>
           <a href="https://www.akdn.org" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
         </div>
       </div>
-      <!-- Card 14 -->
+
+      <!-- ===== CARD 14 ===== -->
       <div class="scholarship-card" data-id="14" data-link="https://wellcome.org">
         <div class="funding-badge fully">✅ Fully Funded</div>
         <div class="card-header">
@@ -1047,21 +1056,22 @@
         </div>
         <div class="card-actions">
           <div class="share-dropdown">
-            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
             <div class="share-menu">
-              <a href="#" target="_blank">📘 Facebook</a>
-              <a href="#" target="_blank">🐦 Twitter</a>
-              <a href="#" target="_blank">🔗 LinkedIn</a>
-              <a href="#" target="_blank">💬 WhatsApp</a>
-              <a href="#" target="_blank">🎵 TikTok</a>
-              <a href="#" target="_blank">📸 Instagram</a>
-              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('tiktok', this);">🎵 TikTok</a>
+              <a onclick="event.stopPropagation();shareNow('instagram', this);">📸 Instagram</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
             </div>
           </div>
           <a href="https://wellcome.org" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
         </div>
       </div>
-      <!-- Card 15 -->
+
+      <!-- ===== CARD 15 ===== -->
       <div class="scholarship-card" data-id="15" data-link="https://www.sadc.int">
         <div class="funding-badge fully">✅ Fully Funded</div>
         <div class="card-header">
@@ -1079,21 +1089,22 @@
         </div>
         <div class="card-actions">
           <div class="share-dropdown">
-            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
             <div class="share-menu">
-              <a href="#" target="_blank">📘 Facebook</a>
-              <a href="#" target="_blank">🐦 Twitter</a>
-              <a href="#" target="_blank">🔗 LinkedIn</a>
-              <a href="#" target="_blank">💬 WhatsApp</a>
-              <a href="#" target="_blank">🎵 TikTok</a>
-              <a href="#" target="_blank">📸 Instagram</a>
-              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('tiktok', this);">🎵 TikTok</a>
+              <a onclick="event.stopPropagation();shareNow('instagram', this);">📸 Instagram</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
             </div>
           </div>
           <a href="https://www.sadc.int" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
         </div>
       </div>
-      <!-- Card 16 -->
+
+      <!-- ===== CARD 16 ===== -->
       <div class="scholarship-card" data-id="16" data-link="https://www.moe.go.tz">
         <div class="funding-badge fully">✅ Fully Funded</div>
         <div class="card-header">
@@ -1111,21 +1122,22 @@
         </div>
         <div class="card-actions">
           <div class="share-dropdown">
-            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
             <div class="share-menu">
-              <a href="#" target="_blank">📘 Facebook</a>
-              <a href="#" target="_blank">🐦 Twitter</a>
-              <a href="#" target="_blank">🔗 LinkedIn</a>
-              <a href="#" target="_blank">💬 WhatsApp</a>
-              <a href="#" target="_blank">🎵 TikTok</a>
-              <a href="#" target="_blank">📸 Instagram</a>
-              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('tiktok', this);">🎵 TikTok</a>
+              <a onclick="event.stopPropagation();shareNow('instagram', this);">📸 Instagram</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
             </div>
           </div>
           <a href="https://www.moe.go.tz" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
         </div>
       </div>
-      <!-- Card 17 -->
+
+      <!-- ===== CARD 17 ===== -->
       <div class="scholarship-card" data-id="17" data-link="https://www.eac.int">
         <div class="funding-badge fully">✅ Fully Funded</div>
         <div class="card-header">
@@ -1143,21 +1155,22 @@
         </div>
         <div class="card-actions">
           <div class="share-dropdown">
-            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
             <div class="share-menu">
-              <a href="#" target="_blank">📘 Facebook</a>
-              <a href="#" target="_blank">🐦 Twitter</a>
-              <a href="#" target="_blank">🔗 LinkedIn</a>
-              <a href="#" target="_blank">💬 WhatsApp</a>
-              <a href="#" target="_blank">🎵 TikTok</a>
-              <a href="#" target="_blank">📸 Instagram</a>
-              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('tiktok', this);">🎵 TikTok</a>
+              <a onclick="event.stopPropagation();shareNow('instagram', this);">📸 Instagram</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
             </div>
           </div>
           <a href="https://www.eac.int" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
         </div>
       </div>
-      <!-- Card 18 -->
+
+      <!-- ===== CARD 18 ===== -->
       <div class="scholarship-card" data-id="18" data-link="https://www.opensocietyfoundations.org">
         <div class="funding-badge fully">✅ Fully Funded</div>
         <div class="card-header">
@@ -1175,21 +1188,22 @@
         </div>
         <div class="card-actions">
           <div class="share-dropdown">
-            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
             <div class="share-menu">
-              <a href="#" target="_blank">📘 Facebook</a>
-              <a href="#" target="_blank">🐦 Twitter</a>
-              <a href="#" target="_blank">🔗 LinkedIn</a>
-              <a href="#" target="_blank">💬 WhatsApp</a>
-              <a href="#" target="_blank">🎵 TikTok</a>
-              <a href="#" target="_blank">📸 Instagram</a>
-              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('tiktok', this);">🎵 TikTok</a>
+              <a onclick="event.stopPropagation();shareNow('instagram', this);">📸 Instagram</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
             </div>
           </div>
           <a href="https://www.opensocietyfoundations.org" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
         </div>
       </div>
-      <!-- Card 19 -->
+
+      <!-- ===== CARD 19 ===== -->
       <div class="scholarship-card" data-id="19" data-link="https://www.uneca.org">
         <div class="funding-badge partial">🟡 Partially Funded</div>
         <div class="card-header">
@@ -1207,21 +1221,22 @@
         </div>
         <div class="card-actions">
           <div class="share-dropdown">
-            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
             <div class="share-menu">
-              <a href="#" target="_blank">📘 Facebook</a>
-              <a href="#" target="_blank">🐦 Twitter</a>
-              <a href="#" target="_blank">🔗 LinkedIn</a>
-              <a href="#" target="_blank">💬 WhatsApp</a>
-              <a href="#" target="_blank">🎵 TikTok</a>
-              <a href="#" target="_blank">📸 Instagram</a>
-              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('tiktok', this);">🎵 TikTok</a>
+              <a onclick="event.stopPropagation();shareNow('instagram', this);">📸 Instagram</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
             </div>
           </div>
           <a href="https://www.uneca.org" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
         </div>
       </div>
-      <!-- Card 20 -->
+
+      <!-- ===== CARD 20 ===== -->
       <div class="scholarship-card" data-id="20" data-link="https://www.tawiri.or.tz">
         <div class="funding-badge partial">🟡 Partially Funded</div>
         <div class="card-header">
@@ -1239,21 +1254,22 @@
         </div>
         <div class="card-actions">
           <div class="share-dropdown">
-            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
             <div class="share-menu">
-              <a href="#" target="_blank">📘 Facebook</a>
-              <a href="#" target="_blank">🐦 Twitter</a>
-              <a href="#" target="_blank">🔗 LinkedIn</a>
-              <a href="#" target="_blank">💬 WhatsApp</a>
-              <a href="#" target="_blank">🎵 TikTok</a>
-              <a href="#" target="_blank">📸 Instagram</a>
-              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('tiktok', this);">🎵 TikTok</a>
+              <a onclick="event.stopPropagation();shareNow('instagram', this);">📸 Instagram</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
             </div>
           </div>
           <a href="https://www.tawiri.or.tz" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
         </div>
       </div>
-      <!-- Card 21 -->
+
+      <!-- ===== CARD 21 ===== -->
       <div class="scholarship-card" data-id="21" data-link="https://www.fordfoundation.org">
         <div class="funding-badge fully">✅ Fully Funded</div>
         <div class="card-header">
@@ -1271,20 +1287,21 @@
         </div>
         <div class="card-actions">
           <div class="share-dropdown">
-            <button class="share-btn" onclick="event.stopPropagation();">↗️ Share</button>
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
             <div class="share-menu">
-              <a href="#" target="_blank">📘 Facebook</a>
-              <a href="#" target="_blank">🐦 Twitter</a>
-              <a href="#" target="_blank">🔗 LinkedIn</a>
-              <a href="#" target="_blank">💬 WhatsApp</a>
-              <a href="#" target="_blank">🎵 TikTok</a>
-              <a href="#" target="_blank">📸 Instagram</a>
-              <a href="#" onclick="event.stopPropagation();navigator.clipboard?.writeText(window.location.href); alert('Link copied!'); return false;">📋 Copy link</a>
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('tiktok', this);">🎵 TikTok</a>
+              <a onclick="event.stopPropagation();shareNow('instagram', this);">📸 Instagram</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
             </div>
           </div>
           <a href="https://www.fordfoundation.org" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
         </div>
       </div>
+
     </div>
 
     <!-- ============================================================ -->
@@ -1499,10 +1516,10 @@
     </button>
   </div>
 
-  <!-- ─── JAVASCRIPT (only interactions) ─── -->
+  <!-- ─── JAVASCRIPT ─── -->
   <script>
+    // ── 1. FLOATING WHATSAPP POPUP ──
     (function() {
-      // ── 1. FLOATING WHATSAPP POPUP ──
       const popup = document.getElementById('waPopup');
       const toggle = document.getElementById('waToggle');
       const close = document.getElementById('waClose');
@@ -1531,36 +1548,102 @@
           popupVisible = false;
         }
       });
+    })();
 
-      // ── 2. SHARE DROPDOWN ──
-      document.addEventListener('click', function(e) {
+    // ── 2. SHARE FUNCTION ──
+    function shareNow(platform, element) {
+      // Get the card
+      const card = element.closest('.scholarship-card');
+      const title = card ? card.querySelector('.job-title').textContent : 'Scholarship Opportunity';
+      const url = window.location.href;
+
+      const encodedTitle = encodeURIComponent(title + ' — Apply for this scholarship!');
+      const encodedUrl = encodeURIComponent(url);
+
+      const shareUrls = {
+        facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl,
+        twitter: 'https://twitter.com/intent/tweet?text=' + encodedTitle + '&url=' + encodedUrl,
+        linkedin: 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodedUrl,
+        whatsapp: 'https://api.whatsapp.com/send?text=' + encodedTitle + '%20' + encodedUrl,
+        tiktok: 'https://www.tiktok.com/@/share?url=' + encodedUrl + '&text=' + encodedTitle,
+        instagram: 'https://www.instagram.com/share?url=' + encodedUrl,
+      };
+
+      if (platform === 'copy') {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(url).then(function() {
+            alert('✅ Link copied to clipboard!');
+          }).catch(function() {
+            fallbackCopy(url);
+          });
+        } else {
+          fallbackCopy(url);
+        }
+        return;
+      }
+
+      const shareUrl = shareUrls[platform];
+      if (shareUrl) {
+        window.open(shareUrl, '_blank', 'width=600,height=500');
+      }
+    }
+
+    function fallbackCopy(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        alert('✅ Link copied to clipboard!');
+      } catch (err) {
+        alert('⚠️ Could not copy. Please copy the URL manually: ' + text);
+      }
+      document.body.removeChild(textarea);
+    }
+
+    // ── 3. TOGGLE SHARE DROPDOWN ──
+    function toggleShare(btn) {
+      const menu = btn.closest('.share-dropdown').querySelector('.share-menu');
+      if (menu) {
+        // Close all other open menus
+        document.querySelectorAll('.share-menu.open').forEach(function(el) {
+          if (el !== menu) el.classList.remove('open');
+        });
+        menu.classList.toggle('open');
+      }
+    }
+
+    // Close share menus when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.share-dropdown')) {
         document.querySelectorAll('.share-menu.open').forEach(function(el) {
           el.classList.remove('open');
         });
-        if (e.target.closest('.share-btn')) {
-          e.stopPropagation();
-          const menu = e.target.closest('.share-dropdown').querySelector('.share-menu');
-          if (menu) menu.classList.toggle('open');
-        }
-      });
+      }
+    });
 
-      // ── 3. SCHOLARSHIP SEARCH ──
+    // ── 4. SCHOLARSHIP SEARCH ──
+    (function() {
       const searchInput = document.getElementById('scholarshipSearch');
       const cards = document.querySelectorAll('.scholarship-card');
 
       searchInput.addEventListener('input', function() {
         const query = this.value.toLowerCase().trim();
+        let visibleCount = 0;
+
         cards.forEach(function(card) {
           const text = card.textContent.toLowerCase();
           if (!query || text.includes(query)) {
             card.classList.remove('hidden');
+            visibleCount++;
           } else {
             card.classList.add('hidden');
           }
         });
-        const visible = document.querySelectorAll('.scholarship-card:not(.hidden)');
+
         let noResult = document.querySelector('.no-result');
-        if (visible.length === 0 && query) {
+        if (visibleCount === 0 && query) {
           if (!noResult) {
             noResult = document.createElement('div');
             noResult.className = 'no-result';
@@ -1571,30 +1654,33 @@
           if (noResult) noResult.remove();
         }
       });
-
-      // ── 4. CARD CLICK TO APPLY ──
-      cards.forEach(function(card) {
-        card.addEventListener('click', function(e) {
-          if (e.target.closest('.apply-btn') || e.target.closest('.share-btn') || e.target.closest('.share-menu')) return;
-          const link = this.dataset.link;
-          if (link && link !== '#') {
-            window.open(link, '_blank');
-          }
-        });
-      });
-
-      // ── 5. SMOOTH SCROLL ──
-      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-        anchor.addEventListener('click', function(e) {
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        });
-      });
-
     })();
+
+    // ── 5. CARD CLICK TO APPLY ──
+    document.querySelectorAll('.scholarship-card').forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        // Ignore clicks on buttons, share elements, and their children
+        if (e.target.closest('.apply-btn') || e.target.closest('.share-btn') || e.target.closest('.share-menu') || e
+          .target.closest('.share-menu a')) {
+          return;
+        }
+        const link = this.dataset.link;
+        if (link && link !== '#') {
+          window.open(link, '_blank');
+        }
+      });
+    });
+
+    // ── 6. SMOOTH SCROLL ──
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
   </script>
 </body>
 </html>
