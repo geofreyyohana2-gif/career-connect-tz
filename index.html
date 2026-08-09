@@ -3,333 +3,288 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CareerConnectTZ · Career Coaching &amp; Development</title>
+    <title>Job Board · Career Connect TZ</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Karla:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="jobs.css" />
 </head>
 <body>
 
-    <!-- ============================================================= -->
-    <!-- TOP BAR: Social Icons ONLY                                   -->
-    <!-- ============================================================= -->
+    <div class="page">
 
-    <!-- ============================================================= -->
-    <!-- MAIN HEADER: Logo + Quick Links (Login removed)              -->
-    <!-- ============================================================= -->
-    <header class="main-header">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-md-6 col-12">
-                    <div class="logo-wrapper">
-                        <div class="logo-placeholder">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <div class="brand-text">
-                            <div class="org-name">Career<span>Connect</span> TZ</div>
-                            <div class="tagline">Build Skills · Discover Opportunities · Grow Your Career</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-12">
-                    <div class="quick-links">
-                        <a href="#"><i class="fas fa-envelope"></i> info@careerconnecttz.com</a>
-                        <a href="#"><i class="fas fa-phone-alt"></i> +255 774 554 665</a>
-                    </div>
-                </div>
+        <!-- ============================================================= -->
+        <!-- NAVIGATION                                                    -->
+        <!-- ============================================================= -->
+        <nav class="job-nav">
+            <div class="job-nav-inner">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-dot"></span>Career Connect TZ
+                </a>
+                <a href="index.html" class="cv-nav-back">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+                    Back to Career Coaching
+                </a>
             </div>
-        </div>
-    </header>
+        </nav>
 
-    <!-- ============================================================= -->
-    <!-- NAVIGATION (Language switcher in navbar)                    -->
-    <!-- ============================================================= -->
-    <nav class="navbar navbar-expand-lg navbar-custom">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            About Us
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-                            <li><a class="dropdown-item" href="#">Our Mission</a></li>
-                            <li><a class="dropdown-item" href="#">Our Vision</a></li>
-                            <li><a class="dropdown-item" href="#">Our Team</a></li>
-                            <li><a class="dropdown-item" href="#">Our Story</a></li>
-                            <li><hr class="dropdown-divider" /></li>
-                            <li><a class="dropdown-item" href="#">Annual Reports</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Services
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                            <li><a class="dropdown-item" href="#">CV Customisation</a></li>
-                            <li><a class="dropdown-item" href="#">Interview Preparation</a></li>
-                            <li><a class="dropdown-item" href="#">Career Coaching</a></li>
-                            <li><a class="dropdown-item" href="#">Scholarship Guidance</a></li>
-                            <li><a class="dropdown-item" href="#">Research Mentorship</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="oppDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Opportunities
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="oppDropdown">
-                            <li><a class="dropdown-item" href="#">Jobs</a></li>
-                            <li><a class="dropdown-item" href="#">Internships</a></li>
-                            <li><a class="dropdown-item" href="#">Scholarships</a></li>
-                            <li><a class="dropdown-item" href="#">Volunteer</a></li>
-                            <li><hr class="dropdown-divider" /></li>
-                            <li><a class="dropdown-item" href="#">Training Programs</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Resources</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-
-                <!-- Search + Language Switcher -->
-                <div class="d-flex align-items-center gap-2">
-                    <form class="d-flex" role="search">
-                        <input class="form-control form-control-sm me-2" type="search" placeholder="Search..." aria-label="Search" />
-                        <button class="btn btn-outline-light btn-sm" type="submit"><i class="fas fa-search"></i></button>
-                    </form>
-                    <div class="language-switch-nav">
-                        <a href="#" class="active" data-lang="en">EN</a>
-                        <span class="separator">|</span>
-                        <a href="#" data-lang="sw">SW</a>
+        <!-- ============================================================= -->
+        <!-- HERO SECTION                                                  -->
+        <!-- ============================================================= -->
+        <section class="cv-hero">
+            <div class="cv-hero-accent"></div>
+            <div class="cv-hero-accent2"></div>
+            <div class="cv-hero-content">
+                <div class="cv-hero-tag">Career Opportunities</div>
+                <h1>Find Your <em>Next Role</em></h1>
+                <p class="subtitle">Discover the latest job openings, internships, and career opportunities across Tanzania and beyond.</p>
+                <div class="cv-hero-divider"></div>
+                <div class="cv-hero-meta">
+                    <div class="cv-hero-meta-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        Live Updates
+                    </div>
+                    <div class="cv-hero-meta-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a9.985 9.985 0 1 1-5.87-9.15"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        Verified Jobs
+                    </div>
+                    <div class="cv-hero-meta-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                        Apply Directly
                     </div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </section>
 
-    <!-- ============================================================= -->
-    <!-- HERO CAROUSEL WITH MARQUEE                                    -->
-    <!-- ============================================================= -->
-    <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <!-- ============================================================= -->
+        <!-- SEARCH SECTION                                                -->
+        <!-- ============================================================= -->
+        <div class="search-section">
+            <div class="search-wrap">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="jobSearch" placeholder="Search jobs by title, company, or keyword..." />
+            </div>
         </div>
 
-        <div class="carousel-inner">
-            <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1400&h=500&fit=crop');">
-                <div class="carousel-caption">
-                    <h2>Build Skills That <span>Open Doors</span></h2>
-                    <p>Practical career coaching, CV training, and interview preparation to help you land your dream job.</p>
-                    <a href="#" class="btn-hero">Get Started <i class="fas fa-arrow-right"></i></a>
+        <!-- ============================================================= -->
+        <!-- JOB GRID                                                      -->
+        <!-- ============================================================= -->
+        <div class="job-grid" id="jobGrid">
+            <!-- Cards injected by JavaScript -->
+        </div>
+
+        <!-- ============================================================= -->
+        <!-- FOOTER: 100+ JOB PORTALS & RECRUITING COMPANIES             -->
+        <!-- ============================================================= -->
+        <div class="footer-resources">
+            <div class="footer-title">
+                <span></span> 🌍 Explore 100+ Job Portals &amp; Recruiting Companies
+            </div>
+            <p class="footer-sub">
+                Discover opportunities in Tanzania, Africa, and worldwide — direct links to top job boards and recruitment agencies.
+            </p>
+
+            <div class="footer-grid">
+
+                <!-- ── Tanzania Job Portals ── -->
+                <div class="footer-col">
+                    <h5>🇹🇿 Tanzania</h5>
+                    <a href="https://ajira.go.tz" target="_blank">Ajira Portal (Gov)</a>
+                    <a href="https://www.zoomtanzania.com" target="_blank">Zoom Tanzania</a>
+                    <a href="https://www.tanzania.jobs" target="_blank">Tanzania.Jobs</a>
+                    <a href="https://www.careerjet.co.tz" target="_blank">CareerJet Tanzania</a>
+                    <a href="https://www.brightermonday.co.tz" target="_blank">BrighterMonday</a>
+                    <a href="https://www.jobsda.com" target="_blank">JobsDA</a>
+                    <a href="https://www.tanzania.go.tz" target="_blank">Tanzania Government</a>
+                    <a href="https://www.kaziconnect.co.tz" target="_blank">KaziConnect</a>
+                    <a href="https://www.talentalpha.co.tz" target="_blank">TalentAlpha</a>
+                    <a href="https://www.ngojobstz.com" target="_blank">NGO Jobs TZ</a>
+                    <a href="https://www.eastafricajobs.com" target="_blank">East Africa Jobs</a>
+                    <a href="https://www.un.org/tz" target="_blank">UN Tanzania</a>
                 </div>
-            </div>
-            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1400&h=500&fit=crop');">
-                <div class="carousel-caption">
-                    <h2>Discover <span>Opportunities</span></h2>
-                    <p>Access the latest jobs, internships, scholarships, and volunteer positions across Tanzania and beyond.</p>
-                    <a href="#" class="btn-hero">Explore Opportunities <i class="fas fa-arrow-right"></i></a>
+
+                <!-- ── African Job Boards ── -->
+                <div class="footer-col">
+                    <h5>🌍 Africa</h5>
+                    <a href="https://www.africajob.com" target="_blank">AfricaJob</a>
+                    <a href="https://www.africanjobs.com" target="_blank">AfricanJobs</a>
+                    <a href="https://www.jobberman.com" target="_blank">Jobberman</a>
+                    <a href="https://www.myjobmag.com" target="_blank">MyJobMag</a>
+                    <a href="https://www.bestjobsafrica.com" target="_blank">BestJobs Africa</a>
+                    <a href="https://www.jobsinafrica.com" target="_blank">JobsInAfrica</a>
+                    <a href="https://www.africa.com/jobs" target="_blank">Africa.com Jobs</a>
+                    <a href="https://www.careersinafrica.com" target="_blank">CareersInAfrica</a>
+                    <a href="https://www.afriscout.com" target="_blank">AfriScout</a>
+                    <a href="https://www.jobwebkenya.com" target="_blank">JobWeb Kenya</a>
+                    <a href="https://www.ugandajobs.com" target="_blank">Uganda Jobs</a>
+                    <a href="https://www.malawijobs.com" target="_blank">Malawi Jobs</a>
                 </div>
-            </div>
-            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1400&h=500&fit=crop');">
-                <div class="carousel-caption">
-                    <h2>Grow Your <span>Career</span></h2>
-                    <p>One-on-one coaching, mentorship, and resources to help you achieve your professional goals.</p>
-                    <a href="#" class="btn-hero">Join Now <i class="fas fa-arrow-right"></i></a>
+
+                <!-- ── International Job Boards ── -->
+                <div class="footer-col">
+                    <h5>🌎 Global</h5>
+                    <a href="https://www.linkedin.com/jobs" target="_blank">LinkedIn</a>
+                    <a href="https://www.indeed.com" target="_blank">Indeed</a>
+                    <a href="https://www.glassdoor.com" target="_blank">Glassdoor</a>
+                    <a href="https://www.monster.com" target="_blank">Monster</a>
+                    <a href="https://www.careerbuilder.com" target="_blank">CareerBuilder</a>
+                    <a href="https://www.simplyhired.com" target="_blank">SimplyHired</a>
+                    <a href="https://www.ziprecruiter.com" target="_blank">ZipRecruiter</a>
+                    <a href="https://www.flexjobs.com" target="_blank">FlexJobs</a>
+                    <a href="https://www.remotive.io" target="_blank">Remotive</a>
+                    <a href="https://www.workingnomads.com" target="_blank">Working Nomads</a>
+                    <a href="https://www.idealist.org" target="_blank">Idealist (NGO)</a>
+                    <a href="https://www.reliefweb.int/jobs" target="_blank">ReliefWeb</a>
                 </div>
+
+                <!-- ── Recruiting Companies ── -->
+                <div class="footer-col">
+                    <h5>🏢 Recruiters</h5>
+                    <a href="https://www.summithr.co.tz" target="_blank">Summit HR</a>
+                    <a href="https://www.manpower.co.tz" target="_blank">Manpower TZ</a>
+                    <a href="https://www.adecco.co.tz" target="_blank">Adecco TZ</a>
+                    <a href="https://www.hrsolutions.co.tz" target="_blank">HR Solutions</a>
+                    <a href="https://www.roberthalf.com" target="_blank">Robert Half</a>
+                    <a href="https://www.kellyservices.com" target="_blank">Kelly Services</a>
+                    <a href="https://www.randstad.com" target="_blank">Randstad</a>
+                    <a href="https://www.hays.com" target="_blank">Hays</a>
+                    <a href="https://www.michaelpage.com" target="_blank">Michael Page</a>
+                    <a href="https://www.robertwalters.com" target="_blank">Robert Walters</a>
+                    <a href="https://www.adecco.com" target="_blank">Adecco Global</a>
+                    <a href="https://www.manpowergroup.com" target="_blank">ManpowerGroup</a>
+                </div>
+
+                <!-- ── Banks & Finance ── -->
+                <div class="footer-col">
+                    <h5>🏦 Finance</h5>
+                    <a href="https://www.nmbbank.co.tz/careers" target="_blank">NMB Bank</a>
+                    <a href="https://www.crdbbank.co.tz" target="_blank">CRDB Bank</a>
+                    <a href="https://www.tcsh.co.tz" target="_blank">Tanzania Commercial Bank</a>
+                    <a href="https://www.kcb.co.tz/careers" target="_blank">KCB Bank</a>
+                    <a href="https://www.ecobank.com/careers" target="_blank">Ecobank</a>
+                    <a href="https://www.standardbank.co.tz" target="_blank">Standard Bank</a>
+                    <a href="https://www.abdubank.com" target="_blank">ABDU Bank</a>
+                    <a href="https://www.azaniabank.co.tz" target="_blank">Azania Bank</a>
+                    <a href="https://www.ibm.com/tz-en/employment" target="_blank">IBM TZ</a>
+                    <a href="https://www.mfinance.com" target="_blank">M-Finance</a>
+                </div>
+
+                <!-- ── NGOs & Development ── -->
+                <div class="footer-col">
+                    <h5>🤝 NGOs</h5>
+                    <a href="https://www.undp.org/tanzania/jobs" target="_blank">UNDP</a>
+                    <a href="https://www.unesco.org/careers" target="_blank">UNESCO</a>
+                    <a href="https://www.unicef.org/careers" target="_blank">UNICEF</a>
+                    <a href="https://www.who.int/careers" target="_blank">WHO</a>
+                    <a href="https://www.ilo.org/careers" target="_blank">ILO</a>
+                    <a href="https://www.worldbank.org/careers" target="_blank">World Bank</a>
+                    <a href="https://www.ifc.org/careers" target="_blank">IFC</a>
+                    <a href="https://www.afdb.org/careers" target="_blank">AfDB</a>
+                    <a href="https://www.rescue.org/careers" target="_blank">IRC</a>
+                    <a href="https://www.oxfam.org/en/careers" target="_blank">Oxfam</a>
+                    <a href="https://www.savethechildren.org/careers" target="_blank">Save the Children</a>
+                    <a href="https://www.care.org/careers" target="_blank">CARE</a>
+                </div>
+
+                <!-- ── Tech & IT ── -->
+                <div class="footer-col">
+                    <h5>💻 Tech</h5>
+                    <a href="https://www.microsoft.com/careers" target="_blank">Microsoft</a>
+                    <a href="https://www.google.com/careers" target="_blank">Google</a>
+                    <a href="https://www.amazon.jobs" target="_blank">Amazon</a>
+                    <a href="https://www.apple.com/careers" target="_blank">Apple</a>
+                    <a href="https://www.ibm.com/careers" target="_blank">IBM</a>
+                    <a href="https://www.oracle.com/careers" target="_blank">Oracle</a>
+                    <a href="https://www.sap.com/careers" target="_blank">SAP</a>
+                    <a href="https://www.cisco.com/careers" target="_blank">Cisco</a>
+                    <a href="https://www.hp.com/careers" target="_blank">HP</a>
+                    <a href="https://www.dell.com/careers" target="_blank">Dell</a>
+                    <a href="https://www.intel.com/careers" target="_blank">Intel</a>
+                    <a href="https://www.ericsson.com/careers" target="_blank">Ericsson</a>
+                </div>
+
+                <!-- ── Consulting ── -->
+                <div class="footer-col">
+                    <h5>📊 Consulting</h5>
+                    <a href="https://www.mckinsey.com/careers" target="_blank">McKinsey</a>
+                    <a href="https://www.bcg.com/careers" target="_blank">BCG</a>
+                    <a href="https://www.bain.com/careers" target="_blank">Bain</a>
+                    <a href="https://www2.deloitte.com/careers" target="_blank">Deloitte</a>
+                    <a href="https://www.pwc.com/careers" target="_blank">PwC</a>
+                    <a href="https://www.ey.com/careers" target="_blank">EY</a>
+                    <a href="https://www.kpmg.com/careers" target="_blank">KPMG</a>
+                    <a href="https://www.accenture.com/careers" target="_blank">Accenture</a>
+                    <a href="https://www.capgemini.com/careers" target="_blank">Capgemini</a>
+                    <a href="https://www.ibm.com/consulting" target="_blank">IBM Consulting</a>
+                    <a href="https://www.mercer.com/careers" target="_blank">Mercer</a>
+                    <a href="https://www.leapfrog.com" target="_blank">Leapfrog</a>
+                </div>
+
+                <!-- ── Remote & Freelance ── -->
+                <div class="footer-col">
+                    <h5>🏡 Remote</h5>
+                    <a href="https://www.upwork.com" target="_blank">Upwork</a>
+                    <a href="https://www.freelancer.com" target="_blank">Freelancer</a>
+                    <a href="https://www.fiverr.com" target="_blank">Fiverr</a>
+                    <a href="https://www.toptal.com" target="_blank">Toptal</a>
+                    <a href="https://www.peopleperhour.com" target="_blank">PeoplePerHour</a>
+                    <a href="https://www.guru.com" target="_blank">Guru</a>
+                    <a href="https://www.remotely.com" target="_blank">Remotely</a>
+                    <a href="https://www.weworkremotely.com" target="_blank">We Work Remotely</a>
+                    <a href="https://www.remote.co" target="_blank">Remote.co</a>
+                    <a href="https://www.jobspresso.com" target="_blank">Jobspresso</a>
+                    <a href="https://www.skip-the-drive.com" target="_blank">Skip the Drive</a>
+                    <a href="https://www.pangian.com" target="_blank">Pangian</a>
+                </div>
+
+                <!-- ── Manufacturing & Industry ── -->
+                <div class="footer-col">
+                    <h5>🏭 Industry</h5>
+                    <a href="https://www.tanzaniacement.com/careers" target="_blank">Tanzania Cement</a>
+                    <a href="https://www.bakhresa.com/careers" target="_blank">Bakhresa Group</a>
+                    <a href="https://www.kilimanjaro.com/careers" target="_blank">Kilimanjaro Breweries</a>
+                    <a href="https://www.africaproducts.com" target="_blank">African Products</a>
+                    <a href="https://www.tatachemicals.com" target="_blank">Tata Chemicals</a>
+                    <a href="https://www.bp.com/careers" target="_blank">BP</a>
+                    <a href="https://www.shell.com/careers" target="_blank">Shell</a>
+                    <a href="https://www.coca-cola.com/careers" target="_blank">Coca-Cola</a>
+                    <a href="https://www.pepsico.com/careers" target="_blank">PepsiCo</a>
+                    <a href="https://www.nestle.com/careers" target="_blank">Nestlé</a>
+                    <a href="https://www.unilever.com/careers" target="_blank">Unilever</a>
+                    <a href="https://www.mwanza.com" target="_blank">Mwanza Industrial</a>
+                </div>
+
             </div>
         </div>
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-
-        <!-- MARQUEE -->
-        <div class="hero-marquee">
-            <div class="marquee-track">
-                <span>📢 NEW: CV Customisation Workshop — Register Now!</span>
-                <span>🎓 Scholarships Available — Apply Before Deadline</span>
-                <span>💼 50+ Jobs Posted This Week — View Opportunities</span>
-                <span>📝 Interview Preparation Sessions — Book Your Slot</span>
-                <span>🚀 Career Coaching — One-on-One Sessions Available</span>
-                <span>📢 NEW: CV Customisation Workshop — Register Now!</span>
-                <span>🎓 Scholarships Available — Apply Before Deadline</span>
-                <span>💼 50+ Jobs Posted This Week — View Opportunities</span>
-            </div>
+        <!-- ============================================================= -->
+        <!-- WHATSAPP CTA BOTTOM                                           -->
+        <!-- ============================================================= -->
+        <div style="display: flex; justify-content: center; margin: 0.5rem 0 1rem;">
+            <a href="https://wa.me/255774554665?text=Hello%21%20I%20need%20job%20guidance" target="_blank" class="whatsapp-cta-bottom">
+                <span>💬</span> Need job guidance? Chat on WhatsApp
+            </a>
         </div>
+
+        <!-- ============================================================= -->
+        <!-- FOOTER BOTTOM                                                 -->
+        <!-- ============================================================= -->
+        <div class="footer-bottom">
+            <span>&copy; 2026 Career Connect TZ. All rights reserved.</span>
+            <span style="display: flex; gap: 1.2rem;">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </span>
+        </div>
+
     </div>
-
-    <!-- ============================================================= -->
-    <!-- WHAT WE DO – HORIZONTAL SCROLL (MANUAL)                      -->
-    <!-- ============================================================= -->
-    <section class="features-section">
-        <div class="container">
-            <div class="text-center mb-4">
-                <span class="section-badge">✦ What We Do</span>
-                <h2 class="section-title">Our Core Services</h2>
-                <p class="section-subtitle">Scroll horizontally to explore all the ways we support your career growth.</p>
-            </div>
-
-            <!-- Horizontal Scroll Container -->
-            <div class="services-scroll">
-                <div class="services-scroll-track" id="servicesTrack">
-                    <!-- Card 1 -->
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-file-alt"></i></div>
-                        <h5>CV Customisation</h5>
-                        <p>Learn to craft a professional CV that gets noticed by recruiters and passes ATS screening.</p>
-                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-comments"></i></div>
-                        <h5>Interview Preparation</h5>
-                        <p>Master the art of interviews with proven techniques, mock sessions, and confidence-building.</p>
-                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-user-graduate"></i></div>
-                        <h5>Scholarship Guidance</h5>
-                        <p>Get expert advice on writing winning scholarship applications and personal statements.</p>
-                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-bullseye"></i></div>
-                        <h5>Career Coaching</h5>
-                        <p>One-on-one coaching to help you define your career path, set goals, and achieve success.</p>
-                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <!-- Card 5 -->
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-search"></i></div>
-                        <h5>Job Placement</h5>
-                        <p>Access to curated job listings, internships, and volunteer opportunities across Tanzania.</p>
-                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <!-- Card 6 -->
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                        <h5>Research Mentorship</h5>
-                        <p>Develop strong research skills, scientific writing, and academic presentation techniques.</p>
-                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <!-- Card 7 -->
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-handshake"></i></div>
-                        <h5>Networking Events</h5>
-                        <p>Connect with professionals, employers, and like-minded individuals through our events.</p>
-                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <!-- Card 8 -->
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-book"></i></div>
-                        <h5>Learning Resources</h5>
-                        <p>Access a curated library of templates, guides, and reading materials for career growth.</p>
-                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Scroll Hint -->
-                <div class="scroll-hint">
-                    <span>←</span>
-                    <span>Scroll to see more <i class="fas fa-arrow-right"></i></span>
-                    <span>→</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================= -->
-    <!-- FOOTER                                                        -->
-    <!-- ============================================================= -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <h5>About CareerConnectTZ</h5>
-                    <p>We are a career development platform helping students and young professionals build skills, access opportunities, and grow professionally across Tanzania and beyond.</p>
-                    <div class="footer-social">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <h5>Quick Links</h5>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Opportunities</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5>Our Services</h5>
-                    <ul>
-                        <li><a href="#">CV Customisation</a></li>
-                        <li><a href="#">Interview Preparation</a></li>
-                        <li><a href="#">Career Coaching</a></li>
-                        <li><a href="#">Scholarship Guidance</a></li>
-                        <li><a href="#">Research Mentorship</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5>Contact Us</h5>
-                    <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> Dar es Salaam, Tanzania</li>
-                        <li><i class="fas fa-phone-alt"></i> +255 774 554 665</li>
-                        <li><i class="fas fa-envelope"></i> info@careerconnecttz.com</li>
-                        <li><i class="fas fa-clock"></i> Mon–Fri: 8:00am – 5:00pm</li>
-                    </ul>
-                    <a href="https://wa.me/255774554665" target="_blank" class="whatsapp-footer-btn">
-                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-                    </a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 CareerConnectTZ. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
 
     <!-- ============================================================= -->
     <!-- FLOATING WHATSAPP POPUP                                       -->
@@ -338,19 +293,15 @@
         <div class="whatsapp-popup" id="waPopup">
             <button class="popup-close" id="waClose">✕</button>
             <strong>📢 Join Our WhatsApp Channel</strong>
-            <p style="font-size: 0.8rem; color: #6a6a8a;">Get daily coaching tips, job alerts, and scholarship updates.</p>
-            <a href="https://wa.me/255774554665?text=Hello%21%20I%20want%20to%20join%20the%20CareerConnectTZ%20WhatsApp%20channel" target="_blank" class="popup-link">💬 Join Now</a>
+            <p style="font-size: 0.75rem; color: #5c4a3a;">Daily job alerts &amp; career tips</p>
+            <a href="https://wa.me/255774554665?text=Hello%21%20I%20want%20to%20join%20the%20career%20channel" target="_blank" class="popup-link">💬 Join Now</a>
         </div>
         <button class="wa-icon" id="waToggle" aria-label="WhatsApp">💬</button>
     </div>
 
     <!-- ============================================================= -->
-    <!-- Bootstrap 5 JS Bundle                                          -->
+    <!-- JAVASCRIPT                                                     -->
     <!-- ============================================================= -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
-    </script>
-
-    <!-- Custom JavaScript -->
-    <script src="script.js"></script>
+    <script src="jobs.js"></script>
 </body>
 </html>
