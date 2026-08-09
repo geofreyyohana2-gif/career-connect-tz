@@ -1,238 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Career Connect TZ | Career Development Platform</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerConnectTZ · Career Coaching &amp; Development</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ================= NAVIGATION BAR ================= -->
-  <header>
-    <nav>
-      <a href="#home" class="logo">Career Connect TZ</a>
-      
-      <!-- Mobile Menu Toggle Button -->
-      <button class="mobile-menu-btn" aria-label="Toggle Navigation" aria-expanded="false">
-        ☰
-      </button>
+    <!-- ============================================================= -->
+    <!-- TOP BAR: Social Icons + Language Switch                       -->
+    <!-- ============================================================= -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 col-8">
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-4 text-end">
+                    <div class="language-switch">
+                        <a href="#" class="active">EN</a>
+                        <span class="separator">|</span>
+                        <a href="#">SW</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        
-        <!-- Career Coaching Dropdown -->
-        <li class="dropdown">
-          <a href="#coaching" class="dropdown-toggle">Career Coaching <span class="arrow">▼</span></a>
-          <ul class="dropdown-menu">
-            <li><a href="cv-customisation.html">CV Preparation</a></li>
-            <li><a href="interview-prep.html">Interview Mastery</a></li>
-            <li><a href="research-skills.html">Research &amp; Academic</a></li>
-          </ul>
-        </li>
+    <!-- ============================================================= -->
+    <!-- MAIN HEADER: Logo + Quick Links                               -->
+    <!-- ============================================================= -->
+    <header class="main-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Logo -->
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="logo-wrapper">
+                        <div class="logo-placeholder">
+                            <i class="fas fa-briefcase" style="font-size: 2.4rem; color: #c4753c;"></i>
+                        </div>
+                        <div class="brand-text">
+                            <div class="org-name">Career<span>Connect</span> TZ</div>
+                            <div class="tagline">Build Skills · Discover Opportunities · Grow Your Career</div>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Opportunities Dropdown -->
-        <li class="dropdown">
-          <a href="#opportunities" class="dropdown-toggle">Opportunities <span class="arrow">▼</span></a>
-          <ul class="dropdown-menu">
-            <li><a href="internships.html">Internships</a></li>
-            <li><a href="jobs.html">Jobs</a></li>
-            <li><a href="scholarship.html">Scholarships</a></li>
-            <li><a href="volunteer.html">Volunteer</a></li>
-          </ul>
-        </li>
+                <!-- Quick Links -->
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="quick-links">
+                        <a href="#"><i class="fas fa-envelope"></i> info@careerconnecttz.com</a>
+                        <a href="#"><i class="fas fa-phone-alt"></i> +255 774 554 665</a>
+                        <a href="#"><i class="fas fa-user"></i> Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-        <!-- Resources Dropdown -->
-        <li class="dropdown">
-          <a href="#resources" class="dropdown-toggle">Resources <span class="arrow">▼</span></a>
-          <ul class="dropdown-menu">
-            <li><a href="books.html">Books to Read</a></li>
-            <li><a href="templates.html">Templates</a></li>
-            <li><a href="websites.html">Other Websites</a></li>
-          </ul>
-        </li>
-      </ul>
+    <!-- ============================================================= -->
+    <!-- NAVIGATION (Bootstrap Navbar)                                 -->
+    <!-- ============================================================= -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- Home -->
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+
+                    <!-- About (with dropdown) -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            About Us
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                            <li><a class="dropdown-item" href="#">Our Mission</a></li>
+                            <li><a class="dropdown-item" href="#">Our Vision</a></li>
+                            <li><a class="dropdown-item" href="#">Our Team</a></li>
+                            <li><a class="dropdown-item" href="#">Our Story</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Annual Reports</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Services (with dropdown) -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="#">CV Customisation</a></li>
+                            <li><a class="dropdown-item" href="#">Interview Preparation</a></li>
+                            <li><a class="dropdown-item" href="#">Career Coaching</a></li>
+                            <li><a class="dropdown-item" href="#">Scholarship Guidance</a></li>
+                            <li><a class="dropdown-item" href="#">Research Mentorship</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Opportunities (with dropdown) -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="oppDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Opportunities
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="oppDropdown">
+                            <li><a class="dropdown-item" href="#">Jobs</a></li>
+                            <li><a class="dropdown-item" href="#">Internships</a></li>
+                            <li><a class="dropdown-item" href="#">Scholarships</a></li>
+                            <li><a class="dropdown-item" href="#">Volunteer</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Training Programs</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Resources -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Resources</a>
+                    </li>
+
+                    <!-- Contact -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+
+                <!-- Search -->
+                <form class="d-flex" role="search">
+                    <input class="form-control form-control-sm me-2" type="search" placeholder="Search..." aria-label="Search">
+                    <button class="btn btn-outline-light btn-sm" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </div>
     </nav>
-  </header>
 
-  <!-- ================= HERO SECTION ================= -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>Build Skills. Discover Opportunities. Grow Your Career.</h1>
-      <p>Empowering students and professionals across Tanzania with practical career coaching, academic research skills, and real-time job and opportunities.</p>
-      <a href="#coaching" class="btn">Explore Coaching</a>
-    </div>
-  </section>
-
-  <!-- ================= CAREER COACHING ================= -->
-  <section id="coaching" class="section-container">
-    <h2>Career Coaching &amp; Learning</h2>
-
-    <div class="card-grid">
-
-      <div class="card coaching-card">
-        <div class="card-icon">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 2v4"/><path d="M16 2v4"/><path d="M2 10h20"/></svg>
+    <!-- ============================================================= -->
+    <!-- HERO CAROUSEL WITH RUNNING TEXT (MARQUEE)                    -->
+    <!-- ============================================================= -->
+    <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <h3>CV Customisation Training</h3>
-        <p>Learn how to customize your CV for different job descriptions and make it ATS friendly.</p>
-        <a href="cv-customisation.html" class="view-more-btn">
-          View More
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
-      </div>
 
-      <div class="card coaching-card">
-        <div class="card-icon">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></svg>
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1400&h=500&fit=crop');">
+                <div class="carousel-caption">
+                    <h2>Build Skills That <span>Open Doors</span></h2>
+                    <p>Practical career coaching, CV training, and interview preparation to help you land your dream job.</p>
+                    <a href="#" class="btn-hero">Get Started <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1400&h=500&fit=crop');">
+                <div class="carousel-caption">
+                    <h2>Discover <span>Opportunities</span></h2>
+                    <p>Access the latest jobs, internships, scholarships, and volunteer positions across Tanzania and beyond.</p>
+                    <a href="#" class="btn-hero">Explore Opportunities <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1400&h=500&fit=crop');">
+                <div class="carousel-caption">
+                    <h2>Grow Your <span>Career</span></h2>
+                    <p>One-on-one coaching, mentorship, and resources to help you achieve your professional goals.</p>
+                    <a href="#" class="btn-hero">Join Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
         </div>
-        <h3>Interview Preparation</h3>
-        <p>Training on answering interview questions professionally and confidently.</p>
-        <a href="interview-prep.html" class="view-more-btn">
-          View More
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
-      </div>
 
-      <div class="card coaching-card">
-        <div class="card-icon">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+
+        <!-- RUNNING TEXT / MARQUEE (at the bottom of hero) -->
+        <div class="hero-marquee">
+            <div class="marquee-track">
+                <span>📢 NEW: CV Customisation Workshop — Register Now!</span>
+                <span>🎓 Scholarships Available — Apply Before Deadline</span>
+                <span>💼 50+ Jobs Posted This Week — View Opportunities</span>
+                <span>📝 Interview Preparation Sessions — Book Your Slot</span>
+                <span>🚀 Career Coaching — One-on-One Sessions Available</span>
+                <span>📢 NEW: CV Customisation Workshop — Register Now!</span>
+                <span>🎓 Scholarships Available — Apply Before Deadline</span>
+                <span>💼 50+ Jobs Posted This Week — View Opportunities</span>
+            </div>
         </div>
-        <h3>Scholarship Application Skills</h3>
-        <p>Learn how to prepare strong scholarship applications, motivation letters and personal statements.</p>
-        <a href="scholarship-skills.html" class="view-more-btn">
-          View More
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
-      </div>
+    </div>
 
-      <div class="card coaching-card">
-        <div class="card-icon">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+    <!-- ============================================================= -->
+    <!-- WHAT WE DO (SERVICES / FEATURES SECTION)                     -->
+    <!-- ============================================================= -->
+    <section class="features-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-badge">What We Do</span>
+                <h2 class="section-title">Our Core Services</h2>
+                <p class="section-subtitle">Empowering you with the skills, guidance, and opportunities to build a successful career.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Service 1 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h5>CV Customisation</h5>
+                        <p>Learn to craft a professional CV that gets noticed by recruiters and passes ATS screening.</p>
+                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h5>Interview Preparation</h5>
+                        <p>Master the art of interviews with proven techniques, mock sessions, and confidence-building.</p>
+                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h5>Scholarship Guidance</h5>
+                        <p>Get expert advice on writing winning scholarship applications and personal statements.</p>
+                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h5>Career Coaching</h5>
+                        <p>One-on-one coaching to help you define your career path, set goals, and achieve success.</p>
+                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 5 (extra row) -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h5>Job Placement</h5>
+                        <p>Access to curated job listings, internships, and volunteer opportunities across Tanzania.</p>
+                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h5>Research Mentorship</h5>
+                        <p>Develop strong research skills, scientific writing, and academic presentation techniques.</p>
+                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 7 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h5>Networking Events</h5>
+                        <p>Connect with professionals, employers, and like-minded individuals through our events.</p>
+                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 8 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h5>Learning Resources</h5>
+                        <p>Access a curated library of templates, guides, and reading materials for career growth.</p>
+                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <h3>Research &amp; Academic Skills</h3>
-        <p>Research guidance, scientific writing and academic development.</p>
-        <a href="research-skills.html" class="view-more-btn">
-          View More
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
-      </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- ============================================================= -->
+    <!-- FOOTER                                                         -->
+    <!-- ============================================================= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <!-- About -->
+                <div class="col-lg-4 col-md-6">
+                    <h5>About CareerConnectTZ</h5>
+                    <p>We are a career development platform helping students and young professionals build skills, access opportunities, and grow professionally across Tanzania and beyond.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
 
-  <!-- ================= JOB OPPORTUNITIES ================= -->
-  <section id="opportunities" class="section-container">
-    <h2>Latest Job Opportunities</h2>
-    <div class="scroll-grid">
-      <div class="card">
-        <h3>Conservation Jobs</h3>
-        <p>Example: Wildlife Officer, Environmental Assistant, Research Assistant.</p>
-        <a href="jobs.html" class="card-link">Read More &rarr;</a>
-      </div>
-      <div class="card">
-        <h3>Administration Jobs</h3>
-        <p>Example: Office Assistant, HR Assistant, Project Coordinator.</p>
-        <a href="jobs.html" class="card-link">Read More &rarr;</a>
-      </div>
-      <div class="card">
-        <h3>Internships</h3>
-        <p>Example: Graduate internships and volunteer opportunities.</p>
-        <a href="internships.html" class="card-link">Read More &rarr;</a>
-      </div>
-    </div>
-  </section>
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Opportunities</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
 
-  <!-- ================= SCHOLARSHIPS ================= -->
-  <section id="scholarships" class="section-container">
-    <h2>Scholarship Opportunities</h2>
-    <div class="scroll-grid">
-      <div class="card">
-        <h3>Master's Excellence Award</h3>
-        <p><strong>Country:</strong> United Kingdom</p>
-        <p>Fully funded master's scholarship supporting international students in research and innovation.</p>
-        <p><strong>Deadline:</strong> Oct 30, 2026</p>
-        <a href="scholarship-skills.html" class="card-link">Read More &rarr;</a>
-      </div>
-      <div class="card">
-        <h3>Global Leadership Grant</h3>
-        <p><strong>Country:</strong> Canada</p>
-        <p>Partial scholarship covering tuition and living stipends for undergraduate candidates.</p>
-        <p><strong>Deadline:</strong> Nov 15, 2026</p>
-        <a href="scholarship-skills.html" class="card-link">Read More &rarr;</a>
-      </div>
-    </div>
-  </section>
+                <!-- Services -->
+                <div class="col-lg-3 col-md-6">
+                    <h5>Our Services</h5>
+                    <ul>
+                        <li><a href="#">CV Customisation</a></li>
+                        <li><a href="#">Interview Preparation</a></li>
+                        <li><a href="#">Career Coaching</a></li>
+                        <li><a href="#">Scholarship Guidance</a></li>
+                        <li><a href="#">Research Mentorship</a></li>
+                    </ul>
+                </div>
 
-  <!-- ================= RESOURCES ================= -->
-  <section id="resources" class="section-container">
-    <h2>Career Resources</h2>
-    <div class="scroll-grid">
-      <div class="card">
-        <h3>CV &amp; Cover Letter Templates</h3>
-        <p>Download free, ATS-optimized resume formats tailored for Tanzanian job markets.</p>
-        <a href="templates.html" class="card-link">Explore Templates &rarr;</a>
-      </div>
-      <div class="card">
-        <h3>Recommended Reading</h3>
-        <p>Essential career development books to sharpen leadership and soft skills.</p>
-        <a href="books.html" class="card-link">View Reading List &rarr;</a>
-      </div>
-    </div>
-  </section>
+                <!-- Contact -->
+                <div class="col-lg-3 col-md-6">
+                    <h5>Contact Us</h5>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Dar es Salaam, Tanzania</li>
+                        <li><i class="fas fa-phone-alt"></i> +255 774 554 665</li>
+                        <li><i class="fas fa-envelope"></i> info@careerconnecttz.com</li>
+                        <li><i class="fas fa-clock"></i> Mon–Fri: 8:00am – 5:00pm</li>
+                    </ul>
+                    <a href="https://wa.me/255774554665" target="_blank" class="whatsapp-footer-btn">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
 
-  <!-- ================= PROFESSIONAL FOOTER ================= -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-column">
-        <h3>Career Connect TZ</h3>
-        <p>A career development platform helping students and young professionals build skills, access opportunities, and grow professionally.</p>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CareerConnectTZ. All Rights Reserved.</p>
+            </div>
         </div>
-      </div>
-      
-      <div class="footer-column">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#coaching">Career Coaching</a></li>
-          <li><a href="#opportunities">Job Opportunities</a></li>
-          <li><a href="#scholarships">Scholarships</a></li>
-          <li><a href="#resources">Resources</a></li>
-        </ul>
-      </div>
+    </footer>
 
-      <div class="footer-column">
-        <h3>What We Offer</h3>
-        <ul>
-          <li>Career Development Training</li>
-          <li>CV Customisation Skills</li>
-          <li>Interview Preparation</li>
-          <li>Scholarship Guidance</li>
-          <li>Research Mentorship</li>
-          <li>Professional Skills Development</li>
-        </ul>
-      </div>
+    <!-- ============================================================= -->
+    <!-- Bootstrap 5 JS Bundle                                          -->
+    <!-- ============================================================= -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+    </script>
 
-      <div class="footer-column">
-        <h3>Contact Us</h3>
-        <p>Email: support@careerconnecttz.com</p>
-        <p>Phone: +255 774 554 665</p>
-        <p>Location: Tanzania</p>
-        <a class="whatsapp-btn" href="https://wa.me/255774554665" target="_blank" rel="noopener noreferrer">Chat On WhatsApp</a>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2026 Career Connect TZ. All Rights Reserved.</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
