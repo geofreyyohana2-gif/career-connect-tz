@@ -1562,33 +1562,397 @@ ul {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    // ── LANGUAGE SWITCHER ──
-    var langLinks = document.querySelectorAll('.language-switch-nav a');
+    // =============================================================
+    // 1. LANGUAGE SWITCHER (EN / SW) - FULLY WORKING
+    // =============================================================
+    const langLinks = document.querySelectorAll('.language-switch-nav a');
+    let currentLang = 'en';
+
+    // ── Translations ──
+    const translations = {
+        en: {
+            logo: 'CareerConnect TZ',
+            tagline: 'Build Skills · Discover Opportunities · Grow Your Career',
+            home: 'Home',
+            about: 'About Us',
+            mission: 'Our Mission',
+            vision: 'Our Vision',
+            team: 'Our Team',
+            story: 'Our Story',
+            reports: 'Annual Reports',
+            services: 'Services',
+            cv: 'CV Customisation',
+            interview: 'Interview Preparation',
+            coaching: 'Career Coaching',
+            scholarship: 'Scholarship Guidance',
+            research: 'Research Mentorship',
+            opportunities: 'Opportunities',
+            jobs: 'Jobs',
+            internships: 'Internships',
+            scholarships: 'Scholarships',
+            volunteer: 'Volunteer',
+            training: 'Training Programs',
+            resources: 'Resources',
+            contact: 'Contact',
+            search_placeholder: 'Search...',
+            search_btn: 'Search',
+            hero_badge: 'Career Development',
+            hero_title: 'Build Skills That Open Doors',
+            hero_subtitle: 'Practical career coaching, CV training, and interview preparation to help you land your dream job.',
+            hero_btn: 'Get Started',
+            hero_slide2_title: 'Discover Opportunities',
+            hero_slide2_sub: 'Access the latest jobs, internships, scholarships, and volunteer positions across Tanzania and beyond.',
+            hero_slide2_btn: 'Explore Opportunities',
+            hero_slide3_title: 'Grow Your Career',
+            hero_slide3_sub: 'One-on-one coaching, mentorship, and resources to help you achieve your professional goals.',
+            hero_slide3_btn: 'Join Now',
+            section_badge: 'What We Do',
+            section_title: 'Our Core Services',
+            section_sub: 'Scroll horizontally to explore all the ways we support your career growth.',
+            cv_desc: 'Learn to craft a professional CV that gets noticed by recruiters and passes ATS screening.',
+            interview_desc: 'Master the art of interviews with proven techniques, mock sessions, and confidence-building.',
+            scholarship_desc: 'Get expert advice on writing winning scholarship applications and personal statements.',
+            coaching_desc: 'One-on-one coaching to help you define your career path, set goals, and achieve success.',
+            job_desc: 'Access to curated job listings, internships, and volunteer opportunities across Tanzania.',
+            research_desc: 'Develop strong research skills, scientific writing, and academic presentation techniques.',
+            networking_desc: 'Connect with professionals, employers, and like-minded individuals through our events.',
+            resources_desc: 'Access a curated library of templates, guides, and reading materials for career growth.',
+            learn_more: 'Learn More',
+            scroll_hint: 'Scroll to see more',
+            footer_about: 'About CareerConnectTZ',
+            footer_about_text: 'We are a career development platform helping students and young professionals build skills, access opportunities, and grow professionally across Tanzania and beyond.',
+            footer_quick: 'Quick Links',
+            footer_services: 'Our Services',
+            footer_contact: 'Contact Us',
+            footer_address: 'Dar es Salaam, Tanzania',
+            footer_phone: '+255 774 554 665',
+            footer_email: 'info@careerconnecttz.com',
+            footer_hours: 'Mon–Fri: 8:00am – 5:00pm',
+            footer_chat: 'Chat on WhatsApp',
+            footer_copyright: '© 2026 CareerConnectTZ. All Rights Reserved.',
+            wa_title: 'Join Our WhatsApp Channel',
+            wa_sub: 'Get daily coaching tips, job alerts, and scholarship updates.',
+            wa_btn: 'Join Now',
+            marquee_1: 'NEW: CV Customisation Workshop — Register Now!',
+            marquee_2: 'Scholarships Available — Apply Before Deadline',
+            marquee_3: '50+ Jobs Posted This Week — View Opportunities',
+            marquee_4: 'Interview Preparation Sessions — Book Your Slot',
+            marquee_5: 'Career Coaching — One-on-One Sessions Available',
+        },
+        sw: {
+            logo: 'CareerConnect TZ',
+            tagline: 'Jenga Ujuzi · Gundua Fursa · Kua Katika Kazi Yako',
+            home: 'Nyumbani',
+            about: 'Kuhusu Sisi',
+            mission: 'Dhamira Yetu',
+            vision: 'Maono Yetu',
+            team: 'Timu Yetu',
+            story: 'Hadithi Yetu',
+            reports: 'Ripoti za Mwaka',
+            services: 'Huduma',
+            cv: 'Uandaaji wa CV',
+            interview: 'Maandalizi ya Mahojiano',
+            coaching: 'Ushauri wa Kazi',
+            scholarship: 'Mwongozo wa Masomo',
+            research: 'Ushauri wa Utafiti',
+            opportunities: 'Fursa',
+            jobs: 'Kazi',
+            internships: 'Mafunzo ya Kazini',
+            scholarships: 'Masomo',
+            volunteer: 'Kujitolea',
+            training: 'Mipango ya Mafunzo',
+            resources: 'Rasilimali',
+            contact: 'Wasiliana Nasi',
+            search_placeholder: 'Tafuta...',
+            search_btn: 'Tafuta',
+            hero_badge: 'Maendeleo ya Kazi',
+            hero_title: 'Jenga Ujuzi Unaofungua Milango',
+            hero_subtitle: 'Ushauri wa vitendo wa kazi, mafunzo ya CV, na maandalizi ya mahojiano kukusaidia kupata kazi ndoto yako.',
+            hero_btn: 'Anza Sasa',
+            hero_slide2_title: 'Gundua Fursa',
+            hero_slide2_sub: 'Pata kazi mpya, mafunzo, masomo, na fursa za kujitolea nchini Tanzania na kwingineko.',
+            hero_slide2_btn: 'Gundua Fursa',
+            hero_slide3_title: 'Kua Katika Kazi Yako',
+            hero_slide3_sub: 'Ushauri wa kibinafsi na rasilimali kukusaidia kufikia malengo yako ya kitaaluma.',
+            hero_slide3_btn: 'Jiunge Sasa',
+            section_badge: 'Tunachofanya',
+            section_title: 'Huduma Zetu',
+            section_sub: 'Tembeza kwa mlalo ili kuona huduma zote tunazotoa kwa maendeleo yako.',
+            cv_desc: 'Jifunze kuandika CV inayovutia waajiri na kupita uchunguzi wa ATS.',
+            interview_desc: 'Boresha ujuzi wako wa mahojiano kwa mbinu zilizothibitishwa na kujiamini.',
+            scholarship_desc: 'Pata ushauri wa kitaalamu wa kuandika maombi ya masomo na taarifa za kibinafsi.',
+            coaching_desc: 'Ushauri wa kibinafsi kukusaidia kuweka malengo na kufanikiwa katika kazi yako.',
+            job_desc: 'Pata orodha ya kazi, mafunzo, na fursa za kujitolea nchini Tanzania.',
+            research_desc: 'Boresha ujuzi wa utafiti, uandishi wa kisayansi, na mbinu za uwasilishaji.',
+            networking_desc: 'Ungana na wataalamu, waajiri, na watu wenye nia kama yako kupitia matukio yetu.',
+            resources_desc: 'Pata maktaba ya violezo, miongozo, na vifaa vya kusoma kwa maendeleo ya kazi.',
+            learn_more: 'Soma Zaidi',
+            scroll_hint: 'Tembeza ili kuona zaidi',
+            footer_about: 'Kuhusu CareerConnectTZ',
+            footer_about_text: 'Sisi ni jukwaa la maendeleo ya kazi linalosaidia wanafunzi na wataalamu wachanga kujenga ujuzi, kupata fursa, na kukua kitaaluma nchini Tanzania na kwingineko.',
+            footer_quick: 'Viungo vya Haraka',
+            footer_services: 'Huduma Zetu',
+            footer_contact: 'Wasiliana Nasi',
+            footer_address: 'Dar es Salaam, Tanzania',
+            footer_phone: '+255 774 554 665',
+            footer_email: 'info@careerconnecttz.com',
+            footer_hours: 'Jumatatu–Ijumaa: 8:00am – 5:00pm',
+            footer_chat: 'Ongea kwenye WhatsApp',
+            footer_copyright: '© 2026 CareerConnectTZ. Haki Zote Zimehifadhiwa.',
+            wa_title: 'Jiunge na Kituo Chetu cha WhatsApp',
+            wa_sub: 'Pata vidokezo vya kila siku vya kazi, taarifa za kazi, na masasisho ya masomo.',
+            wa_btn: 'Jiunge Sasa',
+            marquee_1: 'MPYA: Warsha ya Uandaaji wa CV — Jisajili Sasa!',
+            marquee_2: 'Masomo Yanapatikana — Omba Kabla ya Tarehe ya Mwisho',
+            marquee_3: 'Kazi 50+ Zimetumwa Wiki Hii — Tazama Fursa',
+            marquee_4: 'Vipindi vya Maandalizi ya Mahojiano — Weka Nafasi Yako',
+            marquee_5: 'Ushauri wa Kazi — Vipindi vya Kibinafsi Vinapatikana',
+        }
+    };
+
+    // ── Apply translations to the page ──
+    function applyLanguage(lang) {
+        const t = translations[lang];
+
+        // Logo & Tagline
+        document.querySelector('.org-name')?.replaceChild(
+            document.createTextNode(t.logo),
+            document.querySelector('.org-name').firstChild
+        );
+        document.querySelector('.tagline').textContent = t.tagline;
+
+        // Navigation
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(function(link) {
+            const href = link.getAttribute('href');
+            const text = link.textContent.trim();
+            if (href === '#' || href === '' || href === '#home') {
+                if (text === 'Home' || text === 'Nyumbani') link.textContent = t.home;
+            }
+            // Dropdown toggles
+            if (link.classList.contains('dropdown-toggle')) {
+                const parent = link.closest('.dropdown');
+                if (parent) {
+                    const id = parent.id || '';
+                    if (id === 'aboutDropdown' || link.textContent.includes('About')) link.textContent = t.about + ' ▾';
+                    if (id === 'servicesDropdown' || link.textContent.includes('Services')) link.textContent = t.services + ' ▾';
+                    if (id === 'oppDropdown' || link.textContent.includes('Opportunities')) link.textContent = t.opportunities + ' ▾';
+                }
+            }
+        });
+
+        // Dropdown items
+        document.querySelectorAll('.dropdown-menu .dropdown-item').forEach(function(item) {
+            const text = item.textContent.trim();
+            if (text === 'Our Mission' || text === 'Dhamira Yetu') item.textContent = t.mission;
+            if (text === 'Our Vision' || text === 'Maono Yetu') item.textContent = t.vision;
+            if (text === 'Our Team' || text === 'Timu Yetu') item.textContent = t.team;
+            if (text === 'Our Story' || text === 'Hadithi Yetu') item.textContent = t.story;
+            if (text === 'Annual Reports' || text === 'Ripoti za Mwaka') item.textContent = t.reports;
+            if (text === 'CV Customisation' || text === 'Uandaaji wa CV') item.textContent = t.cv;
+            if (text === 'Interview Preparation' || text === 'Maandalizi ya Mahojiano') item.textContent = t.interview;
+            if (text === 'Career Coaching' || text === 'Ushauri wa Kazi') item.textContent = t.coaching;
+            if (text === 'Scholarship Guidance' || text === 'Mwongozo wa Masomo') item.textContent = t.scholarship;
+            if (text === 'Research Mentorship' || text === 'Ushauri wa Utafiti') item.textContent = t.research;
+            if (text === 'Jobs' || text === 'Kazi') item.textContent = t.jobs;
+            if (text === 'Internships' || text === 'Mafunzo ya Kazini') item.textContent = t.internships;
+            if (text === 'Scholarships' || text === 'Masomo') item.textContent = t.scholarships;
+            if (text === 'Volunteer' || text === 'Kujitolea') item.textContent = t.volunteer;
+            if (text === 'Training Programs' || text === 'Mipango ya Mafunzo') item.textContent = t.training;
+        });
+
+        // Resources & Contact (standalone nav links)
+        document.querySelectorAll('.navbar-nav .nav-link:not(.dropdown-toggle)').forEach(function(link) {
+            const text = link.textContent.trim();
+            if (text === 'Resources' || text === 'Rasilimali') link.textContent = t.resources;
+            if (text === 'Contact' || text === 'Wasiliana Nasi') link.textContent = t.contact;
+        });
+
+        // Search placeholder
+        const searchInput = document.querySelector('.navbar-custom .form-control');
+        if (searchInput) searchInput.placeholder = t.search_placeholder;
+
+        // Hero
+        const heroBadge = document.querySelector('.hero-badge');
+        if (heroBadge) heroBadge.textContent = t.hero_badge;
+
+        const heroTitle = document.querySelector('.hero h1');
+        if (heroTitle) {
+            const span = heroTitle.querySelector('span');
+            if (span) {
+                heroTitle.innerHTML = t.hero_title.replace('Open Doors', '<span>' + (lang === 'sw' ? 'Milango' : 'Open Doors') +
+                    '</span>');
+            }
+        }
+
+        const heroP = document.querySelector('.hero p');
+        if (heroP) heroP.textContent = t.hero_subtitle;
+
+        const heroBtn = document.querySelector('.btn-primary');
+        if (heroBtn) heroBtn.textContent = t.hero_btn;
+
+        // Section badge & title
+        const sectionBadge = document.querySelector('.section-badge');
+        if (sectionBadge) sectionBadge.textContent = t.section_badge;
+
+        const sectionTitle = document.querySelector('.section-title');
+        if (sectionTitle) sectionTitle.textContent = t.section_title;
+
+        const sectionSub = document.querySelector('.section-subtitle');
+        if (sectionSub) sectionSub.textContent = t.section_sub;
+
+        // Feature cards
+        const cards = document.querySelectorAll('.feature-card');
+        const cardTexts = lang === 'sw' ?
+            [t.cv_desc, t.interview_desc, t.scholarship_desc, t.coaching_desc, t.job_desc, t.research_desc, t.networking_desc,
+                t.resources_desc
+            ] :
+            [t.cv_desc, t.interview_desc, t.scholarship_desc, t.coaching_desc, t.job_desc, t.research_desc, t.networking_desc,
+                t.resources_desc
+            ];
+
+        cards.forEach(function(card, index) {
+            const p = card.querySelector('p');
+            if (p && cardTexts[index]) p.textContent = cardTexts[index];
+            const link = card.querySelector('.feature-link');
+            if (link) {
+                const icon = link.querySelector('i');
+                link.innerHTML = t.learn_more + ' <i class="fas fa-arrow-right"></i>';
+            }
+        });
+
+        // Scroll hint
+        const scrollHint = document.querySelector('.scroll-hint');
+        if (scrollHint) {
+            const spans = scrollHint.querySelectorAll('span');
+            if (spans.length >= 2) {
+                spans[1].innerHTML = t.scroll_hint + ' <i class="fas fa-arrow-right"></i>';
+            }
+        }
+
+        // Footer
+        const footerAbout = document.querySelector('.footer h5');
+        if (footerAbout) footerAbout.textContent = t.footer_about;
+
+        const footerAboutText = document.querySelector('.footer .col-lg-4 p');
+        if (footerAboutText) footerAboutText.textContent = t.footer_about_text;
+
+        const footerQuick = document.querySelectorAll('.footer .col-lg-2 h5');
+        if (footerQuick.length > 0) footerQuick[0].textContent = t.footer_quick;
+
+        const footerServices = document.querySelectorAll('.footer .col-lg-3 h5');
+        if (footerServices.length > 0) footerServices[0].textContent = t.footer_services;
+
+        const footerContact = document.querySelectorAll('.footer .col-lg-3:last-child h5');
+        if (footerContact.length > 0) footerContact[0].textContent = t.footer_contact;
+
+        // Footer quick links
+        document.querySelectorAll('.footer .col-lg-2 ul li a').forEach(function(link, index) {
+            const texts = [t.home, t.about, t.services, t.opportunities, t.contact];
+            if (texts[index]) link.textContent = texts[index];
+        });
+
+        // Footer services links
+        document.querySelectorAll('.footer .col-lg-3 ul li a').forEach(function(link, index) {
+            const texts = [t.cv, t.interview, t.coaching, t.scholarship, t.research];
+            if (texts[index]) link.textContent = texts[index];
+        });
+
+        // Footer contact info
+        const contactItems = document.querySelectorAll('.footer .contact-info li');
+        if (contactItems.length >= 4) {
+            contactItems[0].innerHTML = '<i class="fas fa-map-marker-alt"></i> ' + t.footer_address;
+            contactItems[1].innerHTML = '<i class="fas fa-phone-alt"></i> ' + t.footer_phone;
+            contactItems[2].innerHTML = '<i class="fas fa-envelope"></i> ' + t.footer_email;
+            contactItems[3].innerHTML = '<i class="fas fa-clock"></i> ' + t.footer_hours;
+        }
+
+        const whatsappFooter = document.querySelector('.whatsapp-footer-btn');
+        if (whatsappFooter) whatsappFooter.innerHTML = '<i class="fab fa-whatsapp"></i> ' + t.footer_chat;
+
+        const footerCopyright = document.querySelector('.footer-bottom p');
+        if (footerCopyright) footerCopyright.textContent = t.footer_copyright;
+
+        // WhatsApp popup
+        const waTitle = document.querySelector('.whatsapp-popup strong');
+        if (waTitle) waTitle.textContent = t.wa_title;
+
+        const waSub = document.querySelector('.whatsapp-popup p');
+        if (waSub) waSub.textContent = t.wa_sub;
+
+        const waBtn = document.querySelector('.popup-link');
+        if (waBtn) waBtn.textContent = t.wa_btn;
+
+        // Marquee
+        const marqueeSpans = document.querySelectorAll('.marquee-track span');
+        const marqueeTexts = [t.marquee_1, t.marquee_2, t.marquee_3, t.marquee_4, t.marquee_5];
+        marqueeSpans.forEach(function(span, index) {
+            if (marqueeTexts[index % marqueeTexts.length]) {
+                span.textContent = marqueeTexts[index % marqueeTexts.length];
+            }
+        });
+
+        // Update current language
+        currentLang = lang;
+    }
+
+    // ── Language switcher click handler ──
     langLinks.forEach(function(link) {
         link.addEventListener('click', function(e) {
             e.preventDefault();
+            const lang = this.getAttribute('data-lang');
+            if (lang === currentLang) return;
+
+            // Update active state
             langLinks.forEach(function(l) { l.classList.remove('active'); });
             this.classList.add('active');
-            var lang = this.getAttribute('data-lang');
-            alert('🌍 Language switched to ' + lang.toUpperCase() + ' (demo)');
+
+            // Apply translations
+            applyLanguage(lang);
         });
     });
 
-    // ── SEARCH ──
-    var searchForm = document.querySelector('.navbar-custom form');
-    if (searchForm) {
-        searchForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            var input = this.querySelector('input[type="search"]');
-            if (input && input.value.trim() !== '') {
-                alert('🔍 You searched for: "' + input.value.trim() + '"');
+    // ──────────────────────────────────────────────────────────
+    // 2. SEARCH – FILTER SERVICE CARDS
+    // ──────────────────────────────────────────────────────────
+    const searchInput = document.querySelector('.navbar-custom .form-control');
+    const cards = document.querySelectorAll('.feature-card');
+
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase().trim();
+
+            cards.forEach(function(card) {
+                const text = card.textContent.toLowerCase();
+                if (!query || text.includes(query)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide scroll hint based on visible cards
+            const visible = document.querySelectorAll('.feature-card[style*="display: none"]');
+            const hint = document.querySelector('.scroll-hint');
+            if (hint) {
+                const allHidden = document.querySelectorAll('.feature-card[style*="display: none"]');
+                if (allHidden.length === cards.length && query !== '') {
+                    hint.innerHTML = '⚠️ No results found for "' + query + '"';
+                    hint.style.color = '#c4753c';
+                } else {
+                    hint.innerHTML =
+                        '<span>←</span> <span>' + (currentLang === 'sw' ? 'Tembeza ili kuona zaidi' : 'Scroll to see more') +
+                        ' <i class="fas fa-arrow-right"></i></span> <span>→</span>';
+                    hint.style.color = '';
+                }
             }
         });
     }
 
-    // ── MARQUEE PAUSE ON HOVER ──
-    var marquee = document.querySelector('.marquee-track');
-    var heroSection = document.querySelector('.hero-carousel');
+    // ──────────────────────────────────────────────────────────
+    // 3. MARQUEE PAUSE ON HOVER
+    // ──────────────────────────────────────────────────────────
+    const marquee = document.querySelector('.marquee-track');
+    const heroSection = document.querySelector('.hero-carousel');
     if (marquee && heroSection) {
         heroSection.addEventListener('mouseenter', function() {
             marquee.style.animationPlayState = 'paused';
@@ -1598,11 +1962,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ── FLOATING WHATSAPP POPUP ──
-    var popup = document.getElementById('waPopup');
-    var toggle = document.getElementById('waToggle');
-    var close = document.getElementById('waClose');
-    var popupVisible = false;
+    // ──────────────────────────────────────────────────────────
+    // 4. FLOATING WHATSAPP POPUP
+    // ──────────────────────────────────────────────────────────
+    const popup = document.getElementById('waPopup');
+    const toggle = document.getElementById('waToggle');
+    const close = document.getElementById('waClose');
+    let popupVisible = false;
 
     setTimeout(function() {
         if (popup) {
@@ -1638,8 +2004,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // ── HERO CAROUSEL ──
-    var heroCarousel = document.getElementById('heroCarousel');
+    // ──────────────────────────────────────────────────────────
+    // 5. HERO CAROUSEL
+    // ──────────────────────────────────────────────────────────
+    const heroCarousel = document.getElementById('heroCarousel');
     if (heroCarousel) {
         new bootstrap.Carousel(heroCarousel, {
             interval: 5000,
