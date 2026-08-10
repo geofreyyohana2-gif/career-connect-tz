@@ -16,1199 +16,1344 @@
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- Custom CSS -->
-    <style>/* =============================================================
-   ROOT VARIABLES — Premium Colors
-   ============================================================= */
-:root {
-    --primary: #1a2a4a;
-    --primary-light: #2a4a7a;
-    --primary-dark: #0e1a30;
-    --gold: #c9a84c;
-    --gold-light: #e0c66a;
-    --gold-dark: #a88a3a;
-    --cream: #f8f4ec;
-    --white: #ffffff;
-    --text-dark: #1a1a2e;
-    --text-muted: #6a6a8a;
-    --shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
-    --shadow-hover: 0 16px 60px rgba(0, 0, 0, 0.1);
-    --radius: 20px;
-    --transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* =============================================================
-   RESET & BASE
-   ============================================================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background: var(--cream);
-    color: var(--text-dark);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* =============================================================
-   MAIN HEADER
-   ============================================================= */
-.main-header {
-    background: var(--white);
-    padding: 1.2rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.02);
-}
-
-.main-header .logo-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.main-header .logo-wrapper .logo-placeholder {
-    width: 56px;
-    height: 56px;
-    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 16px rgba(201, 168, 76, 0.25);
-}
-
-.main-header .logo-wrapper .logo-placeholder i {
-    font-size: 1.8rem;
-    color: #fff;
-}
-
-.main-header .logo-wrapper .brand-text .org-name {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: var(--primary);
-    letter-spacing: -0.5px;
-}
-
-.main-header .logo-wrapper .brand-text .org-name span {
-    color: var(--gold);
-}
-
-.main-header .logo-wrapper .brand-text .tagline {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    font-weight: 400;
-    letter-spacing: 0.5px;
-}
-
-.main-header .quick-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 0.5rem 1.5rem;
-    font-size: 0.85rem;
-    font-weight: 500;
-}
-
-.main-header .quick-links a {
-    color: var(--text-dark);
-    transition: var(--transition);
-    padding: 0.3rem 0;
-    border-bottom: 2px solid transparent;
-}
-
-.main-header .quick-links a:hover {
-    color: var(--gold);
-    border-bottom-color: var(--gold);
-}
-
-.main-header .quick-links a i {
-    margin-right: 0.4rem;
-    color: var(--gold);
-}
-
-/* =============================================================
-   NAVIGATION
-   ============================================================= */
-.navbar-custom {
-    background: var(--primary);
-    padding: 0;
-    border-radius: 0 0 16px 16px;
-    box-shadow: 0 4px 24px rgba(26, 42, 74, 0.15);
-}
-
-.navbar-custom .navbar-nav .nav-link {
-    color: rgba(255, 255, 255, 0.85);
-    font-weight: 500;
-    padding: 0.8rem 1.2rem;
-    transition: var(--transition);
-    font-size: 0.9rem;
-    position: relative;
-}
-
-.navbar-custom .navbar-nav .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 3px;
-    background: var(--gold);
-    transition: var(--transition);
-    transform: translateX(-50%);
-    border-radius: 4px 4px 0 0;
-}
-
-.navbar-custom .navbar-nav .nav-link:hover::after,
-.navbar-custom .navbar-nav .nav-link.active::after {
-    width: 60%;
-}
-
-.navbar-custom .navbar-nav .nav-link:hover,
-.navbar-custom .navbar-nav .nav-link.active {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.navbar-custom .navbar-nav .dropdown-toggle::after {
-    color: rgba(255, 255, 255, 0.4);
-}
-
-.navbar-custom .navbar-nav .dropdown-menu {
-    border: none;
-    border-radius: 14px;
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
-    padding: 0.6rem 0;
-    margin-top: 0;
-    min-width: 210px;
-    background: var(--white);
-    border: 1px solid rgba(0, 0, 0, 0.04);
-}
-
-.navbar-custom .navbar-nav .dropdown-menu .dropdown-item {
-    padding: 0.5rem 1.4rem;
-    font-size: 0.88rem;
-    color: var(--text-dark);
-    transition: var(--transition);
-    font-weight: 500;
-}
-
-.navbar-custom .navbar-nav .dropdown-menu .dropdown-item:hover {
-    background: rgba(201, 168, 76, 0.08);
-    color: var(--gold);
-    padding-left: 1.8rem;
-}
-
-.navbar-custom .navbar-nav .dropdown-menu .dropdown-divider {
-    border-color: rgba(0, 0, 0, 0.04);
-}
-
-/* Mobile hamburger */
-.navbar-custom .navbar-toggler {
-    border: none;
-    color: #fff;
-    padding: 0.5rem;
-}
-
-.navbar-custom .navbar-toggler:focus {
-    box-shadow: none;
-}
-
-.navbar-custom .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-
-.navbar-custom .form-control {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    color: #fff;
-    border-radius: 40px;
-    padding: 0.3rem 1rem;
-    font-size: 0.85rem;
-    transition: var(--transition);
-}
-
-.navbar-custom .form-control::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.navbar-custom .form-control:focus {
-    background: rgba(255, 255, 255, 0.18);
-    border-color: var(--gold);
-    box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.1);
-}
-
-.navbar-custom .btn-outline-light {
-    border-color: rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.8);
-    border-radius: 40px;
-    padding: 0.3rem 1rem;
-    font-size: 0.85rem;
-    transition: var(--transition);
-}
-
-.navbar-custom .btn-outline-light:hover {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: #fff;
-}
-
-.language-switch-nav {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.85rem;
-    font-weight: 500;
-    padding-left: 0.5rem;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.language-switch-nav a {
-    color: rgba(255, 255, 255, 0.5);
-    transition: var(--transition);
-    cursor: pointer;
-    padding: 0.2rem 0.3rem;
-    border-radius: 4px;
-}
-
-.language-switch-nav a:hover {
-    color: #fff;
-}
-
-.language-switch-nav a.active {
-    color: #fff;
-    font-weight: 600;
-    background: rgba(201, 168, 76, 0.2);
-    padding: 0.2rem 0.6rem;
-}
-
-.language-switch-nav .separator {
-    color: rgba(255, 255, 255, 0.2);
-}
-
-/* =============================================================
-   HERO CAROUSEL
-   ============================================================= */
-.hero-carousel {
-    margin-top: 0;
-    border-radius: 0 0 20px 20px;
-    overflow: hidden;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
-    position: relative;
-}
-
-.hero-carousel .carousel-item {
-    height: 480px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
-
-.hero-carousel .carousel-item::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(14, 26, 48, 0.75) 0%, rgba(26, 42, 74, 0.4) 60%, rgba(26, 42, 74, 0.1) 100%);
-}
-
-.hero-carousel .carousel-caption {
-    bottom: 28%;
-    z-index: 2;
-    text-align: left;
-    padding: 0 3rem;
-}
-
-.hero-carousel .carousel-caption h2 {
-    font-size: 3.2rem;
-    font-weight: 800;
-    color: #fff;
-    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
-    margin-bottom: 0.6rem;
-    line-height: 1.1;
-}
-
-.hero-carousel .carousel-caption h2 span {
-    color: var(--gold);
-    position: relative;
-}
-
-.hero-carousel .carousel-caption h2 span::after {
-    content: '';
-    position: absolute;
-    bottom: 2px;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: var(--gold);
-    border-radius: 4px;
-    opacity: 0.4;
-}
-
-.hero-carousel .carousel-caption p {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.85);
-    max-width: 480px;
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
-    margin-bottom: 1.2rem;
-}
-
-.hero-carousel .carousel-caption .btn-hero {
-    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-    color: #fff;
-    padding: 0.7rem 2.2rem;
-    border-radius: 50px;
-    font-weight: 600;
-    border: none;
-    transition: var(--transition);
-    display: inline-block;
-    font-size: 1rem;
-    box-shadow: 0 4px 20px rgba(201, 168, 76, 0.3);
-}
-
-.hero-carousel .carousel-caption .btn-hero:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 32px rgba(201, 168, 76, 0.4);
-}
-
-.hero-carousel .carousel-caption .btn-hero i {
-    transition: var(--transition);
-}
-
-.hero-carousel .carousel-caption .btn-hero:hover i {
-    transform: translateX(6px);
-}
-
-.hero-carousel .carousel-indicators {
-    bottom: 70px;
-    z-index: 3;
-}
-
-.hero-carousel .carousel-indicators button {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    background: transparent;
-    margin: 0 6px;
-    transition: var(--transition);
-}
-
-.hero-carousel .carousel-indicators button.active {
-    background: var(--gold);
-    border-color: var(--gold);
-    transform: scale(1.2);
-}
-
-.hero-carousel .carousel-control-prev,
-.hero-carousel .carousel-control-next {
-    width: 5%;
-    opacity: 0;
-    transition: var(--transition);
-    z-index: 3;
-}
-
-.hero-carousel:hover .carousel-control-prev,
-.hero-carousel:hover .carousel-control-next {
-    opacity: 1;
-}
-
-/* =============================================================
-   HERO MARQUEE – Speed Increased (20s instead of 35s)
-   ============================================================= */
-.hero-marquee {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 5;
-    background: rgba(14, 26, 48, 0.88);
-    backdrop-filter: blur(8px);
-    padding: 0.7rem 0;
-    overflow: hidden;
-    border-top: 2px solid var(--gold);
-}
-
-.marquee-track {
-    display: flex;
-    white-space: nowrap;
-    animation: marqueeScroll 22s linear infinite; /* Increased speed */
-}
-
-.marquee-track span {
-    color: #fff;
-    font-size: 0.9rem;
-    font-weight: 500;
-    padding: 0 2.5rem;
-    display: inline-block;
-    letter-spacing: 0.3px;
-}
-
-.marquee-track span::before {
-    content: '◆ ';
-    color: var(--gold);
-    font-size: 0.6rem;
-}
-
-@keyframes marqueeScroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-.hero-carousel:hover .marquee-track {
-    animation-play-state: paused;
-}
-
-/* =============================================================
-   FEATURES — OVERLAPPING CARDS (SCROLLBAR HIDDEN)
-   ============================================================= */
-.features-section {
-    padding: 5rem 0 4rem;
-    background: var(--cream);
-    position: relative;
-}
-
-.section-badge {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    color: var(--gold);
-    background: rgba(201, 168, 76, 0.1);
-    padding: 0.3rem 1.2rem;
-    border-radius: 40px;
-    margin-bottom: 0.6rem;
-    border: 1px solid rgba(201, 168, 76, 0.1);
-}
-
-.section-title {
-    font-size: 2.4rem;
-    font-weight: 800;
-    color: var(--primary);
-    margin-bottom: 0.5rem;
-}
-
-.section-subtitle {
-    color: var(--text-muted);
-    font-size: 1.05rem;
-    max-width: 550px;
-    margin: 0 auto;
-}
-
-.services-scroll {
-    position: relative;
-    overflow: hidden;
-    padding: 1rem 0 2rem;
-}
-
-.services-scroll-track {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 0;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 0.5rem 2rem 1.5rem 2rem;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    width: 100%;
-    min-width: 100%;
-    /* Hide scrollbar completely */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE/Edge */
-}
-
-/* Hide scrollbar for Chrome/Safari/Opera */
-.services-scroll-track::-webkit-scrollbar {
-    display: none;
-    width: 0;
-    height: 0;
-}
-
-.services-scroll-track .feature-card {
-    flex: 0 0 280px;
-    min-width: 280px;
-    max-width: 280px;
-    scroll-snap-align: start;
-    background: var(--white);
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    border-radius: var(--radius);
-    padding: 2.2rem 1.8rem 1.8rem;
-    text-align: center;
-    transition: var(--transition);
-    box-shadow: var(--shadow);
-    position: relative;
-    z-index: 1;
-    margin-right: -40px;
-    transform: scale(0.96);
-}
-
-.services-scroll-track .feature-card:hover {
-    z-index: 10;
-    transform: scale(1.02) translateY(-8px);
-    box-shadow: var(--shadow-hover);
-    border-color: rgba(201, 168, 76, 0.3);
-}
-
-.services-scroll-track .feature-card:first-child {
-    transform: scale(1);
-    margin-right: -20px;
-}
-
-.services-scroll-track .feature-card:last-child {
-    margin-right: 0;
-    transform: scale(1);
-}
-
-.services-scroll-track .feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--gold), var(--gold-light));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s ease;
-}
-
-.services-scroll-track .feature-card:hover::before {
-    transform: scaleX(1);
-}
-
-.services-scroll-track .feature-card .feature-icon {
-    width: 72px;
-    height: 72px;
-    background: linear-gradient(135deg, rgba(201, 168, 76, 0.08), rgba(201, 168, 76, 0.02));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem;
-    font-size: 2rem;
-    color: var(--gold);
-    transition: var(--transition);
-}
-
-.services-scroll-track .feature-card:hover .feature-icon {
-    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-    color: #fff;
-    transform: scale(1.05) rotate(-4deg);
-    box-shadow: 0 8px 24px rgba(201, 168, 76, 0.25);
-}
-
-.services-scroll-track .feature-card h5 {
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: var(--text-dark);
-    margin-bottom: 0.5rem;
-}
-
-.services-scroll-track .feature-card p {
-    font-size: 0.92rem;
-    color: var(--text-muted);
-    margin-bottom: 1rem;
-    line-height: 1.6;
-}
-
-.services-scroll-track .feature-card .feature-link {
-    color: var(--primary);
-    font-weight: 600;
-    font-size: 0.85rem;
-    transition: var(--transition);
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.services-scroll-track .feature-card .feature-link i {
-    transition: var(--transition);
-}
-
-.services-scroll-track .feature-card .feature-link:hover {
-    color: var(--gold);
-}
-
-.services-scroll-track .feature-card .feature-link:hover i {
-    transform: translateX(6px);
-}
-
-.services-scroll::before,
-.services-scroll::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 60px;
-    z-index: 5;
-    pointer-events: none;
-}
-
-.services-scroll::before {
-    left: 0;
-    background: linear-gradient(to right, var(--cream), transparent);
-}
-
-.services-scroll::after {
-    right: 0;
-    background: linear-gradient(to left, var(--cream), transparent);
-}
-
-.scroll-hint {
-    text-align: center;
-    margin-top: 1.2rem;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-}
-
-.scroll-hint i {
-    color: var(--gold);
-    font-size: 1.2rem;
-    animation: scrollBounce 2s infinite ease-in-out;
-}
-
-@keyframes scrollBounce {
-    0%,
-    100% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(8px);
-    }
-}
-
-/* =============================================================
-   FOOTER
-   ============================================================= */
-.footer {
-    background: var(--primary-dark);
-    color: rgba(255, 255, 255, 0.8);
-    padding: 3.5rem 0 1.5rem;
-    margin-top: 2rem;
-    border-top: 4px solid var(--gold);
-}
-
-.footer h5 {
-    color: #fff;
-    font-weight: 700;
-    font-size: 1.05rem;
-    margin-bottom: 1.2rem;
-    position: relative;
-    padding-bottom: 0.6rem;
-}
-
-.footer h5::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 36px;
-    height: 3px;
-    background: var(--gold);
-    border-radius: 4px;
-}
-
-.footer p {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.65);
-}
-
-.footer ul li {
-    margin-bottom: 0.4rem;
-}
-
-.footer ul li a {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.9rem;
-    transition: var(--transition);
-}
-
-.footer ul li a:hover {
-    color: var(--gold);
-    padding-left: 6px;
-}
-
-.footer .footer-social {
-    display: flex;
-    gap: 0.8rem;
-    margin-top: 1rem;
-}
-
-.footer .footer-social a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.04);
-    border-radius: 50%;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 1rem;
-    transition: var(--transition);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-.footer .footer-social a:hover {
-    background: var(--gold);
-    color: #fff;
-    transform: translateY(-4px);
-    border-color: var(--gold);
-    box-shadow: 0 4px 16px rgba(201, 168, 76, 0.25);
-}
-
-.footer .contact-info li {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    color: rgba(255, 255, 255, 0.65);
-    font-size: 0.9rem;
-    margin-bottom: 0.6rem;
-}
-
-.footer .contact-info li i {
-    color: var(--gold);
-    width: 20px;
-    text-align: center;
-}
-
-.footer .whatsapp-footer-btn {
-    display: inline-block;
-    margin-top: 0.8rem;
-    padding: 0.5rem 1.4rem;
-    background: #25d366;
-    color: #fff;
-    border-radius: 40px;
-    font-weight: 600;
-    font-size: 0.85rem;
-    transition: var(--transition);
-    border: none;
-}
-
-.footer .whatsapp-footer-btn:hover {
-    background: #1da851;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.25);
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
-    padding-top: 1.2rem;
-    margin-top: 2rem;
-    text-align: center;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.35);
-}
-
-/* =============================================================
-   FLOATING WHATSAPP POPUP
-   ============================================================= */
-.whatsapp-float {
-    position: fixed;
-    bottom: 28px;
-    right: 28px;
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 10px;
-}
-
-.whatsapp-popup {
-    background: var(--white);
-    border-radius: 18px;
-    padding: 1rem 1.4rem;
-    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    max-width: 240px;
-    font-size: 0.85rem;
-    color: var(--text-dark);
-    line-height: 1.4;
-    transform-origin: bottom right;
-    transition: opacity 0.35s ease, transform 0.35s ease;
-    opacity: 0;
-    transform: scale(0.9) translateY(12px);
-    pointer-events: none;
-    position: relative;
-}
-
-.whatsapp-popup.show {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-    pointer-events: auto;
-}
-
-.whatsapp-popup strong {
-    color: var(--gold);
-    font-weight: 700;
-    font-size: 0.95rem;
-}
-
-.whatsapp-popup .popup-link {
-    display: inline-block;
-    margin-top: 8px;
-    background: #25d366;
-    color: #fff;
-    padding: 0.35rem 1.2rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.75rem;
-    transition: var(--transition);
-}
-
-.whatsapp-popup .popup-link:hover {
-    background: #1da851;
-}
-
-.whatsapp-popup .popup-close {
-    position: absolute;
-    top: 4px;
-    right: 8px;
-    background: none;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-    color: #b0a090;
-    line-height: 1;
-    transition: var(--transition);
-}
-
-.whatsapp-popup .popup-close:hover {
-    color: var(--text-dark);
-}
-
-.whatsapp-float .wa-icon {
-    width: 60px;
-    height: 60px;
-    background: radial-gradient(circle at 30% 30%, #25d366, #128c7e);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 24px rgba(37, 211, 102, 0.3);
-    cursor: pointer;
-    transition: var(--transition);
-    border: none;
-    color: white;
-    font-size: 2.2rem;
-    text-decoration: none;
-    flex-shrink: 0;
-    animation: pulseGlow 3s infinite alternate;
-}
-
-@keyframes pulseGlow {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 4px 24px rgba(37, 211, 102, 0.3);
-    }
-    100% {
-        transform: scale(1.05);
-        box-shadow: 0 6px 36px rgba(37, 211, 102, 0.45);
-    }
-}
-
-.whatsapp-float .wa-icon:hover {
-    transform: scale(1.08);
-    animation: none;
-}
-
-/* =============================================================
-   RESPONSIVE
-   ============================================================= */
-@media (max-width: 992px) {
-    .hero-carousel .carousel-item {
-        height: 380px;
-    }
-
-    .hero-carousel .carousel-caption h2 {
-        font-size: 2.4rem;
-    }
-
-    .hero-carousel .carousel-caption p {
-        font-size: 1rem;
-    }
-
-    .marquee-track span {
-        font-size: 0.8rem;
-        padding: 0 1.5rem;
-    }
-
-    .services-scroll-track .feature-card {
-        flex: 0 0 250px;
-        min-width: 250px;
-        max-width: 250px;
-        margin-right: -30px;
-    }
-
-    .services-scroll-track .feature-card:first-child {
-        margin-right: -15px;
-    }
-    .services-scroll-track .feature-card:last-child {
-        margin-right: 0;
-    }
-}
-
-@media (max-width: 768px) {
-    .main-header .logo-wrapper .brand-text .org-name {
-        font-size: 1.2rem;
-    }
-
-    .main-header .quick-links {
-        justify-content: flex-start;
-        margin-top: 0.5rem;
-        font-size: 0.8rem;
-        gap: 0.5rem 1rem;
-    }
-
-    .hero-carousel .carousel-item {
-        height: 320px;
-    }
-
-    .hero-carousel .carousel-caption {
-        bottom: 20%;
-        padding: 0 1.5rem;
-    }
-
-    .hero-carousel .carousel-caption h2 {
-        font-size: 1.8rem;
-    }
-
-    .hero-carousel .carousel-caption p {
-        font-size: 0.9rem;
-    }
-
-    .hero-carousel .carousel-caption .btn-hero {
-        padding: 0.4rem 1.5rem;
-        font-size: 0.9rem;
-    }
-
-    .hero-carousel .carousel-indicators {
-        bottom: 50px;
-    }
-
-    .marquee-track span {
-        font-size: 0.7rem;
-        padding: 0 1rem;
-    }
-
-    .section-title {
-        font-size: 1.8rem;
-    }
-
-    .services-scroll-track {
-        gap: 0;
-        padding: 0.5rem 0.8rem 1.5rem 0.8rem;
-    }
-
-    .services-scroll-track .feature-card {
-        flex: 0 0 220px;
-        min-width: 220px;
-        max-width: 220px;
-        padding: 1.5rem 1rem;
-        margin-right: -25px;
-    }
-
-    .services-scroll-track .feature-card:first-child {
-        margin-right: -12px;
-    }
-    .services-scroll-track .feature-card:last-child {
-        margin-right: 0;
-    }
-
-    .services-scroll-track .feature-card .feature-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 1.6rem;
-    }
-
-    .services-scroll-track .feature-card h5 {
-        font-size: 1rem;
-    }
-
-    .services-scroll-track .feature-card p {
-        font-size: 0.85rem;
-    }
-
-    .footer {
-        padding: 2rem 0 1rem;
-    }
-
-    .footer h5::after {
-        left: 0;
-    }
-
-    .language-switch-nav {
-        border-left: none;
-        padding-left: 0;
-        margin-top: 0.5rem;
-    }
-
-    .navbar-custom .d-flex {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
-        width: 100%;
-    }
-
-    .navbar-custom .d-flex form {
-        width: 100%;
-        max-width: 280px;
-    }
-
-    .services-scroll::before,
-    .services-scroll::after {
-        width: 30px;
-    }
-
-    .scroll-hint {
-        font-size: 0.75rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-carousel .carousel-item {
-        height: 280px;
-    }
-
-    .hero-carousel .carousel-caption h2 {
-        font-size: 1.4rem;
-    }
-
-    .hero-carousel .carousel-caption p {
-        font-size: 0.8rem;
-    }
-
-    .hero-carousel .carousel-caption .btn-hero {
-        padding: 0.3rem 1.2rem;
-        font-size: 0.8rem;
-    }
-
-    .hero-carousel .carousel-indicators {
-        bottom: 44px;
-    }
-
-    .hero-carousel .carousel-indicators button {
-        width: 8px;
-        height: 8px;
-        margin: 0 4px;
-    }
-
-    .marquee-track span {
-        font-size: 0.6rem;
-        padding: 0 0.6rem;
-    }
-
-    .section-title {
-        font-size: 1.4rem;
-    }
-
-    .main-header .logo-wrapper .brand-text .org-name {
-        font-size: 1rem;
-    }
-
-    .main-header .logo-wrapper .logo-placeholder {
-        width: 44px;
-        height: 44px;
-    }
-
-    .main-header .logo-wrapper .logo-placeholder i {
-        font-size: 1.4rem;
-    }
-
-    .navbar-custom .navbar-nav .nav-link {
-        padding: 0.5rem 0.8rem;
-        font-size: 0.85rem;
-    }
-
-    .services-scroll-track {
-        gap: 0;
-        padding: 0.5rem 0.5rem 1.5rem 0.5rem;
-    }
-
-    .services-scroll-track .feature-card {
-        flex: 0 0 180px;
-        min-width: 180px;
-        max-width: 180px;
-        padding: 1.2rem 0.8rem;
-        margin-right: -20px;
-    }
-
-    .services-scroll-track .feature-card:first-child {
-        margin-right: -10px;
-    }
-    .services-scroll-track .feature-card:last-child {
-        margin-right: 0;
-    }
-
-    .services-scroll-track .feature-card .feature-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 1.3rem;
-    }
-
-    .services-scroll-track .feature-card h5 {
-        font-size: 0.9rem;
-    }
-
-    .services-scroll-track .feature-card p {
-        font-size: 0.78rem;
-    }
-
-    .services-scroll-track .feature-card .feature-link {
-        font-size: 0.75rem;
-    }
-
-    .services-scroll::before,
-    .services-scroll::after {
-        width: 20px;
-    }
-
-    .whatsapp-float {
-        bottom: 14px;
-        right: 14px;
-    }
-
-    .whatsapp-float .wa-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 1.8rem;
-    }
-
-    .whatsapp-popup {
-        max-width: 170px;
-        font-size: 0.75rem;
-        padding: 0.6rem 0.8rem;
-    }
-}</style>
+    <style>
+        /* =============================================================
+           ROOT VARIABLES — Premium Colors
+           ============================================================= */
+        :root {
+            --primary: #1a2a4a;
+            --primary-light: #2a4a7a;
+            --primary-dark: #0e1a30;
+            --gold: #c9a84c;
+            --gold-light: #e0c66a;
+            --gold-dark: #a88a3a;
+            --cream: #f8f4ec;
+            --white: #ffffff;
+            --text-dark: #1a1a2e;
+            --text-muted: #6a6a8a;
+            --shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 16px 60px rgba(0, 0, 0, 0.1);
+            --radius: 20px;
+            --transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* =============================================================
+           RESET & BASE
+           ============================================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* =============================================================
+           MAIN HEADER
+           ============================================================= */
+        .main-header {
+            background: var(--white);
+            padding: 1.2rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        .main-header .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .main-header .logo-wrapper .logo-placeholder {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(201, 168, 76, 0.25);
+        }
+
+        .main-header .logo-wrapper .logo-placeholder i {
+            font-size: 1.8rem;
+            color: #fff;
+        }
+
+        .main-header .logo-wrapper .brand-text .org-name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .main-header .logo-wrapper .brand-text .org-name span {
+            color: var(--gold);
+        }
+
+        .main-header .logo-wrapper .brand-text .tagline {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .main-header .quick-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 0.5rem 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .main-header .quick-links a {
+            color: var(--text-dark);
+            transition: var(--transition);
+            padding: 0.3rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .main-header .quick-links a:hover {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+
+        .main-header .quick-links a i {
+            margin-right: 0.4rem;
+            color: var(--gold);
+        }
+
+        /* =============================================================
+           NAVIGATION
+           ============================================================= */
+        .navbar-custom {
+            background: var(--primary);
+            padding: 0;
+            border-radius: 0 0 16px 16px;
+            box-shadow: 0 4px 24px rgba(26, 42, 74, 0.15);
+        }
+
+        .navbar-custom .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+            padding: 0.8rem 1.2rem;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        .navbar-custom .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--gold);
+            transition: var(--transition);
+            transform: translateX(-50%);
+            border-radius: 4px 4px 0 0;
+        }
+
+        .navbar-custom .navbar-nav .nav-link:hover::after,
+        .navbar-custom .navbar-nav .nav-link.active::after {
+            width: 60%;
+        }
+
+        .navbar-custom .navbar-nav .nav-link:hover,
+        .navbar-custom .navbar-nav .nav-link.active {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .navbar-custom .navbar-nav .dropdown-toggle::after {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .navbar-custom .navbar-nav .dropdown-menu {
+            border: none;
+            border-radius: 14px;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+            padding: 0.6rem 0;
+            margin-top: 0;
+            min-width: 210px;
+            background: var(--white);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .navbar-custom .navbar-nav .dropdown-menu .dropdown-item {
+            padding: 0.5rem 1.4rem;
+            font-size: 0.88rem;
+            color: var(--text-dark);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .navbar-custom .navbar-nav .dropdown-menu .dropdown-item:hover {
+            background: rgba(201, 168, 76, 0.08);
+            color: var(--gold);
+            padding-left: 1.8rem;
+        }
+
+        .navbar-custom .navbar-nav .dropdown-menu .dropdown-divider {
+            border-color: rgba(0, 0, 0, 0.04);
+        }
+
+        /* Mobile hamburger */
+        .navbar-custom .navbar-toggler {
+            border: none;
+            color: #fff;
+            padding: 0.5rem;
+        }
+
+        .navbar-custom .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-custom .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .navbar-custom .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #fff;
+            border-radius: 40px;
+            padding: 0.3rem 1rem;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .navbar-custom .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .navbar-custom .form-control:focus {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.1);
+        }
+
+        .navbar-custom .btn-outline-light {
+            border-color: rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+            border-radius: 40px;
+            padding: 0.3rem 1rem;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .navbar-custom .btn-outline-light:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #fff;
+        }
+
+        .language-switch-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding-left: 0.5rem;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .language-switch-nav a {
+            color: rgba(255, 255, 255, 0.5);
+            transition: var(--transition);
+            cursor: pointer;
+            padding: 0.2rem 0.3rem;
+            border-radius: 4px;
+        }
+
+        .language-switch-nav a:hover {
+            color: #fff;
+        }
+
+        .language-switch-nav a.active {
+            color: #fff;
+            font-weight: 600;
+            background: rgba(201, 168, 76, 0.2);
+            padding: 0.2rem 0.6rem;
+        }
+
+        .language-switch-nav .separator {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* =============================================================
+           HERO CAROUSEL
+           ============================================================= */
+        .hero-carousel {
+            margin-top: 0;
+            border-radius: 0 0 20px 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
+            position: relative;
+        }
+
+        .hero-carousel .carousel-item {
+            height: 480px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            animation: bgMove 20s linear infinite alternate;
+        }
+
+        @keyframes bgMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .hero-carousel .carousel-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(14, 26, 48, 0.75) 0%, rgba(26, 42, 74, 0.4) 60%, rgba(26, 42, 74, 0.1) 100%);
+        }
+
+        .hero-carousel .carousel-caption {
+            bottom: 28%;
+            z-index: 2;
+            text-align: left;
+            padding: 0 3rem;
+        }
+
+        .hero-carousel .carousel-caption h2 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 0.6rem;
+            line-height: 1.1;
+        }
+
+        .hero-carousel .carousel-caption h2 span {
+            color: var(--gold);
+            position: relative;
+        }
+
+        .hero-carousel .carousel-caption h2 span::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 4px;
+            opacity: 0.4;
+        }
+
+        .hero-carousel .carousel-caption p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 480px;
+            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-carousel .carousel-caption .btn-hero {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #fff;
+            padding: 0.7rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            transition: var(--transition);
+            display: inline-block;
+            font-size: 1rem;
+            box-shadow: 0 4px 20px rgba(201, 168, 76, 0.3);
+        }
+
+        .hero-carousel .carousel-caption .btn-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(201, 168, 76, 0.4);
+        }
+
+        .hero-carousel .carousel-caption .btn-hero i {
+            transition: var(--transition);
+        }
+
+        .hero-carousel .carousel-caption .btn-hero:hover i {
+            transform: translateX(6px);
+        }
+
+        .hero-carousel .carousel-indicators {
+            bottom: 70px;
+            z-index: 3;
+        }
+
+        .hero-carousel .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: transparent;
+            margin: 0 6px;
+            transition: var(--transition);
+        }
+
+        .hero-carousel .carousel-indicators button.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            transform: scale(1.2);
+        }
+
+        .hero-carousel .carousel-control-prev,
+        .hero-carousel .carousel-control-next {
+            width: 5%;
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 3;
+        }
+
+        .hero-carousel:hover .carousel-control-prev,
+        .hero-carousel:hover .carousel-control-next {
+            opacity: 1;
+        }
+
+        /* =============================================================
+           HERO MARQUEE – Speed Increased (18s)
+           ============================================================= */
+        .hero-marquee {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 5;
+            background: rgba(14, 26, 48, 0.88);
+            backdrop-filter: blur(8px);
+            padding: 0.7rem 0;
+            overflow: hidden;
+            border-top: 2px solid var(--gold);
+        }
+
+        .marquee-track {
+            display: flex;
+            white-space: nowrap;
+            animation: marqueeScroll 18s linear infinite;
+        }
+
+        .marquee-track span {
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0 2.5rem;
+            display: inline-block;
+            letter-spacing: 0.3px;
+        }
+
+        .marquee-track span::before {
+            content: '◆ ';
+            color: var(--gold);
+            font-size: 0.6rem;
+        }
+
+        @keyframes marqueeScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .hero-carousel:hover .marquee-track {
+            animation-play-state: paused;
+        }
+
+        /* =============================================================
+           SERVICES CAROUSEL
+           ============================================================= */
+        .services-carousel-section {
+            padding: 4rem 0 5rem;
+            background: var(--cream);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            background: rgba(201, 168, 76, 0.1);
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            margin-bottom: 0.5rem;
+            border: 1px solid rgba(201, 168, 76, 0.1);
+        }
+
+        .section-title {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        .carousel-track-container {
+            overflow: hidden;
+            border-radius: var(--radius);
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 1.8rem;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+
+        .service-card {
+            flex: 0 0 calc(33.333% - 1.2rem);
+            min-width: 0;
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(201, 168, 76, 0.2);
+        }
+
+        .service-card .card-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .service-card .card-image .card-tag {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--gold);
+            color: #fff;
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
+        }
+
+        .service-card .card-body {
+            padding: 1.5rem 1.5rem 1.2rem;
+        }
+
+        .service-card .card-body h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.4rem;
+            line-height: 1.3;
+        }
+
+        .service-card .card-body p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .service-card .card-body .view-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            border: none;
+            background: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .service-card .card-body .view-more-btn i {
+            transition: var(--transition);
+        }
+
+        .service-card .card-body .view-more-btn:hover {
+            color: var(--gold-dark);
+        }
+
+        .service-card .card-body .view-more-btn:hover i {
+            transform: translateX(4px);
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .carousel-arrow:hover {
+            background: var(--gold);
+            color: #fff;
+            border-color: var(--gold);
+            box-shadow: 0 4px 24px rgba(201, 168, 76, 0.25);
+        }
+
+        .carousel-arrow.prev {
+            left: 4px;
+        }
+
+        .carousel-arrow.next {
+            right: 4px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 2rem;
+        }
+
+        .carousel-dots .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 0;
+        }
+
+        .carousel-dots .dot.active {
+            background: var(--gold);
+            transform: scale(1.2);
+        }
+
+        .carousel-dots .dot:hover {
+            background: var(--gold-light);
+        }
+
+        /* =============================================================
+           DETAIL VIEW OVERLAY
+           ============================================================= */
+        .detail-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(6px);
+            padding: 2rem;
+            overflow-y: auto;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .detail-overlay.active {
+            display: flex;
+        }
+
+        .detail-container {
+            background: var(--white);
+            border-radius: 24px;
+            max-width: 1200px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 2.5rem;
+            position: relative;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.2);
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 2rem;
+        }
+
+        .detail-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 0.2rem;
+            line-height: 1;
+            z-index: 5;
+        }
+
+        .detail-close:hover {
+            color: var(--text-dark);
+            transform: rotate(90deg);
+        }
+
+        /* Left main content — scrollable */
+        .detail-main {
+            overflow-y: auto;
+            max-height: 70vh;
+            padding-right: 1rem;
+        }
+
+        .detail-main::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .detail-main::-webkit-scrollbar-track {
+            background: var(--cream);
+            border-radius: 8px;
+        }
+
+        .detail-main::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 8px;
+        }
+
+        .detail-image {
+            border-radius: 16px;
+            overflow: hidden;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-image .detail-tag {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--gold);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
+        }
+
+        .detail-content h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-content .detail-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+        }
+
+        .detail-content .detail-cta {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.7rem 2.4rem;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #fff;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .detail-content .detail-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(201, 168, 76, 0.25);
+        }
+
+        /* Right sidebar — other services (vertical list) */
+        .detail-sidebar {
+            border-left: 1px solid rgba(0, 0, 0, 0.06);
+            padding-left: 1.5rem;
+            overflow-y: auto;
+            max-height: 70vh;
+        }
+
+        .detail-sidebar h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .detail-mini-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 0.5rem;
+            border: 2px solid transparent;
+        }
+
+        .detail-mini-card:hover {
+            background: var(--cream);
+        }
+
+        .detail-mini-card.active {
+            background: rgba(201, 168, 76, 0.06);
+            border-color: var(--gold);
+        }
+
+        .detail-mini-card .mini-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+
+        .detail-mini-card .mini-info {
+            flex: 1;
+        }
+
+        .detail-mini-card .mini-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .detail-mini-card .mini-sub {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        /* =============================================================
+           FOOTER
+           ============================================================= */
+        .footer {
+            background: var(--primary-dark);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 3.5rem 0 1.5rem;
+            margin-top: 2rem;
+            border-top: 4px solid var(--gold);
+        }
+
+        .footer h5 {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-bottom: 0.6rem;
+        }
+
+        .footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 36px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 4px;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .footer ul li {
+            margin-bottom: 0.4rem;
+        }
+
+        .footer ul li a {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer ul li a:hover {
+            color: var(--gold);
+            padding-left: 6px;
+        }
+
+        .footer .footer-social {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .footer .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 50%;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1rem;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .footer .footer-social a:hover {
+            background: var(--gold);
+            color: #fff;
+            transform: translateY(-4px);
+            border-color: var(--gold);
+            box-shadow: 0 4px 16px rgba(201, 168, 76, 0.25);
+        }
+
+        .footer .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 0.9rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .footer .contact-info li i {
+            color: var(--gold);
+            width: 20px;
+            text-align: center;
+        }
+
+        .footer .whatsapp-footer-btn {
+            display: inline-block;
+            margin-top: 0.8rem;
+            padding: 0.5rem 1.4rem;
+            background: #25d366;
+            color: #fff;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .footer .whatsapp-footer-btn:hover {
+            background: #1da851;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.25);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 1.2rem;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        /* =============================================================
+           FLOATING WHATSAPP POPUP
+           ============================================================= */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+
+        .whatsapp-popup {
+            background: var(--white);
+            border-radius: 18px;
+            padding: 1rem 1.4rem;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            max-width: 240px;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            line-height: 1.4;
+            transform-origin: bottom right;
+            transition: opacity 0.35s ease, transform 0.35s ease;
+            opacity: 0;
+            transform: scale(0.9) translateY(12px);
+            pointer-events: none;
+            position: relative;
+        }
+
+        .whatsapp-popup.show {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            pointer-events: auto;
+        }
+
+        .whatsapp-popup strong {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .whatsapp-popup .popup-link {
+            display: inline-block;
+            margin-top: 8px;
+            background: #25d366;
+            color: #fff;
+            padding: 0.35rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.75rem;
+            transition: var(--transition);
+        }
+
+        .whatsapp-popup .popup-link:hover {
+            background: #1da851;
+        }
+
+        .whatsapp-popup .popup-close {
+            position: absolute;
+            top: 4px;
+            right: 8px;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            color: #b0a090;
+            line-height: 1;
+            transition: var(--transition);
+        }
+
+        .whatsapp-popup .popup-close:hover {
+            color: var(--text-dark);
+        }
+
+        .whatsapp-float .wa-icon {
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle at 30% 30%, #25d366, #128c7e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 24px rgba(37, 211, 102, 0.3);
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            color: white;
+            font-size: 2.2rem;
+            text-decoration: none;
+            flex-shrink: 0;
+            animation: pulseGlow 3s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 24px rgba(37, 211, 102, 0.3);
+            }
+            100% {
+                transform: scale(1.05);
+                box-shadow: 0 6px 36px rgba(37, 211, 102, 0.45);
+            }
+        }
+
+        .whatsapp-float .wa-icon:hover {
+            transform: scale(1.08);
+            animation: none;
+        }
+
+        /* =============================================================
+           RESPONSIVE
+           ============================================================= */
+        @media (max-width: 992px) {
+            .hero-carousel .carousel-item {
+                height: 380px;
+            }
+            .hero-carousel .carousel-caption h2 {
+                font-size: 2.4rem;
+            }
+            .hero-carousel .carousel-caption p {
+                font-size: 1rem;
+            }
+            .marquee-track span {
+                font-size: 0.8rem;
+                padding: 0 1.5rem;
+            }
+            .service-card {
+                flex: 0 0 calc(50% - 0.9rem);
+            }
+            .detail-container {
+                grid-template-columns: 1fr;
+                max-height: 95vh;
+                padding: 1.5rem;
+            }
+            .detail-sidebar {
+                border-left: none;
+                padding-left: 0;
+                border-top: 1px solid rgba(0, 0, 0, 0.06);
+                padding-top: 1rem;
+                max-height: 200px;
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                gap: 0.8rem;
+            }
+            .detail-sidebar h4 {
+                display: none;
+            }
+            .detail-mini-card {
+                flex: 0 0 140px;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 0.6rem;
+            }
+            .detail-mini-card .mini-image {
+                width: 80px;
+                height: 80px;
+            }
+            .detail-mini-card .mini-title {
+                font-size: 0.75rem;
+            }
+            .detail-mini-card .mini-sub {
+                font-size: 0.65rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-header .logo-wrapper .brand-text .org-name {
+                font-size: 1.2rem;
+            }
+            .main-header .quick-links {
+                justify-content: flex-start;
+                margin-top: 0.5rem;
+                font-size: 0.8rem;
+                gap: 0.5rem 1rem;
+            }
+            .hero-carousel .carousel-item {
+                height: 320px;
+            }
+            .hero-carousel .carousel-caption {
+                bottom: 20%;
+                padding: 0 1.5rem;
+            }
+            .hero-carousel .carousel-caption h2 {
+                font-size: 1.8rem;
+            }
+            .hero-carousel .carousel-caption p {
+                font-size: 0.9rem;
+            }
+            .hero-carousel .carousel-caption .btn-hero {
+                padding: 0.4rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            .hero-carousel .carousel-indicators {
+                bottom: 50px;
+            }
+            .marquee-track span {
+                font-size: 0.7rem;
+                padding: 0 1rem;
+            }
+            .carousel-wrapper {
+                padding: 0 40px;
+            }
+            .service-card {
+                flex: 0 0 100%;
+            }
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            .footer {
+                padding: 2rem 0 1rem;
+            }
+            .footer h5::after {
+                left: 0;
+            }
+            .language-switch-nav {
+                border-left: none;
+                padding-left: 0;
+                margin-top: 0.5rem;
+            }
+            .navbar-custom .d-flex {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+                width: 100%;
+            }
+            .navbar-custom .d-flex form {
+                width: 100%;
+                max-width: 280px;
+            }
+            .detail-container {
+                padding: 1rem;
+            }
+            .detail-main {
+                max-height: 60vh;
+            }
+            .detail-image {
+                height: 200px;
+            }
+            .detail-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-carousel .carousel-item {
+                height: 280px;
+            }
+            .hero-carousel .carousel-caption h2 {
+                font-size: 1.4rem;
+            }
+            .hero-carousel .carousel-caption p {
+                font-size: 0.8rem;
+            }
+            .hero-carousel .carousel-caption .btn-hero {
+                padding: 0.3rem 1.2rem;
+                font-size: 0.8rem;
+            }
+            .hero-carousel .carousel-indicators {
+                bottom: 44px;
+            }
+            .hero-carousel .carousel-indicators button {
+                width: 8px;
+                height: 8px;
+                margin: 0 4px;
+            }
+            .marquee-track span {
+                font-size: 0.6rem;
+                padding: 0 0.6rem;
+            }
+            .carousel-wrapper {
+                padding: 0 20px;
+            }
+            .carousel-arrow {
+                width: 32px;
+                height: 32px;
+                font-size: 0.8rem;
+            }
+            .service-card .card-image {
+                height: 150px;
+            }
+            .service-card .card-body {
+                padding: 1rem;
+            }
+            .service-card .card-body h3 {
+                font-size: 0.95rem;
+            }
+            .main-header .logo-wrapper .brand-text .org-name {
+                font-size: 1rem;
+            }
+            .main-header .logo-wrapper .logo-placeholder {
+                width: 44px;
+                height: 44px;
+            }
+            .main-header .logo-wrapper .logo-placeholder i {
+                font-size: 1.4rem;
+            }
+            .navbar-custom .navbar-nav .nav-link {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.85rem;
+            }
+            .whatsapp-float {
+                bottom: 14px;
+                right: 14px;
+            }
+            .whatsapp-float .wa-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.8rem;
+            }
+            .whatsapp-popup {
+                max-width: 170px;
+                font-size: 0.75rem;
+                padding: 0.6rem 0.8rem;
+            }
+            .detail-container {
+                padding: 0.8rem;
+            }
+            .detail-image {
+                height: 160px;
+            }
+            .detail-content h2 {
+                font-size: 1.2rem;
+            }
+            .detail-sidebar .detail-mini-card {
+                flex: 0 0 110px;
+            }
+            .detail-mini-card .mini-image {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <!-- ============================================================= -->
-    <!-- MAIN HEADER: Logo + Quick Links (Top Bar Removed)             -->
+    <!-- MAIN HEADER: Logo + Quick Links                               -->
     <!-- ============================================================= -->
     <header class="main-header">
         <div class="container">
@@ -1244,13 +1389,9 @@ ul {
             </button>
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            About Us
-                        </a>
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
                         <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
                             <li><a class="dropdown-item" href="#">Our Mission</a></li>
                             <li><a class="dropdown-item" href="#">Our Vision</a></li>
@@ -1261,9 +1402,7 @@ ul {
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Services
-                        </a>
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                         <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
                             <li><a class="dropdown-item" href="#">CV Customisation</a></li>
                             <li><a class="dropdown-item" href="#">Interview Preparation</a></li>
@@ -1273,9 +1412,7 @@ ul {
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="oppDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Opportunities
-                        </a>
+                        <a class="nav-link dropdown-toggle" href="#" id="oppDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opportunities</a>
                         <ul class="dropdown-menu" aria-labelledby="oppDropdown">
                             <li><a class="dropdown-item" href="#">Jobs</a></li>
                             <li><a class="dropdown-item" href="#">Internships</a></li>
@@ -1285,12 +1422,8 @@ ul {
                             <li><a class="dropdown-item" href="#">Training Programs</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Resources</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Resources</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                 </ul>
 
                 <!-- Search + Language Switcher -->
@@ -1318,7 +1451,6 @@ ul {
             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-
         <div class="carousel-inner">
             <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1400&h=500&fit=crop');">
                 <div class="carousel-caption">
@@ -1342,7 +1474,6 @@ ul {
                 </div>
             </div>
         </div>
-
         <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
@@ -1351,7 +1482,6 @@ ul {
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-
         <!-- MARQUEE -->
         <div class="hero-marquee">
             <div class="marquee-track">
@@ -1368,91 +1498,54 @@ ul {
     </div>
 
     <!-- ============================================================= -->
-    <!-- WHAT WE DO – OVERLAPPING CARDS                               -->
+    <!-- SERVICES CAROUSEL                                             -->
     <!-- ============================================================= -->
-    <section class="features-section">
+    <section class="services-carousel-section">
         <div class="container">
-            <div class="text-center mb-4">
-                <span class="section-badge">✦ What We Do</span>
+            <div class="section-header">
+                <span class="section-badge">✦ What We Offer</span>
                 <h2 class="section-title">Our Core Services</h2>
-                <p class="section-subtitle">Scroll horizontally to explore all the ways we support your career growth.</p>
+                <p class="section-subtitle">Browse through our services and click "Learn More" for full details.</p>
             </div>
-
-            <div class="services-scroll">
-                <div class="services-scroll-track" id="servicesTrack">
-                    <!-- Card 1 -->
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-file-alt"></i></div>
-                        <h5>CV Customisation</h5>
-                        <p>Learn to craft a professional CV that gets noticed by recruiters and passes ATS screening.</p>
-                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-comments"></i></div>
-                        <h5>Interview Preparation</h5>
-                        <p>Master the art of interviews with proven techniques, mock sessions, and confidence-building.</p>
-                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-user-graduate"></i></div>
-                        <h5>Scholarship Guidance</h5>
-                        <p>Get expert advice on writing winning scholarship applications and personal statements.</p>
-                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-bullseye"></i></div>
-                        <h5>Career Coaching</h5>
-                        <p>One-on-one coaching to help you define your career path, set goals, and achieve success.</p>
-                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <!-- Card 5 -->
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-search"></i></div>
-                        <h5>Job Placement</h5>
-                        <p>Access to curated job listings, internships, and volunteer opportunities across Tanzania.</p>
-                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <!-- Card 6 -->
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                        <h5>Research Mentorship</h5>
-                        <p>Develop strong research skills, scientific writing, and academic presentation techniques.</p>
-                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <!-- Card 7 -->
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-handshake"></i></div>
-                        <h5>Networking Events</h5>
-                        <p>Connect with professionals, employers, and like-minded individuals through our events.</p>
-                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <!-- Card 8 -->
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-book"></i></div>
-                        <h5>Learning Resources</h5>
-                        <p>Access a curated library of templates, guides, and reading materials for career growth.</p>
-                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
+            <div class="carousel-wrapper">
+                <button class="carousel-arrow prev" id="prevBtn" aria-label="Previous">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="carousel-track-container">
+                    <div class="carousel-track" id="servicesTrack"></div>
                 </div>
-
-                <div class="scroll-hint">
-                    <span>←</span>
-                    <span>Scroll to see more <i class="fas fa-arrow-right"></i></span>
-                    <span>→</span>
-                </div>
+                <button class="carousel-arrow next" id="nextBtn" aria-label="Next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
+            <div class="carousel-dots" id="carouselDots"></div>
         </div>
     </section>
+
+    <!-- ============================================================= -->
+    <!-- DETAIL VIEW OVERLAY                                           -->
+    <!-- ============================================================= -->
+    <div class="detail-overlay" id="detailOverlay">
+        <div class="detail-container">
+            <button class="detail-close" id="detailClose">&times;</button>
+            <!-- Left main content -->
+            <div class="detail-main">
+                <div class="detail-image" id="detailImage">
+                    <span class="detail-tag" id="detailTag">Popular</span>
+                </div>
+                <div class="detail-content">
+                    <h2 id="detailTitle">Service Name</h2>
+                    <p class="detail-desc" id="detailDesc">Full description of the service goes here. This explains what the service includes and who it's for.</p>
+                    <button class="detail-cta" id="detailCta">Get Started Today</button>
+                </div>
+            </div>
+            <!-- Right sidebar: other services -->
+            <div class="detail-sidebar">
+                <h4>Other Services</h4>
+                <div id="detailMiniGrid"></div>
+            </div>
+        </div>
+    </div>
 
     <!-- ============================================================= -->
     <!-- FOOTER                                                        -->
@@ -1530,469 +1623,631 @@ ul {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
     </script>
 
-    <!-- Custom JavaScript -->
-  <script>/**
- * =============================================================
- * SCRIPT.JS - CareerConnectTZ Main Page
- * =============================================================
- */
+    <!-- ============================================================= -->
+    <!-- Custom JavaScript                                              -->
+    <!-- ============================================================= -->
+    <script>
+        /**
+         * =============================================================
+         * SCRIPT.JS - CareerConnectTZ Main Page
+         * =============================================================
+         */
 
-document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
 
-    // =============================================================
-    // 1. LANGUAGE SWITCHER (EN / SW) - FULLY WORKING
-    // =============================================================
-    const langLinks = document.querySelectorAll('.language-switch-nav a');
-    let currentLang = 'en';
+            // =============================================================
+            // 1. LANGUAGE SWITCHER (EN / SW)
+            // =============================================================
+            const langLinks = document.querySelectorAll('.language-switch-nav a');
+            let currentLang = 'en';
 
-    // ── Translations ──
-    const translations = {
-        en: {
-            logo: 'CareerConnect TZ',
-            tagline: 'Build Skills · Discover Opportunities · Grow Your Career',
-            home: 'Home',
-            about: 'About Us',
-            mission: 'Our Mission',
-            vision: 'Our Vision',
-            team: 'Our Team',
-            story: 'Our Story',
-            reports: 'Annual Reports',
-            services: 'Services',
-            cv: 'CV Customisation',
-            interview: 'Interview Preparation',
-            coaching: 'Career Coaching',
-            scholarship: 'Scholarship Guidance',
-            research: 'Research Mentorship',
-            opportunities: 'Opportunities',
-            jobs: 'Jobs',
-            internships: 'Internships',
-            scholarships: 'Scholarships',
-            volunteer: 'Volunteer',
-            training: 'Training Programs',
-            resources: 'Resources',
-            contact: 'Contact',
-            search_placeholder: 'Search...',
-            search_btn: 'Search',
-            hero_badge: 'Career Development',
-            hero_title: 'Build Skills That Open Doors',
-            hero_subtitle: 'Practical career coaching, CV training, and interview preparation to help you land your dream job.',
-            hero_btn: 'Get Started',
-            hero_slide2_title: 'Discover Opportunities',
-            hero_slide2_sub: 'Access the latest jobs, internships, scholarships, and volunteer positions across Tanzania and beyond.',
-            hero_slide2_btn: 'Explore Opportunities',
-            hero_slide3_title: 'Grow Your Career',
-            hero_slide3_sub: 'One-on-one coaching, mentorship, and resources to help you achieve your professional goals.',
-            hero_slide3_btn: 'Join Now',
-            section_badge: 'What We Do',
-            section_title: 'Our Core Services',
-            section_sub: 'Scroll horizontally to explore all the ways we support your career growth.',
-            cv_desc: 'Learn to craft a professional CV that gets noticed by recruiters and passes ATS screening.',
-            interview_desc: 'Master the art of interviews with proven techniques, mock sessions, and confidence-building.',
-            scholarship_desc: 'Get expert advice on writing winning scholarship applications and personal statements.',
-            coaching_desc: 'One-on-one coaching to help you define your career path, set goals, and achieve success.',
-            job_desc: 'Access to curated job listings, internships, and volunteer opportunities across Tanzania.',
-            research_desc: 'Develop strong research skills, scientific writing, and academic presentation techniques.',
-            networking_desc: 'Connect with professionals, employers, and like-minded individuals through our events.',
-            resources_desc: 'Access a curated library of templates, guides, and reading materials for career growth.',
-            learn_more: 'Learn More',
-            scroll_hint: 'Scroll to see more',
-            footer_about: 'About CareerConnectTZ',
-            footer_about_text: 'We are a career development platform helping students and young professionals build skills, access opportunities, and grow professionally across Tanzania and beyond.',
-            footer_quick: 'Quick Links',
-            footer_services: 'Our Services',
-            footer_contact: 'Contact Us',
-            footer_address: 'Dar es Salaam, Tanzania',
-            footer_phone: '+255 774 554 665',
-            footer_email: 'info@careerconnecttz.com',
-            footer_hours: 'Mon–Fri: 8:00am – 5:00pm',
-            footer_chat: 'Chat on WhatsApp',
-            footer_copyright: '© 2026 CareerConnectTZ. All Rights Reserved.',
-            wa_title: 'Join Our WhatsApp Channel',
-            wa_sub: 'Get daily coaching tips, job alerts, and scholarship updates.',
-            wa_btn: 'Join Now',
-            marquee_1: 'NEW: CV Customisation Workshop — Register Now!',
-            marquee_2: 'Scholarships Available — Apply Before Deadline',
-            marquee_3: '50+ Jobs Posted This Week — View Opportunities',
-            marquee_4: 'Interview Preparation Sessions — Book Your Slot',
-            marquee_5: 'Career Coaching — One-on-One Sessions Available',
-        },
-        sw: {
-            logo: 'CareerConnect TZ',
-            tagline: 'Jenga Ujuzi · Gundua Fursa · Kua Katika Kazi Yako',
-            home: 'Nyumbani',
-            about: 'Kuhusu Sisi',
-            mission: 'Dhamira Yetu',
-            vision: 'Maono Yetu',
-            team: 'Timu Yetu',
-            story: 'Hadithi Yetu',
-            reports: 'Ripoti za Mwaka',
-            services: 'Huduma',
-            cv: 'Uandaaji wa CV',
-            interview: 'Maandalizi ya Mahojiano',
-            coaching: 'Ushauri wa Kazi',
-            scholarship: 'Mwongozo wa Masomo',
-            research: 'Ushauri wa Utafiti',
-            opportunities: 'Fursa',
-            jobs: 'Kazi',
-            internships: 'Mafunzo ya Kazini',
-            scholarships: 'Masomo',
-            volunteer: 'Kujitolea',
-            training: 'Mipango ya Mafunzo',
-            resources: 'Rasilimali',
-            contact: 'Wasiliana Nasi',
-            search_placeholder: 'Tafuta...',
-            search_btn: 'Tafuta',
-            hero_badge: 'Maendeleo ya Kazi',
-            hero_title: 'Jenga Ujuzi Unaofungua Milango',
-            hero_subtitle: 'Ushauri wa vitendo wa kazi, mafunzo ya CV, na maandalizi ya mahojiano kukusaidia kupata kazi ndoto yako.',
-            hero_btn: 'Anza Sasa',
-            hero_slide2_title: 'Gundua Fursa',
-            hero_slide2_sub: 'Pata kazi mpya, mafunzo, masomo, na fursa za kujitolea nchini Tanzania na kwingineko.',
-            hero_slide2_btn: 'Gundua Fursa',
-            hero_slide3_title: 'Kua Katika Kazi Yako',
-            hero_slide3_sub: 'Ushauri wa kibinafsi na rasilimali kukusaidia kufikia malengo yako ya kitaaluma.',
-            hero_slide3_btn: 'Jiunge Sasa',
-            section_badge: 'Tunachofanya',
-            section_title: 'Huduma Zetu',
-            section_sub: 'Tembeza kwa mlalo ili kuona huduma zote tunazotoa kwa maendeleo yako.',
-            cv_desc: 'Jifunze kuandika CV inayovutia waajiri na kupita uchunguzi wa ATS.',
-            interview_desc: 'Boresha ujuzi wako wa mahojiano kwa mbinu zilizothibitishwa na kujiamini.',
-            scholarship_desc: 'Pata ushauri wa kitaalamu wa kuandika maombi ya masomo na taarifa za kibinafsi.',
-            coaching_desc: 'Ushauri wa kibinafsi kukusaidia kuweka malengo na kufanikiwa katika kazi yako.',
-            job_desc: 'Pata orodha ya kazi, mafunzo, na fursa za kujitolea nchini Tanzania.',
-            research_desc: 'Boresha ujuzi wa utafiti, uandishi wa kisayansi, na mbinu za uwasilishaji.',
-            networking_desc: 'Ungana na wataalamu, waajiri, na watu wenye nia kama yako kupitia matukio yetu.',
-            resources_desc: 'Pata maktaba ya violezo, miongozo, na vifaa vya kusoma kwa maendeleo ya kazi.',
-            learn_more: 'Soma Zaidi',
-            scroll_hint: 'Tembeza ili kuona zaidi',
-            footer_about: 'Kuhusu CareerConnectTZ',
-            footer_about_text: 'Sisi ni jukwaa la maendeleo ya kazi linalosaidia wanafunzi na wataalamu wachanga kujenga ujuzi, kupata fursa, na kukua kitaaluma nchini Tanzania na kwingineko.',
-            footer_quick: 'Viungo vya Haraka',
-            footer_services: 'Huduma Zetu',
-            footer_contact: 'Wasiliana Nasi',
-            footer_address: 'Dar es Salaam, Tanzania',
-            footer_phone: '+255 774 554 665',
-            footer_email: 'info@careerconnecttz.com',
-            footer_hours: 'Jumatatu–Ijumaa: 8:00am – 5:00pm',
-            footer_chat: 'Ongea kwenye WhatsApp',
-            footer_copyright: '© 2026 CareerConnectTZ. Haki Zote Zimehifadhiwa.',
-            wa_title: 'Jiunge na Kituo Chetu cha WhatsApp',
-            wa_sub: 'Pata vidokezo vya kila siku vya kazi, taarifa za kazi, na masasisho ya masomo.',
-            wa_btn: 'Jiunge Sasa',
-            marquee_1: 'MPYA: Warsha ya Uandaaji wa CV — Jisajili Sasa!',
-            marquee_2: 'Masomo Yanapatikana — Omba Kabla ya Tarehe ya Mwisho',
-            marquee_3: 'Kazi 50+ Zimetumwa Wiki Hii — Tazama Fursa',
-            marquee_4: 'Vipindi vya Maandalizi ya Mahojiano — Weka Nafasi Yako',
-            marquee_5: 'Ushauri wa Kazi — Vipindi vya Kibinafsi Vinapatikana',
-        }
-    };
-
-    // ── Apply translations to the page ──
-    function applyLanguage(lang) {
-        const t = translations[lang];
-
-        // Logo & Tagline
-        document.querySelector('.org-name')?.replaceChild(
-            document.createTextNode(t.logo),
-            document.querySelector('.org-name').firstChild
-        );
-        document.querySelector('.tagline').textContent = t.tagline;
-
-        // Navigation
-        document.querySelectorAll('.navbar-nav .nav-link').forEach(function(link) {
-            const href = link.getAttribute('href');
-            const text = link.textContent.trim();
-            if (href === '#' || href === '' || href === '#home') {
-                if (text === 'Home' || text === 'Nyumbani') link.textContent = t.home;
-            }
-            // Dropdown toggles
-            if (link.classList.contains('dropdown-toggle')) {
-                const parent = link.closest('.dropdown');
-                if (parent) {
-                    const id = parent.id || '';
-                    if (id === 'aboutDropdown' || link.textContent.includes('About')) link.textContent = t.about + ' ▾';
-                    if (id === 'servicesDropdown' || link.textContent.includes('Services')) link.textContent = t.services + ' ▾';
-                    if (id === 'oppDropdown' || link.textContent.includes('Opportunities')) link.textContent = t.opportunities + ' ▾';
+            const translations = {
+                en: {
+                    logo: 'CareerConnect TZ',
+                    tagline: 'Build Skills · Discover Opportunities · Grow Your Career',
+                    home: 'Home',
+                    about: 'About Us',
+                    mission: 'Our Mission',
+                    vision: 'Our Vision',
+                    team: 'Our Team',
+                    story: 'Our Story',
+                    reports: 'Annual Reports',
+                    services: 'Services',
+                    cv: 'CV Customisation',
+                    interview: 'Interview Preparation',
+                    coaching: 'Career Coaching',
+                    scholarship: 'Scholarship Guidance',
+                    research: 'Research Mentorship',
+                    opportunities: 'Opportunities',
+                    jobs: 'Jobs',
+                    internships: 'Internships',
+                    scholarships: 'Scholarships',
+                    volunteer: 'Volunteer',
+                    training: 'Training Programs',
+                    resources: 'Resources',
+                    contact: 'Contact',
+                    search_placeholder: 'Search...',
+                    hero_badge: 'Career Development',
+                    hero_title: 'Build Skills That Open Doors',
+                    hero_subtitle: 'Practical career coaching, CV training, and interview preparation to help you land your dream job.',
+                    hero_btn: 'Get Started',
+                    hero_slide2_title: 'Discover Opportunities',
+                    hero_slide2_sub: 'Access the latest jobs, internships, scholarships, and volunteer positions across Tanzania and beyond.',
+                    hero_slide2_btn: 'Explore Opportunities',
+                    hero_slide3_title: 'Grow Your Career',
+                    hero_slide3_sub: 'One-on-one coaching, mentorship, and resources to help you achieve your professional goals.',
+                    hero_slide3_btn: 'Join Now',
+                    section_badge: 'What We Offer',
+                    section_title: 'Our Core Services',
+                    section_sub: 'Browse through our services and click "Learn More" for full details.',
+                    cv_desc: 'Learn to craft a professional CV that gets noticed by recruiters and passes ATS screening.',
+                    interview_desc: 'Master the art of interviews with proven techniques, mock sessions, and confidence-building.',
+                    scholarship_desc: 'Get expert advice on writing winning scholarship applications and personal statements.',
+                    coaching_desc: 'One-on-one coaching to help you define your career path, set goals, and achieve success.',
+                    job_desc: 'Access to curated job listings, internships, and volunteer opportunities across Tanzania.',
+                    research_desc: 'Develop strong research skills, scientific writing, and academic presentation techniques.',
+                    networking_desc: 'Connect with professionals, employers, and like-minded individuals through our events.',
+                    resources_desc: 'Access a curated library of templates, guides, and reading materials for career growth.',
+                    learn_more: 'Learn More',
+                    footer_about: 'About CareerConnectTZ',
+                    footer_about_text: 'We are a career development platform helping students and young professionals build skills, access opportunities, and grow professionally across Tanzania and beyond.',
+                    footer_quick: 'Quick Links',
+                    footer_services: 'Our Services',
+                    footer_contact: 'Contact Us',
+                    footer_address: 'Dar es Salaam, Tanzania',
+                    footer_phone: '+255 774 554 665',
+                    footer_email: 'info@careerconnecttz.com',
+                    footer_hours: 'Mon–Fri: 8:00am – 5:00pm',
+                    footer_chat: 'Chat on WhatsApp',
+                    footer_copyright: '© 2026 CareerConnectTZ. All Rights Reserved.',
+                    wa_title: 'Join Our WhatsApp Channel',
+                    wa_sub: 'Get daily coaching tips, job alerts, and scholarship updates.',
+                    wa_btn: 'Join Now',
+                    marquee_1: 'NEW: CV Customisation Workshop — Register Now!',
+                    marquee_2: 'Scholarships Available — Apply Before Deadline',
+                    marquee_3: '50+ Jobs Posted This Week — View Opportunities',
+                    marquee_4: 'Interview Preparation Sessions — Book Your Slot',
+                    marquee_5: 'Career Coaching — One-on-One Sessions Available',
+                },
+                sw: {
+                    logo: 'CareerConnect TZ',
+                    tagline: 'Jenga Ujuzi · Gundua Fursa · Kua Katika Kazi Yako',
+                    home: 'Nyumbani',
+                    about: 'Kuhusu Sisi',
+                    mission: 'Dhamira Yetu',
+                    vision: 'Maono Yetu',
+                    team: 'Timu Yetu',
+                    story: 'Hadithi Yetu',
+                    reports: 'Ripoti za Mwaka',
+                    services: 'Huduma',
+                    cv: 'Uandaaji wa CV',
+                    interview: 'Maandalizi ya Mahojiano',
+                    coaching: 'Ushauri wa Kazi',
+                    scholarship: 'Mwongozo wa Masomo',
+                    research: 'Ushauri wa Utafiti',
+                    opportunities: 'Fursa',
+                    jobs: 'Kazi',
+                    internships: 'Mafunzo ya Kazini',
+                    scholarships: 'Masomo',
+                    volunteer: 'Kujitolea',
+                    training: 'Mipango ya Mafunzo',
+                    resources: 'Rasilimali',
+                    contact: 'Wasiliana Nasi',
+                    search_placeholder: 'Tafuta...',
+                    hero_badge: 'Maendeleo ya Kazi',
+                    hero_title: 'Jenga Ujuzi Unaofungua Milango',
+                    hero_subtitle: 'Ushauri wa vitendo wa kazi, mafunzo ya CV, na maandalizi ya mahojiano kukusaidia kupata kazi ndoto yako.',
+                    hero_btn: 'Anza Sasa',
+                    hero_slide2_title: 'Gundua Fursa',
+                    hero_slide2_sub: 'Pata kazi mpya, mafunzo, masomo, na fursa za kujitolea nchini Tanzania na kwingineko.',
+                    hero_slide2_btn: 'Gundua Fursa',
+                    hero_slide3_title: 'Kua Katika Kazi Yako',
+                    hero_slide3_sub: 'Ushauri wa kibinafsi na rasilimali kukusaidia kufikia malengo yako ya kitaaluma.',
+                    hero_slide3_btn: 'Jiunge Sasa',
+                    section_badge: 'Tunachotoa',
+                    section_title: 'Huduma Zetu',
+                    section_sub: 'Tembeza kupitia huduma zetu na ubofye "Soma Zaidi" kwa maelezo kamili.',
+                    cv_desc: 'Jifunze kuandika CV inayovutia waajiri na kupita uchunguzi wa ATS.',
+                    interview_desc: 'Boresha ujuzi wako wa mahojiano kwa mbinu zilizothibitishwa na kujiamini.',
+                    scholarship_desc: 'Pata ushauri wa kitaalamu wa kuandika maombi ya masomo na taarifa za kibinafsi.',
+                    coaching_desc: 'Ushauri wa kibinafsi kukusaidia kuweka malengo na kufanikiwa katika kazi yako.',
+                    job_desc: 'Pata orodha ya kazi, mafunzo, na fursa za kujitolea nchini Tanzania.',
+                    research_desc: 'Boresha ujuzi wa utafiti, uandishi wa kisayansi, na mbinu za uwasilishaji.',
+                    networking_desc: 'Ungana na wataalamu, waajiri, na watu wenye nia kama yako kupitia matukio yetu.',
+                    resources_desc: 'Pata maktaba ya violezo, miongozo, na vifaa vya kusoma kwa maendeleo ya kazi.',
+                    learn_more: 'Soma Zaidi',
+                    footer_about: 'Kuhusu CareerConnectTZ',
+                    footer_about_text: 'Sisi ni jukwaa la maendeleo ya kazi linalosaidia wanafunzi na wataalamu wachanga kujenga ujuzi, kupata fursa, na kukua kitaaluma nchini Tanzania na kwingineko.',
+                    footer_quick: 'Viungo vya Haraka',
+                    footer_services: 'Huduma Zetu',
+                    footer_contact: 'Wasiliana Nasi',
+                    footer_address: 'Dar es Salaam, Tanzania',
+                    footer_phone: '+255 774 554 665',
+                    footer_email: 'info@careerconnecttz.com',
+                    footer_hours: 'Jumatatu–Ijumaa: 8:00am – 5:00pm',
+                    footer_chat: 'Ongea kwenye WhatsApp',
+                    footer_copyright: '© 2026 CareerConnectTZ. Haki Zote Zimehifadhiwa.',
+                    wa_title: 'Jiunge na Kituo Chetu cha WhatsApp',
+                    wa_sub: 'Pata vidokezo vya kila siku vya kazi, taarifa za kazi, na masasisho ya masomo.',
+                    wa_btn: 'Jiunge Sasa',
+                    marquee_1: 'MPYA: Warsha ya Uandaaji wa CV — Jisajili Sasa!',
+                    marquee_2: 'Masomo Yanapatikana — Omba Kabla ya Tarehe ya Mwisho',
+                    marquee_3: 'Kazi 50+ Zimetumwa Wiki Hii — Tazama Fursa',
+                    marquee_4: 'Vipindi vya Maandalizi ya Mahojiano — Weka Nafasi Yako',
+                    marquee_5: 'Ushauri wa Kazi — Vipindi vya Kibinafsi Vinapatikana',
                 }
+            };
+
+            function applyLanguage(lang) {
+                const t = translations[lang];
+                document.querySelector('.org-name')?.replaceChild(document.createTextNode(t.logo), document.querySelector(
+                    '.org-name').firstChild);
+                document.querySelector('.tagline').textContent = t.tagline;
+                document.querySelectorAll('.navbar-nav .nav-link').forEach(function(link) {
+                    const href = link.getAttribute('href');
+                    const text = link.textContent.trim();
+                    if (href === '#' || href === '' || href === '#home') {
+                        if (text === 'Home' || text === 'Nyumbani') link.textContent = t.home;
+                    }
+                    if (link.classList.contains('dropdown-toggle')) {
+                        const parent = link.closest('.dropdown');
+                        if (parent) {
+                            const id = parent.id || '';
+                            if (id === 'aboutDropdown' || link.textContent.includes('About')) link.textContent = t.about +
+                                ' ▾';
+                            if (id === 'servicesDropdown' || link.textContent.includes('Services')) link.textContent = t
+                                .services + ' ▾';
+                            if (id === 'oppDropdown' || link.textContent.includes('Opportunities')) link.textContent = t
+                                .opportunities + ' ▾';
+                        }
+                    }
+                });
+                document.querySelectorAll('.dropdown-menu .dropdown-item').forEach(function(item) {
+                    const text = item.textContent.trim();
+                    if (text === 'Our Mission' || text === 'Dhamira Yetu') item.textContent = t.mission;
+                    if (text === 'Our Vision' || text === 'Maono Yetu') item.textContent = t.vision;
+                    if (text === 'Our Team' || text === 'Timu Yetu') item.textContent = t.team;
+                    if (text === 'Our Story' || text === 'Hadithi Yetu') item.textContent = t.story;
+                    if (text === 'Annual Reports' || text === 'Ripoti za Mwaka') item.textContent = t.reports;
+                    if (text === 'CV Customisation' || text === 'Uandaaji wa CV') item.textContent = t.cv;
+                    if (text === 'Interview Preparation' || text === 'Maandalizi ya Mahojiano') item.textContent = t
+                        .interview;
+                    if (text === 'Career Coaching' || text === 'Ushauri wa Kazi') item.textContent = t.coaching;
+                    if (text === 'Scholarship Guidance' || text === 'Mwongozo wa Masomo') item.textContent = t
+                        .scholarship;
+                    if (text === 'Research Mentorship' || text === 'Ushauri wa Utafiti') item.textContent = t.research;
+                    if (text === 'Jobs' || text === 'Kazi') item.textContent = t.jobs;
+                    if (text === 'Internships' || text === 'Mafunzo ya Kazini') item.textContent = t.internships;
+                    if (text === 'Scholarships' || text === 'Masomo') item.textContent = t.scholarships;
+                    if (text === 'Volunteer' || text === 'Kujitolea') item.textContent = t.volunteer;
+                    if (text === 'Training Programs' || text === 'Mipango ya Mafunzo') item.textContent = t.training;
+                });
+                document.querySelectorAll('.navbar-nav .nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    const text = link.textContent.trim();
+                    if (text === 'Resources' || text === 'Rasilimali') link.textContent = t.resources;
+                    if (text === 'Contact' || text === 'Wasiliana Nasi') link.textContent = t.contact;
+                });
+                const searchInput = document.querySelector('.navbar-custom .form-control');
+                if (searchInput) searchInput.placeholder = t.search_placeholder;
+                const heroBadge = document.querySelector('.hero-badge');
+                if (heroBadge) heroBadge.textContent = t.hero_badge;
+                const heroTitle = document.querySelector('.hero h1');
+                if (heroTitle) {
+                    const span = heroTitle.querySelector('span');
+                    if (span) {
+                        heroTitle.innerHTML = t.hero_title.replace('Open Doors', '<span>' + (lang === 'sw' ? 'Milango' :
+                            'Open Doors') +
+                            '</span>');
+                    }
+                }
+                const heroP = document.querySelector('.hero p');
+                if (heroP) heroP.textContent = t.hero_subtitle;
+                const heroBtn = document.querySelector('.btn-primary');
+                if (heroBtn) heroBtn.textContent = t.hero_btn;
+                const sectionBadge = document.querySelector('.section-badge');
+                if (sectionBadge) sectionBadge.textContent = t.section_badge;
+                const sectionTitle = document.querySelector('.section-title');
+                if (sectionTitle) sectionTitle.textContent = t.section_title;
+                const sectionSub = document.querySelector('.section-subtitle');
+                if (sectionSub) sectionSub.textContent = t.section_sub;
+                const cards = document.querySelectorAll('.service-card');
+                const cardTexts = lang === 'sw' ?
+                    [t.cv_desc, t.interview_desc, t.scholarship_desc, t.coaching_desc, t.job_desc, t.research_desc, t
+                        .networking_desc,
+                        t.resources_desc
+                    ] :
+                    [t.cv_desc, t.interview_desc, t.scholarship_desc, t.coaching_desc, t.job_desc, t.research_desc, t
+                        .networking_desc,
+                        t.resources_desc
+                    ];
+                cards.forEach(function(card, index) {
+                    const p = card.querySelector('.card-body p');
+                    if (p && cardTexts[index]) p.textContent = cardTexts[index];
+                    const btn = card.querySelector('.view-more-btn');
+                    if (btn) btn.innerHTML = t.learn_more + ' <i class="fas fa-arrow-right"></i>';
+                });
+                const footerAbout = document.querySelector('.footer h5');
+                if (footerAbout) footerAbout.textContent = t.footer_about;
+                const footerAboutText = document.querySelector('.footer .col-lg-4 p');
+                if (footerAboutText) footerAboutText.textContent = t.footer_about_text;
+                const footerQuick = document.querySelectorAll('.footer .col-lg-2 h5');
+                if (footerQuick.length > 0) footerQuick[0].textContent = t.footer_quick;
+                const footerServices = document.querySelectorAll('.footer .col-lg-3 h5');
+                if (footerServices.length > 0) footerServices[0].textContent = t.footer_services;
+                const footerContact = document.querySelectorAll('.footer .col-lg-3:last-child h5');
+                if (footerContact.length > 0) footerContact[0].textContent = t.footer_contact;
+                document.querySelectorAll('.footer .col-lg-2 ul li a').forEach(function(link, index) {
+                    const texts = [t.home, t.about, t.services, t.opportunities, t.contact];
+                    if (texts[index]) link.textContent = texts[index];
+                });
+                document.querySelectorAll('.footer .col-lg-3 ul li a').forEach(function(link, index) {
+                    const texts = [t.cv, t.interview, t.coaching, t.scholarship, t.research];
+                    if (texts[index]) link.textContent = texts[index];
+                });
+                const contactItems = document.querySelectorAll('.footer .contact-info li');
+                if (contactItems.length >= 4) {
+                    contactItems[0].innerHTML = '<i class="fas fa-map-marker-alt"></i> ' + t.footer_address;
+                    contactItems[1].innerHTML = '<i class="fas fa-phone-alt"></i> ' + t.footer_phone;
+                    contactItems[2].innerHTML = '<i class="fas fa-envelope"></i> ' + t.footer_email;
+                    contactItems[3].innerHTML = '<i class="fas fa-clock"></i> ' + t.footer_hours;
+                }
+                const whatsappFooter = document.querySelector('.whatsapp-footer-btn');
+                if (whatsappFooter) whatsappFooter.innerHTML = '<i class="fab fa-whatsapp"></i> ' + t.footer_chat;
+                const footerCopyright = document.querySelector('.footer-bottom p');
+                if (footerCopyright) footerCopyright.textContent = t.footer_copyright;
+                const waTitle = document.querySelector('.whatsapp-popup strong');
+                if (waTitle) waTitle.textContent = t.wa_title;
+                const waSub = document.querySelector('.whatsapp-popup p');
+                if (waSub) waSub.textContent = t.wa_sub;
+                const waBtn = document.querySelector('.popup-link');
+                if (waBtn) waBtn.textContent = t.wa_btn;
+                const marqueeSpans = document.querySelectorAll('.marquee-track span');
+                const marqueeTexts = [t.marquee_1, t.marquee_2, t.marquee_3, t.marquee_4, t.marquee_5];
+                marqueeSpans.forEach(function(span, index) {
+                    if (marqueeTexts[index % marqueeTexts.length]) {
+                        span.textContent = marqueeTexts[index % marqueeTexts.length];
+                    }
+                });
+                currentLang = lang;
             }
-        });
 
-        // Dropdown items
-        document.querySelectorAll('.dropdown-menu .dropdown-item').forEach(function(item) {
-            const text = item.textContent.trim();
-            if (text === 'Our Mission' || text === 'Dhamira Yetu') item.textContent = t.mission;
-            if (text === 'Our Vision' || text === 'Maono Yetu') item.textContent = t.vision;
-            if (text === 'Our Team' || text === 'Timu Yetu') item.textContent = t.team;
-            if (text === 'Our Story' || text === 'Hadithi Yetu') item.textContent = t.story;
-            if (text === 'Annual Reports' || text === 'Ripoti za Mwaka') item.textContent = t.reports;
-            if (text === 'CV Customisation' || text === 'Uandaaji wa CV') item.textContent = t.cv;
-            if (text === 'Interview Preparation' || text === 'Maandalizi ya Mahojiano') item.textContent = t.interview;
-            if (text === 'Career Coaching' || text === 'Ushauri wa Kazi') item.textContent = t.coaching;
-            if (text === 'Scholarship Guidance' || text === 'Mwongozo wa Masomo') item.textContent = t.scholarship;
-            if (text === 'Research Mentorship' || text === 'Ushauri wa Utafiti') item.textContent = t.research;
-            if (text === 'Jobs' || text === 'Kazi') item.textContent = t.jobs;
-            if (text === 'Internships' || text === 'Mafunzo ya Kazini') item.textContent = t.internships;
-            if (text === 'Scholarships' || text === 'Masomo') item.textContent = t.scholarships;
-            if (text === 'Volunteer' || text === 'Kujitolea') item.textContent = t.volunteer;
-            if (text === 'Training Programs' || text === 'Mipango ya Mafunzo') item.textContent = t.training;
-        });
+            langLinks.forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const lang = this.getAttribute('data-lang');
+                    if (lang === currentLang) return;
+                    langLinks.forEach(function(l) { l.classList.remove('active'); });
+                    this.classList.add('active');
+                    applyLanguage(lang);
+                });
+            });
 
-        // Resources & Contact (standalone nav links)
-        document.querySelectorAll('.navbar-nav .nav-link:not(.dropdown-toggle)').forEach(function(link) {
-            const text = link.textContent.trim();
-            if (text === 'Resources' || text === 'Rasilimali') link.textContent = t.resources;
-            if (text === 'Contact' || text === 'Wasiliana Nasi') link.textContent = t.contact;
-        });
+            // =============================================================
+            // 2. SEARCH – FILTER SERVICE CARDS
+            // =============================================================
+            const searchInput = document.querySelector('.navbar-custom .form-control');
+            const cards = document.querySelectorAll('.service-card');
 
-        // Search placeholder
-        const searchInput = document.querySelector('.navbar-custom .form-control');
-        if (searchInput) searchInput.placeholder = t.search_placeholder;
-
-        // Hero
-        const heroBadge = document.querySelector('.hero-badge');
-        if (heroBadge) heroBadge.textContent = t.hero_badge;
-
-        const heroTitle = document.querySelector('.hero h1');
-        if (heroTitle) {
-            const span = heroTitle.querySelector('span');
-            if (span) {
-                heroTitle.innerHTML = t.hero_title.replace('Open Doors', '<span>' + (lang === 'sw' ? 'Milango' : 'Open Doors') +
-                    '</span>');
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const query = this.value.toLowerCase().trim();
+                    cards.forEach(function(card) {
+                        const text = card.textContent.toLowerCase();
+                        if (!query || text.includes(query)) {
+                            card.style.display = '';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    const hint = document.querySelector('.carousel-dots');
+                    if (hint) {
+                        const visible = document.querySelectorAll('.service-card:not([style*="display: none"])');
+                        if (visible.length === 0 && query !== '') {
+                            hint.innerHTML = '⚠️ No results found for "' + query + '"';
+                            hint.style.color = '#c4753c';
+                        } else {
+                            hint.innerHTML = '';
+                            hint.style.color = '';
+                            buildDots();
+                            updateCarousel();
+                        }
+                    }
+                });
             }
-        }
 
-        const heroP = document.querySelector('.hero p');
-        if (heroP) heroP.textContent = t.hero_subtitle;
-
-        const heroBtn = document.querySelector('.btn-primary');
-        if (heroBtn) heroBtn.textContent = t.hero_btn;
-
-        // Section badge & title
-        const sectionBadge = document.querySelector('.section-badge');
-        if (sectionBadge) sectionBadge.textContent = t.section_badge;
-
-        const sectionTitle = document.querySelector('.section-title');
-        if (sectionTitle) sectionTitle.textContent = t.section_title;
-
-        const sectionSub = document.querySelector('.section-subtitle');
-        if (sectionSub) sectionSub.textContent = t.section_sub;
-
-        // Feature cards
-        const cards = document.querySelectorAll('.feature-card');
-        const cardTexts = lang === 'sw' ?
-            [t.cv_desc, t.interview_desc, t.scholarship_desc, t.coaching_desc, t.job_desc, t.research_desc, t.networking_desc,
-                t.resources_desc
-            ] :
-            [t.cv_desc, t.interview_desc, t.scholarship_desc, t.coaching_desc, t.job_desc, t.research_desc, t.networking_desc,
-                t.resources_desc
-            ];
-
-        cards.forEach(function(card, index) {
-            const p = card.querySelector('p');
-            if (p && cardTexts[index]) p.textContent = cardTexts[index];
-            const link = card.querySelector('.feature-link');
-            if (link) {
-                const icon = link.querySelector('i');
-                link.innerHTML = t.learn_more + ' <i class="fas fa-arrow-right"></i>';
+            // =============================================================
+            // 3. MARQUEE PAUSE ON HOVER
+            // =============================================================
+            const marquee = document.querySelector('.marquee-track');
+            const heroSection = document.querySelector('.hero-carousel');
+            if (marquee && heroSection) {
+                heroSection.addEventListener('mouseenter', function() {
+                    marquee.style.animationPlayState = 'paused';
+                });
+                heroSection.addEventListener('mouseleave', function() {
+                    marquee.style.animationPlayState = 'running';
+                });
             }
-        });
 
-        // Scroll hint
-        const scrollHint = document.querySelector('.scroll-hint');
-        if (scrollHint) {
-            const spans = scrollHint.querySelectorAll('span');
-            if (spans.length >= 2) {
-                spans[1].innerHTML = t.scroll_hint + ' <i class="fas fa-arrow-right"></i>';
+            // =============================================================
+            // 4. FLOATING WHATSAPP POPUP
+            // =============================================================
+            const popup = document.getElementById('waPopup');
+            const toggle = document.getElementById('waToggle');
+            const close = document.getElementById('waClose');
+            let popupVisible = false;
+            setTimeout(function() {
+                if (popup) {
+                    popup.classList.add('show');
+                    popupVisible = true;
+                }
+            }, 2500);
+            if (toggle) {
+                toggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (popup) {
+                        popup.classList.toggle('show');
+                        popupVisible = popup.classList.contains('show');
+                    }
+                });
             }
-        }
-
-        // Footer
-        const footerAbout = document.querySelector('.footer h5');
-        if (footerAbout) footerAbout.textContent = t.footer_about;
-
-        const footerAboutText = document.querySelector('.footer .col-lg-4 p');
-        if (footerAboutText) footerAboutText.textContent = t.footer_about_text;
-
-        const footerQuick = document.querySelectorAll('.footer .col-lg-2 h5');
-        if (footerQuick.length > 0) footerQuick[0].textContent = t.footer_quick;
-
-        const footerServices = document.querySelectorAll('.footer .col-lg-3 h5');
-        if (footerServices.length > 0) footerServices[0].textContent = t.footer_services;
-
-        const footerContact = document.querySelectorAll('.footer .col-lg-3:last-child h5');
-        if (footerContact.length > 0) footerContact[0].textContent = t.footer_contact;
-
-        // Footer quick links
-        document.querySelectorAll('.footer .col-lg-2 ul li a').forEach(function(link, index) {
-            const texts = [t.home, t.about, t.services, t.opportunities, t.contact];
-            if (texts[index]) link.textContent = texts[index];
-        });
-
-        // Footer services links
-        document.querySelectorAll('.footer .col-lg-3 ul li a').forEach(function(link, index) {
-            const texts = [t.cv, t.interview, t.coaching, t.scholarship, t.research];
-            if (texts[index]) link.textContent = texts[index];
-        });
-
-        // Footer contact info
-        const contactItems = document.querySelectorAll('.footer .contact-info li');
-        if (contactItems.length >= 4) {
-            contactItems[0].innerHTML = '<i class="fas fa-map-marker-alt"></i> ' + t.footer_address;
-            contactItems[1].innerHTML = '<i class="fas fa-phone-alt"></i> ' + t.footer_phone;
-            contactItems[2].innerHTML = '<i class="fas fa-envelope"></i> ' + t.footer_email;
-            contactItems[3].innerHTML = '<i class="fas fa-clock"></i> ' + t.footer_hours;
-        }
-
-        const whatsappFooter = document.querySelector('.whatsapp-footer-btn');
-        if (whatsappFooter) whatsappFooter.innerHTML = '<i class="fab fa-whatsapp"></i> ' + t.footer_chat;
-
-        const footerCopyright = document.querySelector('.footer-bottom p');
-        if (footerCopyright) footerCopyright.textContent = t.footer_copyright;
-
-        // WhatsApp popup
-        const waTitle = document.querySelector('.whatsapp-popup strong');
-        if (waTitle) waTitle.textContent = t.wa_title;
-
-        const waSub = document.querySelector('.whatsapp-popup p');
-        if (waSub) waSub.textContent = t.wa_sub;
-
-        const waBtn = document.querySelector('.popup-link');
-        if (waBtn) waBtn.textContent = t.wa_btn;
-
-        // Marquee
-        const marqueeSpans = document.querySelectorAll('.marquee-track span');
-        const marqueeTexts = [t.marquee_1, t.marquee_2, t.marquee_3, t.marquee_4, t.marquee_5];
-        marqueeSpans.forEach(function(span, index) {
-            if (marqueeTexts[index % marqueeTexts.length]) {
-                span.textContent = marqueeTexts[index % marqueeTexts.length];
+            if (close) {
+                close.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (popup) {
+                        popup.classList.remove('show');
+                        popupVisible = false;
+                    }
+                });
             }
-        });
-
-        // Update current language
-        currentLang = lang;
-    }
-
-    // ── Language switcher click handler ──
-    langLinks.forEach(function(link) {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const lang = this.getAttribute('data-lang');
-            if (lang === currentLang) return;
-
-            // Update active state
-            langLinks.forEach(function(l) { l.classList.remove('active'); });
-            this.classList.add('active');
-
-            // Apply translations
-            applyLanguage(lang);
-        });
-    });
-
-    // ──────────────────────────────────────────────────────────
-    // 2. SEARCH – FILTER SERVICE CARDS
-    // ──────────────────────────────────────────────────────────
-    const searchInput = document.querySelector('.navbar-custom .form-control');
-    const cards = document.querySelectorAll('.feature-card');
-
-    if (searchInput) {
-        searchInput.addEventListener('input', function() {
-            const query = this.value.toLowerCase().trim();
-
-            cards.forEach(function(card) {
-                const text = card.textContent.toLowerCase();
-                if (!query || text.includes(query)) {
-                    card.style.display = '';
-                } else {
-                    card.style.display = 'none';
+            document.addEventListener('click', function(e) {
+                if (popupVisible && popup && !popup.contains(e.target) && e.target !== toggle) {
+                    popup.classList.remove('show');
+                    popupVisible = false;
                 }
             });
 
-            // Show/hide scroll hint based on visible cards
-            const hint = document.querySelector('.scroll-hint');
-            if (hint) {
-                const visible = document.querySelectorAll('.feature-card:not([style*="display: none"])');
-                if (visible.length === 0 && query !== '') {
-                    hint.innerHTML = '⚠️ No results found for "' + query + '"';
-                    hint.style.color = '#c4753c';
-                } else {
-                    hint.innerHTML =
-                        '<span>←</span> <span>' + (currentLang === 'sw' ? 'Tembeza ili kuona zaidi' : 'Scroll to see more') +
-                        ' <i class="fas fa-arrow-right"></i></span> <span>→</span>';
-                    hint.style.color = '';
+            // =============================================================
+            // 5. HERO CAROUSEL
+            // =============================================================
+            const heroCarousel = document.getElementById('heroCarousel');
+            if (heroCarousel) {
+                new bootstrap.Carousel(heroCarousel, {
+                    interval: 5000,
+                    pause: 'hover',
+                    wrap: true
+                });
+            }
+
+            // =============================================================
+            // 6. SERVICES CAROUSEL + DETAIL VIEW
+            // =============================================================
+            const servicesData = [{
+                title: 'CV Customisation Training',
+                tag: 'Popular',
+                image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop',
+                desc: 'Learn to craft a professional CV that gets noticed by recruiters and passes ATS screening. This comprehensive training covers formatting, keyword optimization, achievement-based writing, and role-specific customization.',
+                link: '#'
+            }, {
+                title: 'Interview Preparation',
+                tag: 'Featured',
+                image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=400&fit=crop',
+                desc: 'Master the art of interviews with proven techniques, mock sessions, and confidence-building strategies. Learn to answer tough questions, present yourself professionally, and leave a lasting impression.',
+                link: '#'
+            }, {
+                title: 'Scholarship Guidance',
+                tag: 'Best Value',
+                image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop',
+                desc: 'Get expert advice on writing winning scholarship applications and compelling personal statements. We help you identify opportunities, craft strong essays, and submit applications that stand out.',
+                link: '#'
+            }, {
+                title: 'Career Coaching',
+                tag: 'Premium',
+                image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=400&fit=crop',
+                desc: 'One-on-one coaching to help you define your career path, set goals, and achieve lasting success. Our experienced coaches provide personalized guidance, accountability, and actionable strategies.',
+                link: '#'
+            }, {
+                title: 'Research Mentorship',
+                tag: 'Popular',
+                image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&h=400&fit=crop',
+                desc: 'Develop strong research skills, scientific writing, and academic presentation techniques. Our mentorship program guides you through the entire research process from proposal to publication.',
+                link: '#'
+            }, {
+                title: 'Networking & Events',
+                tag: 'New',
+                image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop',
+                desc: 'Connect with professionals, employers, and like-minded individuals through our curated events. Build meaningful relationships that open doors to new opportunities and career growth.',
+                link: '#'
+            }, {
+                title: 'Learning Resources',
+                tag: 'Free',
+                image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=400&fit=crop',
+                desc: 'Access a curated library of templates, guides, and reading materials for career growth. Our resources include CV templates, interview guides, scholarship checklists, and career development books.',
+                link: '#'
+            }, {
+                title: 'Job Placement',
+                tag: 'Popular',
+                image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop',
+                desc: 'Access to curated job listings, internships, and volunteer opportunities across Tanzania. We connect you with employers who are actively hiring and provide support throughout the application process.',
+                link: '#'
+            }];
+
+            const track = document.getElementById('servicesTrack');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const dotsContainer = document.getElementById('carouselDots');
+
+            // Detail view elements
+            const detailOverlay = document.getElementById('detailOverlay');
+            const detailClose = document.getElementById('detailClose');
+            const detailImage = document.getElementById('detailImage');
+            const detailTag = document.getElementById('detailTag');
+            const detailTitle = document.getElementById('detailTitle');
+            const detailDesc = document.getElementById('detailDesc');
+            const detailCta = document.getElementById('detailCta');
+            const detailMiniGrid = document.getElementById('detailMiniGrid');
+
+            let currentIndex = 0;
+            let itemsPerView = 3;
+            const totalItems = servicesData.length;
+
+            function getItemsPerView() {
+                if (window.innerWidth < 480) return 1;
+                if (window.innerWidth < 768) return 1;
+                if (window.innerWidth < 992) return 2;
+                return 3;
+            }
+
+            function openDetail(index) {
+                const service = servicesData[index];
+                if (!service) return;
+
+                // Update main detail
+                detailImage.style.backgroundImage = `url('${service.image}')`;
+                detailTag.textContent = service.tag;
+                detailTitle.textContent = service.title;
+                detailDesc.textContent = service.desc;
+                detailCta.textContent = 'Get Started Today';
+
+                // Update sidebar mini cards
+                detailMiniGrid.innerHTML = '';
+                servicesData.forEach((s, i) => {
+                    const card = document.createElement('div');
+                    card.className = 'detail-mini-card' + (i === index ? ' active' : '');
+                    card.innerHTML = `
+                        <div class="mini-image" style="background-image: url('${s.image}');"></div>
+                        <div class="mini-info">
+                            <div class="mini-title">${s.title}</div>
+                            <div class="mini-sub">${s.tag}</div>
+                        </div>
+                    `;
+                    card.addEventListener('click', () => {
+                        openDetail(i);
+                    });
+                    detailMiniGrid.appendChild(card);
+                });
+
+                // Show overlay
+                detailOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeDetail() {
+                detailOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            detailClose.addEventListener('click', closeDetail);
+            detailOverlay.addEventListener('click', function(e) {
+                if (e.target === this) closeDetail();
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeDetail();
+            });
+
+            function renderCards() {
+                track.innerHTML = '';
+                servicesData.forEach((s, i) => {
+                    const card = document.createElement('div');
+                    card.className = 'service-card';
+                    card.innerHTML = `
+                        <div class="card-image" style="background-image: url('${s.image}');">
+                            <span class="card-tag">${s.tag}</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>${s.title}</h3>
+                            <p>${s.desc}</p>
+                            <button class="view-more-btn" data-index="${i}">Learn More <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    `;
+                    track.appendChild(card);
+                });
+
+                // ── Attach event listeners to Learn More buttons ──
+                track.querySelectorAll('.view-more-btn').forEach(function(btn) {
+                    btn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        const index = parseInt(this.dataset.index);
+                        openDetail(index);
+                    });
+                });
+            }
+
+            function updateCarousel() {
+                itemsPerView = getItemsPerView();
+                const maxIndex = Math.max(0, totalItems - itemsPerView);
+                if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+                const cardWidth = track.querySelector('.service-card')?.offsetWidth || 300;
+                const gap = 28;
+                const offset = currentIndex * (cardWidth + gap);
+                track.style.transform = `translateX(-${offset}px)`;
+
+                const dots = dotsContainer.querySelectorAll('.dot');
+                const totalDots = Math.ceil(totalItems / itemsPerView);
+                const activeDot = Math.min(Math.floor(currentIndex / itemsPerView), totalDots - 1);
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === activeDot);
+                });
+
+                prevBtn.style.display = currentIndex === 0 ? 'none' : 'flex';
+                const maxIdx = Math.max(0, totalItems - itemsPerView);
+                nextBtn.style.display = currentIndex >= maxIdx ? 'none' : 'flex';
+            }
+
+            function goTo(index) {
+                const maxIndex = Math.max(0, totalItems - itemsPerView);
+                currentIndex = Math.max(0, Math.min(index, maxIndex));
+                updateCarousel();
+            }
+
+            function nextSlide() {
+                const maxIndex = Math.max(0, totalItems - itemsPerView);
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                    updateCarousel();
                 }
             }
-        });
-    }
 
-    // ──────────────────────────────────────────────────────────
-    // 3. MARQUEE PAUSE ON HOVER
-    // ──────────────────────────────────────────────────────────
-    const marquee = document.querySelector('.marquee-track');
-    const heroSection = document.querySelector('.hero-carousel');
-    if (marquee && heroSection) {
-        heroSection.addEventListener('mouseenter', function() {
-            marquee.style.animationPlayState = 'paused';
-        });
-        heroSection.addEventListener('mouseleave', function() {
-            marquee.style.animationPlayState = 'running';
-        });
-    }
-
-    // ──────────────────────────────────────────────────────────
-    // 4. FLOATING WHATSAPP POPUP
-    // ──────────────────────────────────────────────────────────
-    const popup = document.getElementById('waPopup');
-    const toggle = document.getElementById('waToggle');
-    const close = document.getElementById('waClose');
-    let popupVisible = false;
-
-    setTimeout(function() {
-        if (popup) {
-            popup.classList.add('show');
-            popupVisible = true;
-        }
-    }, 2500);
-
-    if (toggle) {
-        toggle.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (popup) {
-                popup.classList.toggle('show');
-                popupVisible = popup.classList.contains('show');
+            function prevSlide() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                }
             }
-        });
-    }
 
-    if (close) {
-        close.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (popup) {
-                popup.classList.remove('show');
-                popupVisible = false;
+            function buildDots() {
+                dotsContainer.innerHTML = '';
+                const totalDots = Math.ceil(totalItems / getItemsPerView());
+                for (let i = 0; i < totalDots; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'dot' + (i === 0 ? ' active' : '');
+                    dot.addEventListener('click', () => {
+                        goTo(i * getItemsPerView());
+                    });
+                    dotsContainer.appendChild(dot);
+                }
             }
+
+            // ── Event Listeners ──
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+            window.addEventListener('resize', () => {
+                buildDots();
+                updateCarousel();
+            });
+
+            // ── Initialize ──
+            renderCards();
+            buildDots();
+            setTimeout(updateCarousel, 100);
+            window.addEventListener('load', () => {
+                setTimeout(updateCarousel, 200);
+            });
+
+            console.log('✅ CareerConnectTZ loaded successfully!');
         });
-    }
+    </script>
 
-    document.addEventListener('click', function(e) {
-        if (popupVisible && popup && !popup.contains(e.target) && e.target !== toggle) {
-            popup.classList.remove('show');
-            popupVisible = false;
-        }
-    });
-
-    // ──────────────────────────────────────────────────────────
-    // 5. HERO CAROUSEL
-    // ──────────────────────────────────────────────────────────
-    const heroCarousel = document.getElementById('heroCarousel');
-    if (heroCarousel) {
-        new bootstrap.Carousel(heroCarousel, {
-            interval: 5000,
-            pause: 'hover',
-            wrap: true
-        });
-    }
-
-    console.log('✅ CareerConnectTZ loaded successfully!');
-});</script>
 </body>
 </html>
