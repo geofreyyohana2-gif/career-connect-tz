@@ -1,36 +1,1984 @@
-<!-- ===== Social Media Content Creator Intern – FK International Schools ===== -->
-<div class="job-card" data-id="26" data-link="mailto:humanresource@fkschools.sc.tz?subject=Application%20for%20Social%20Media%20Content%20Creator%20Intern">
-  <div class="card-header">
-    <div>
-      <div class="job-title">Social Media Content Creator Intern</div>
-      <span class="company">FK International Schools · Dar es Salaam</span>
-    </div>
-    <span class="deadline-badge" data-deadline="2026-08-20T23:59:59">⏱️ 9d left</span>
-  </div>
-  <div class="scroll-content">
-    <h4>📄 Description</h4>
-    <p>Join FK International Schools to showcase academic excellence, student achievements, and school life through engaging digital content. Turn everyday school moments into scroll-stopping content across reels, posts, and stories.</p>
-    <h4>🎓 Qualification</h4>
-    <p>Educational background in Marketing and Digital Marketing.</p>
-    <h4>⚙️ Requirement</h4>
-    <ul>
-      <li>Creative storyteller with experience (even informal) in photography, video shooting/editing, or graphic design</li>
-      <li>Comfortable using Instagram, TikTok, and Facebook</li>
-      <li>Strong communication and collaboration skills</li>
-      <li>Self-motivated and able to plan content ahead of time</li>
-    </ul>
-  </div>
-  <div class="card-actions">
-    <div class="share-dropdown">
-      <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
-      <div class="share-menu">
-        <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
-        <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
-        <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
-        <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
-        <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5" />
+  <title>Job Board · Career Connect TZ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Karla:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base – Outdoor Nature Theme ── */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Karla', sans-serif;
+      background: #f0ebe1;
+      color: #3a302a;
+      line-height: 1.6;
+      padding: 0 1rem 1.5rem;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(180, 210, 160, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.1) 0%, transparent 40%);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .page {
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Navigation ── */
+    .job-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 0.5rem 0.8rem 1rem;
+      border-bottom: 2px solid #d4c5b2;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      background: rgba(255, 252, 245, 0.85);
+      backdrop-filter: blur(6px);
+      border-radius: 0 0 20px 20px;
+      margin-bottom: 0.5rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    }
+    .logo-block {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #5a8f48;
+      text-decoration: none;
+    }
+    .logo-dot {
+      width: 14px;
+      height: 14px;
+      background: #c49a6c;
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(196, 154, 108, 0.3);
+    }
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: #5a6a4a;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border: 1px solid #c4b5a2;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      transition: 0.2s;
+      background: rgba(255, 255, 255, 0.5);
+    }
+    .nav-back:hover {
+      color: #5a8f48;
+      border-color: #5a8f48;
+      background: rgba(90, 143, 72, 0.08);
+    }
+
+    /* ── Search ── */
+    .search-section {
+      margin: 1.5rem 0 2rem;
+      display: flex;
+      justify-content: center;
+    }
+    .search-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+    }
+    .search-wrap input {
+      width: 100%;
+      padding: 0.8rem 1.2rem 0.8rem 2.8rem;
+      border: 2px solid #d4c5b2;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 0.95rem;
+      color: #3a302a;
+      transition: 0.2s;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+    .search-wrap input::placeholder {
+      color: #8a7a6a;
+    }
+    .search-wrap input:focus {
+      outline: none;
+      border-color: #c49a6c;
+      box-shadow: 0 0 0 4px rgba(196, 154, 108, 0.1);
+    }
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #8a7a6a;
+      pointer-events: none;
+      font-size: 1rem;
+    }
+
+    /* ── Section Title ── */
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #3a5a2a;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title span {
+      background: #c49a6c;
+      width: 6px;
+      height: 36px;
+      border-radius: 4px;
+    }
+    .section-sub {
+      color: #7a6a5a;
+      font-size: 0.95rem;
+      font-weight: 400;
+      margin-left: 6px;
+      opacity: 0.8;
+    }
+
+    /* ── Job Grid ── */
+    .job-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 2.5rem;
+      align-items: stretch;
+    }
+
+    /* ── Job Card ── */
+    .job-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.2rem 1.2rem 0.8rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+      height: 100%;
+      min-height: 320px;
+      border-left: 6px solid #c49a6c;
+      cursor: default;
+    }
+    .job-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+      border-left-color: #5a8f48;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.3rem;
+    }
+    .job-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: #2c3e2b;
+      line-height: 1.2;
+    }
+    .company {
+      font-weight: 500;
+      color: #5a6a4a;
+      font-size: 0.85rem;
+      display: block;
+      margin-top: 2px;
+    }
+    .deadline-badge {
+      background: #f0e6d8;
+      color: #7a5a3a;
+      font-weight: 600;
+      font-size: 0.65rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      border: 1px solid #e0d0c0;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .deadline-badge.expired {
+      background: #f0e0d8;
+      color: #b08070;
+      border-color: #e0c8c0;
+    }
+
+    .scroll-content {
+      overflow-y: auto;
+      padding-right: 4px;
+      margin: 0.3rem 0 0.4rem;
+      scrollbar-width: thin;
+      scrollbar-color: #c49a6c #f0ebe1;
+      flex: 1;
+      min-height: 120px;
+      max-height: 200px;
+    }
+    .scroll-content::-webkit-scrollbar {
+      width: 4px;
+    }
+    .scroll-content::-webkit-scrollbar-track {
+      background: #f0ebe1;
+      border-radius: 8px;
+    }
+    .scroll-content::-webkit-scrollbar-thumb {
+      background: #c49a6c;
+      border-radius: 8px;
+    }
+    .scroll-content h4 {
+      font-weight: 600;
+      font-size: 0.7rem;
+      margin: 0.4rem 0 0.1rem;
+      color: #5a8f48;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .scroll-content p,
+    .scroll-content li {
+      font-size: 0.85rem;
+      color: #4a3a32;
+      line-height: 1.5;
+    }
+    .scroll-content ul {
+      list-style: none;
+      padding-left: 0.2rem;
+      margin: 0.1rem 0;
+    }
+    .scroll-content ul li {
+      padding: 0.1rem 0 0.1rem 1rem;
+      position: relative;
+    }
+    .scroll-content ul li::before {
+      content: "🌿";
+      color: #5a8f48;
+      position: absolute;
+      left: 0;
+      font-size: 0.6rem;
+      top: 0.2rem;
+    }
+
+    .card-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.5rem;
+      border-top: 1px solid #ece3d5;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: auto;
+    }
+    .share-btn,
+    .apply-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-decoration: none;
+      transition: 0.15s;
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: #f8f4ea;
+      color: #4a3a32;
+      border-color: #d4c5b2;
+    }
+    .share-btn:hover {
+      background: #f0e6d8;
+      border-color: #c49a6c;
+      color: #2c3e2b;
+    }
+    .apply-btn {
+      background: #5a8f48;
+      color: #fff;
+      border-color: #5a8f48;
+    }
+    .apply-btn:hover {
+      background: #4a7a3a;
+      border-color: #4a7a3a;
+      box-shadow: 0 4px 12px rgba(90, 143, 72, 0.2);
+    }
+    .apply-btn.disabled {
+      opacity: 0.5;
+      pointer-events: none !important;
+      cursor: default !important;
+      background: #b0a090;
+      border-color: #b0a090;
+      color: #f0ebe1;
+      box-shadow: none !important;
+      transform: none !important;
+    }
+    .apply-btn.disabled:hover {
+      background: #b0a090;
+      border-color: #b0a090;
+      box-shadow: none;
+      transform: none;
+    }
+
+    /* ── Share Dropdown ── */
+    .share-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .share-menu {
+      display: none;
+      position: absolute;
+      bottom: 120%;
+      left: 0;
+      background: #ffffff;
+      border: 1px solid #d4c5b2;
+      border-radius: 16px;
+      padding: 0.6rem 0.8rem;
+      min-width: 170px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      z-index: 20;
+    }
+    .share-menu.open {
+      display: block;
+    }
+    .share-menu a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.3rem 0;
+      color: #3a302a;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border-bottom: 1px solid #f0ebe1;
+      cursor: pointer;
+      transition: 0.1s;
+    }
+    .share-menu a:last-child {
+      border-bottom: none;
+    }
+    .share-menu a:hover {
+      color: #5a8f48;
+      padding-left: 4px;
+    }
+
+    /* ── Floating WhatsApp – outdoor vibe ── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+    .whatsapp-popup {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 0.8rem 1.2rem;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      border: 1px solid #d4c5b2;
+      max-width: 230px;
+      font-size: 0.8rem;
+      color: #3a302a;
+      line-height: 1.4;
+      transform-origin: bottom right;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      opacity: 0;
+      transform: scale(0.9) translateY(8px);
+      pointer-events: none;
+      position: relative;
+    }
+    .whatsapp-popup.show {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      pointer-events: auto;
+    }
+    .whatsapp-popup strong {
+      color: #5a8f48;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+    }
+    .whatsapp-popup .popup-link {
+      display: inline-block;
+      margin-top: 6px;
+      background: #25d366;
+      color: #fff;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.7rem;
+      transition: 0.15s;
+    }
+    .whatsapp-popup .popup-link:hover {
+      background: #1da851;
+    }
+    .whatsapp-popup .popup-close {
+      position: absolute;
+      top: 2px;
+      right: 6px;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #b0a090;
+      line-height: 1;
+    }
+    .whatsapp-popup .popup-close:hover {
+      color: #5a8f48;
+    }
+    .whatsapp-float .wa-icon {
+      width: 56px;
+      height: 56px;
+      background: radial-gradient(circle at 30% 30%, #25d366, #128c7e);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+      cursor: pointer;
+      transition: 0.15s;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .whatsapp-float .wa-icon:hover {
+      transform: scale(1.04);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    }
+
+    /* ── Footer – 100+ Resources, full list ── */
+    .footer-resources {
+      margin: 2.5rem 0 1.5rem;
+      padding: 1.5rem 0 1rem;
+      border-top: 2px solid #d4c5b2;
+      border-bottom: 2px solid #d4c5b2;
+    }
+    .footer-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: #3a5a2a;
+      margin-bottom: 0.2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-title span {
+      background: #c49a6c;
+      width: 6px;
+      height: 34px;
+      border-radius: 4px;
+    }
+    .footer-sub {
+      color: #6a5a4a;
+      font-size: 0.9rem;
+      margin-bottom: 1.2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem 1.2rem;
+    }
+    .footer-col h5 {
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #5a8f48;
+      margin-bottom: 0.3rem;
+      border-bottom: 2px solid #e0d6c8;
+      padding-bottom: 0.2rem;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 0.75rem;
+      color: #5a4a3a;
+      text-decoration: none;
+      padding: 0.1rem 0;
+      transition: 0.1s;
+      line-height: 1.3;
+    }
+    .footer-col a:hover {
+      color: #c49a6c;
+      padding-left: 6px;
+    }
+
+    .whatsapp-cta-bottom {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(4px);
+      padding: 0.6rem 1.6rem;
+      border-radius: 50px;
+      margin: 0.3rem 0 0.8rem;
+      text-decoration: none;
+      color: #3a302a;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 2px solid #c49a6c;
+      transition: 0.15s;
+    }
+    .whatsapp-cta-bottom:hover {
+      background: #c49a6c;
+      border-color: #c49a6c;
+      color: #fff;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: #8a7a6a;
+      border-top: 1px solid #d4c5b2;
+      padding-top: 0.8rem;
+    }
+    .footer-bottom a {
+      color: #8a7a6a;
+      text-decoration: none;
+    }
+    .footer-bottom a:hover {
+      color: #5a8f48;
+    }
+
+    /* ── Disclaimer ── */
+    .disclaimer-box {
+      background: #f8f4ea;
+      border-left: 6px solid #c49a6c;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0 0.5rem;
+      font-size: 0.8rem;
+      color: #5a4a3a;
+      line-height: 1.6;
+    }
+    .disclaimer-box strong {
+      color: #5a8f48;
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 0.2rem;
+    }
+    .disclaimer-box a {
+      color: #5a8f48;
+      text-decoration: none;
+    }
+    .disclaimer-box a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      .job-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .job-card {
+        padding: 0.8rem;
+        min-height: 280px;
+      }
+      .search-wrap input {
+        padding: 0.6rem 1rem 0.6rem 2.4rem;
+        font-size: 0.85rem;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.6rem;
+      }
+      .section-title {
+        font-size: 1.6rem;
+      }
+      .whatsapp-float {
+        bottom: 12px;
+        right: 12px;
+      }
+      .whatsapp-float .wa-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.6rem;
+      }
+      .whatsapp-popup {
+        max-width: 180px;
+        font-size: 0.7rem;
+        padding: 0.6rem 0.8rem;
+      }
+      .disclaimer-box {
+        padding: 0.8rem 1rem;
+        font-size: 0.7rem;
+      }
+    }
+    .no-result {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #8a7a6a;
+      font-size: 0.9rem;
+      grid-column: 1 / -1;
+    }
+    .job-card.hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ─── NAV ─── -->
+    <nav class="job-nav">
+      <a href="#" class="logo-block">
+        <span class="logo-dot"></span>Career Connect TZ
+      </a>
+      <a href="HTML.html" target="_blank" class="nav-back">← Career Coaching</a>
+    </nav>
+
+    <!-- ─── SEARCH ─── -->
+    <div class="search-section">
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="jobSearch" placeholder="Search jobs..." />
       </div>
     </div>
-    <a href="mailto:humanresource@fkschools.sc.tz?subject=Application%20for%20Social%20Media%20Content%20Creator%20Intern" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+
+    <!-- ─── JOBS ─── -->
+    <div class="section-title">
+      <span></span> 💼 Job Vacancies
+      <span class="section-sub">— 22 positions</span>
+    </div>
+    <div class="job-grid" id="jobGrid">
+      <!-- ===== JOB 1: HR Business Partner ===== -->
+      <div class="job-card" data-id="1" data-link="https://wa.me/255774554665?text=HR%20Business%20Partner">
+        <div class="card-header">
+          <div>
+            <div class="job-title">HR Business Partner</div>
+            <span class="company">Serengeti Holdings</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-08-12T23:59:59">⏱️ 12h 30m left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Drive people strategy and culture across East Africa. Partner with leadership to align HR with business goals.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Bachelor's in HR or related. 5+ years in HRBP role.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul><li>Strong communication</li><li>Employee relations</li><li>Talent management</li></ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://wa.me/255774554665?text=HR%20Business%20Partner" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== JOB 2: Doormen / Porters ===== -->
+      <div class="job-card" data-id="9" data-link="https://careers.cnsgroup.africa">
+        <div class="card-header">
+          <div>
+            <div class="job-title">Doormen / Porters (3 Positions)</div>
+            <span class="company">CNS Group · Shah Palace Hotel</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-08-19T23:59:59">⏱️ 10d 12h left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>🌴 CNS Group is hiring for a luxury hotel in Zanzibar! Join the professional team at Shah Palace Hotel, committed to delivering exceptional guest experiences. We are looking for passionate hospitality professionals ready to build their careers in one of Zanzibar's premier luxury hotels.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Previous experience in guest services or hospitality, excellent customer service skills, and a professional appearance.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul>
+            <li>Guest service skills</li>
+            <li>Professional appearance</li>
+            <li>Communication skills</li>
+            <li>Physical fitness</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://careers.cnsgroup.africa" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== JOB 3: Waiters / Waitresses ===== -->
+      <div class="job-card" data-id="8" data-link="https://careers.cnsgroup.africa">
+        <div class="card-header">
+          <div>
+            <div class="job-title">Waiters / Waitresses (15 Positions)</div>
+            <span class="company">CNS Group · Shah Palace Hotel</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-08-19T23:59:59">⏱️ 10d 12h left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>🌴 CNS Group is hiring for a luxury hotel in Zanzibar! Join the professional team at Shah Palace Hotel, committed to delivering exceptional guest experiences. We are looking for passionate hospitality professionals ready to build their careers in one of Zanzibar's premier luxury hotels.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Previous experience in restaurant or hotel service, excellent communication skills, and a professional appearance.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul>
+            <li>Customer service skills</li>
+            <li>Food & beverage knowledge</li>
+            <li>Professional communication</li>
+            <li>Team player</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://careers.cnsgroup.africa" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== JOB 4: Cooks / Scullers ===== -->
+      <div class="job-card" data-id="7" data-link="https://careers.cnsgroup.africa">
+        <div class="card-header">
+          <div>
+            <div class="job-title">Cooks / Scullers (10 Positions)</div>
+            <span class="company">CNS Group · Shah Palace Hotel</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-08-19T23:59:59">⏱️ 10d 12h left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>🌴 CNS Group is hiring for a luxury hotel in Zanzibar! Join the professional team at Shah Palace Hotel, committed to delivering exceptional guest experiences. We are looking for passionate hospitality professionals ready to build their careers in one of Zanzibar's premier luxury hotels.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Relevant culinary experience, food safety certification preferred, ability to work in a fast-paced kitchen environment.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul>
+            <li>Kitchen experience</li>
+            <li>Food safety knowledge</li>
+            <li>Team player</li>
+            <li>Ability to work under pressure</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://careers.cnsgroup.africa" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== JOB 5: Financial Analyst ===== -->
+      <div class="job-card" data-id="3" data-link="https://www.nmbbank.co.tz/careers/financial-analyst">
+        <div class="card-header">
+          <div>
+            <div class="job-title">Financial Analyst</div>
+            <span class="company">NMB Bank · Dar es Salaam</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-08-18T23:59:59">⏱️ 6d 12h left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Analyse financial data, prepare reports, and support budgeting. Work with treasury and investment teams.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Degree in Finance/Accounting; CFA level 1 preferred.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul><li>Excel modeling</li><li>SAP</li><li>Analytical mindset</li></ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://www.nmbbank.co.tz/careers/financial-analyst" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== JOB 6: IT Support Specialist ===== -->
+      <div class="job-card" data-id="4" data-link="https://wa.me/255774554665?text=IT%20Support%20application">
+        <div class="card-header">
+          <div>
+            <div class="job-title">IT Support Specialist</div>
+            <span class="company">TechnoBrain Africa</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-08-07T23:08:59">⏱️ 2h 15m left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Provide first and second level support for hardware, software, and network. Maintain IT asset inventory.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Diploma in IT; 2+ years support experience.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul><li>Windows/Linux</li><li>Networking</li><li>Ticketing systems</li></ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://wa.me/255774554665?text=IT%20Support%20application" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== Tax Analyst – Yas Tanzania ===== -->
+      <div class="job-card" data-id="18" data-link="https://axian-group.csod.com/ux/ats/careersite/1/home/requisition/5354?c=axian-group">
+        <div class="card-header">
+          <div>
+            <div class="job-title">Tax Analyst</div>
+            <span class="company">Yas Tanzania · Dar es Salaam</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-08-18T23:59:59">⏱️ 7d left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Support tax compliance, advisory services, tax reporting, and risk management activities. Ensure compliance with Tanzanian tax laws, support tax audits, and provide tax guidance to business teams.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Bachelor's Degree in Accounting, Finance, Taxation, or related field. CPA (T) or ACCA is an added advantage.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul>
+            <li>Minimum 3–4 years' relevant experience in taxation</li>
+            <li>Experience in multinational companies, telecommunications, financial services, or audit firms preferred</li>
+            <li>Strong knowledge of Tanzanian tax legislation and IFRS</li>
+            <li>Experience dealing with TRA is an added advantage</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://axian-group.csod.com/ux/ats/careersite/1/home/requisition/5354?c=axian-group" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== Associate Business Advisor (3 Positions) – Technoserve ===== -->
+      <div class="job-card" data-id="19" data-link="https://www.technoserve.org">
+        <div class="card-header">
+          <div>
+            <div class="job-title">Associate Business Advisor (3 Positions)</div>
+            <span class="company">Technoserve · Mbeya &amp; Songwe</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-08-20T23:59:59">⏱️ 9d left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Support implementation of the Institutional Referral Track Cohort 2 in Tanzania, focusing on agri-SMEs in Mbeya and Songwe. Provide field-based business advisory, screening, due diligence support, training coordination, and investment readiness coaching.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Relevant degree in Business, Agriculture, Economics, or related field.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul>
+            <li>Experience in business advisory, SME support, or agricultural development</li>
+            <li>Strong analytical and communication skills</li>
+            <li>Ability to work in field-based environments</li>
+            <li>Knowledge of financial management and investment readiness is an advantage</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://www.technoserve.org" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== Avionics Engineer – Coastal Air ===== -->
+      <div class="job-card" data-id="20" data-link="mailto:careers@coastal.co.tz?subject=Application%20for%20Avionics%20Engineer">
+        <div class="card-header">
+          <div>
+            <div class="job-title">Avionics Engineer</div>
+            <span class="company">Coastal Air · Arusha</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-08-21T23:59:59">⏱️ 10d left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Coastal Aviation is seeking a qualified and experienced Avionics Engineer to join its team. Full expertise in aircraft avionics systems required.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Relevant engineering qualification with avionics specialization.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul>
+            <li>Minimum 5 years of relevant professional experience</li>
+            <li>Experience with Cessna Caravan and Pilatus PC-12 aircraft is an added advantage</li>
+            <li>Tanzanian nationals are preferred</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="mailto:careers@coastal.co.tz?subject=Application%20for%20Avionics%20Engineer" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== Content Creation Intern – Beach & Safari Holidays ===== -->
+      <div class="job-card" data-id="21" data-link="mailto:careers@beachsafari.com?subject=Application%20for%20Content%20Creation%20Intern">
+        <div class="card-header">
+          <div>
+            <div class="job-title">Content Creation Intern</div>
+            <span class="company">Beach &amp; Safari Holidays · Zanzibar</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-09-10T23:59:59">⏱️ 30d left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Support the creation of engaging digital content for resorts, safari lodges, and social media platforms. Capture high-quality photo and video content, edit Reels and videos for YouTube, and create engaging captions.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Background or studies in Marketing, Communications, Media, Photography, or Videography preferred.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul>
+            <li>Passion for creativity, storytelling, and social media</li>
+            <li>Good English communication skills</li>
+            <li>Experience using Canva, VN Video Editor (Lightroom/Photoshop is an advantage)</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="mailto:careers@beachsafari.com?subject=Application%20for%20Content%20Creation%20Intern" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== Manager – Syndications & Debt Advisory – Exim Bank ===== -->
+      <div class="job-card" data-id="22" data-link="mailto:recruitment@eximbank.co.tz?subject=Application%20for%20Manager%20%E2%80%93%20Syndications%20%26%20Debt%20Advisory">
+        <div class="card-header">
+          <div>
+            <div class="job-title">Manager – Syndications &amp; Debt Advisory</div>
+            <span class="company">Exim Bank Tanzania · Dar es Salaam</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-08-14T23:59:59">⏱️ 3d left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Lead the development, management, and optimization of syndicated financing and lender coordination. Support origination teams in identifying transactions suitable for syndication and structure financing solutions.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Bachelor's degree in Finance, Banking, Economics, Business Administration, or related field. CFA, ACCA, or MBA is advantageous.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul>
+            <li>Minimum 5–8 years' experience in Loan Syndications, Structured Finance, Project Finance, or Corporate Banking</li>
+            <li>Strong understanding of credit analysis and loan documentation</li>
+            <li>Experience in product development and financial modelling</li>
+            <li>Strong stakeholder management and negotiation skills</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="mailto:recruitment@eximbank.co.tz?subject=Application%20for%20Manager%20%E2%80%93%20Syndications%20%26%20Debt%20Advisory" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== Graduate Trainees – Billing Unit Officer – Taifa Gas ===== -->
+      <div class="job-card" data-id="23" data-link="mailto:jobs@taifagas.co.tz?subject=Application%20for%20Graduate%20Trainee%20%E2%80%93%20Billing%20Unit%20Officer">
+        <div class="card-header">
+          <div>
+            <div class="job-title">Graduate Trainee – Billing Unit Officer</div>
+            <span class="company">Taifa Gas · Dar es Salaam</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-08-12T10:00:00">⏱️ Expired</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Taifa Gas is hiring recent Accounting or finance-related graduates for the Billing Unit Officer role. The position requires strong numerical, analytical, computer, and organizational skills.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Bachelor's Degree in Accounting or related field. GPA above 3.8 (Upper Second Class Honours). Division I in Form IV and Form VI.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul>
+            <li>Graduated within the last 1–2 years</li>
+            <li>Strong analytical and computer skills (Microsoft Office)</li>
+            <li>Excellent organizational and time-management skills</li>
+            <li>Strong interest and passion for numbers and financial data</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="mailto:jobs@taifagas.co.tz?subject=Application%20for%20Graduate%20Trainee%20%E2%80%93%20Billing%20Unit%20Officer" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== Manager, Cybersecurity & BCM – NCBA Bank ===== -->
+      <div class="job-card" data-id="24" data-link="https://ncbagroup.com/tz/">
+        <div class="card-header">
+          <div>
+            <div class="job-title">Manager, Cybersecurity &amp; Business Continuity Management</div>
+            <span class="company">NCBA Bank · Dar es Salaam</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-08-20T23:59:59">⏱️ 9d left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Ensure continuous security monitoring of technology assets, manage cybersecurity incidents, and strengthen the bank's resilience against system failures. Drive cybersecurity monitoring, incident response, vulnerability management, and disaster recovery readiness.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Bachelor's degree in Computer Science, Information Security, IT, or related field. Relevant certifications (CISSP, CISM, etc.) are an advantage.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul>
+            <li>Experience in cybersecurity management, incident response, and vulnerability management</li>
+            <li>Knowledge of SIEM platforms, firewalls, IDS/IPS, and patch management</li>
+            <li>Experience in business continuity management and disaster recovery planning</li>
+            <li>Strong understanding of banking technology environments</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://ncbagroup.com/tz/" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== Legal Intern – FINCA Microfinance Bank ===== -->
+      <div class="job-card" data-id="25" data-link="mailto:TZ_Recruitment@finca.co.tz?subject=Application%20for%20Legal%20Intern">
+        <div class="card-header">
+          <div>
+            <div class="job-title">Legal Intern</div>
+            <span class="company">FINCA Microfinance Bank · Arusha</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-08-17T23:59:59">⏱️ 6d left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Assist the Legal Department in all legal matters and help ensure the institution is protected from litigation risks. Attend court sessions, file pleadings, conduct legal research, and provide legal opinions.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Bachelor's degree in Law. Legal practice experience is required.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul>
+            <li>Must be outgoing, energetic, and comfortable working in courts</li>
+            <li>Ability to work with minimal supervision</li>
+            <li>Ability to work comfortably for up to 8 hours per day</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="mailto:TZ_Recruitment@finca.co.tz?subject=Application%20for%20Legal%20Intern" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== Social Media Content Creator Intern – FK International Schools ===== -->
+      <div class="job-card" data-id="26" data-link="mailto:humanresource@fkschools.sc.tz?subject=Application%20for%20Social%20Media%20Content%20Creator%20Intern">
+        <div class="card-header">
+          <div>
+            <div class="job-title">Social Media Content Creator Intern</div>
+            <span class="company">FK International Schools · Dar es Salaam</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-08-20T23:59:59">⏱️ 9d left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Join FK International Schools to showcase academic excellence, student achievements, and school life through engaging digital content. Turn everyday school moments into scroll-stopping content across reels, posts, and stories.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Educational background in Marketing and Digital Marketing.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul>
+            <li>Creative storyteller with experience (even informal) in photography, video shooting/editing, or graphic design</li>
+            <li>Comfortable using Instagram, TikTok, and Facebook</li>
+            <li>Strong communication and collaboration skills</li>
+            <li>Self-motivated and able to plan content ahead of time</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="mailto:humanresource@fkschools.sc.tz?subject=Application%20for%20Social%20Media%20Content%20Creator%20Intern" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== Volunteer Vacancies (16 Positions) – NIC ===== -->
+      <div class="job-card" data-id="17" data-link="http://www.nicinsurance.co.tz">
+        <div class="card-header">
+          <div>
+            <div class="job-title">Volunteer Vacancies (16 Positions)</div>
+            <span class="company">National Insurance Corporation (NIC) · Dar es Salaam</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-08-25T23:59:59">⏱️ 14d left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>NIC invites applications from qualified Tanzanian graduates for volunteer positions. The programme provides practical skills, workplace exposure, and valuable experience in the insurance and corporate environment.</p>
+          <h4>🎓 Available Positions</h4>
+          <ul>
+            <li>Insurance Officer II – 5 Posts</li>
+            <li>Records Management Assistant II – 4 Posts</li>
+            <li>ICT Officer II – 1 Post</li>
+            <li>Planning Officer II – 2 Posts</li>
+            <li>Accounts Officer II – 2 Posts</li>
+            <li>Legal Officer II – 1 Post</li>
+            <li>Technician – Graphic Designer II – 1 Post</li>
+          </ul>
+          <h4>⚙️ General Requirements</h4>
+          <ul>
+            <li>Must be a Tanzanian citizen</li>
+            <li>Aged between 18 and 35 years</li>
+            <li>Must have never been employed in any Public Institution</li>
+            <li>No criminal record or disciplinary misconduct</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="http://www.nicinsurance.co.tz" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== Knowledge Support Officer (6 Positions) – Tanzania Specialist ===== -->
+      <div class="job-card" data-id="16" data-link="mailto:hr@tanzaniaspecialist.co.tz?subject=Application%20for%20Knowledge%20Support%20Officer">
+        <div class="card-header">
+          <div>
+            <div class="job-title">Knowledge Support Officer (6 Positions)</div>
+            <span class="company">Tanzania Specialist · Arusha</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-08-11T23:59:59">⏱️ Expired</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Provide travel guidance, customer support, and booking assistance to clients. Strong communication skills and knowledge of travel services required.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Diploma or Degree in Tourism, Hospitality, Business Administration, or related fields.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul>
+            <li>Minimum 3 years of relevant field experience</li>
+            <li>Experience in customer service, tourism, or travel consultancy</li>
+            <li>Proficiency in Microsoft Office and reservation systems (desirable)</li>
+            <li>Fluency in English; additional languages are an advantage</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="mailto:hr@tanzaniaspecialist.co.tz?subject=Application%20for%20Knowledge%20Support%20Officer" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== MEP & Facilities Manager – People Project Co ===== -->
+      <div class="job-card" data-id="10" data-link="https://peopleproject-co-limited">
+        <div class="card-header">
+          <div>
+            <div class="job-title">MEP &amp; Facilities Manager</div>
+            <span class="company">People Project Co · Tanga</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-09-30T23:59:59">⏱️ 30d left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Oversee mechanical, electrical, plumbing, and facilities infrastructure supporting mineral processing operations and remote site facilities. Ensure safe, reliable, and efficient operation of plant infrastructure, utilities, workshops, accommodation, and other critical site services.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Bachelor's Degree in Mechanical, Electrical, or related Engineering field.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul>
+            <li>Strong engineering leadership and maintenance management experience</li>
+            <li>Ability to manage multidisciplinary teams in a remote mining environment</li>
+            <li>Experience with preventive and predictive maintenance programs</li>
+            <li>Knowledge of health, safety, and environmental compliance</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://peopleproject-co-limited" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== Plant Manager – People Project Co ===== -->
+      <div class="job-card" data-id="11" data-link="https://peopleproject-co-limited">
+        <div class="card-header">
+          <div>
+            <div class="job-title">Plant Manager – Mineral Processing</div>
+            <span class="company">People Project Co · Tanga</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-09-30T23:59:59">⏱️ 30d left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Lead the safe, efficient, and commercially responsible operation of a mineral processing plant. Oversee daily plant operations, production performance, metallurgical optimization, maintenance coordination, safety compliance, and cost management.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Bachelor's Degree in Mineral Processing, Metallurgy, Chemical Engineering, or related field.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul>
+            <li>Proven ability to improve production performance and optimize processes</li>
+            <li>Experience building and leading high-performing teams in a mining environment</li>
+            <li>Strong knowledge of processing circuits including crushing, grinding, screening, and leaching</li>
+            <li>Financial and commercial management experience</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="https://peopleproject-co-limited" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== Human Resources & Training Manager – The Residence Zanzibar ===== -->
+      <div class="job-card" data-id="12" data-link="mailto:recruitment-trz@theresidence.com?subject=Application%20for%20HR%20%26%20Training%20Manager">
+        <div class="card-header">
+          <div>
+            <div class="job-title">Human Resources &amp; Training Manager</div>
+            <span class="company">The Residence Zanzibar · Zanzibar</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-09-30T23:59:59">⏱️ 30d left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Manage human resources operations, support employee relations, ensure compliance with labour regulations, and develop training initiatives to enhance staff performance at a luxury resort.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Bachelor's degree in Law or related field.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul>
+            <li>Minimum 2 years of experience in a similar HR role within a resort or hospitality environment</li>
+            <li>Strong knowledge of HR policies, labour laws, and HR best practices</li>
+            <li>Excellent leadership, communication, and interpersonal skills</li>
+            <li>Experience designing and delivering training programs is an added advantage</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="mailto:recruitment-trz@theresidence.com?subject=Application%20for%20HR%20%26%20Training%20Manager" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== Assistant Engineering Manager – The Residence Zanzibar ===== -->
+      <div class="job-card" data-id="13" data-link="mailto:recruitment-trz@theresidence.com?subject=Application%20for%20Assistant%20Engineering%20Manager">
+        <div class="card-header">
+          <div>
+            <div class="job-title">Assistant Engineering Manager</div>
+            <span class="company">The Residence Zanzibar · Zanzibar</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-09-30T23:59:59">⏱️ 30d left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Support the engineering department in maintaining and operating hotel facilities and equipment. Assist in preventive maintenance planning, supervise engineering activities, and ensure compliance with safety and environmental standards.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Diploma or Degree in Mechanical, Electrical, Civil Engineering, or related field.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul>
+            <li>Minimum 3 years of experience in engineering operations or facilities management</li>
+            <li>Hospitality engineering experience preferred</li>
+            <li>Strong leadership, problem-solving, and communication skills</li>
+            <li>Ability to supervise teams and coordinate contractor activities</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="mailto:recruitment-trz@theresidence.com?subject=Application%20for%20Assistant%20Engineering%20Manager" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== Assistant IT Manager – The Residence Zanzibar ===== -->
+      <div class="job-card" data-id="14" data-link="mailto:recruitment-trz@theresidence.com?subject=Application%20for%20Assistant%20IT%20Manager">
+        <div class="card-header">
+          <div>
+            <div class="job-title">Assistant IT Manager</div>
+            <span class="company">The Residence Zanzibar · Zanzibar</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-09-30T23:59:59">⏱️ 30d left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Support the management of IT operations across the resort. Assist in maintaining IT infrastructure, managing systems and networks, ensuring technology security, and providing technical support to ensure smooth daily operations.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Bachelor's Degree or Diploma in Information Technology, Computer Science, or related field.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul>
+            <li>Minimum 3 years of experience in IT management or system administration</li>
+            <li>Proven experience managing IT systems, networks, hardware, and software</li>
+            <li>Knowledge of IT infrastructure, cybersecurity practices, and system administration</li>
+            <li>Strong leadership, team management, and communication skills</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="mailto:recruitment-trz@theresidence.com?subject=Application%20for%20Assistant%20IT%20Manager" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+
+      <!-- ===== Nursery Teacher – Rehoboth Schools ===== -->
+      <div class="job-card" data-id="15" data-link="tel:0617847460">
+        <div class="card-header">
+          <div>
+            <div class="job-title">Nursery Teacher (Female)</div>
+            <span class="company">Rehoboth Schools · Goba, Dar es Salaam</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-08-22T23:59:59">⏱️ 11d left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>Rehoboth Schools is looking for a qualified female teacher for Nursery level at their school located in Goba, Dar es Salaam (Matosa area).</p>
+          <h4>🎓 Qualification</h4>
+          <p>Qualified Nursery/ECD teacher with relevant certification.</p>
+          <h4>⚙️ Requirement</h4>
+          <ul>
+            <li>Female candidate preferred</li>
+            <li>Experience teaching nursery/early childhood level</li>
+            <li>Must be available for interview on 22 August 2026</li>
+            <li>Send your details via phone</li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="tel:0617847460" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Call Now</a>
+        </div>
+      </div>
+
+      <!-- ===== Mathematics Teacher ===== -->
+      <div class="job-card" data-id="5" data-link="tel:0743567159">
+        <div class="card-header">
+          <div>
+            <div class="job-title">Mwalimu wa Hesabu (Mathematics Teacher)</div>
+            <span class="company">Zanzibar Education</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-09-30T23:59:59">⏱️ 23d 14h left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>📢 MWALIMU WA HESABU ANAHITAJIKA ZANZIBAR! 📚➗</p>
+          <p>Mwalimu wa Hesabu (Mathematics) anahitajika Zanzibar kwa ajili ya kufundisha.</p>
+          <h4>🎓 Qualification</h4>
+          <p>Cheti cha ualimu au Degree katika Elimu/Hesabu</p>
+          <h4>⚙️ Requirement</h4>
+          <ul><li>Uwezo mzuri wa kufundisha</li><li>Mawasiliano bora</li><li>Uzoefu wa kufundisha Hesabu</li></ul>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="tel:0743567159" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Call Now</a>
+        </div>
+      </div>
+
+      <!-- ===== Graphic Designer ===== -->
+      <div class="job-card" data-id="6" data-link="#">
+        <div class="card-header">
+          <div>
+            <div class="job-title">🎨 Graphic Designer Opportunity</div>
+            <span class="company">Creative Hub Tanzania</span>
+          </div>
+          <span class="deadline-badge" data-deadline="2026-10-15T23:59:59">⏱️ 38d 10h left</span>
+        </div>
+        <div class="scroll-content">
+          <h4>📄 Description</h4>
+          <p>✨ Click Apply for details</p>
+          <h4>🎓 Qualification</h4>
+          <p>—</p>
+          <h4>⚙️ Requirement</h4>
+          <p>—</p>
+        </div>
+        <div class="card-actions">
+          <div class="share-dropdown">
+            <button class="share-btn" onclick="event.stopPropagation();toggleShare(this);">↗️ Share</button>
+            <div class="share-menu">
+              <a onclick="event.stopPropagation();shareNow('facebook', this);">📘 Facebook</a>
+              <a onclick="event.stopPropagation();shareNow('twitter', this);">🐦 Twitter</a>
+              <a onclick="event.stopPropagation();shareNow('linkedin', this);">🔗 LinkedIn</a>
+              <a onclick="event.stopPropagation();shareNow('whatsapp', this);">💬 WhatsApp</a>
+              <a onclick="event.stopPropagation();shareNow('copy', this);">📋 Copy link</a>
+            </div>
+          </div>
+          <a href="#" target="_blank" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
+        </div>
+      </div>
+    </div><!-- /job-grid -->
+
+    <!-- ============================================================ -->
+    <!-- FOOTER: 100+ Job Portals & Recruiting Companies (FULL LIST)  -->
+    <!-- ============================================================ -->
+    <div class="footer-resources">
+      <div class="footer-title">
+        <span></span> 🌍 Explore 100+ Job Portals &amp; Recruiting Companies
+      </div>
+      <p class="footer-sub">
+        Discover opportunities in Tanzania, Africa, and worldwide — direct links to top job boards and recruitment agencies.
+      </p>
+
+      <div class="footer-grid">
+        <!-- ── Tanzania Job Portals ── -->
+        <div class="footer-col">
+          <h5>🇹🇿 Tanzania</h5>
+          <a href="https://ajira.go.tz" target="_blank">Ajira Portal (Gov)</a>
+          <a href="https://www.zoomtanzania.com" target="_blank">Zoom Tanzania</a>
+          <a href="https://www.tanzania.jobs" target="_blank">Tanzania.Jobs</a>
+          <a href="https://www.careerjet.co.tz" target="_blank">CareerJet Tanzania</a>
+          <a href="https://www.brightermonday.co.tz" target="_blank">BrighterMonday</a>
+          <a href="https://www.jobsda.com" target="_blank">JobsDA</a>
+          <a href="https://www.tanzania.go.tz" target="_blank">Tanzania Government</a>
+          <a href="https://www.kaziconnect.co.tz" target="_blank">KaziConnect</a>
+          <a href="https://www.talentalpha.co.tz" target="_blank">TalentAlpha</a>
+          <a href="https://www.ngojobstz.com" target="_blank">NGO Jobs TZ</a>
+          <a href="https://www.eastafricajobs.com" target="_blank">East Africa Jobs</a>
+          <a href="https://www.un.org/tz" target="_blank">UN Tanzania</a>
+        </div>
+
+        <!-- ── African Job Boards ── -->
+        <div class="footer-col">
+          <h5>🌍 Africa</h5>
+          <a href="https://www.africajob.com" target="_blank">AfricaJob</a>
+          <a href="https://www.africanjobs.com" target="_blank">AfricanJobs</a>
+          <a href="https://www.jobberman.com" target="_blank">Jobberman</a>
+          <a href="https://www.myjobmag.com" target="_blank">MyJobMag</a>
+          <a href="https://www.bestjobsafrica.com" target="_blank">BestJobs Africa</a>
+          <a href="https://www.jobsinafrica.com" target="_blank">JobsInAfrica</a>
+          <a href="https://www.africa.com/jobs" target="_blank">Africa.com Jobs</a>
+          <a href="https://www.careersinafrica.com" target="_blank">CareersInAfrica</a>
+          <a href="https://www.afriscout.com" target="_blank">AfriScout</a>
+          <a href="https://www.jobwebkenya.com" target="_blank">JobWeb Kenya</a>
+          <a href="https://www.ugandajobs.com" target="_blank">Uganda Jobs</a>
+          <a href="https://www.malawijobs.com" target="_blank">Malawi Jobs</a>
+        </div>
+
+        <!-- ── International Job Boards ── -->
+        <div class="footer-col">
+          <h5>🌎 Global</h5>
+          <a href="https://www.linkedin.com/jobs" target="_blank">LinkedIn</a>
+          <a href="https://www.indeed.com" target="_blank">Indeed</a>
+          <a href="https://www.glassdoor.com" target="_blank">Glassdoor</a>
+          <a href="https://www.monster.com" target="_blank">Monster</a>
+          <a href="https://www.careerbuilder.com" target="_blank">CareerBuilder</a>
+          <a href="https://www.simplyhired.com" target="_blank">SimplyHired</a>
+          <a href="https://www.ziprecruiter.com" target="_blank">ZipRecruiter</a>
+          <a href="https://www.flexjobs.com" target="_blank">FlexJobs</a>
+          <a href="https://www.remotive.io" target="_blank">Remotive</a>
+          <a href="https://www.workingnomads.com" target="_blank">Working Nomads</a>
+          <a href="https://www.idealist.org" target="_blank">Idealist (NGO)</a>
+          <a href="https://www.reliefweb.int/jobs" target="_blank">ReliefWeb</a>
+        </div>
+
+        <!-- ── Recruiting Companies ── -->
+        <div class="footer-col">
+          <h5>🏢 Recruiters</h5>
+          <a href="https://www.summithr.co.tz" target="_blank">Summit HR</a>
+          <a href="https://www.manpower.co.tz" target="_blank">Manpower TZ</a>
+          <a href="https://www.adecco.co.tz" target="_blank">Adecco TZ</a>
+          <a href="https://www.hrsolutions.co.tz" target="_blank">HR Solutions</a>
+          <a href="https://www.roberthalf.com" target="_blank">Robert Half</a>
+          <a href="https://www.kellyservices.com" target="_blank">Kelly Services</a>
+          <a href="https://www.randstad.com" target="_blank">Randstad</a>
+          <a href="https://www.hays.com" target="_blank">Hays</a>
+          <a href="https://www.michaelpage.com" target="_blank">Michael Page</a>
+          <a href="https://www.robertwalters.com" target="_blank">Robert Walters</a>
+          <a href="https://www.adecco.com" target="_blank">Adecco Global</a>
+          <a href="https://www.manpowergroup.com" target="_blank">ManpowerGroup</a>
+        </div>
+
+        <!-- ── Banks & Finance ── -->
+        <div class="footer-col">
+          <h5>🏦 Finance</h5>
+          <a href="https://www.nmbbank.co.tz/careers" target="_blank">NMB Bank</a>
+          <a href="https://www.crdbbank.co.tz" target="_blank">CRDB Bank</a>
+          <a href="https://www.tcsh.co.tz" target="_blank">Tanzania Commercial Bank</a>
+          <a href="https://www.kcb.co.tz/careers" target="_blank">KCB Bank</a>
+          <a href="https://www.ecobank.com/careers" target="_blank">Ecobank</a>
+          <a href="https://www.standardbank.co.tz" target="_blank">Standard Bank</a>
+          <a href="https://www.abdubank.com" target="_blank">ABDU Bank</a>
+          <a href="https://www.azaniabank.co.tz" target="_blank">Azania Bank</a>
+          <a href="https://www.ibm.com/tz-en/employment" target="_blank">IBM TZ</a>
+          <a href="https://www.mfinance.com" target="_blank">M-Finance</a>
+        </div>
+
+        <!-- ── NGOs & Development ── -->
+        <div class="footer-col">
+          <h5>🤝 NGOs</h5>
+          <a href="https://www.undp.org/tanzania/jobs" target="_blank">UNDP</a>
+          <a href="https://www.unesco.org/careers" target="_blank">UNESCO</a>
+          <a href="https://www.unicef.org/careers" target="_blank">UNICEF</a>
+          <a href="https://www.who.int/careers" target="_blank">WHO</a>
+          <a href="https://www.ilo.org/careers" target="_blank">ILO</a>
+          <a href="https://www.worldbank.org/careers" target="_blank">World Bank</a>
+          <a href="https://www.ifc.org/careers" target="_blank">IFC</a>
+          <a href="https://www.afdb.org/careers" target="_blank">AfDB</a>
+          <a href="https://www.rescue.org/careers" target="_blank">IRC</a>
+          <a href="https://www.oxfam.org/en/careers" target="_blank">Oxfam</a>
+          <a href="https://www.savethechildren.org/careers" target="_blank">Save the Children</a>
+          <a href="https://www.care.org/careers" target="_blank">CARE</a>
+        </div>
+
+        <!-- ── Tech & IT ── -->
+        <div class="footer-col">
+          <h5>💻 Tech</h5>
+          <a href="https://www.microsoft.com/careers" target="_blank">Microsoft</a>
+          <a href="https://www.google.com/careers" target="_blank">Google</a>
+          <a href="https://www.amazon.jobs" target="_blank">Amazon</a>
+          <a href="https://www.apple.com/careers" target="_blank">Apple</a>
+          <a href="https://www.ibm.com/careers" target="_blank">IBM</a>
+          <a href="https://www.oracle.com/careers" target="_blank">Oracle</a>
+          <a href="https://www.sap.com/careers" target="_blank">SAP</a>
+          <a href="https://www.cisco.com/careers" target="_blank">Cisco</a>
+          <a href="https://www.hp.com/careers" target="_blank">HP</a>
+          <a href="https://www.dell.com/careers" target="_blank">Dell</a>
+          <a href="https://www.intel.com/careers" target="_blank">Intel</a>
+          <a href="https://www.ericsson.com/careers" target="_blank">Ericsson</a>
+        </div>
+
+        <!-- ── Consulting ── -->
+        <div class="footer-col">
+          <h5>📊 Consulting</h5>
+          <a href="https://www.mckinsey.com/careers" target="_blank">McKinsey</a>
+          <a href="https://www.bcg.com/careers" target="_blank">BCG</a>
+          <a href="https://www.bain.com/careers" target="_blank">Bain</a>
+          <a href="https://www2.deloitte.com/careers" target="_blank">Deloitte</a>
+          <a href="https://www.pwc.com/careers" target="_blank">PwC</a>
+          <a href="https://www.ey.com/careers" target="_blank">EY</a>
+          <a href="https://www.kpmg.com/careers" target="_blank">KPMG</a>
+          <a href="https://www.accenture.com/careers" target="_blank">Accenture</a>
+          <a href="https://www.capgemini.com/careers" target="_blank">Capgemini</a>
+          <a href="https://www.ibm.com/consulting" target="_blank">IBM Consulting</a>
+          <a href="https://www.mercer.com/careers" target="_blank">Mercer</a>
+          <a href="https://www.leapfrog.com" target="_blank">Leapfrog</a>
+        </div>
+
+        <!-- ── Remote & Freelance ── -->
+        <div class="footer-col">
+          <h5>🏡 Remote</h5>
+          <a href="https://www.upwork.com" target="_blank">Upwork</a>
+          <a href="https://www.freelancer.com" target="_blank">Freelancer</a>
+          <a href="https://www.fiverr.com" target="_blank">Fiverr</a>
+          <a href="https://www.toptal.com" target="_blank">Toptal</a>
+          <a href="https://www.peopleperhour.com" target="_blank">PeoplePerHour</a>
+          <a href="https://www.guru.com" target="_blank">Guru</a>
+          <a href="https://www.remotely.com" target="_blank">Remotely</a>
+          <a href="https://www.weworkremotely.com" target="_blank">We Work Remotely</a>
+          <a href="https://www.remote.co" target="_blank">Remote.co</a>
+          <a href="https://www.jobspresso.com" target="_blank">Jobspresso</a>
+          <a href="https://www.skip-the-drive.com" target="_blank">Skip the Drive</a>
+          <a href="https://www.pangian.com" target="_blank">Pangian</a>
+        </div>
+
+        <!-- ── Manufacturing & Industry ── -->
+        <div class="footer-col">
+          <h5>🏭 Industry</h5>
+          <a href="https://www.tanzaniacement.com/careers" target="_blank">Tanzania Cement</a>
+          <a href="https://www.bakhresa.com/careers" target="_blank">Bakhresa Group</a>
+          <a href="https://www.kilimanjaro.com/careers" target="_blank">Kilimanjaro Breweries</a>
+          <a href="https://www.africaproducts.com" target="_blank">African Products</a>
+          <a href="https://www.tatachemicals.com" target="_blank">Tata Chemicals</a>
+          <a href="https://www.bp.com/careers" target="_blank">BP</a>
+          <a href="https://www.shell.com/careers" target="_blank">Shell</a>
+          <a href="https://www.coca-cola.com/careers" target="_blank">Coca-Cola</a>
+          <a href="https://www.pepsico.com/careers" target="_blank">PepsiCo</a>
+          <a href="https://www.nestle.com/careers" target="_blank">Nestlé</a>
+          <a href="https://www.unilever.com/careers" target="_blank">Unilever</a>
+          <a href="https://www.mwanza.com" target="_blank">Mwanza Industrial</a>
+        </div>
+      </div><!-- /footer-grid -->
+    </div><!-- /footer-resources -->
+
+    <!-- ─── WHATSAPP CTA BOTTOM ─── -->
+    <div style="display: flex; justify-content: center; margin: 0.2rem 0 0.8rem;">
+      <a href="https://wa.me/255774554665?text=Hello%21%20I%20need%20job%20guidance" target="_blank" class="whatsapp-cta-bottom">
+        <span>💬</span> Need guidance? Chat on WhatsApp
+      </a>
+    </div>
+
+    <!-- ─── FOOTER BOTTOM ─── -->
+    <div class="footer-bottom">
+      <span>&copy; 2026 Career Connect TZ</span>
+      <span style="display: flex; gap: 1rem;">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </span>
+    </div>
+
+    <!-- ─── DISCLAIMER ─── -->
+    <div class="disclaimer-box">
+      <strong>📋 Disclaimer</strong>
+      <p>
+        This job board is a curated listing platform that gathers job opportunities from various public sources, including company websites, job portals, and social media channels. 
+        <strong>Career Connect TZ</strong> is not a recruitment agency and does not place, hire, or represent any candidate or employer. 
+        We do not guarantee the accuracy, completeness, or validity of any job listing, and we are not responsible for any hiring decisions, employment outcomes, or communication between applicants and employers. 
+        Users are advised to verify all details directly with the respective employer before applying.
+      </p>
+      <p style="margin-top: 0.3rem;">
+        <strong>⚠️ Important:</strong> Career Connect TZ does not charge any fees for job listings or applications. If you encounter any request for payment, please report it to us immediately.
+      </p>
+    </div>
+
+  </div><!-- /page -->
+
+  <!-- ─── FLOATING WHATSAPP POPUP ─── -->
+  <div class="whatsapp-float">
+    <div class="whatsapp-popup" id="waPopup">
+      <button class="popup-close" id="waClose">✕</button>
+      <strong>🌿 Join Our WhatsApp Channel</strong>
+      <p style="font-size: 0.7rem; color: #6a5a4a;">Daily job alerts &amp; career tips — stay connected!</p>
+      <a href="https://whatsapp.com/channel/0029Vb6RRPRGufIotCBUy11Z" target="_blank" class="popup-link">💬 Join Now</a>
+    </div>
+    <button class="wa-icon" id="waToggle" aria-label="WhatsApp">
+      💬
+    </button>
   </div>
-</div>
+
+  <!-- ─── JAVASCRIPT ─── -->
+  <script>
+    (function() {
+      'use strict';
+
+      // ── 1. WhatsApp popup ──
+      const popup = document.getElementById('waPopup');
+      const toggle = document.getElementById('waToggle');
+      const close = document.getElementById('waClose');
+      let popupVisible = false;
+      setTimeout(() => { popup.classList.add('show');
+        popupVisible = true; }, 2000);
+      toggle.addEventListener('click', (e) => { e.stopPropagation();
+        popup.classList.toggle('show');
+        popupVisible = popup.classList.contains('show'); });
+      close.addEventListener('click', (e) => { e.stopPropagation();
+        popup.classList.remove('show');
+        popupVisible = false; });
+      document.addEventListener('click', (e) => {
+        if (popupVisible && !popup.contains(e.target) && e.target !== toggle) { popup.classList.remove('show');
+          popupVisible = false; }
+      });
+
+      // ── 2. Share function ──
+      window.shareNow = function(platform, element) {
+        const card = element.closest('.job-card');
+        if (!card) return;
+
+        const title = card.querySelector('.job-title')?.textContent.trim() || 'Job Opportunity';
+        const company = card.querySelector('.company')?.textContent.trim() || '';
+        const desc = card.querySelector('.scroll-content p')?.textContent.trim()?.slice(0, 120) || '';
+
+        let shareText = `${title}`;
+        if (company) shareText += ` at ${company}`;
+        if (desc) shareText += `\n\n${desc}...`;
+        shareText += `\n\nApply now: ${window.location.href}`;
+
+        const encodedText = encodeURIComponent(shareText);
+        const url = encodeURIComponent(window.location.href);
+
+        const shareUrls = {
+          facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${encodedText}`,
+          twitter: `https://twitter.com/intent/tweet?text=${encodedText}&url=${url}`,
+          linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
+          whatsapp: `https://api.whatsapp.com/send?text=${encodedText}`,
+          copy: 'copy'
+        };
+
+        if (platform === 'copy') {
+          const copyText = `${shareText}\n\n${window.location.href}`;
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(copyText).then(() => {
+              alert('✅ Job link and details copied to clipboard!');
+            }).catch(() => fallbackCopy(copyText));
+          } else {
+            fallbackCopy(copyText);
+          }
+          return;
+        }
+
+        if (platform === 'whatsapp') {
+          window.open(shareUrls.whatsapp, '_blank', 'width=600,height=500');
+          setTimeout(() => {
+            popup.classList.add('show');
+            popupVisible = true;
+          }, 800);
+          return;
+        }
+
+        if (shareUrls[platform]) {
+          window.open(shareUrls[platform], '_blank', 'width=640,height=480');
+        }
+      };
+
+      window.fallbackCopy = function(text) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+          alert('✅ Copied to clipboard!');
+        } catch (e) {
+          alert('⚠️ Could not copy. Please copy manually.');
+        }
+        document.body.removeChild(ta);
+      };
+
+      // ── 3. Toggle share dropdown ──
+      window.toggleShare = function(btn) {
+        const menu = btn.closest('.share-dropdown').querySelector('.share-menu');
+        if (menu) {
+          document.querySelectorAll('.share-menu.open').forEach(el => el !== menu && el.classList.remove('open'));
+          menu.classList.toggle('open');
+        }
+      };
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.share-dropdown')) {
+          document.querySelectorAll('.share-menu.open').forEach(el => el.classList.remove('open'));
+        }
+      });
+
+      // ── 4. Search ──
+      const searchInput = document.getElementById('jobSearch');
+      const cards = document.querySelectorAll('.job-card');
+      searchInput.addEventListener('input', function() {
+        const q = this.value.toLowerCase().trim();
+        let visible = 0;
+        cards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          if (!q || text.includes(q)) {
+            card.classList.remove('hidden');
+            visible++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+        let noRes = document.querySelector('.no-result');
+        if (visible === 0 && q) {
+          if (!noRes) {
+            noRes = document.createElement('div');
+            noRes.className = 'no-result';
+            noRes.textContent = 'No jobs found. Try different keywords.';
+            document.getElementById('jobGrid').appendChild(noRes);
+          }
+        } else {
+          if (noRes) noRes.remove();
+        }
+      });
+
+      // ── 5. Countdown & expiry lock ──
+      function updateDeadlines() {
+        const now = new Date();
+        document.querySelectorAll('.deadline-badge[data-deadline]').forEach(badge => {
+          const deadline = new Date(badge.dataset.deadline);
+          const diff = deadline - now;
+          const card = badge.closest('.job-card');
+          const btn = card ? card.querySelector('.apply-btn') : null;
+          if (diff <= 0) {
+            badge.textContent = '⏳ Expired';
+            badge.classList.add('expired');
+            if (btn) {
+              btn.classList.add('disabled');
+              btn.removeAttribute('href');
+              btn.textContent = 'Closed';
+              btn.style.pointerEvents = 'none';
+              btn.style.cursor = 'default';
+            }
+          } else {
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const days = Math.floor(hours / 24);
+            let label = '';
+            if (days > 0) label = days + 'd ';
+            label += (hours % 24) + 'h ' + mins + 'm left';
+            badge.textContent = '⏱️ ' + label;
+            badge.classList.remove('expired');
+            if (btn) {
+              btn.classList.remove('disabled');
+              const link = card ? card.dataset.link : null;
+              if (link && link !== '#') {
+                btn.setAttribute('href', link);
+              } else {
+                btn.setAttribute('href', '#');
+              }
+              btn.textContent = 'Apply Now';
+              btn.style.pointerEvents = '';
+              btn.style.cursor = '';
+            }
+          }
+        });
+      }
+      updateDeadlines();
+      setInterval(updateDeadlines, 60000);
+
+      console.log('✅ Job Board ready — all features intact, disclaimer added.');
+    })();
+  </script>
+</body>
+</html>
