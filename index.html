@@ -216,7 +216,6 @@
             border-color: rgba(0, 0, 0, 0.04);
         }
 
-        /* Mobile hamburger */
         .navbar-custom .navbar-toggler {
             border: none;
             color: #fff;
@@ -437,7 +436,7 @@
         }
 
         /* =============================================================
-           HERO MARQUEE – Speed Increased (18s)
+           HERO MARQUEE – SEAMLESS CONTINUOUS SCROLL (FIXED)
            ============================================================= */
         .hero-marquee {
             position: absolute;
@@ -454,17 +453,21 @@
 
         .marquee-track {
             display: flex;
-            white-space: nowrap;
-            animation: marqueeScroll 18s linear infinite;
+            flex-wrap: nowrap;
+            width: max-content;
+            animation: marqueeScroll 28s linear infinite;
+            will-change: transform;
         }
 
         .marquee-track span {
+            flex-shrink: 0;
             color: #fff;
             font-size: 0.9rem;
             font-weight: 500;
             padding: 0 2.5rem;
-            display: inline-block;
+            white-space: nowrap;
             letter-spacing: 0.3px;
+            display: inline-block;
         }
 
         .marquee-track span::before {
@@ -484,6 +487,211 @@
 
         .hero-carousel:hover .marquee-track {
             animation-play-state: paused;
+        }
+
+        /* =============================================================
+           MISSION & VISION SECTION — NEW
+           ============================================================= */
+        .mission-vision-section {
+            padding: 5rem 0 5.5rem;
+            background: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated background overlay */
+        .mission-vision-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 10% 20%, rgba(201, 168, 76, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 90% 80%, rgba(26, 42, 74, 0.05) 0%, transparent 60%),
+                repeating-linear-gradient(45deg,
+                    transparent,
+                    transparent 40px,
+                    rgba(201, 168, 76, 0.02) 40px,
+                    rgba(201, 168, 76, 0.02) 41px);
+            z-index: 0;
+            animation: bgPulse 12s ease-in-out infinite alternate;
+        }
+
+        @keyframes bgPulse {
+            0% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1.02);
+            }
+        }
+
+        .mission-vision-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .mv-card {
+            border-radius: var(--radius);
+            padding: 2.8rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .mv-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Animated image background for each card */
+        .mv-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.08;
+            transition: var(--transition);
+            animation: bgFloat 18s ease-in-out infinite alternate;
+        }
+
+        .mv-card:hover::after {
+            opacity: 0.14;
+            transform: scale(1.05);
+        }
+
+        @keyframes bgFloat {
+            0% {
+                transform: scale(1) translateY(0);
+            }
+            100% {
+                transform: scale(1.08) translateY(-8px);
+            }
+        }
+
+        /* Mission card — deep blue/primary theme */
+        .mv-card.mission-card {
+            background: linear-gradient(145deg, #1a2a4a, #0e1a30);
+            color: #fff;
+            border-color: rgba(201, 168, 76, 0.15);
+        }
+
+        .mv-card.mission-card::after {
+            background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop');
+            background-position: 30% 40%;
+        }
+
+        .mv-card.mission-card .mv-icon {
+            background: rgba(201, 168, 76, 0.2);
+            color: var(--gold);
+            border: 2px solid rgba(201, 168, 76, 0.15);
+        }
+
+        .mv-card.mission-card h3 {
+            color: #fff;
+        }
+
+        .mv-card.mission-card p {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .mv-card.mission-card .mv-tag {
+            background: rgba(201, 168, 76, 0.15);
+            color: var(--gold);
+        }
+
+        /* Vision card — warm gold/amber theme */
+        .mv-card.vision-card {
+            background: linear-gradient(145deg, #c9a84c, #a88a3a);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .mv-card.vision-card::after {
+            background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop');
+            background-position: 60% 30%;
+        }
+
+        .mv-card.vision-card .mv-icon {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mv-card.vision-card h3 {
+            color: #fff;
+        }
+
+        .mv-card.vision-card p {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .mv-card.vision-card .mv-tag {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+        }
+
+        .mv-card>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .mv-icon {
+            width: 68px;
+            height: 68px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .mv-card:hover .mv-icon {
+            transform: scale(1.06) rotate(-3deg);
+        }
+
+        .mv-card h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.3px;
+        }
+
+        .mv-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 90%;
+        }
+
+        .mv-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            margin-top: 0.8rem;
         }
 
         /* =============================================================
@@ -745,7 +953,6 @@
             transform: rotate(90deg);
         }
 
-        /* Left main content — scrollable */
         .detail-main {
             overflow-y: auto;
             max-height: 70vh;
@@ -823,7 +1030,6 @@
             box-shadow: 0 4px 20px rgba(201, 168, 76, 0.25);
         }
 
-        /* Right sidebar — other services (vertical list) */
         .detail-sidebar {
             border-left: 1px solid rgba(0, 0, 0, 0.06);
             padding-left: 1.5rem;
@@ -1178,6 +1384,18 @@
             .detail-mini-card .mini-sub {
                 font-size: 0.65rem;
             }
+
+            .mv-grid {
+                grid-template-columns: 1fr;
+                gap: 1.8rem;
+            }
+            .mv-card {
+                min-height: 260px;
+                padding: 2.2rem 2rem;
+            }
+            .mv-card p {
+                max-width: 100%;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1257,6 +1475,22 @@
             }
             .detail-content h2 {
                 font-size: 1.5rem;
+            }
+
+            .mv-card {
+                min-height: 220px;
+                padding: 1.8rem 1.5rem;
+            }
+            .mv-card h3 {
+                font-size: 1.3rem;
+            }
+            .mv-card p {
+                font-size: 0.92rem;
+            }
+            .mv-icon {
+                width: 56px;
+                height: 56px;
+                font-size: 1.6rem;
             }
         }
 
@@ -1347,6 +1581,27 @@
                 width: 60px;
                 height: 60px;
             }
+
+            .mv-card {
+                min-height: 190px;
+                padding: 1.4rem 1.2rem;
+            }
+            .mv-card h3 {
+                font-size: 1.1rem;
+            }
+            .mv-card p {
+                font-size: 0.85rem;
+            }
+            .mv-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 1.4rem;
+                margin-bottom: 0.8rem;
+            }
+            .mv-tag {
+                font-size: 0.55rem;
+                padding: 0.15rem 0.8rem;
+            }
         }
     </style>
 </head>
@@ -1393,8 +1648,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
                         <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-                            <li><a class="dropdown-item" href="#">Our Mission</a></li>
-                            <li><a class="dropdown-item" href="#">Our Vision</a></li>
+                            <li><a class="dropdown-item" href="mission-vision-section">Our Mission</a></li>
+                            <li><a class="dropdown-item" href="mission-vision-section">Our Vision</a></li>
                             <li><a class="dropdown-item" href="#">Our Team</a></li>
                             <li><a class="dropdown-item" href="#">Our Story</a></li>
                             <li><hr class="dropdown-divider" /></li>
@@ -1482,20 +1737,54 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-        <!-- MARQUEE -->
+
+        <!-- MARQUEE — SEAMLESS CONTINUOUS (FIXED) -->
         <div class="hero-marquee">
             <div class="marquee-track">
+                <!-- First copy -->
                 <span>📢 NEW: CV Customisation Workshop — Register Now!</span>
                 <span>🎓 Scholarships Available — Apply Before Deadline</span>
                 <span>💼 50+ Jobs Posted This Week — View Opportunities</span>
                 <span>📝 Interview Preparation Sessions — Book Your Slot</span>
                 <span>🚀 Career Coaching — One-on-One Sessions Available</span>
+                <!-- Second copy (duplicated for seamless loop) -->
                 <span>📢 NEW: CV Customisation Workshop — Register Now!</span>
                 <span>🎓 Scholarships Available — Apply Before Deadline</span>
                 <span>💼 50+ Jobs Posted This Week — View Opportunities</span>
+                <span>📝 Interview Preparation Sessions — Book Your Slot</span>
+                <span>🚀 Career Coaching — One-on-One Sessions Available</span>
             </div>
         </div>
     </div>
+
+    <!-- ============================================================= -->
+    <!-- MISSION & VISION SECTION — NEW                                -->
+    <!-- ============================================================= -->
+    <section class="mission-vision-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">✦ Our Purpose</span>
+                <h2 class="section-title">Mission &amp; Vision</h2>
+                <p class="section-subtitle">Driving career success through guidance, support, and opportunities</p>
+            </div>
+            <div class="mv-grid">
+                <!-- Mission Card -->
+                <div class="mv-card mission-card">
+                    <div class="mv-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Our Mission</h3>
+                    <p>To empower individuals with the skills, knowledge, and opportunities they need to build meaningful careers and achieve their full potential.</p>
+                    <span class="mv-tag">✦ Empowering Futures</span>
+                </div>
+                <!-- Vision Card -->
+                <div class="mv-card vision-card">
+                    <div class="mv-icon"><i class="fas fa-eye"></i></div>
+                    <h3>Our Vision</h3>
+                    <p>To become the leading career development platform in Tanzania, connecting talent with opportunity and creating a future where everyone can thrive professionally.</p>
+                    <span class="mv-tag">✦ Leading Change</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- ============================================================= -->
     <!-- SERVICES CAROUSEL                                             -->
@@ -1657,7 +1946,7 @@
                     interview: 'Interview Preparation',
                     coaching: 'Career Coaching',
                     scholarship: 'Scholarship Guidance',
-                    research: 'Research suppoty',
+                    research: 'Research Mentorship',
                     opportunities: 'Opportunities',
                     jobs: 'Jobs',
                     internships: 'Internships',
@@ -1708,6 +1997,15 @@
                     marquee_3: '50+ Jobs Posted This Week — View Opportunities',
                     marquee_4: 'Interview Preparation Sessions — Book Your Slot',
                     marquee_5: 'Career Coaching — One-on-One Sessions Available',
+                    mv_badge: 'Our Purpose',
+                    mv_title: 'Mission & Vision',
+                    mv_sub: 'Driving career success through guidance, support, and opportunities',
+                    mv_mission_title: 'Our Mission',
+                    mv_mission_text: 'To empower individuals with the skills, knowledge, and opportunities they need to build meaningful careers and achieve their full potential.',
+                    mv_mission_tag: '✦ Empowering Futures',
+                    mv_vision_title: 'Our Vision',
+                    mv_vision_text: 'To become the leading career development platform in Tanzania, connecting talent with opportunity and creating a future where everyone can thrive professionally.',
+                    mv_vision_tag: '✦ Leading Change',
                 },
                 sw: {
                     logo: 'CareerConnect TZ',
@@ -1775,6 +2073,15 @@
                     marquee_3: 'Kazi 50+ Zimetumwa Wiki Hii — Tazama Fursa',
                     marquee_4: 'Vipindi vya Maandalizi ya Mahojiano — Weka Nafasi Yako',
                     marquee_5: 'Ushauri wa Kazi — Vipindi vya Kibinafsi Vinapatikana',
+                    mv_badge: 'Lengo Letu',
+                    mv_title: 'Dhamira na Maono',
+                    mv_sub: 'Kuendesha mafanikio ya kazi kupitia mwongozo, msaada, na fursa',
+                    mv_mission_title: 'Dhamira Yetu',
+                    mv_mission_text: 'Kuwezesha watu binafsi na ujuzi, maarifa, na fursa wanazohitaji kujenga kazi zenye maana na kufikia uwezo wao wote.',
+                    mv_mission_tag: '✦ Kuwezesha Mustakabali',
+                    mv_vision_title: 'Maono Yetu',
+                    mv_vision_text: 'Kuwa jukwaa linaloongoza la maendeleo ya kazi nchini Tanzania, kuunganisha vipaji na fursa na kuunda mustakabali ambapo kila mtu anaweza kufanikiwa kitaaluma.',
+                    mv_vision_tag: '✦ Kuongoza Mabadiliko',
                 }
             };
 
@@ -1908,6 +2215,29 @@
                         span.textContent = marqueeTexts[index % marqueeTexts.length];
                     }
                 });
+
+                // Mission & Vision translations
+                const mvBadge = document.querySelector('.mission-vision-section .section-badge');
+                if (mvBadge) mvBadge.textContent = '✦ ' + t.mv_badge;
+                const mvTitle = document.querySelector('.mission-vision-section .section-title');
+                if (mvTitle) mvTitle.textContent = t.mv_title;
+                const mvSub = document.querySelector('.mission-vision-section .section-subtitle');
+                if (mvSub) mvSub.textContent = t.mv_sub;
+
+                const mvMissionTitle = document.querySelector('.mission-card h3');
+                if (mvMissionTitle) mvMissionTitle.textContent = t.mv_mission_title;
+                const mvMissionText = document.querySelector('.mission-card p');
+                if (mvMissionText) mvMissionText.textContent = t.mv_mission_text;
+                const mvMissionTag = document.querySelector('.mission-card .mv-tag');
+                if (mvMissionTag) mvMissionTag.textContent = t.mv_mission_tag;
+
+                const mvVisionTitle = document.querySelector('.vision-card h3');
+                if (mvVisionTitle) mvVisionTitle.textContent = t.mv_vision_title;
+                const mvVisionText = document.querySelector('.vision-card p');
+                if (mvVisionText) mvVisionText.textContent = t.mv_vision_text;
+                const mvVisionTag = document.querySelector('.vision-card .mv-tag');
+                if (mvVisionTag) mvVisionTag.textContent = t.mv_vision_tag;
+
                 currentLang = lang;
             }
 
@@ -2077,7 +2407,6 @@
             const nextBtn = document.getElementById('nextBtn');
             const dotsContainer = document.getElementById('carouselDots');
 
-            // Detail view elements
             const detailOverlay = document.getElementById('detailOverlay');
             const detailClose = document.getElementById('detailClose');
             const detailImage = document.getElementById('detailImage');
@@ -2102,32 +2431,29 @@
                 const service = servicesData[index];
                 if (!service) return;
 
-                // Update main detail
                 detailImage.style.backgroundImage = `url('${service.image}')`;
                 detailTag.textContent = service.tag;
                 detailTitle.textContent = service.title;
                 detailDesc.textContent = service.desc;
                 detailCta.textContent = 'Get Started Today';
 
-                // Update sidebar mini cards
                 detailMiniGrid.innerHTML = '';
                 servicesData.forEach((s, i) => {
                     const card = document.createElement('div');
                     card.className = 'detail-mini-card' + (i === index ? ' active' : '');
                     card.innerHTML = `
-                        <div class="mini-image" style="background-image: url('${s.image}');"></div>
-                        <div class="mini-info">
-                            <div class="mini-title">${s.title}</div>
-                            <div class="mini-sub">${s.tag}</div>
-                        </div>
-                    `;
+                            <div class="mini-image" style="background-image: url('${s.image}');"></div>
+                            <div class="mini-info">
+                                <div class="mini-title">${s.title}</div>
+                                <div class="mini-sub">${s.tag}</div>
+                            </div>
+                        `;
                     card.addEventListener('click', () => {
                         openDetail(i);
                     });
                     detailMiniGrid.appendChild(card);
                 });
 
-                // Show overlay
                 detailOverlay.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
@@ -2151,19 +2477,18 @@
                     const card = document.createElement('div');
                     card.className = 'service-card';
                     card.innerHTML = `
-                        <div class="card-image" style="background-image: url('${s.image}');">
-                            <span class="card-tag">${s.tag}</span>
-                        </div>
-                        <div class="card-body">
-                            <h3>${s.title}</h3>
-                            <p>${s.desc}</p>
-                            <button class="view-more-btn" data-index="${i}">Learn More <i class="fas fa-arrow-right"></i></button>
-                        </div>
-                    `;
+                            <div class="card-image" style="background-image: url('${s.image}');">
+                                <span class="card-tag">${s.tag}</span>
+                            </div>
+                            <div class="card-body">
+                                <h3>${s.title}</h3>
+                                <p>${s.desc}</p>
+                                <button class="view-more-btn" data-index="${i}">Learn More <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        `;
                     track.appendChild(card);
                 });
 
-                // ── Attach event listeners to Learn More buttons ──
                 track.querySelectorAll('.view-more-btn').forEach(function(btn) {
                     btn.addEventListener('click', function(e) {
                         e.stopPropagation();
@@ -2229,7 +2554,6 @@
                 }
             }
 
-            // ── Event Listeners ──
             prevBtn.addEventListener('click', prevSlide);
             nextBtn.addEventListener('click', nextSlide);
             window.addEventListener('resize', () => {
@@ -2237,7 +2561,6 @@
                 updateCarousel();
             });
 
-            // ── Initialize ──
             renderCards();
             buildDots();
             setTimeout(updateCarousel, 100);
