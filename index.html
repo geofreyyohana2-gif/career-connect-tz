@@ -52,6 +52,7 @@
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         a {
@@ -436,7 +437,7 @@
         }
 
         /* =============================================================
-           HERO MARQUEE – SEAMLESS CONTINUOUS SCROLL (FIXED)
+           HERO MARQUEE – SEAMLESS CONTINUOUS SCROLL
            ============================================================= */
         .hero-marquee {
             position: absolute;
@@ -490,13 +491,14 @@
         }
 
         /* =============================================================
-           MISSION & VISION SECTION — NEW
+           MISSION & VISION SECTION — FIXED & LINKED
            ============================================================= */
         .mission-vision-section {
             padding: 5rem 0 5.5rem;
             background: var(--cream);
             position: relative;
             overflow: hidden;
+            scroll-margin-top: 80px;
         }
 
         /* Animated background overlay */
@@ -505,8 +507,8 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(ellipse at 10% 20%, rgba(201, 168, 76, 0.06) 0%, transparent 60%),
-                radial-gradient(ellipse at 90% 80%, rgba(26, 42, 74, 0.05) 0%, transparent 60%),
+                radial-gradient(ellipse at 10% 20%, rgba(201, 168, 76, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 90% 80%, rgba(26, 42, 74, 0.06) 0%, transparent 60%),
                 repeating-linear-gradient(45deg,
                     transparent,
                     transparent 40px,
@@ -552,6 +554,7 @@
             flex-direction: column;
             align-items: flex-start;
             justify-content: center;
+            scroll-margin-top: 80px;
         }
 
         .mv-card:hover {
@@ -1648,8 +1651,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
                         <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-                            <li><a class="dropdown-item" href="mission-vision-section">Our Mission</a></li>
-                            <li><a class="dropdown-item" href="mission-vision-section">Our Vision</a></li>
+                            <li><a class="dropdown-item" href="#mission">Our Mission</a></li>
+                            <li><a class="dropdown-item" href="#vision">Our Vision</a></li>
                             <li><a class="dropdown-item" href="#">Our Team</a></li>
                             <li><a class="dropdown-item" href="#">Our Story</a></li>
                             <li><hr class="dropdown-divider" /></li>
@@ -1738,7 +1741,7 @@
             <span class="visually-hidden">Next</span>
         </button>
 
-        <!-- MARQUEE — SEAMLESS CONTINUOUS (FIXED) -->
+        <!-- MARQUEE — SEAMLESS CONTINUOUS -->
         <div class="hero-marquee">
             <div class="marquee-track">
                 <!-- First copy -->
@@ -1758,9 +1761,9 @@
     </div>
 
     <!-- ============================================================= -->
-    <!-- MISSION & VISION SECTION — NEW                                -->
+    <!-- MISSION & VISION SECTION — FIXED & LINKED                    -->
     <!-- ============================================================= -->
-    <section class="mission-vision-section">
+    <section class="mission-vision-section" id="mission-vision">
         <div class="container">
             <div class="section-header">
                 <span class="section-badge">✦ Our Purpose</span>
@@ -1769,14 +1772,14 @@
             </div>
             <div class="mv-grid">
                 <!-- Mission Card -->
-                <div class="mv-card mission-card">
+                <div class="mv-card mission-card" id="mission">
                     <div class="mv-icon"><i class="fas fa-bullseye"></i></div>
                     <h3>Our Mission</h3>
                     <p>To empower individuals with the skills, knowledge, and opportunities they need to build meaningful careers and achieve their full potential.</p>
                     <span class="mv-tag">✦ Empowering Futures</span>
                 </div>
                 <!-- Vision Card -->
-                <div class="mv-card vision-card">
+                <div class="mv-card vision-card" id="vision">
                     <div class="mv-icon"><i class="fas fa-eye"></i></div>
                     <h3>Our Vision</h3>
                     <p>To become the leading career development platform in Tanzania, connecting talent with opportunity and creating a future where everyone can thrive professionally.</p>
@@ -1858,7 +1861,7 @@
                     <h5>Quick Links</h5>
                     <ul>
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="#mission-vision">About Us</a></li>
                         <li><a href="#">Services</a></li>
                         <li><a href="#">Opportunities</a></li>
                         <li><a href="#">Contact</a></li>
@@ -2566,6 +2569,25 @@
             setTimeout(updateCarousel, 100);
             window.addEventListener('load', () => {
                 setTimeout(updateCarousel, 200);
+            });
+
+            // =============================================================
+            // 7. SMOOTH SCROLL FOR NAV LINKS (Mission & Vision)
+            // =============================================================
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             });
 
             console.log('✅ CareerConnectTZ loaded successfully!');
