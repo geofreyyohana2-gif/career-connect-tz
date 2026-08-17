@@ -1973,37 +1973,35 @@
                 </div>
             </div>
 
-            <!-- ===== NEW: Send Message Form (inside footer) ===== -->
-            <div class="footer-form-section">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-md-10">
-                        <h5><i class="fas fa-paper-plane me-2" style="color: var(--gold);"></i> Send us a message</h5>
-                        <form class="footer-form" id="footerContactForm" action="https://formspree.io/f/yourFormID" method="POST">
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <input type="email" class="form-control" name="email" placeholder="Your email address" required />
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" name="name" placeholder="Your name (optional)" />
-                                </div>
-                                <div class="col-12">
-                                    <textarea class="form-control" name="message" rows="3" placeholder="Write your message here..." required></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn-submit">
-                                        <i class="fas fa-paper-plane me-2"></i> Send Message
-                                    </button>
-                                    <div class="form-message" id="formMessage"></div>
-                                </div>
-                            </div>
-                            <!-- Hidden field for subject -->
-                            <input type="hidden" name="_subject" value="New message from CareerConnectTZ website" />
-                            <!-- Redirect after success (optional) -->
-                            <input type="hidden" name="_redirect" value="https://careerconnecttz.com/thanks.html" />
-                        </form>
+         <!-- ===== FIXED: Send Message Form ===== -->
+<div class="footer-form-section">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <h5><i class="fas fa-paper-plane me-2" style="color: var(--gold);"></i> Send us a message</h5>
+            <form class="footer-form" id="footerContactForm" action="https://formspree.io/f/xpzrgzrg" method="POST">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <input type="email" class="form-control" name="email" placeholder="Your email address" required />
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="name" placeholder="Your name (optional)" />
+                    </div>
+                    <div class="col-12">
+                        <textarea class="form-control" name="message" rows="3" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane me-2"></i> Send Message
+                        </button>
+                        <div class="form-message" id="formMessage"></div>
                     </div>
                 </div>
-            </div>
+                <input type="hidden" name="_subject" value="New message from CareerConnectTZ" />
+                <input type="hidden" name="_captcha" value="false" />
+            </form>
+        </div>
+    </div>
+</div>
 
             <!-- Footer bottom (unchanged) -->
             <div class="footer-bottom">
@@ -2731,48 +2729,59 @@
                 });
             });
 
-            // =============================================================
-            // 8. FOOTER CONTACT FORM – AJAX submission (no email client)
-            // =============================================================
-            const form = document.getElementById('footerContactForm');
-            const formMessage = document.getElementById('formMessage');
+            /// =============================================================
+// 8. FOOTER CONTACT FORM – FIXED (works with Formspree)
+// =============================================================
+const form = document.getElementById('footerContactForm');
+const formMessage = document.getElementById('formMessage');
 
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
+if (form) {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-                    // Get form data
-                    const formData = new FormData(form);
-                    const url = form.action;
+        const submitBtn = form.querySelector('.btn-submit');
+        const originalText = submitBtn.innerHTML;
 
-                    // Show sending status
-                    formMessage.textContent = 'Sending...';
-                    formMessage.className = 'form-message';
-                    formMessage.style.color = '#f1c40f';
+        // Disable button and show sending state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
+        formMessage.textContent = 'Sending your message...';
+        formMessage.className = 'form-message';
+        formMessage.style.color = '#f1c40f';
 
-                    fetch(url, {
-                            method: 'POST',
-                            body: formData,
-                            headers: {
-                                'Accept': 'application/json'
-                            }
-                        })
-                        .then(response => {
-                            if (response.ok) {
-                                formMessage.textContent = '✅ Message sent successfully! We\'ll get back to you soon.';
-                                formMessage.className = 'form-message success';
-                                form.reset();
-                            } else {
-                                throw new Error('Server error');
-                            }
-                        })
-                        .catch(error => {
-                            formMessage.textContent = '❌ Oops! Something went wrong. Please try again later.';
-                            formMessage.className = 'form-message error';
-                            console.error('Form submission error:', error);
-                        });
-                });
-            }
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Network response was not ok');
+            })
+            .then(data => {
+                formMessage.textContent = '✅ Message sent successfully! We\'ll get back to you soon.';
+                formMessage.className = 'form-message success';
+                formMessage.style.color = '#2ecc71';
+                form.reset();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            })
+            .catch(error => {
+                console.error('Form error:', error);
+                formMessage.textContent = '❌ Something went wrong. Please try again or email us directly at info@careerconnecttz.com';
+                formMessage.className = 'form-message error';
+                formMessage.style.color = '#e74c3c';
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            });
+    });
+}
 
             console.log('✅ CareerConnectTZ loaded successfully!');
         });
