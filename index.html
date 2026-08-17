@@ -1096,7 +1096,7 @@
         }
 
         /* =============================================================
-           FOOTER
+           FOOTER — ADDED CONTACT FORM
            ============================================================= */
         .footer {
             background: var(--primary-dark);
@@ -1216,6 +1216,87 @@
             text-align: center;
             font-size: 0.85rem;
             color: rgba(255, 255, 255, 0.35);
+        }
+
+        /* ---- NEW: Footer Contact Form ---- */
+        .footer-form-section {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .footer-form-section h5 {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-bottom: 0.6rem;
+        }
+
+        .footer-form-section h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 36px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 4px;
+        }
+
+        .footer-form .form-control {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 12px;
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-form .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .footer-form .form-control:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.08);
+            color: #fff;
+        }
+
+        .footer-form .btn-submit {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #fff;
+            border: none;
+            padding: 0.6rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .footer-form .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(201, 168, 76, 0.25);
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+        }
+
+        .footer-form .form-message {
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            min-height: 1.5rem;
+        }
+
+        .footer-form .form-message.success {
+            color: #2ecc71;
+        }
+
+        .footer-form .form-message.error {
+            color: #e74c3c;
         }
 
         /* =============================================================
@@ -1844,6 +1925,7 @@
     <!-- ============================================================= -->
     <footer class="footer">
         <div class="container">
+            <!-- Existing footer row (unchanged) -->
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
                     <h5>About CareerConnectTZ</h5>
@@ -1890,6 +1972,40 @@
                     </a>
                 </div>
             </div>
+
+            <!-- ===== NEW: Send Message Form (inside footer) ===== -->
+            <div class="footer-form-section">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-md-10">
+                        <h5><i class="fas fa-paper-plane me-2" style="color: var(--gold);"></i> Send us a message</h5>
+                        <form class="footer-form" id="footerContactForm" action="https://formspree.io/f/yourFormID" method="POST">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" name="email" placeholder="Your email address" required />
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="name" placeholder="Your name (optional)" />
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control" name="message" rows="3" placeholder="Write your message here..." required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn-submit">
+                                        <i class="fas fa-paper-plane me-2"></i> Send Message
+                                    </button>
+                                    <div class="form-message" id="formMessage"></div>
+                                </div>
+                            </div>
+                            <!-- Hidden field for subject -->
+                            <input type="hidden" name="_subject" value="New message from CareerConnectTZ website" />
+                            <!-- Redirect after success (optional) -->
+                            <input type="hidden" name="_redirect" value="https://careerconnecttz.com/thanks.html" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer bottom (unchanged) -->
             <div class="footer-bottom">
                 <p>&copy; 2026 CareerConnectTZ. All Rights Reserved.</p>
             </div>
@@ -2009,6 +2125,12 @@
                     mv_vision_title: 'Our Vision',
                     mv_vision_text: 'To become the leading career development platform in Tanzania, connecting talent with opportunity and creating a future where everyone can thrive professionally.',
                     mv_vision_tag: '✦ Leading Change',
+                    // New form translations
+                    form_title: 'Send us a message',
+                    form_email: 'Your email address',
+                    form_name: 'Your name (optional)',
+                    form_message: 'Write your message here...',
+                    form_submit: 'Send Message',
                 },
                 sw: {
                     logo: 'CareerConnect TZ',
@@ -2085,6 +2207,12 @@
                     mv_vision_title: 'Maono Yetu',
                     mv_vision_text: 'Kuwa jukwaa linaloongoza la maendeleo ya kazi nchini Tanzania, kuunganisha vipaji na fursa na kuunda mustakabali ambapo kila mtu anaweza kufanikiwa kitaaluma.',
                     mv_vision_tag: '✦ Kuongoza Mabadiliko',
+                    // Swahili form
+                    form_title: 'Tutumie ujumbe',
+                    form_email: 'Anwani yako ya barua pepe',
+                    form_name: 'Jina lako (hiari)',
+                    form_message: 'Andika ujumbe wako hapa...',
+                    form_submit: 'Tuma Ujumbe',
                 }
             };
 
@@ -2240,6 +2368,19 @@
                 if (mvVisionText) mvVisionText.textContent = t.mv_vision_text;
                 const mvVisionTag = document.querySelector('.vision-card .mv-tag');
                 if (mvVisionTag) mvVisionTag.textContent = t.mv_vision_tag;
+
+                // Form translations
+                const formTitle = document.querySelector('.footer-form-section h5');
+                if (formTitle) formTitle.innerHTML = '<i class="fas fa-paper-plane me-2" style="color: var(--gold);"></i> ' + t
+                    .form_title;
+                const emailInput = document.querySelector('.footer-form input[name="email"]');
+                if (emailInput) emailInput.placeholder = t.form_email;
+                const nameInput = document.querySelector('.footer-form input[name="name"]');
+                if (nameInput) nameInput.placeholder = t.form_name;
+                const msgTextarea = document.querySelector('.footer-form textarea[name="message"]');
+                if (msgTextarea) msgTextarea.placeholder = t.form_message;
+                const submitBtn = document.querySelector('.footer-form .btn-submit');
+                if (submitBtn) submitBtn.innerHTML = '<i class="fas fa-paper-plane me-2"></i> ' + t.form_submit;
 
                 currentLang = lang;
             }
@@ -2589,6 +2730,49 @@
                     }
                 });
             });
+
+            // =============================================================
+            // 8. FOOTER CONTACT FORM – AJAX submission (no email client)
+            // =============================================================
+            const form = document.getElementById('footerContactForm');
+            const formMessage = document.getElementById('formMessage');
+
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    // Get form data
+                    const formData = new FormData(form);
+                    const url = form.action;
+
+                    // Show sending status
+                    formMessage.textContent = 'Sending...';
+                    formMessage.className = 'form-message';
+                    formMessage.style.color = '#f1c40f';
+
+                    fetch(url, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                formMessage.textContent = '✅ Message sent successfully! We\'ll get back to you soon.';
+                                formMessage.className = 'form-message success';
+                                form.reset();
+                            } else {
+                                throw new Error('Server error');
+                            }
+                        })
+                        .catch(error => {
+                            formMessage.textContent = '❌ Oops! Something went wrong. Please try again later.';
+                            formMessage.className = 'form-message error';
+                            console.error('Form submission error:', error);
+                        });
+                });
+            }
 
             console.log('✅ CareerConnectTZ loaded successfully!');
         });
