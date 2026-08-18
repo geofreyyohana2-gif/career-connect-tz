@@ -1974,34 +1974,27 @@
             </div>
 
          <!-- ===== FIXED: Send Message Form ===== -->
-<div class="footer-form-section">
-    <div class="row justify-content-center">
-        <div class="col-lg-8 col-md-10">
-            <h5><i class="fas fa-paper-plane me-2" style="color: var(--gold);"></i> Send us a message</h5>
-            <form class="footer-form" id="footerContactForm" action="https://formspree.io/f/xpzrgzrg" method="POST">
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <input type="email" class="form-control" name="email" placeholder="Your email address" required />
-                    </div>
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="name" placeholder="Your name (optional)" />
-                    </div>
-                    <div class="col-12">
-                        <textarea class="form-control" name="message" rows="3" placeholder="Write your message here..." required></textarea>
-                    </div>
-                    <div class="col-12">
-                        <button type="submit" class="btn-submit">
-                            <i class="fas fa-paper-plane me-2"></i> Send Message
-                        </button>
-                        <div class="form-message" id="formMessage"></div>
-                    </div>
-                </div>
-                <input type="hidden" name="_subject" value="New message from CareerConnectTZ" />
-                <input type="hidden" name="_captcha" value="false" />
-            </form>
+<form class="footer-form" id="footerContactForm" action="https://formspre.io/f/xvkpvokg" method="POST">
+    <div class="row g-3">
+        <div class="col-md-6">
+            <input type="email" class="form-control" name="email" placeholder="Your email address" required />
+        </div>
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="name" placeholder="Your name (optional)" />
+        </div>
+        <div class="col-12">
+            <textarea class="form-control" name="message" rows="3" placeholder="Write your message here..." required></textarea>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn-submit">
+                <i class="fas fa-paper-plane me-2"></i> Send Message
+            </button>
+            <div class="form-message" id="formMessage"></div>
         </div>
     </div>
-</div>
+    <input type="hidden" name="_subject" value="New message from CareerConnectTZ" />
+    <input type="hidden" name="_captcha" value="false" />
+</form>
 
             <!-- Footer bottom (unchanged) -->
             <div class="footer-bottom">
@@ -2732,6 +2725,9 @@
             /// =============================================================
 // 8. FOOTER CONTACT FORM – FIXED (works with Formspree)
 // =============================================================
+// =============================================================
+// 8. FOOTER CONTACT FORM – using your new endpoint
+// =============================================================
 const form = document.getElementById('footerContactForm');
 const formMessage = document.getElementById('formMessage');
 
@@ -2742,7 +2738,7 @@ if (form) {
         const submitBtn = form.querySelector('.btn-submit');
         const originalText = submitBtn.innerHTML;
 
-        // Disable button and show sending state
+        // Disable and show sending
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
         formMessage.textContent = 'Sending your message...';
