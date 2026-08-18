@@ -1096,7 +1096,7 @@
         }
 
         /* =============================================================
-           FOOTER — ADDED CONTACT FORM
+           FOOTER — WITH FIXED CONTACT FORM
            ============================================================= */
         .footer {
             background: var(--primary-dark);
@@ -1218,7 +1218,7 @@
             color: rgba(255, 255, 255, 0.35);
         }
 
-        /* ---- NEW: Footer Contact Form ---- */
+        /* ---- Footer Contact Form (fixed) ---- */
         .footer-form-section {
             margin-top: 2.5rem;
             padding-top: 2rem;
@@ -1973,28 +1973,35 @@
                 </div>
             </div>
 
-         <!-- ===== FIXED: Send Message Form ===== -->
-<form class="footer-form" id="footerContactForm" action="https://formspre.io/f/xvkpvokg" method="POST">
-    <div class="row g-3">
-        <div class="col-md-6">
-            <input type="email" class="form-control" name="email" placeholder="Your email address" required />
-        </div>
-        <div class="col-md-6">
-            <input type="text" class="form-control" name="name" placeholder="Your name (optional)" />
-        </div>
-        <div class="col-12">
-            <textarea class="form-control" name="message" rows="3" placeholder="Write your message here..." required></textarea>
-        </div>
-        <div class="col-12">
-            <button type="submit" class="btn-submit">
-                <i class="fas fa-paper-plane me-2"></i> Send Message
-            </button>
-            <div class="form-message" id="formMessage"></div>
-        </div>
-    </div>
-    <input type="hidden" name="_subject" value="New message from CareerConnectTZ" />
-    <input type="hidden" name="_captcha" value="false" />
-</form>
+            <!-- ===== FIXED: Send Message Form ===== -->
+            <div class="footer-form-section">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-md-10">
+                        <h5><i class="fas fa-paper-plane me-2" style="color: var(--gold);"></i> Send us a message</h5>
+                        <form class="footer-form" id="footerContactForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" name="email" placeholder="Your email address" required />
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="name" placeholder="Your name (optional)" />
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control" name="message" rows="3" placeholder="Write your message here..." required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn-submit">
+                                        <i class="fas fa-paper-plane me-2"></i> Send Message
+                                    </button>
+                                    <div class="form-message" id="formMessage"></div>
+                                </div>
+                            </div>
+                            <input type="hidden" name="_subject" value="New message from CareerConnectTZ" />
+                            <input type="hidden" name="_captcha" value="false" />
+                        </form>
+                    </div>
+                </div>
+            </div>
 
             <!-- Footer bottom (unchanged) -->
             <div class="footer-bottom">
@@ -2116,7 +2123,7 @@
                     mv_vision_title: 'Our Vision',
                     mv_vision_text: 'To become the leading career development platform in Tanzania, connecting talent with opportunity and creating a future where everyone can thrive professionally.',
                     mv_vision_tag: '✦ Leading Change',
-                    // New form translations
+                    // Form translations
                     form_title: 'Send us a message',
                     form_email: 'Your email address',
                     form_name: 'Your name (optional)',
@@ -2722,78 +2729,68 @@
                 });
             });
 
-            /// =============================================================
-// 8. FOOTER CONTACT FORM – FIXED (works with Formspree)
-// =============================================================
-// 8. FOOTER CONTACT FORM – Complete Vanilla JS (fetch)
-// =============================================================
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('footerContactForm');
-    const formMessage = document.getElementById('formMessage');
+            // =============================================================
+            // 8. FOOTER CONTACT FORM – FIXED (formspree.io/f/xvkpvokg)
+            // =============================================================
+            const form = document.getElementById('footerContactForm');
+            const formMessage = document.getElementById('formMessage');
 
-    if (!form) return;
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+                    const submitBtn = form.querySelector('.btn-submit');
+                    const originalText = submitBtn.innerHTML;
 
-        const submitBtn = form.querySelector('.btn-submit');
-        const originalText = submitBtn.innerHTML;
+                    // Disable button & show spinner
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
 
-        // ── Disable button & show spinner ──
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
+                    if (formMessage) {
+                        formMessage.textContent = '';
+                        formMessage.className = 'form-message';
+                        formMessage.style.color = '';
+                    }
 
-        // ── Clear previous messages ──
-        if (formMessage) {
-            formMessage.textContent = '';
-            formMessage.className = 'form-message';
-            formMessage.style.color = '';
-        }
+                    const formData = new FormData(form);
 
-        const formData = new FormData(form);
-
-        // ── Send to Formspree ──
-        fetch('https://formspree.io/f/xvkpvokg', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-                // Try to get error message from response
-                return response.json().then(data => {
-                    throw new Error(data.error || 'Form submission failed');
+                    fetch('https://formspree.io/f/xvkpvokg', {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                return response.json();
+                            }
+                            return response.json().then(data => {
+                                throw new Error(data.error || 'Form submission failed');
+                            });
+                        })
+                        .then(() => {
+                            if (formMessage) {
+                                formMessage.textContent = '✅ Message sent successfully! We\'ll get back to you soon.';
+                                formMessage.className = 'form-message success';
+                                formMessage.style.color = '#2ecc71';
+                            }
+                            form.reset();
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = originalText;
+                        })
+                        .catch(error => {
+                            console.error('Form error:', error);
+                            if (formMessage) {
+                                formMessage.textContent = '❌ ' + error.message + ' Please try again or email us directly at info@careerconnecttz.com';
+                                formMessage.className = 'form-message error';
+                                formMessage.style.color = '#e74c3c';
+                            }
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = originalText;
+                        });
                 });
-            })
-            .then(() => {
-                // ── Success ──
-                if (formMessage) {
-                    formMessage.textContent = '✅ Message sent successfully! We\'ll get back to you soon.';
-                    formMessage.className = 'form-message success';
-                    formMessage.style.color = '#2ecc71';
-                }
-                form.reset();
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalText;
-            })
-            .catch(error => {
-                // ── Error ──
-                console.error('Form error:', error);
-                if (formMessage) {
-                    formMessage.textContent = '❌ ' + error.message + ' Please try again or email us directly at info@careerconnecttz.com';
-                    formMessage.className = 'form-message error';
-                    formMessage.style.color = '#e74c3c';
-                }
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalText;
-            });
-    });
-});
-}
+            }
 
             console.log('✅ CareerConnectTZ loaded successfully!');
         });
