@@ -2725,29 +2725,35 @@
             /// =============================================================
 // 8. FOOTER CONTACT FORM – FIXED (works with Formspree)
 // =============================================================
+// 8. FOOTER CONTACT FORM – Complete Vanilla JS (fetch)
 // =============================================================
-// 8. FOOTER CONTACT FORM – using your new endpoint
-// =============================================================
-const form = document.getElementById('footerContactForm');
-const formMessage = document.getElementById('formMessage');
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('footerContactForm');
+    const formMessage = document.getElementById('formMessage');
 
-if (form) {
+    if (!form) return;
+
     form.addEventListener('submit', function(e) {
         e.preventDefault();
 
         const submitBtn = form.querySelector('.btn-submit');
         const originalText = submitBtn.innerHTML;
 
-        // Disable and show sending
+        // ── Disable button & show spinner ──
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
-        formMessage.textContent = 'Sending your message...';
-        formMessage.className = 'form-message';
-        formMessage.style.color = '#f1c40f';
+
+        // ── Clear previous messages ──
+        if (formMessage) {
+            formMessage.textContent = '';
+            formMessage.className = 'form-message';
+            formMessage.style.color = '';
+        }
 
         const formData = new FormData(form);
 
-        fetch(form.action, {
+        // ── Send to Formspree ──
+        fetch('https://formspree.io/f/xvkpvokg', {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -2758,25 +2764,35 @@ if (form) {
                 if (response.ok) {
                     return response.json();
                 }
-                throw new Error('Network response was not ok');
+                // Try to get error message from response
+                return response.json().then(data => {
+                    throw new Error(data.error || 'Form submission failed');
+                });
             })
-            .then(data => {
-                formMessage.textContent = '✅ Message sent successfully! We\'ll get back to you soon.';
-                formMessage.className = 'form-message success';
-                formMessage.style.color = '#2ecc71';
+            .then(() => {
+                // ── Success ──
+                if (formMessage) {
+                    formMessage.textContent = '✅ Message sent successfully! We\'ll get back to you soon.';
+                    formMessage.className = 'form-message success';
+                    formMessage.style.color = '#2ecc71';
+                }
                 form.reset();
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalText;
             })
             .catch(error => {
+                // ── Error ──
                 console.error('Form error:', error);
-                formMessage.textContent = '❌ Something went wrong. Please try again or email us directly at info@careerconnecttz.com';
-                formMessage.className = 'form-message error';
-                formMessage.style.color = '#e74c3c';
+                if (formMessage) {
+                    formMessage.textContent = '❌ ' + error.message + ' Please try again or email us directly at info@careerconnecttz.com';
+                    formMessage.className = 'form-message error';
+                    formMessage.style.color = '#e74c3c';
+                }
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalText;
             });
     });
+});
 }
 
             console.log('✅ CareerConnectTZ loaded successfully!');
