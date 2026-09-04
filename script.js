@@ -450,165 +450,21 @@ const sectionMap = {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    // ─── 1. GOOGLE TRANSLATE ───
-    function initGoogleTranslate() {
-        if (typeof google !== 'undefined' && google.translate) {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'en,sw,fr,de,es,pt,it,zh-CN,ar,ru',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-        } else {
-            setTimeout(initGoogleTranslate, 500);
-        }
-    }
-    var gtScript = document.createElement('script');
-    gtScript.src = '//translate.google.com/translate_a/element.js?cb=initGoogleTranslate';
-    document.head.appendChild(gtScript);
-    window.initGoogleTranslate = initGoogleTranslate;
 
-    // ─── 2. SEARCH ───
-    const searchInput = document.getElementById('globalSearchInput');
-    const resultsBox = document.getElementById('searchResultsBox');
-    let allTextNodes = [];
 
-    function getAllTextNodes() {
-        const walker = document.createTreeWalker(
-            document.body,
-            NodeFilter.SHOW_TEXT, {
-                acceptNode: function(node) {
-                    const parent = node.parentElement;
-                    if (!parent) return NodeFilter.FILTER_REJECT;
-                    const tag = parent.tagName.toLowerCase();
-                    if (['script', 'style', 'noscript'].includes(tag)) return NodeFilter.FILTER_REJECT;
-                    if (parent.closest('.search-wrapper') || parent.closest('.lang-wrapper') ||
-                        parent.closest('.navbar-custom .d-flex')) {
-                        return NodeFilter.FILTER_REJECT;
-                    }
-                    if (node.textContent.trim().length === 0) return NodeFilter.FILTER_REJECT;
-                    return NodeFilter.FILTER_ACCEPT;
-                }
-            }
-        );
-        const nodes = [];
-        let n;
-        while (n = walker.nextNode()) {
-            nodes.push(n);
-        }
-        return nodes;
-    }
 
-    function rebuildIndex() {
-        allTextNodes = getAllTextNodes();
-    }
-    rebuildIndex();
 
-    function performSearch(query) {
-        if (!query || query.trim().length < 2) {
-            resultsBox.classList.remove('show');
-            return;
-        }
-        const q = query.trim().toLowerCase();
-        const results = [];
-        allTextNodes.forEach(node => {
-            const text = node.textContent;
-            const lower = text.toLowerCase();
-            if (lower.includes(q)) {
-                const idx = lower.indexOf(q);
-                const start = Math.max(0, idx - 30);
-                const end = Math.min(text.length, idx + q.length + 30);
-                let context = text.substring(start, end);
-                if (start > 0) context = '…' + context;
-                if (end < text.length) context = context + '…';
-                const highlighted = context.replace(
-                    new RegExp(q, 'gi'),
-                    match => `<span class="match-highlight">${match}</span>`
-                );
-                const parentEl = node.parentElement;
-                results.push({ context: highlighted, element: parentEl, fullText: text });
-            }
-        });
-        const unique = [];
-        const seen = new Set();
-        results.forEach(r => {
-            if (!seen.has(r.element)) {
-                seen.add(r.element);
-                unique.push(r);
-            }
-        });
-        if (unique.length === 0) {
-            resultsBox.innerHTML = `<div class="no-results">No results found for “${query.trim()}”</div>`;
-        } else {
-            let html = '';
-            unique.slice(0, 15).forEach(r => {
-                const sectionName = r.element.closest('section, div, header, footer')?.tagName
-                    ?.toLowerCase() || 'page';
-                html += `<div class="result-item" data-target-id="${r.element.id || ''}" data-text-snippet="${r.fullText.substring(0, 60)}">
-                            <span>${r.context}</span>
-                            <span class="context">${r.element.tagName.toLowerCase()} · ${sectionName}</span>
-                         </div>`;
-            });
-            if (unique.length > 15) {
-                html +=
-                    `<div class="result-item" style="color:var(--text-muted);font-size:0.8rem;text-align:center;">+ ${unique.length - 15} more results</div>`;
-            }
-            resultsBox.innerHTML = html;
-            resultsBox.querySelectorAll('.result-item[data-target-id]').forEach(item => {
-                item.addEventListener('click', function() {
-                    const targetId = this.dataset.targetId;
-                    let targetEl = null;
-                    if (targetId) {
-                        targetEl = document.getElementById(targetId);
-                    }
-                    if (!targetEl) {
-                        const snippet = this.dataset.textSnippet;
-                        if (snippet) {
-                            const textNodes = getAllTextNodes();
-                            for (let node of textNodes) {
-                                if (node.textContent.includes(snippet.substring(0, 30))) {
-                                    targetEl = node.parentElement;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                    if (targetEl) {
-                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        targetEl.style.transition = 'background 0.6s';
-                        targetEl.style.background = 'rgba(201,168,76,0.15)';
-                        setTimeout(() => { targetEl.style.background = ''; }, 2000);
-                        resultsBox.classList.remove('show');
-                        searchInput.value = '';
-                    }
-                });
-            });
-        }
-        resultsBox.classList.add('show');
-    }
 
-    searchInput.addEventListener('input', function() {
-        performSearch(this.value);
-    });
 
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.search-wrapper')) {
-            resultsBox.classList.remove('show');
-        }
-    });
 
-    setTimeout(rebuildIndex, 1500);
 
-    // ─── 3. CAROUSEL ───
-    const heroCarousel = document.getElementById('heroCarousel');
-    if (heroCarousel) {
-        new bootstrap.Carousel(heroCarousel, {
-            interval: 5000,
-            pause: 'hover',
-            wrap: true
-        });
-    }
 
+
+
+
+
+
+   
     // ─── 4. MARQUEE SPEED ───
     const marqueeTrack = document.querySelector('.marquee-track');
     if (marqueeTrack) {
