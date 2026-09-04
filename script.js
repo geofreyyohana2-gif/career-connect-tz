@@ -2768,15 +2768,6 @@ RESEARCH CHALLENGE FORM REMOVED
 
    
 
-// ─── SIDEBAR SCROLL TO SECTION ───
-function scrollToSection(e, className) {
-    e.preventDefault();
-    const target = document.querySelector(`.${className}`);
-    if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-}
-
 
 
 
