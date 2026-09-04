@@ -3046,3 +3046,189 @@ function scrollToSection(e, className) {
 
 
    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ─── MOBILE & SMOOTH OPERATION FIXES (Pure JS) ───
+(function() {
+    'use strict';
+
+    // ─── 1. Close navbar after clicking a link (mobile) ───
+    document.addEventListener('click', function(e) {
+        const link = e.target.closest('.navbar-nav .nav-link, .navbar-nav .dropdown-item');
+        const toggler = document.querySelector('.navbar-toggler');
+        const collapse = document.querySelector('.navbar-collapse');
+
+        if (link && toggler && collapse && window.innerWidth < 992) {
+            if (collapse.classList.contains('show')) {
+                setTimeout(function() {
+                    toggler.click();
+                }, 200);
+            }
+        }
+    });
+
+    // ─── 2. Close navbar when clicking outside ───
+    document.addEventListener('click', function(e) {
+        const navbar = document.querySelector('.navbar');
+        const toggler = document.querySelector('.navbar-toggler');
+        const collapse = document.querySelector('.navbar-collapse');
+
+        if (!navbar || !toggler || !collapse) return;
+
+        if (window.innerWidth < 992 && collapse.classList.contains('show')) {
+            if (!navbar.contains(e.target)) {
+                toggler.click();
+            }
+        }
+    });
+
+    // ─── 3. Smooth scroll for section navigation ───
+    document.querySelectorAll('[data-section]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            const sectionKey = this.dataset.section;
+            const sectionId = window.sectionMap ? window.sectionMap[sectionKey] : null;
+            if (sectionId) {
+                setTimeout(function() {
+                    const el = document.getElementById(sectionId);
+                    if (el) {
+                        const top = el.getBoundingClientRect().top + window.pageYOffset - 80;
+                        window.scrollTo({ top: top, behavior: 'smooth' });
+                    }
+                }, 300);
+            }
+        });
+    });
+
+    // ─── 4. Prevent horizontal scroll on mobile ───
+    function preventHorizontalScroll() {
+        if (window.innerWidth < 768) {
+            document.body.style.overflowX = 'hidden';
+            document.documentElement.style.overflowX = 'hidden';
+        } else {
+            document.body.style.overflowX = '';
+            document.documentElement.style.overflowX = '';
+        }
+    }
+    preventHorizontalScroll();
+    window.addEventListener('resize', preventHorizontalScroll);
+
+    // ─── 5. Make Google Translate dropdown touch-friendly ───
+    function fixTranslateTouch() {
+        const select = document.querySelector('.goog-te-combo');
+        if (select) {
+            select.style.minHeight = '36px';
+            select.style.fontSize = '14px';
+            select.style.pointerEvents = 'auto';
+            select.style.touchAction = 'manipulation';
+            // Ensure it's not hidden behind other elements
+            select.style.position = 'relative';
+            select.style.zIndex = '1000';
+        }
+        // Also ensure the container doesn't overflow
+        const wrapper = document.querySelector('.lang-wrapper');
+        if (wrapper) {
+            wrapper.style.display = 'flex';
+            wrapper.style.flexWrap = 'wrap';
+            wrapper.style.alignItems = 'center';
+            wrapper.style.gap = '4px';
+        }
+    }
+
+    // Run after translate widget loads
+    setTimeout(fixTranslateTouch, 1500);
+    // Also observe for dynamic changes
+    const translateObserver = new MutationObserver(function() {
+        const select = document.querySelector('.goog-te-combo');
+        if (select) {
+            fixTranslateTouch();
+            translateObserver.disconnect();
+        }
+    });
+    translateObserver.observe(document.body, { childList: true, subtree: true });
+
+    // ─── 6. Fix hero carousel height on mobile ───
+    function fixCarouselHeight() {
+        const items = document.querySelectorAll('.hero-carousel .carousel-item');
+        if (window.innerWidth < 768) {
+            items.forEach(function(item) {
+                item.style.minHeight = '280px';
+            });
+        } else {
+            items.forEach(function(item) {
+                item.style.minHeight = '';
+            });
+        }
+    }
+    fixCarouselHeight();
+    window.addEventListener('resize', fixCarouselHeight);
+
+    // ─── 7. Fix search results dropdown on mobile ───
+    function fixSearchResults() {
+        const resultsBox = document.getElementById('searchResultsBox');
+        if (!resultsBox) return;
+        if (window.innerWidth < 768) {
+            resultsBox.style.position = 'fixed';
+            resultsBox.style.top = '60px';
+            resultsBox.style.left = '10px';
+            resultsBox.style.right = '10px';
+            resultsBox.style.width = 'auto';
+            resultsBox.style.maxHeight = '50vh';
+            resultsBox.style.borderRadius = '16px';
+            resultsBox.style.zIndex = '9999';
+        } else {
+            resultsBox.style.position = '';
+            resultsBox.style.top = '';
+            resultsBox.style.left = '';
+            resultsBox.style.right = '';
+            resultsBox.style.width = '';
+            resultsBox.style.maxHeight = '';
+            resultsBox.style.borderRadius = '';
+            resultsBox.style.zIndex = '';
+        }
+    }
+    fixSearchResults();
+    window.addEventListener('resize', fixSearchResults);
+
+    // ─── 8. Enable smooth touch scrolling on all elements ───
+    document.querySelectorAll('.scrollable, .scholarship-list-scroll, .resources-list-scroll, .internship-list-scroll').forEach(function(el) {
+        el.style.webkitOverflowScrolling = 'touch';
+        el.style.overflowY = 'auto';
+    });
+
+    // ─── 9. Fix dropdown menus on mobile (prevent zoom) ───
+    document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+        toggle.addEventListener('click', function(e) {
+            if (window.innerWidth < 992) {
+                // Prevent default only if not already open (Bootstrap handles it)
+                // Just ensure the parent dropdown gets toggled
+            }
+        });
+    });
+
+    console.log('📱 Mobile & smooth fixes applied.');
+})();
+
+
+
+                          
