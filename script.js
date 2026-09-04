@@ -1,22 +1,186 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // ─── 1. GOOGLE TRANSLATE ───
-    function initGoogleTranslate() {
-        if (typeof google !== 'undefined' && google.translate) {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'en,sw,fr,de,es,pt,it,zh-CN,ar,ru',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-        } else {
-            setTimeout(initGoogleTranslate, 500);
+   document.addEventListener('DOMContentLoaded', function() {
+
+    // ─── POWERFUL GOOGLE TRANSLATE ENGINE ───
+    (function() {
+        'use strict';
+
+        let translateWidgetInitialized = false;
+
+        function ensureTranslateContainer() {
+            let container = document.getElementById('google_translate_element');
+            if (!container) {
+                container = document.createElement('div');
+                container.id = 'google_translate_element';
+                container.style.display = 'inline-block';
+                const wrapper = document.querySelector('.lang-wrapper');
+                if (wrapper) {
+                    const icon = wrapper.querySelector('#langGlobeIcon');
+                    if (icon) {
+                        icon.after(container);
+                    } else {
+                        wrapper.appendChild(container);
+                    }
+                } else {
+                    document.body.appendChild(container);
+                }
+            }
+            return container;
         }
-    }
-    var gtScript = document.createElement('script');
-    gtScript.src = '//translate.google.com/translate_a/element.js?cb=initGoogleTranslate';
-    document.head.appendChild(gtScript);
-    window.initGoogleTranslate = initGoogleTranslate;
+
+        function initTranslateWidget() {
+            if (translateWidgetInitialized) return;
+            const container = ensureTranslateContainer();
+
+            try {
+                if (typeof google !== 'undefined' && google.translate) {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'en',
+                        includedLanguages: 'en,sw,fr,de,es,pt,it,zh-CN,ar,ru,ja,ko,hi',
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                        autoDisplay: false
+                    }, 'google_translate_element');
+
+                    translateWidgetInitialized = true;
+                    console.log('✅ Google Translate widget initialized.');
+
+                    attachLanguageSelectorListener();
+                    hideTranslateBanner();
+
+                    setTimeout(function() {
+                        const select = document.querySelector('.goog-te-combo');
+                        if (select && select.value && select.value !== 'en') {
+                            console.log('🔄 Non-English language selected. Forcing translation...');
+                            forceTranslate();
+                        }
+                    }, 800);
+
+                } else {
+                    console.warn('⚠️ Google Translate not ready. Retrying in 500ms...');
+                    setTimeout(initTranslateWidget, 500);
+                }
+            } catch (e) {
+                console.error('❌ Error initializing Google Translate:', e);
+                setTimeout(initTranslateWidget, 1000);
+            }
+        }
+
+        function attachLanguageSelectorListener() {
+            const observer = new MutationObserver(function() {
+                const select = document.querySelector('.goog-te-combo');
+                if (select && !select._listenerAttached) {
+                    select._listenerAttached = true;
+                    select.addEventListener('change', function() {
+                        console.log('🔄 Language changed to:', this.value);
+                        setTimeout(forceTranslate, 300);
+                    });
+                    console.log('👀 Language selector listener attached.');
+                    observer.disconnect();
+                }
+            });
+            observer.observe(document.body, { childList: true, subtree: true });
+
+            setTimeout(function() {
+                const select = document.querySelector('.goog-te-combo');
+                if (select && !select._listenerAttached) {
+                    select._listenerAttached = true;
+                    select.addEventListener('change', function() {
+                        console.log('🔄 Language changed to:', this.value);
+                        setTimeout(forceTranslate, 300);
+                    });
+                }
+            }, 500);
+        }
+
+        function hideTranslateBanner() {
+            if (document.getElementById('translate-banner-style')) return;
+            const style = document.createElement('style');
+            style.id = 'translate-banner-style';
+            style.textContent = `
+                .goog-te-banner-frame.skiptranslate { display: none !important; }
+                body { top: 0px !important; }
+                .goog-te-gadget-simple { background: transparent !important; border: none !important; }
+                .goog-te-gadget img { display: none !important; }
+            `;
+            document.head.appendChild(style);
+        }
+
+        function forceTranslate() {
+            const select = document.querySelector('.goog-te-combo');
+            if (!select || select.value === 'en') {
+                return;
+            }
+
+            console.log('🔄 Forcing re‑translation for language:', select.value);
+            const event = new Event('change', { bubbles: true });
+            select.dispatchEvent(event);
+            setTimeout(function() {
+                window.dispatchEvent(new Event('resize'));
+            }, 200);
+        }
+
+        function reTranslateAfterSectionChange() {
+            const select = document.querySelector('.goog-te-combo');
+            if (select && select.value && select.value !== 'en') {
+                console.log('🔄 Section changed. Re-translating...');
+                setTimeout(forceTranslate, 400);
+            }
+        }
+
+        function watchSectionVisibility() {
+            const observer = new MutationObserver(function() {
+                const sections = document.querySelectorAll('[id$="-section"]');
+                let sectionBecameVisible = false;
+                sections.forEach(function(section) {
+                    if (section.style.display === 'block' && section.dataset.wasHidden) {
+                        sectionBecameVisible = true;
+                        section.dataset.wasHidden = false;
+                    }
+                    if (section.style.display === 'none') {
+                        section.dataset.wasHidden = true;
+                    }
+                });
+                if (sectionBecameVisible) {
+                    reTranslateAfterSectionChange();
+                }
+            });
+
+            observer.observe(document.body, {
+                attributes: true,
+                attributeFilter: ['style'],
+                subtree: true
+            });
+        }
+
+        window.reTranslate = forceTranslate;
+        window.forceTranslate = forceTranslate;
+
+        function main() {
+            hideTranslateBanner();
+            initTranslateWidget();
+            watchSectionVisibility();
+
+            document.addEventListener('click', function(e) {
+                const link = e.target.closest('[data-section]');
+                if (link) {
+                    setTimeout(reTranslateAfterSectionChange, 600);
+                }
+            });
+
+            console.log('🌍 Google Translate Engine loaded with force translation support.');
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', main);
+        } else {
+            main();
+        }
+
+    })();
+
+    // ─── 2. SEARCH ───
+    // ... rest of your code continues
 
     // ─── 2. SEARCH ───
     const searchInput = document.getElementById('globalSearchInput');
