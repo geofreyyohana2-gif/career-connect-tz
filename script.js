@@ -2760,58 +2760,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+RESEARCH CHALLENGE FORM REMOVED
 
 
 
 
-// ─── RESEARCH CHALLENGE FORM (AJAX) ───
-const challengeForm = document.getElementById('researchChallengeForm');
-const challengeSuccess = document.getElementById('rmChallengeSuccess');
 
-if (challengeForm) {
-    challengeForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-
-        const submitBtn = this.querySelector('.rm-submit-btn');
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-
-        const formData = new FormData(this);
-
-        try {
-            const response = await fetch('https://formspree.io/f/mgaezarg', {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            });
-
-            if (response.ok) {
-                this.style.display = 'none';
-                if (challengeSuccess) {
-                    challengeSuccess.style.display = 'block';
-                }
-                // Reset after 5 seconds
-                setTimeout(() => {
-                    if (challengeSuccess) {
-                        challengeSuccess.style.display = 'none';
-                    }
-                    this.style.display = 'block';
-                    this.reset();
-                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Challenge';
-                    submitBtn.disabled = false;
-                }, 5000);
-            } else {
-                alert('Something went wrong. Please try again.');
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Challenge';
-                submitBtn.disabled = false;
-            }
-        } catch (error) {
-            alert('Network error. Please try again.');
-            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Challenge';
-            submitBtn.disabled = false;
-        }
-    });
-}
+   
 
 // ─── SIDEBAR SCROLL TO SECTION ───
 function scrollToSection(e, className) {
