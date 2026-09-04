@@ -3146,3 +3146,79 @@ function scrollToSection(e, className) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ─── FORCE RE-TRANSLATION ON SECTION CHANGE ───
+(function() {
+    // Wait for Google Translate to be ready
+    function forceReTranslate() {
+        const select = document.querySelector('.goog-te-combo');
+        if (select && select.value && select.value !== 'en') {
+            console.log('🔄 Forcing re-translation for language:', select.value);
+            // Dispatch change event to trigger translation
+            select.dispatchEvent(new Event('change', { bubbles: true }));
+            // Also trigger resize event (Google Translate listens to this)
+            setTimeout(() => {
+                window.dispatchEvent(new Event('resize'));
+            }, 200);
+        }
+    }
+
+    // Observe section visibility changes
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+                const target = mutation.target;
+                // Check if it's a section that became visible
+                if (target.id && target.id.endsWith('-section') && target.style.display === 'block') {
+                    // Check if the section was hidden before (to avoid initial load)
+                    // We'll just re-translate after a short delay
+                    setTimeout(forceReTranslate, 500);
+                }
+            }
+        });
+    });
+
+    // Start observing the body for style changes on sections
+    observer.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['style'],
+        subtree: true
+    });
+
+    // Also re-translate when language selector changes (if not already handled)
+    document.addEventListener('DOMContentLoaded', function() {
+        const select = document.querySelector('.goog-te-combo');
+        if (select && !select._listenerAdded) {
+            select._listenerAdded = true;
+            select.addEventListener('change', function() {
+                setTimeout(forceReTranslate, 300);
+            });
+        }
+    });
+
+    // Expose for manual calls
+    window.forceReTranslate = forceReTranslate;
+
+    console.log('✅ Re-translation engine loaded.');
+})();
+
+
+
+   
