@@ -2860,59 +2860,140 @@ function scrollToSection(e, className) {
 
 
 
-// ─── FORCE RE-TRANSLATION ON SECTION CHANGE ───
+// ─── COMPLETE GOOGLE TRANSLATE ENGINE ───
 (function() {
-    // Wait for Google Translate to be ready
-    function forceReTranslate() {
+    'use strict';
+
+    let translateWidgetInitialized = false;
+
+    function ensureTranslateContainer() {
+        let container = document.getElementById('google_translate_element');
+        if (!container) {
+            container = document.createElement('div');
+            container.id = 'google_translate_element';
+            container.style.display = 'inline-block';
+            const wrapper = document.querySelector('.lang-wrapper');
+            if (wrapper) {
+                const icon = wrapper.querySelector('#langGlobeIcon');
+                if (icon) { icon.after(container); } else { wrapper.appendChild(container); }
+            } else {
+                document.body.appendChild(container);
+            }
+        }
+        return container;
+    }
+
+    function hideTranslateBanner() {
+        if (document.getElementById('translate-banner-style')) return;
+        const style = document.createElement('style');
+        style.id = 'translate-banner-style';
+        style.textContent = `
+            .goog-te-banner-frame.skiptranslate { display: none !important; }
+            body { top: 0px !important; }
+            .goog-te-gadget-simple { background: transparent !important; border: none !important; }
+            .goog-te-gadget img { display: none !important; }
+            .goog-te-combo {
+                background: rgba(255,255,255,0.1) !important;
+                border: 1px solid rgba(255,255,255,0.15) !important;
+                color: #fff !important;
+                padding: 0.25rem 0.8rem !important;
+                border-radius: 30px !important;
+                font-size: 0.8rem !important;
+                cursor: pointer !important;
+                min-height: 32px !important;
+            }
+            .goog-te-combo option { color: #1a1a2e !important; background: #fff !important; }
+        `;
+        document.head.appendChild(style);
+    }
+
+    function forceTranslate() {
         const select = document.querySelector('.goog-te-combo');
-        if (select && select.value && select.value !== 'en') {
-            console.log('🔄 Forcing re-translation for language:', select.value);
-            // Dispatch change event to trigger translation
-            select.dispatchEvent(new Event('change', { bubbles: true }));
-            // Also trigger resize event (Google Translate listens to this)
-            setTimeout(() => {
-                window.dispatchEvent(new Event('resize'));
-            }, 200);
+        if (!select || select.value === 'en') return;
+        const event = new Event('change', { bubbles: true });
+        select.dispatchEvent(event);
+        setTimeout(() => window.dispatchEvent(new Event('resize')), 200);
+    }
+
+    function initTranslateWidget() {
+        if (translateWidgetInitialized) return;
+        ensureTranslateContainer();
+        try {
+            if (typeof google !== 'undefined' && google.translate) {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'en',
+                    includedLanguages: 'en,sw,fr,de,es,pt,it,zh-CN,ar,ru,ja,ko,hi',
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                    autoDisplay: false
+                }, 'google_translate_element');
+
+                translateWidgetInitialized = true;
+                hideTranslateBanner();
+
+                setTimeout(() => {
+                    const select = document.querySelector('.goog-te-combo');
+                    if (select && select.value && select.value !== 'en') forceTranslate();
+                }, 800);
+
+                const observer = new MutationObserver(() => {
+                    const select = document.querySelector('.goog-te-combo');
+                    if (select && !select._listenerAttached) {
+                        select._listenerAttached = true;
+                        select.addEventListener('change', () => setTimeout(forceTranslate, 300));
+                    }
+                });
+                observer.observe(document.body, { childList: true, subtree: true });
+
+                console.log('✅ Google Translate initialized.');
+            } else {
+                setTimeout(initTranslateWidget, 500);
+            }
+        } catch (e) {
+            setTimeout(initTranslateWidget, 1000);
         }
     }
 
-    // Observe section visibility changes
-    const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
-                const target = mutation.target;
-                // Check if it's a section that became visible
-                if (target.id && target.id.endsWith('-section') && target.style.display === 'block') {
-                    // Check if the section was hidden before (to avoid initial load)
-                    // We'll just re-translate after a short delay
-                    setTimeout(forceReTranslate, 500);
-                }
-            }
-        });
-    });
+    (function loadTranslateScript() {
+        if (document.querySelector('script[src*="translate.google.com/translate_a/element.js"]')) {
+            initTranslateWidget();
+            return;
+        }
+        window.googleTranslateElementInit = initTranslateWidget;
+        const script = document.createElement('script');
+        script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        script.async = true;
+        script.onerror = function() {
+            console.warn('⚠️ Translate script load failed. Retrying...');
+            setTimeout(loadTranslateScript, 2000);
+        };
+        document.head.appendChild(script);
+    })();
 
-    // Start observing the body for style changes on sections
-    observer.observe(document.body, {
-        attributes: true,
-        attributeFilter: ['style'],
-        subtree: true
-    });
-
-    // Also re-translate when language selector changes (if not already handled)
-    document.addEventListener('DOMContentLoaded', function() {
-        const select = document.querySelector('.goog-te-combo');
-        if (select && !select._listenerAdded) {
-            select._listenerAdded = true;
-            select.addEventListener('change', function() {
-                setTimeout(forceReTranslate, 300);
-            });
+    // Re-translate after section changes
+    document.addEventListener('click', function(e) {
+        const link = e.target.closest('[data-section]');
+        if (link) {
+            setTimeout(forceTranslate, 600);
         }
     });
 
-    // Expose for manual calls
-    window.forceReTranslate = forceReTranslate;
+    // Observe section visibility
+    const sectionObserver = new MutationObserver(() => {
+        const select = document.querySelector('.goog-te-combo');
+        if (select && select.value && select.value !== 'en') {
+            const sections = document.querySelectorAll('[id$="-section"]');
+            for (const section of sections) {
+                if (section.style.display === 'block') {
+                    setTimeout(forceTranslate, 500);
+                    break;
+                }
+            }
+        }
+    });
+    sectionObserver.observe(document.body, { attributes: true, attributeFilter: ['style'], subtree: true });
 
-    console.log('✅ Re-translation engine loaded.');
+    window.forceTranslate = forceTranslate;
+    console.log('🌍 Google Translate Engine loaded.');
 })();
 
 
