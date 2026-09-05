@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroCarousel = document.getElementById('heroCarousel');
     if (heroCarousel) {
         new bootstrap.Carousel(heroCarousel, {
-            interval: 4000,
+            interval: 5000,
             pause: 'hover',
             wrap: true
         });
@@ -130,8 +130,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // ─── 4. MARQUEE SPEED ───
     const marqueeTrack = document.querySelector('.marquee-track');
     if (marqueeTrack) {
-        marqueeTrack.style.animationDuration = '100s';
+        marqueeTrack.style.animationDuration = '15s';
     }
+
+    // ─── 5. HIDE ALL SECTIONS ON INITIAL LOAD ───
+    hideAllSections();
+
+    console.log('✅ Part 1 complete: Global Helpers & Navigation ready.');
+});
+
+
+
+
+
 
 
 
@@ -297,6 +308,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
+
+
+
+
+
+
+
+       // ─── 4. CAROUSEL ───
+    const heroCarousel = document.getElementById('heroCarousel');
+    if (heroCarousel) {
+        new bootstrap.Carousel(heroCarousel, {
+            interval: 5000,
+            pause: 'hover',
+            wrap: true
+        });
+    }
+
+    // ─── 5. MARQUEE SPEED ───
+    const marqueeTrack = document.querySelector('.marquee-track');
+    if (marqueeTrack) {
+        marqueeTrack.style.animationDuration = '15s';
+    }
 
 
 
