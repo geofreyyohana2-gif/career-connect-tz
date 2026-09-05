@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ─── 4. MARQUEE SPEED ───
     const marqueeTrack = document.querySelector('.marquee-track');
     if (marqueeTrack) {
-        marqueeTrack.style.animationDuration = '25s';
+        marqueeTrack.style.animationDuration = '40s';
     }
 
 
