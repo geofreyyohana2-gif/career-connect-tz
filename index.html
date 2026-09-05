@@ -4190,6 +4190,329 @@ body {
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
     </script>
+
+
+
+
+
+<style>
+/* =============================================================
+   FOOTER – Professional Multi-Column (TRA Style)
+   ============================================================= */
+.site-footer {
+    background: #0e1a30;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 2rem 0 0.8rem;
+    border-top: 3px solid #c9a84c;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    margin-top: 0;
+    display: block !important;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.footer-logo-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    object-fit: cover;
+    background: #c9a84c;
+    padding: 4px;
+}
+
+.footer-logo-text {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+}
+
+.footer-logo-text span {
+    color: #c9a84c;
+}
+
+.footer-social {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.footer-social-label {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 400;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.footer-social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    text-decoration: none;
+}
+
+.footer-social-icons a:hover {
+    background: #c9a84c;
+    color: #ffffff;
+    border-color: #c9a84c;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 16px rgba(201, 168, 76, 0.25);
+}
+
+.footer-columns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem 1.5rem;
+    padding: 1.8rem 0 1.2rem;
+}
+
+.footer-col-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.footer-col-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col-links li {
+    margin-bottom: 0.3rem;
+}
+
+.footer-col-links a {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.78rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-col-links a:hover {
+    color: #c9a84c;
+}
+
+.footer-address {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-style: normal;
+    line-height: 1.7;
+}
+
+.footer-address strong {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-cta p {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+}
+
+.footer-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1.4rem;
+    border-radius: 30px;
+    background: #c9a84c;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-cta-btn:hover {
+    background: #b8983a;
+    transform: translateY(-2px);
+    color: #ffffff;
+    box-shadow: 0 4px 16px rgba(201, 168, 76, 0.3);
+}
+
+.footer-report {
+    margin-top: 0.8rem;
+}
+
+.footer-report-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.7rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-report-link:hover {
+    color: #c9a84c;
+}
+
+.footer-report-link i {
+    font-size: 0.6rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 0.8rem;
+    margin-top: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.15);
+    letter-spacing: 0.3px;
+}
+
+@media (max-width: 992px) {
+    .footer-columns {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.8rem;
+    }
+    .footer-social {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 1.2rem 0 0.4rem;
+    }
+    .footer-container {
+        padding: 0 1rem;
+    }
+    .footer-columns {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        padding: 1rem 0 0.8rem;
+    }
+    .footer-logo-img {
+        width: 40px;
+        height: 40px;
+    }
+    .footer-logo-text {
+        font-size: 1.1rem;
+    }
+    .footer-social-label {
+        font-size: 0.6rem;
+    }
+    .footer-social-icons a {
+        width: 30px;
+        height: 30px;
+        font-size: 0.75rem;
+    }
+    .footer-col-title {
+        font-size: 0.75rem;
+    }
+    .footer-col-links a,
+    .footer-address {
+        font-size: 0.7rem;
+    }
+    .footer-cta p {
+        font-size: 0.7rem;
+    }
+    .footer-cta-btn {
+        font-size: 0.7rem;
+        padding: 0.3rem 1rem;
+    }
+    .footer-bottom {
+        font-size: 0.55rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-columns {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        text-align: center;
+    }
+    .footer-col-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.2rem 0.8rem;
+    }
+    .footer-col-links li {
+        margin-bottom: 0;
+    }
+    .footer-address {
+        text-align: center;
+    }
+    .footer-cta {
+        text-align: center;
+    }
+    .footer-report {
+        text-align: center;
+    }
+    .footer-cta-btn {
+        margin: 0 auto;
+    }
+    .footer-social-icons a {
+        width: 26px;
+        height: 26px;
+        font-size: 0.65rem;
+    }
+    .footer-logo-img {
+        width: 36px;
+        height: 36px;
+    }
+    .footer-logo-text {
+        font-size: 1rem;
+    }
+}
+</style>
+
+    
+
+    
+
+
+    
+
+    
 </head>
 <body>
 
@@ -8294,5 +8617,99 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('✅ CareerConnectTZ fully loaded – all features intact, responsive, and ready.');
 });</SCRipt>
 
+
+
+
+    <!-- ============================================================= -->
+    <!-- FOOTER – Professional Multi-Column (TRA Style)                -->
+    <!-- ============================================================= -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Row 1: Logo + Social -->
+            <div class="footer-row footer-top">
+                <div class="footer-logo-wrapper">
+                    <img src="images/your-logo.png" alt="CareerConnectTZ Logo" class="footer-logo-img" />
+                    <span class="footer-logo-text">Career<span>Connect</span>TZ</span>
+                </div>
+                <div class="footer-social">
+                    <span class="footer-social-label">Get connected with us on social networks:</span>
+                    <div class="footer-social-icons">
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/255774554665" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: 4 Columns -->
+            <div class="footer-row footer-columns">
+                <!-- Column 1: Quick Links -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Quick Links</h4>
+                    <ul class="footer-col-links">
+                        <li><a href="#" data-section="home">Home</a></li>
+                        <li><a href="#" data-section="about">About Us</a></li>
+                        <li><a href="#" data-section="scholarships">Scholarships</a></li>
+                        <li><a href="#" data-section="jobs">Jobs</a></li>
+                        <li><a href="#" data-section="internships">Internships</a></li>
+                        <li><a href="#" data-section="resources">Resources</a></li>
+                        <li><a href="#" data-section="contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Services</h4>
+                    <ul class="footer-col-links">
+                        <li><a href="#" data-section="cv">CV Customisation</a></li>
+                        <li><a href="#" data-section="interview">Interview Preparation</a></li>
+                        <li><a href="#" data-section="coaching">Career Coaching</a></li>
+                        <li><a href="#" data-section="scholarship">Scholarship Guidance</a></li>
+                        <li><a href="#" data-section="research">Research Mentorship</a></li>
+                        <li><a href="#" data-section="training">Training Programs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Contact Us</h4>
+                    <address class="footer-address">
+                        <strong>CareerConnectTZ</strong><br />
+                        P.O. Box 11491,<br />
+                        Dar es Salaam,<br />
+                        Tanzania.<br />
+                        <br />
+                        <strong>Email:</strong> support@careerconnecttz.com<br />
+                        <strong>Phone:</strong> +255 774 554 665
+                    </address>
+                </div>
+
+                <!-- Column 4: CTA -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Together We Grow</h4>
+                    <div class="footer-cta">
+                        <p>Build skills, discover opportunities, and grow your career with us.</p>
+                        <a href="#" data-section="contact" class="footer-cta-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="footer-report">
+                        <a href="#" class="footer-report-link">
+                            <i class="fas fa-flag"></i> Report an Issue
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 3: Copyright -->
+            <div class="footer-bottom">
+                <span>&copy; 2026 CareerConnectTZ. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+                                                 
+
+            
 </body>
 </html>
