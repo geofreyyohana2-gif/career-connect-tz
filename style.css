@@ -24,6 +24,10 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background: var(--cream);
@@ -223,6 +227,8 @@ ul {
     position: relative;
     display: flex;
     align-items: center;
+    max-width: 260px;
+    width: 100%;
 }
 
 .navbar-custom .search-wrapper .form-control {
@@ -233,7 +239,7 @@ ul {
     padding: 0.3rem 1rem 0.3rem 2.2rem;
     font-size: 0.85rem;
     transition: var(--transition);
-    min-width: 180px;
+    min-width: 140px;
     width: 100%;
 }
 
@@ -319,6 +325,7 @@ ul {
     gap: 0.4rem;
     padding-left: 0.8rem;
     border-left: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 100%;
 }
 
 #langGlobeIcon {
@@ -332,7 +339,8 @@ ul {
 }
 
 .navbar-custom .lang-wrapper #google_translate_element {
-    min-width: 140px;
+    min-width: 120px;
+    max-width: 160px;
 }
 
 .navbar-custom .lang-wrapper .goog-te-gadget {
@@ -351,6 +359,7 @@ ul {
     cursor: pointer;
     outline: none;
     transition: var(--transition);
+    max-width: 100%;
 }
 
 .navbar-custom .lang-wrapper .goog-te-gadget select:hover {
@@ -382,7 +391,8 @@ body {
 }
 
 .hero-carousel .carousel-item {
-    height: 480px;
+    height: 60vh;
+    min-height: 400px;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -800,6 +810,7 @@ body {
     align-items: center;
     gap: 0.6rem;
     margin-top: 0.1rem;
+    flex-wrap: wrap;
 }
 
 .compact-scholarship-item .item-info .item-meta .badge-mini {
@@ -844,149 +855,8 @@ body {
 }
 
 /* =============================================================
-   RESPONSIVE TWEAKS
+   SHARE ICON
    ============================================================= */
-@media (max-width: 992px) {
-    .hero-carousel .carousel-item {
-        height: 380px;
-    }
-    .hero-carousel .carousel-caption h2 {
-        font-size: 2.4rem;
-    }
-    .hero-carousel .carousel-caption p {
-        font-size: 1rem;
-    }
-    .marquee-track span {
-        font-size: 0.8rem;
-        padding: 0 1.5rem;
-    }
-    .magazine-reading-panel {
-        padding: 1.5rem;
-        min-height: 400px;
-    }
-    .magazine-list-panel {
-        max-height: 500px;
-    }
-    .scholarship-full-detail .scholarship-title {
-        font-size: 1.6rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .top-bar .social-icons a {
-        margin-right: 0.8rem;
-        font-size: 0.9rem;
-    }
-    .main-header .logo-wrapper .brand-text .org-name {
-        font-size: 1.2rem;
-    }
-    .hero-carousel .carousel-item {
-        height: 320px;
-    }
-    .hero-carousel .carousel-caption {
-        bottom: 20%;
-        padding: 0 1.5rem;
-    }
-    .hero-carousel .carousel-caption h2 {
-        font-size: 1.8rem;
-    }
-    .hero-carousel .carousel-caption p {
-        font-size: 0.9rem;
-    }
-    .hero-carousel .carousel-caption .btn-hero {
-        padding: 0.4rem 1.5rem;
-        font-size: 0.9rem;
-    }
-    .hero-carousel .carousel-indicators {
-        bottom: 50px;
-    }
-    .marquee-track span {
-        font-size: 0.7rem;
-        padding: 0 1rem;
-    }
-    .navbar-custom .lang-wrapper {
-        border-left: none;
-        padding-left: 0;
-        margin-top: 0.5rem;
-    }
-    .navbar-custom .d-flex {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
-        width: 100%;
-    }
-    .main-header .logo-wrapper .logo-image-wrapper {
-        width: 50px;
-        height: 50px;
-    }
-    .scholarship-magazine-section {
-        padding: 2rem 0;
-    }
-    .magazine-reading-panel {
-        padding: 1.2rem;
-        min-height: 300px;
-    }
-    .magazine-list-panel {
-        max-height: 400px;
-    }
-    .scholarship-full-detail .scholarship-title {
-        font-size: 1.3rem;
-    }
-    .scholarship-full-detail .detail-meta {
-        gap: 0.8rem;
-        font-size: 0.8rem;
-    }
-    .compact-scholarship-item .item-info .item-title {
-        font-size: 0.8rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-carousel .carousel-item {
-        height: 280px;
-    }
-    .hero-carousel .carousel-caption h2 {
-        font-size: 1.4rem;
-    }
-    .hero-carousel .carousel-caption p {
-        font-size: 0.8rem;
-    }
-    .hero-carousel .carousel-caption .btn-hero {
-        padding: 0.3rem 1.2rem;
-        font-size: 0.8rem;
-    }
-    .hero-carousel .carousel-indicators {
-        bottom: 44px;
-    }
-    .hero-carousel .carousel-indicators button {
-        width: 8px;
-        height: 8px;
-        margin: 0 4px;
-    }
-    .marquee-track span {
-        font-size: 0.6rem;
-        padding: 0 0.6rem;
-    }
-    .main-header .logo-wrapper .brand-text .org-name {
-        font-size: 1rem;
-    }
-    .main-header .logo-wrapper .logo-image-wrapper {
-        width: 44px;
-        height: 44px;
-    }
-    .magazine-reading-panel {
-        padding: 1rem;
-        min-height: 250px;
-    }
-    .magazine-default .default-icon {
-        font-size: 2.5rem;
-    }
-    .magazine-default h3 {
-        font-size: 1.1rem;
-    }
-}
-
-
 .share-icon {
     display: inline-flex;
     align-items: center;
@@ -1013,13 +883,6 @@ body {
 .share-icon i {
     font-size: 1rem;
 }
-
-
-
-
-
-
-
 
 /* =============================================================
    INTERNSHIPS & VOLUNTEER SECTION - Card Grid Layout
@@ -1316,58 +1179,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .internship-card .card-image {
-        height: 130px;
-    }
-    .internship-filters .row {
-        gap: 0.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .internship-section {
-        padding: 2rem 0;
-    }
-    .internship-header .section-title {
-        font-size: 1.8rem;
-    }
-    .internship-card .card-body .card-title {
-        font-size: 1rem;
-    }
-    .internship-filters {
-        padding: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .internship-card .card-image {
-        height: 100px;
-    }
-    .internship-card .card-footer {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.5rem;
-    }
-    .btn-load-more {
-        width: 100%;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* =============================================================
    RESOURCES SECTION - Comprehensive Grid Layout
    ============================================================= */
@@ -1571,66 +1382,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* ─── Responsive ─── */
-@media (max-width: 992px) {
-    .resource-card .resource-image {
-        height: 140px;
-    }
-    .resources-filters .row {
-        gap: 0.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .resources-grid-section {
-        padding: 2rem 0;
-    }
-    .resources-header .section-title {
-        font-size: 1.8rem;
-    }
-    .resource-card .resource-body .resource-title {
-        font-size: 0.9rem;
-    }
-    .resources-filters {
-        padding: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .resource-card .resource-image {
-        height: 110px;
-    }
-    .resource-card .resource-footer {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.5rem;
-    }
-    .btn-load-more {
-        width: 100%;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* =============================================================
    ABOUT US SECTION - Clean Layout, No Borders, Image BG
    ============================================================= */
@@ -1689,7 +1440,7 @@ body {
     min-height: 300px;
     display: flex;
     align-items: center;
-    border: none; /* no border */
+    border: none;
     box-shadow: var(--shadow);
 }
 
@@ -1779,93 +1530,6 @@ body {
     0% { opacity: 0; transform: translateY(15px); }
     100% { opacity: 1; transform: translateY(0); }
 }
-
-/* ─── Responsive ─── */
-@media (max-width: 992px) {
-    .about-banner-overlay {
-        padding: 2rem;
-    }
-    .about-banner-overlay h3 {
-        font-size: 2rem;
-    }
-    .about-banner-overlay p {
-        font-size: 0.95rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .about-nav .nav-link {
-        font-size: 0.8rem;
-        padding: 0.4rem 1.2rem;
-    }
-    .about-banner {
-        min-height: 250px;
-    }
-    .about-banner-overlay {
-        padding: 1.5rem;
-    }
-    .about-banner-overlay h3 {
-        font-size: 1.6rem;
-    }
-    .about-banner-overlay p {
-        font-size: 0.9rem;
-    }
-    .team-card .team-avatar {
-        width: 80px;
-        height: 80px;
-    }
-}
-
-@media (max-width: 480px) {
-    .about-banner {
-        min-height: 200px;
-    }
-    .about-banner-overlay {
-        padding: 1.2rem;
-    }
-    .about-banner-overlay h3 {
-        font-size: 1.3rem;
-    }
-    .about-banner-overlay p {
-        font-size: 0.85rem;
-    }
-    .team-card .team-avatar {
-        width: 65px;
-        height: 65px;
-    }
-    .team-card h5 {
-        font-size: 0.9rem;
-    }
-    .about-nav .nav-link {
-        font-size: 0.75rem;
-        padding: 0.3rem 0.9rem;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* =============================================================
    SERVICE PAGE SECTION (CV, Interview, Coaching, etc.)
@@ -2078,82 +1742,6 @@ body {
     margin-left: 0.4rem;
 }
 
-/* ─── Responsive ─── */
-@media (max-width: 992px) {
-    .service-page-section .service-banner-overlay {
-        padding: 2rem;
-    }
-    .service-page-section .service-banner-overlay h3 {
-        font-size: 1.8rem;
-    }
-    .service-page-section .service-banner-overlay p {
-        font-size: 0.95rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .service-page-section .service-banner {
-        min-height: 180px;
-    }
-    .service-page-section .service-banner-overlay {
-        padding: 1.5rem;
-    }
-    .service-page-section .service-banner-overlay h3 {
-        font-size: 1.5rem;
-    }
-    .service-page-section .service-banner-overlay p {
-        font-size: 0.9rem;
-    }
-    .service-page-section .coaching-article {
-        padding: 1.2rem 1.2rem;
-    }
-    .service-page-section .coaching-article h4 {
-        font-size: 1.1rem;
-    }
-    .service-page-section .coaching-article .article-excerpt {
-        font-size: 0.95rem;
-    }
-    .template-card {
-        padding: 1.2rem 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .service-page-section .service-banner {
-        min-height: 150px;
-    }
-    .service-page-section .service-banner-overlay {
-        padding: 1rem;
-    }
-    .service-page-section .service-banner-overlay h3 {
-        font-size: 1.2rem;
-    }
-    .service-page-section .service-banner-overlay p {
-        font-size: 0.85rem;
-    }
-    .service-page-section .coaching-article {
-        padding: 1rem;
-    }
-    .service-page-section .coaching-article h4 {
-        font-size: 1rem;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ─── Success Message ─── */
 .cv-form-success {
     text-align: center;
@@ -2189,19 +1777,6 @@ body {
     margin-top: 0.3rem;
     text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* =============================================================
    INTERVIEW PREPARATION - Pro Reading App Style
@@ -2542,107 +2117,6 @@ body {
     color: #fff;
 }
 
-/* ─── Responsive ─── */
-@media (max-width: 992px) {
-    .interview-banner-overlay {
-        padding: 1.5rem 2rem;
-    }
-    .interview-banner-overlay h3 {
-        font-size: 1.6rem;
-    }
-    .interview-article .article-full .star-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .roadmap-step .step-number {
-        width: 32px;
-        height: 32px;
-        font-size: 0.8rem;
-        line-height: 32px;
-    }
-    .interview-nav .nav-link {
-        font-size: 0.75rem;
-        padding: 0.3rem 1rem;
-    }
-    .interview-banner {
-        min-height: 150px;
-    }
-    .interview-banner-overlay {
-        padding: 1rem 1.2rem;
-    }
-    .interview-banner-overlay h3 {
-        font-size: 1.3rem;
-    }
-    .interview-banner-overlay p {
-        font-size: 0.85rem;
-    }
-    .interview-article {
-        padding: 1rem 1.2rem;
-    }
-    .interview-article h4 {
-        font-size: 1.05rem;
-    }
-    .interview-checklist {
-        padding: 1rem 1.2rem;
-    }
-    .interview-assistance {
-        padding: 1.5rem 1.2rem;
-        text-align: center;
-    }
-    .btn-coaching-assistance {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .interview-banner {
-        min-height: 120px;
-    }
-    .interview-banner-overlay h3 {
-        font-size: 1.1rem;
-    }
-    .interview-banner-overlay p {
-        font-size: 0.8rem;
-    }
-    .interview-article h4 {
-        font-size: 0.95rem;
-    }
-    .interview-article .article-excerpt {
-        font-size: 0.85rem;
-    }
-    .interview-article .article-full p {
-        font-size: 0.85rem;
-    }
-    .interview-article .article-full ul li {
-        font-size: 0.85rem;
-    }
-    .roadmap-step h6 {
-        font-size: 0.75rem;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* =============================================================
    SMART ASSESSMENT ENGINE - Three-Step Selection
    ============================================================= */
@@ -2975,64 +2449,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* ─── Responsive ─── */
-@media (max-width: 768px) {
-    .interview-assessment-block {
-        padding: 1.2rem 1rem;
-    }
-    .assessment-setup {
-        padding: 1rem;
-    }
-    .question-card {
-        padding: 1rem 1.2rem;
-    }
-    .question-text {
-        font-size: 0.95rem;
-    }
-    .question-options label {
-        font-size: 0.9rem;
-        padding: 0.5rem 0.8rem;
-    }
-    .results-score {
-        font-size: 2.2rem;
-    }
-    .assessment-setup .row {
-        flex-direction: column;
-        gap: 0.6rem;
-    }
-    .btn-start-assessment {
-        width: 100%;
-        padding: 0.6rem 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .quiz-nav {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    .results-details .result-item {
-        font-size: 0.8rem;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* =============================================================
    ASSESSMENT SHARE BAR – Social Sharing Footer
    ============================================================= */
@@ -3113,83 +2529,6 @@ body {
     background: var(--primary);
     border-color: var(--primary);
 }
-
-/* ─── Responsive ─── */
-@media (max-width: 768px) {
-    .share-bar-inner {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.8rem;
-    }
-    .share-text {
-        justify-content: center;
-        font-size: 0.9rem;
-    }
-    .share-icons {
-        justify-content: center;
-    }
-    .share-link {
-        width: 38px;
-        height: 38px;
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .assessment-share-bar {
-        padding: 0.8rem 1rem;
-    }
-    .share-link {
-        width: 34px;
-        height: 34px;
-        font-size: 0.8rem;
-    }
-    .share-text {
-        font-size: 0.8rem;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* =============================================================
    CAREER COACHING SECTION – Soulful & Content-Focused
@@ -3332,57 +2671,6 @@ body {
     border-bottom: 3px solid var(--gold);
     display: inline-block;
 }
-
-/* Responsive */
-@media (max-width: 992px) {
-    .coaching-title { font-size: 2.4rem; }
-    .coaching-subtitle { font-size: 1rem; }
-}
-
-@media (max-width: 768px) {
-    .coaching-section { padding: 1.5rem 0 2.5rem; }
-    .coaching-title { font-size: 2rem; }
-    .coaching-article.soulful { padding: 1.2rem; }
-    .coaching-article.soulful .article-header h4 { font-size: 1rem; }
-}
-
-@media (max-width: 480px) {
-    .coaching-title { font-size: 1.6rem; }
-    .coaching-subtitle { font-size: 0.9rem; }
-    .coaching-article.soulful .article-icon { font-size: 1.4rem; }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* =============================================================
    SCHOLARSHIP GUIDANCE – Reading Layout
@@ -3693,92 +2981,6 @@ body {
     margin: 0;
 }
 
-/* ─── Responsive ─── */
-@media (max-width: 992px) {
-    .sg-sidebar-card {
-        padding: 1.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .sg-reading-block {
-        padding: 1.2rem 1.2rem;
-    }
-    .sg-step-item {
-        flex-direction: column;
-        gap: 0.2rem;
-    }
-    .sg-step-num {
-        font-size: 1.4rem;
-    }
-    .sg-tip-item {
-        flex-direction: column;
-        gap: 0.2rem;
-    }
-    .sg-tip-item i {
-        text-align: left;
-        width: auto;
-    }
-    .sg-available-header {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.5rem;
-    }
-    .sg-view-all-btn {
-        justify-content: center;
-    }
-    .sg-sidebar-links {
-        padding: 1.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .sg-available-item {
-        padding: 0.6rem 0.5rem;
-    }
-    .sg-available-item h5 {
-        font-size: 0.75rem;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* =============================================================
    RESEARCH MENTORSHIP – Scholarly Reading Layout
    ============================================================= */
@@ -4033,14 +3235,435 @@ body {
     margin: 0;
 }
 
-/* ─── Responsive ─── */
+/* =============================================================
+   RESPONSIVE FIXES - ALL DEVICES (EXCELLENCE)
+   ============================================================= */
+
+/* ─── LARGE DESKTOP (1200px) ─── */
+@media (max-width: 1200px) {
+    .hero-carousel .carousel-item {
+        height: 50vh;
+        min-height: 350px;
+    }
+    .hero-carousel .carousel-caption h2 {
+        font-size: 2.8rem;
+    }
+    .magazine-reading-panel {
+        min-height: 500px;
+        padding: 2rem;
+    }
+    .magazine-list-panel {
+        max-height: 650px;
+    }
+}
+
+/* ─── DESKTOP / TABLET (992px) ─── */
 @media (max-width: 992px) {
-    .rm-sidebar-card {
+    /* Navigation */
+    .navbar-custom .search-wrapper {
+        max-width: 100%;
+    }
+    .navbar-custom .lang-wrapper {
+        border-left: none;
+        padding-left: 0;
+    }
+    .navbar-custom .lang-wrapper #google_translate_element {
+        min-width: 100px;
+    }
+
+    /* Hero */
+    .hero-carousel .carousel-item {
+        height: 45vh;
+        min-height: 320px;
+    }
+    .hero-carousel .carousel-caption h2 {
+        font-size: 2.4rem;
+    }
+    .hero-carousel .carousel-caption p {
+        font-size: 1rem;
+        max-width: 400px;
+    }
+
+    /* Typography */
+    .coaching-title {
+        font-size: 2.4rem;
+    }
+    .coaching-subtitle {
+        font-size: 1rem;
+    }
+    .internship-header .section-title,
+    .resources-header .section-title {
+        font-size: 2.2rem;
+    }
+    .scholarship-full-detail .scholarship-title {
+        font-size: 1.7rem;
+    }
+
+    /* Magazine Layout */
+    .magazine-reading-panel {
+        padding: 1.8rem;
+        min-height: 400px;
+    }
+    .magazine-list-panel {
+        max-height: 500px;
+        margin-top: 1.5rem;
+    }
+
+    /* About */
+    .about-banner-overlay h3 {
+        font-size: 2rem;
+    }
+    .about-banner-overlay p {
+        font-size: 0.95rem;
+    }
+
+    /* Interview */
+    .interview-banner-overlay h3 {
+        font-size: 1.7rem;
+    }
+    .interview-article .article-full .star-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Services */
+    .service-page-section .service-banner-overlay h3 {
+        font-size: 1.8rem;
+    }
+
+    /* Assessment */
+    .assessment-setup .row {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    .assessment-setup .row .col-md-4 {
+        width: 100%;
+    }
+
+    /* Scholarship Guidance */
+    .sg-sidebar-card {
         padding: 1.5rem;
     }
 }
 
+/* ─── TABLET / SMALL LAPTOP (768px) ─── */
 @media (max-width: 768px) {
+    /* Top Bar */
+    .top-bar .social-icons a {
+        margin-right: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    /* Header */
+    .main-header .logo-wrapper .brand-text .org-name {
+        font-size: 1.2rem;
+    }
+    .main-header .logo-wrapper .logo-image-wrapper {
+        width: 50px;
+        height: 50px;
+    }
+    .main-header .logo-wrapper .brand-text .tagline {
+        font-size: 0.7rem;
+    }
+
+    /* Hero */
+    .hero-carousel .carousel-item {
+        height: 40vh;
+        min-height: 280px;
+    }
+    .hero-carousel .carousel-caption {
+        bottom: 22%;
+        padding: 0 1.5rem;
+    }
+    .hero-carousel .carousel-caption h2 {
+        font-size: 1.8rem;
+    }
+    .hero-carousel .carousel-caption p {
+        font-size: 0.9rem;
+        max-width: 100%;
+    }
+    .hero-carousel .carousel-caption .btn-hero {
+        padding: 0.4rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    .hero-carousel .carousel-indicators {
+        bottom: 55px;
+    }
+    .hero-carousel .carousel-indicators button {
+        width: 10px;
+        height: 10px;
+    }
+
+    /* Marquee */
+    .marquee-track span {
+        font-size: 0.75rem;
+        padding: 0 1.2rem;
+    }
+
+    /* Navigation Collapse */
+    .navbar-custom .navbar-nav .nav-link {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+    .navbar-custom .d-flex {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 0.5rem 0;
+    }
+
+    /* Magazine */
+    .magazine-reading-panel {
+        padding: 1.2rem;
+        min-height: 300px;
+    }
+    .magazine-list-panel {
+        max-height: 400px;
+        padding: 1rem;
+    }
+    .compact-scholarship-item .item-info .item-title {
+        white-space: normal;
+        word-wrap: break-word;
+    }
+    .compact-scholarship-item .item-info .item-meta {
+        flex-wrap: wrap;
+        gap: 0.3rem;
+    }
+    .scholarship-full-detail .scholarship-title {
+        font-size: 1.4rem;
+    }
+    .scholarship-full-detail .detail-meta {
+        gap: 0.8rem;
+        font-size: 0.8rem;
+        flex-wrap: wrap;
+    }
+
+    /* Internships */
+    .internship-section {
+        padding: 2rem 0;
+    }
+    .internship-header .section-title {
+        font-size: 1.8rem;
+    }
+    .internship-card .card-image {
+        height: 130px;
+    }
+    .internship-card .card-body .card-title {
+        font-size: 1rem;
+    }
+    .internship-filters {
+        padding: 1rem;
+    }
+    .internship-filters .row {
+        gap: 0.5rem;
+    }
+
+    /* Resources */
+    .resources-grid-section {
+        padding: 2rem 0;
+    }
+    .resources-header .section-title {
+        font-size: 1.8rem;
+    }
+    .resource-card .resource-image {
+        height: 140px;
+    }
+    .resources-filters {
+        padding: 1rem;
+    }
+
+    /* About */
+    .about-section {
+        padding: 1.5rem 0 2.5rem;
+    }
+    .about-nav .nav-link {
+        font-size: 0.8rem;
+        padding: 0.4rem 1.2rem;
+    }
+    .about-banner {
+        min-height: 250px;
+    }
+    .about-banner-overlay {
+        padding: 1.5rem;
+    }
+    .about-banner-overlay h3 {
+        font-size: 1.6rem;
+    }
+    .about-banner-overlay p {
+        font-size: 0.9rem;
+    }
+    .team-card .team-avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* Services - CV, Interview, Coaching */
+    .service-page-section {
+        padding: 1.5rem 0 2.5rem;
+    }
+    .service-page-section .service-banner {
+        min-height: 180px;
+    }
+    .service-page-section .service-banner-overlay {
+        padding: 1.5rem;
+    }
+    .service-page-section .service-banner-overlay h3 {
+        font-size: 1.5rem;
+    }
+    .service-page-section .service-banner-overlay p {
+        font-size: 0.9rem;
+    }
+    .service-page-section .coaching-article {
+        padding: 1.2rem 1.2rem;
+    }
+    .service-page-section .coaching-article h4 {
+        font-size: 1.1rem;
+    }
+    .service-page-section .coaching-article .article-excerpt {
+        font-size: 0.95rem;
+    }
+    .template-card {
+        padding: 1.2rem 1rem;
+    }
+
+    /* Interview */
+    .interview-roadmap {
+        padding: 1rem;
+    }
+    .roadmap-step .step-number {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+        line-height: 32px;
+    }
+    .roadmap-step h6 {
+        font-size: 0.75rem;
+    }
+    .interview-nav .nav-link {
+        font-size: 0.75rem;
+        padding: 0.3rem 1rem;
+    }
+    .interview-banner {
+        min-height: 150px;
+    }
+    .interview-banner-overlay {
+        padding: 1rem 1.2rem;
+    }
+    .interview-banner-overlay h3 {
+        font-size: 1.3rem;
+    }
+    .interview-banner-overlay p {
+        font-size: 0.85rem;
+    }
+    .interview-article {
+        padding: 1rem 1.2rem;
+    }
+    .interview-article h4 {
+        font-size: 1.05rem;
+    }
+    .interview-checklist {
+        padding: 1rem 1.2rem;
+    }
+    .interview-assistance {
+        padding: 1.5rem 1.2rem;
+        text-align: center;
+    }
+    .btn-coaching-assistance {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Assessment */
+    .interview-assessment-block {
+        padding: 1.2rem 1rem;
+    }
+    .assessment-setup {
+        padding: 1rem;
+    }
+    .question-card {
+        padding: 1rem 1.2rem;
+    }
+    .question-text {
+        font-size: 0.95rem;
+    }
+    .question-options label {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.8rem;
+    }
+    .results-score {
+        font-size: 2.2rem;
+    }
+    .btn-start-assessment {
+        width: 100%;
+        padding: 0.6rem 1rem;
+    }
+
+    /* Share Bar */
+    .share-bar-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8rem;
+    }
+    .share-text {
+        justify-content: center;
+        font-size: 0.9rem;
+    }
+    .share-icons {
+        justify-content: center;
+    }
+    .share-link {
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
+    }
+
+    /* Coaching */
+    .coaching-section {
+        padding: 1.5rem 0 2.5rem;
+    }
+    .coaching-title {
+        font-size: 2rem;
+    }
+    .coaching-article.soulful {
+        padding: 1.2rem;
+    }
+    .coaching-article.soulful .article-header h4 {
+        font-size: 1rem;
+    }
+
+    /* Scholarship Guidance */
+    .sg-reading-block {
+        padding: 1.2rem 1.2rem;
+    }
+    .sg-step-item {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+    .sg-step-num {
+        font-size: 1.4rem;
+        min-width: auto;
+    }
+    .sg-tip-item {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+    .sg-tip-item i {
+        text-align: left;
+        width: auto;
+    }
+    .sg-available-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+    .sg-view-all-btn {
+        justify-content: center;
+    }
+    .sg-sidebar-links {
+        padding: 1.2rem;
+    }
+
+    /* Research */
     .rm-reading-block {
         padding: 1.2rem 1.2rem;
     }
@@ -4052,7 +3675,182 @@ body {
     }
 }
 
-@media (max-width: 480px) {
+/* ─── MOBILE (576px) ─── */
+@media (max-width: 576px) {
+    /* Hero */
+    .hero-carousel .carousel-item {
+        height: 35vh;
+        min-height: 250px;
+    }
+    .hero-carousel .carousel-caption h2 {
+        font-size: 1.5rem;
+    }
+    .hero-carousel .carousel-caption p {
+        font-size: 0.8rem;
+    }
+    .hero-carousel .carousel-caption .btn-hero {
+        padding: 0.3rem 1.2rem;
+        font-size: 0.8rem;
+    }
+
+    /* Logo */
+    .main-header .logo-wrapper .logo-image-wrapper {
+        width: 44px;
+        height: 44px;
+    }
+    .main-header .logo-wrapper .brand-text .org-name {
+        font-size: 1rem;
+    }
+    .main-header .logo-wrapper .brand-text .tagline {
+        font-size: 0.6rem;
+    }
+
+    /* Magazine */
+    .magazine-default {
+        padding: 2rem 1rem;
+    }
+    .magazine-default .default-icon {
+        font-size: 2.5rem;
+    }
+    .magazine-default h3 {
+        font-size: 1.1rem;
+    }
+    .scholarship-full-detail .scholarship-title {
+        font-size: 1.2rem;
+    }
+    .scholarship-full-detail .eligibility-list li,
+    .scholarship-full-detail .apply-steps li {
+        font-size: 0.85rem;
+    }
+
+    /* Internships */
+    .internship-card .card-image {
+        height: 100px;
+    }
+    .internship-card .card-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+    .btn-load-more {
+        width: 100%;
+    }
+
+    /* Resources */
+    .resource-card .resource-image {
+        height: 110px;
+    }
+    .resource-card .resource-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+
+    /* About */
+    .about-banner {
+        min-height: 200px;
+    }
+    .about-banner-overlay {
+        padding: 1.2rem;
+    }
+    .about-banner-overlay h3 {
+        font-size: 1.3rem;
+    }
+    .about-banner-overlay p {
+        font-size: 0.85rem;
+    }
+    .team-card .team-avatar {
+        width: 65px;
+        height: 65px;
+    }
+    .team-card h5 {
+        font-size: 0.9rem;
+    }
+    .about-nav .nav-link {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.9rem;
+    }
+
+    /* Services */
+    .service-page-section .service-banner {
+        min-height: 150px;
+    }
+    .service-page-section .service-banner-overlay {
+        padding: 1rem;
+    }
+    .service-page-section .service-banner-overlay h3 {
+        font-size: 1.2rem;
+    }
+    .service-page-section .service-banner-overlay p {
+        font-size: 0.85rem;
+    }
+    .service-page-section .coaching-article {
+        padding: 1rem;
+    }
+    .service-page-section .coaching-article h4 {
+        font-size: 1rem;
+    }
+
+    /* Interview */
+    .interview-banner {
+        min-height: 120px;
+    }
+    .interview-banner-overlay h3 {
+        font-size: 1.1rem;
+    }
+    .interview-banner-overlay p {
+        font-size: 0.8rem;
+    }
+    .interview-article h4 {
+        font-size: 0.95rem;
+    }
+    .interview-article .article-excerpt {
+        font-size: 0.85rem;
+    }
+    .interview-article .article-full p {
+        font-size: 0.85rem;
+    }
+    .interview-article .article-full ul li {
+        font-size: 0.85rem;
+    }
+
+    /* Assessment - Quiz */
+    .quiz-nav {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .btn-quiz-nav,
+    .btn-quiz-submit {
+        width: 100%;
+        justify-content: center;
+    }
+    .results-details .result-item {
+        font-size: 0.8rem;
+    }
+    .assessment-share-bar {
+        padding: 0.8rem 1rem;
+    }
+    .share-link {
+        width: 34px;
+        height: 34px;
+        font-size: 0.8rem;
+    }
+    .share-text {
+        font-size: 0.8rem;
+    }
+
+    /* Coaching */
+    .coaching-title {
+        font-size: 1.6rem;
+    }
+    .coaching-subtitle {
+        font-size: 0.9rem;
+    }
+    .coaching-article.soulful .article-icon {
+        font-size: 1.4rem;
+    }
+
+    /* Research */
     .rm-reading-block ul li {
         font-size: 0.85rem;
     }
@@ -4060,9 +3858,124 @@ body {
         width: 100%;
         justify-content: center;
     }
+
+    /* SG Available */
+    .sg-available-item {
+        padding: 0.6rem 0.5rem;
+    }
+    .sg-available-item h5 {
+        font-size: 0.75rem;
+    }
 }
 
-@keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(15px); }
-    100% { opacity: 1; transform: translateY(0); }
+/* ─── EXTRA SMALL (480px) ─── */
+@media (max-width: 480px) {
+    /* Hero */
+    .hero-carousel .carousel-item {
+        height: 30vh;
+        min-height: 220px;
+    }
+    .hero-carousel .carousel-caption {
+        bottom: 18%;
+        padding: 0 1rem;
+    }
+    .hero-carousel .carousel-caption h2 {
+        font-size: 1.2rem;
+    }
+    .hero-carousel .carousel-caption p {
+        font-size: 0.7rem;
+        margin-bottom: 0.6rem;
+    }
+    .hero-carousel .carousel-caption .btn-hero {
+        font-size: 0.7rem;
+        padding: 0.2rem 1rem;
+    }
+    .hero-carousel .carousel-indicators {
+        bottom: 44px;
+    }
+    .hero-carousel .carousel-indicators button {
+        width: 8px;
+        height: 8px;
+        margin: 0 4px;
+    }
+
+    /* Marquee */
+    .marquee-track span {
+        font-size: 0.6rem;
+        padding: 0 0.8rem;
+    }
+
+    /* Top Bar */
+    .top-bar .social-icons a {
+        margin-right: 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    /* Navigation */
+    .navbar-custom .navbar-nav .nav-link {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
+    }
+    .navbar-custom .search-wrapper .form-control {
+        font-size: 0.75rem;
+        padding: 0.25rem 1rem 0.25rem 1.8rem;
+        min-width: 100%;
+    }
+    .navbar-custom .search-wrapper .search-icon {
+        font-size: 0.75rem;
+        left: 8px;
+    }
+    .navbar-custom .lang-wrapper .goog-te-gadget select {
+        font-size: 0.7rem;
+        padding: 0.1rem 0.6rem 0.1rem 0.3rem;
+    }
+
+    /* Magazine */
+    .magazine-reading-panel {
+        padding: 0.8rem;
+        min-height: 200px;
+    }
+    .magazine-list-panel {
+        max-height: 350px;
+        padding: 0.8rem;
+    }
+    .compact-scholarship-item {
+        padding: 0.4rem 0.4rem 0.4rem 0.6rem;
+    }
+    .compact-scholarship-item .item-info .item-title {
+        font-size: 0.75rem;
+    }
+    .compact-scholarship-item .item-info .item-meta {
+        font-size: 0.6rem;
+        gap: 0.2rem;
+    }
+    .compact-scholarship-item .item-read-btn {
+        font-size: 0.6rem;
+        padding: 0.1rem 0.6rem;
+    }
+    .scholarship-full-detail .scholarship-title {
+        font-size: 1rem;
+    }
+    .scholarship-full-detail .btn-apply-main {
+        font-size: 0.8rem;
+        padding: 0.4rem 1.2rem;
+    }
+
+    /* General Typography */
+    h2.section-title {
+        font-size: 1.5rem !important;
+    }
+    .section-subtitle {
+        font-size: 0.85rem !important;
+    }
+    .section-badge {
+        font-size: 0.7rem !important;
+        padding: 0.2rem 0.8rem !important;
+    }
+
+    /* Buttons */
+    .btn-load-more {
+        padding: 0.4rem 1.5rem;
+        font-size: 0.8rem;
+    }
 }
