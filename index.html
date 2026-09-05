@@ -4659,6 +4659,178 @@ body {
         font-size: 1rem;
     }
 }
+
+
+
+
+
+
+
+
+
+/* ─── Footer Contact Form Row ─── */
+.footer-form-row {
+    padding: 1.2rem 0 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.footer-form-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.footer-form-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.3px;
+    text-align: center;
+}
+
+.footer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.footer-form-group {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.footer-form-group input,
+.footer-form-group textarea {
+    padding: 0.5rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 30px;
+    background: rgba(242, 243, 221, 0.813);
+    color: #0a0c0a;
+    font-size: 0.8rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+    outline: none;
+    width: 100%;
+}
+
+.footer-form-group input::placeholder,
+.footer-form-group textarea::placeholder {
+    color: lab(96.64% 0.32 1.18 / 0.91);
+}
+
+.footer-form-group input:focus,
+.footer-form-group textarea:focus {
+    border-color: #7f7145;
+    background: rgba(210, 197, 197, 0.975);
+}
+
+.footer-form-group textarea {
+    resize: vertical;
+    border-radius: 20px;
+    min-height: 50px;
+    flex: 1;
+}
+
+.footer-form-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: hsl(60, 17%, 98%);
+    color: #67dc53;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    align-self: flex-end;
+}
+
+.footer-form-btn:hover {
+    background: #b8983a;
+    transform: scale(1.05);
+}
+
+.footer-form-success {
+    font-size: 0.75rem;
+    color: #4caf50;
+    text-align: center;
+    padding: 0.3rem 0;
+    display: none;
+    background: rgba(76, 175, 80, 0.1);
+    border-radius: 30px;
+    margin-top: 0.2rem;
+}
+
+.footer-form-success.show {
+    display: block;
+}
+
+.footer-form-success i {
+    margin-right: 0.4rem;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+    .footer-form-group {
+        flex-wrap: wrap;
+    }
+    .footer-form-group input {
+        width: 100%;
+    }
+    .footer-form-group textarea {
+        min-height: 40px;
+    }
+    .footer-form-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 0.85rem;
+    }
+    .footer-form-title {
+        font-size: 0.75rem;
+    }
+    .footer-form-wrapper {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-form-group input,
+    .footer-form-group textarea {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.7rem;
+    }
+    .footer-form-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 0.75rem;
+    }
+}
+
+    
+
+
+    
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+
+    
 </style>
 
     
@@ -8771,7 +8943,77 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ─── 20. FINAL LOG ───
     console.log('✅ CareerConnectTZ fully loaded – all features intact, responsive, and ready.');
-});</SCRipt>
+});
+   
+   
+   
+   
+   
+   // ─── FOOTER CONTACT FORM AJAX SUBMISSION ───
+document.addEventListener('DOMContentLoaded', function() {
+    const footerForm = document.querySelector('.footer-form');
+    if (!footerForm) return;
+
+    footerForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const submitBtn = this.querySelector('.footer-form-btn');
+        const successMsg = this.querySelector('.footer-form-success');
+        const originalHTML = submitBtn.innerHTML;
+
+        // Disable button and show loading
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+        const formData = new FormData(this);
+
+        try {
+            const response = await fetch('https://formspree.io/f/mgaezarg', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // Show success message
+                if (successMsg) {
+                    successMsg.style.display = 'block';
+                    successMsg.classList.add('show');
+                }
+
+                // Reset form
+                this.reset();
+
+                // Hide success message after 4 seconds
+                setTimeout(() => {
+                    if (successMsg) {
+                        successMsg.style.display = 'none';
+                        successMsg.classList.remove('show');
+                    }
+                }, 4000);
+
+            } else {
+                alert('Something went wrong. Please try again.');
+            }
+
+        } catch (error) {
+            alert('Network error. Please check your connection and try again.');
+        }
+
+        // Restore button
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalHTML;
+    });
+});
+
+   
+   
+   
+   
+   
+   </SCRipt>
 
 
 
@@ -8873,7 +9115,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <h4 class="footer-col-title">Contact Us</h4>
                     <address class="footer-address">
                         <strong>CareerConnectTZ</strong><br />
-                        P.O. Box 11491,<br />
+                        Postcode 10163,<br />
                         Dar es Salaam,<br />
                         Tanzania.<br />
                         <br />
@@ -8897,6 +9139,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
 
+
+
+
+            <!-- Row 2.5: Contact Form -->
+            <div class="footer-row footer-form-row">
+                <div class="footer-form-wrapper">
+                    <h4 class="footer-form-title">Send Us a Message or Report an Issue</h4>
+                    <form class="footer-form" action="https://formspree.io/f/mgaezarg" method="POST">
+                        <input type="hidden" name="_subject" value="Footer Message from CareerConnectTZ" />
+                        <div class="footer-form-group">
+                            <input type="text" name="name" placeholder="Your Name" required />
+                            <input type="email" name="email" placeholder="Your Email" required />
+                        </div>
+                        <div class="footer-form-group">
+                            <textarea name="message" placeholder="Your message here..." rows="2" required></textarea>
+                            <button type="submit" class="footer-form-btn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <div class="footer-form-success" style="display: none;">
+                            <i class="fas fa-check-circle"></i> Thank you! We'll respond soon.
+                        </div>
+                    </form>
+                </div>
+            </div>
+                        
+                        
+
+       
             <!-- Row 3: Copyright -->
             <div class="footer-bottom">
                 <span>&copy; 2026 CareerConnectTZ. All rights reserved.</span>
